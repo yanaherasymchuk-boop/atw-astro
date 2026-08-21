@@ -1,0 +1,89 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FullDetailHero from "../../components/full-detail/FullDetailHero.astro";
+import FullDetailMain from "../../components/full-detail/FullDetailMain.astro";
+import FullDetailFinalCTA from "../../components/full-detail/FullDetailFinalCTA.astro";
+import JsonLd from "../../components/seo/JsonLd.astro";
+import { site } from "../../data/site";
+import "../../styles/full-detail.css";
+
+const title = "Full Detailing in Bonney Lake, WA | ATW Detailing";
+const description =
+  "Mobile full car detailing in Bonney Lake, WA. Interior and exterior detailing in one appointment at your home, workplace or another suitable location.";
+const canonical = `${site.url}/services/full-detailing/`;
+const ogImage = `${site.url}/media/full-detail/full-hero.webp`;
+
+const areaServed = [
+  "Bonney Lake",
+  "Lake Tapps",
+  "Puyallup",
+  "Sumner",
+  "Tacoma",
+  "University Place",
+  "Federal Way",
+  "Auburn",
+  "Kent",
+].map((name) => ({
+  "@type": "City",
+  name,
+  containedInPlace: {
+    "@type": "State",
+    name: "Washington",
+  },
+}));
+
+const fullDetailSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.url}/#business`,
+      name: site.name,
+      url: site.url,
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      image: ogImage,
+      areaServed,
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Full Car Detailing",
+      serviceType: "Interior and exterior car detailing",
+      url: canonical,
+      description,
+      provider: {
+        "@id": `${site.url}/#business`,
+      },
+      areaServed,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Full car detailing by ATW Detailing in Bonney Lake, Washington"
+>
+  <JsonLd slot="head" data={fullDetailSchema} />
+  <link
+    slot="head"
+    rel="preload"
+    href="/media/full-detail/full-hero.webp"
+    as="image"
+    type="image/webp"
+    fetchpriority="high"
+  />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+  <meta slot="head" property="og:locale" content="en_US" />
+
+  <div class="atw-full-detail">
+    <FullDetailHero />
+    <FullDetailMain />
+    <FullDetailFinalCTA />
+  </div>
+</BaseLayout>
+
