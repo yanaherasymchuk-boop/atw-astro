@@ -1,0 +1,276 @@
+---
+import { site } from "../../data/site";
+
+const services = [
+  {
+    cls: "home-service--interior",
+    href: "/interior-detailing/",
+    image: "/media/home/interior-detailing.webp",
+    alt: "Vehicle interior after professional interior detailing",
+    label: "Interior Care",
+    title: "Interior Detailing",
+    copy: "Deep cleaning and care for interior surfaces, with extraction available when needed.",
+    link: "Explore interior detailing →",
+  },
+  {
+    cls: "home-service--full",
+    href: "/services/",
+    image: "/media/home/full-detailing.webp",
+    alt: "Exterior detailing in progress at a customer location",
+    label: "Complete Service",
+    title: "Interior + Exterior",
+    copy: "A complete mobile detail for the vehicle inside and out in one appointment.",
+    link: "See detailing options →",
+  },
+  {
+    cls: "home-service--exterior",
+    href: "/exterior-detailing/",
+    image: "/media/home/exterior-detailing.webp",
+    alt: "BMW exterior before professional exterior detailing",
+    label: "Exterior Care",
+    title: "Exterior Detailing",
+    copy: "Comprehensive deep clean and protection for all exterior surfaces.",
+    link: "Explore exterior detailing →",
+  },
+  {
+    cls: "home-service--correction",
+    href: "/paint-correction-bonney-lake/",
+    image: "/media/home/paint-correction.webp",
+    alt: "Close view of polished glossy automotive paint",
+    label: "Paint Restoration",
+    title: "Car Polishing & Paint Correction",
+    copy: "Single-stage machine polish and professional paint restoration.",
+    link: "See paint correction →",
+  },
+  {
+    cls: "home-service--ceramic",
+    href: "/ceramic-coating/",
+    image: "/media/home/ceramic-coating.webp",
+    alt: "Water beading on a protected vehicle surface",
+    label: "Longer Protection",
+    title: "Ceramic Coating",
+    copy: "Professional ceramic coating application for gloss, hydrophobics, and easier maintenance.",
+    link: "Explore ceramic coating →",
+  },
+  {
+    cls: "home-service--commercial",
+    href: "/commercial-vehicle-detailing/",
+    image: "/media/home/commercial-detailing.webp",
+    alt: "Peterbilt semi truck for mobile commercial vehicle detailing",
+    label: "Commercial & Fleet",
+    title: "Mobile Detailing for Work Vehicles",
+    copy: "Vans, Sprinters, work trucks, semi-truck cabs, and fleets. We come to your lot or job site so your vehicles spend less time off the road.",
+    link: "Commercial vehicle detailing →",
+  },
+];
+
+const reviews = [
+  {
+    text: "These guys are true professionals! I brought my car in for polishing and a ceramic coating. The results exceeded all expectations—the bodywork shines even brighter than when it was fresh from the dealership, and all the minor scratches are gone. The interior was cleaned flawlessly. They took a personalized approach, explaining and showing me everything along the way. From now on, I’m coming only to you!",
+    name: "Mansur Fazilov",
+    meta: "Google review · Polishing & ceramic coating",
+  },
+  {
+    text: "ATW detailed my Model Y interior and exterior today. Punctual and great service. Very thorough and high attention to detail! Highly recommend. Thank you for your service!",
+    name: "Reagan Koryozo",
+    meta: "Google review · Tesla Model Y",
+  },
+  {
+    text: "First time using a mobile detail company and am so glad I found ATW! Valadimyr showed up on time, did a great job and even finished things off with a few surprises left in the car. I thought that was a fun added extra. I will definitely use them again!",
+    name: "Kari KM",
+    meta: "Google review · Mobile detailing",
+  },
+];
+---
+
+<div class="home-page">
+  <section class="home-trust" aria-label="Why choose ATW Detailing">
+    <div class="container home-trust__grid">
+      <div><strong>Local Expertise</strong><span>Based in Bonney Lake</span></div>
+      <div><strong>Attention to Detail</strong><span>Careful work, clear expectations</span></div>
+      <div><strong>Mobile Convenience</strong><span>We come fully equipped</span></div>
+      <div><strong>Family & Pet-Safe</strong><span>Thoughtful product selection</span></div>
+    </div>
+  </section>
+
+  <section class="section home-services" aria-labelledby="home-services-title">
+    <div class="container">
+      <div class="home-heading home-heading--split" data-reveal="up">
+        <div>
+          <span class="home-kicker">Our Services</span>
+          <h2 id="home-services-title">The right service for the <span>condition of your vehicle</span></h2>
+          <p>We offer a full range of mobile car detailing services, including interior detailing, exterior detailing, and full detailing packages.</p>
+        </div>
+        <a class="home-text-link" href="/services/">View all services <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="home-service-grid">
+        {services.map((service, index) => (
+          <a class:list={["home-service", service.cls]} href={service.href} data-reveal="up" style={`--reveal-delay:${Math.min(index * 60, 240)}ms`}>
+            <img src={service.image} alt={service.alt} width="960" height="640" loading="lazy" decoding="async" />
+            <div class="home-service__content">
+              <span>{service.label}</span>
+              <h3>{service.title}</h3>
+              <p>{service.copy}</p>
+              <b>{service.link}</b>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-results" aria-labelledby="home-results-title">
+    <div class="container home-results__grid">
+      <div data-reveal="left">
+        <span class="home-kicker">Real Results · ATW Detailing</span>
+        <h2 id="home-results-title">See the <span>difference</span></h2>
+        <p class="home-copy">This is a real interior deep clean completed in Bonney Lake. Drag the slider to compare the condition before and after the service.</p>
+        <div class="home-result-points" aria-label="Detailing result highlights">
+          <div><strong>Deep Interior Cleaning</strong><span>Detailed surface-by-surface work</span></div>
+          <div><strong>Extraction When Needed</strong><span>Based on fabric and condition</span></div>
+          <div><strong>Mobile Service</strong><span>Completed at your location</span></div>
+        </div>
+        <a class="home-btn home-btn--secondary" href={site.galleryUrl}>View More Results <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="home-ba-shell" data-reveal="right">
+        <div class="home-ba" data-home-slider style="--home-pos:50%;">
+          <img src="/media/home/before.webp" alt="Vehicle interior before professional detailing" width="800" height="1066" loading="lazy" decoding="async" />
+          <img class="home-ba__after" src="/media/home/after.webp" alt="Vehicle interior after professional detailing" width="800" height="1066" loading="lazy" decoding="async" />
+          <span class="home-ba__badge home-ba__badge--before">Before</span>
+          <span class="home-ba__badge home-ba__badge--after">After</span>
+          <div class="home-ba__line" aria-hidden="true"></div>
+          <div class="home-ba__handle" aria-hidden="true">↔</div>
+          <input class="home-ba__range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after detailing" />
+        </div>
+        <div class="home-slider-hint"><span aria-hidden="true">↔</span> Drag to compare</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-mobile" aria-labelledby="home-mobile-title">
+    <div class="container">
+      <div class="home-mobile__grid">
+        <div class="home-photo-stack" aria-hidden="true" data-reveal="left">
+          <figure class="home-photo-stack__main"><img src="/media/home/mobile-main.webp" alt="" width="900" height="1200" loading="lazy" decoding="async" /></figure>
+          <figure class="home-photo-stack__small"><img src="/media/home/mobile-reflection.webp" alt="" width="700" height="700" loading="lazy" decoding="async" /></figure>
+        </div>
+        <div data-reveal="right">
+          <span class="home-kicker">Mobile Convenience</span>
+          <h2 id="home-mobile-title">We bring the detail shop <span>to you</span></h2>
+          <p class="home-copy">No drop-off, waiting room, or second ride home. We arrive with the equipment needed to complete the service at your driveway, workplace, or approved location.</p>
+          <div class="home-checks">
+            <div>We bring water, power, equipment, and professional products.</div>
+            <div>You receive a clear service recommendation based on the vehicle’s condition.</div>
+            <div>You can stay home or continue your day while the vehicle is being detailed.</div>
+          </div>
+          <div class="home-actions">
+            <a class="home-btn home-btn--primary" href={site.quoteUrl}>Get a Free Quote <span aria-hidden="true">→</span></a>
+            <a class="home-text-link" href="sms:+12533867243">Text {site.phoneDisplay}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-steps" aria-label="How mobile detailing works">
+        <article data-reveal="up"><span>1</span><h3>Choose a service or send photos</h3><p>Book directly or request a quote if you are not sure what level of cleaning the vehicle needs.</p></article>
+        <article data-reveal="up" style="--reveal-delay:80ms"><span>2</span><h3>Confirm the appointment</h3><p>We confirm the service, price range, time, location, and access details before arrival.</p></article>
+        <article data-reveal="up" style="--reveal-delay:160ms"><span>3</span><h3>We come fully equipped</h3><p>Your vehicle is detailed at your location without the usual drop-off and pickup process.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-reviews" aria-labelledby="home-reviews-title">
+    <div class="container">
+      <div data-reveal="up">
+        <span class="home-kicker">Customer Reviews</span>
+        <h2 id="home-reviews-title">What local customers say <span>after the service</span></h2>
+        <p class="home-copy">Real feedback from customers who booked mobile detailing, polishing, and ceramic coating with ATW Detailing.</p>
+      </div>
+      <div class="home-review-grid">
+        {reviews.map((review, index) => (
+          <article class="home-review" data-reveal="up" style={`--reveal-delay:${index * 80}ms`}>
+            <div class="home-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“{review.text}”</blockquote>
+            <footer><strong>{review.name}</strong><span>{review.meta}</span></footer>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section home-story" aria-label="About ATW Detailing and service area">
+    <div class="container home-story__grid">
+      <article class="home-story-card" data-reveal="left">
+        <img src="/media/home/our-story.webp" alt="ATW Detailing completing mobile detailing work at a customer location" width="1200" height="800" loading="lazy" decoding="async" />
+        <div>
+          <span class="home-kicker">Our Story</span>
+          <h2>Local. Mobile. Built around doing the job properly.</h2>
+          <p>ATW Detailing & Paint Correction was built on a simple foundation: convenience, transparency, and doing the job properly. We don’t chase volume—we focus on precise, professional care for busy vehicle owners who value their time and their car’s appearance.</p>
+          <a class="home-text-link" href="/about-us-atw-detailing/">Discover our story →</a>
+        </div>
+      </article>
+
+      <article class="home-area-card" data-reveal="right">
+        <span class="home-kicker">Service Area</span>
+        <h2>Mobile car detailing near Bonney Lake</h2>
+        <p>ATW Detailing serves Bonney Lake and nearby communities across Pierce and South King County. Availability depends on the job size, travel distance, and schedule. Send your location with the vehicle details and we will confirm whether it falls within the current mobile service area.</p>
+        <div class="home-cities" aria-label="Cities served">
+          {["Bonney Lake","Lake Tapps","Sumner","Puyallup","Auburn","Kent","Tacoma","University Place","Spanaway"].map((city) => <span>{city}</span>)}
+        </div>
+        <a class="home-btn home-btn--secondary" href="/contact/#contactform">Check Your Location <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-home-slider]").forEach((slider) => {
+    const range = slider.querySelector<HTMLInputElement>(".home-ba__range");
+    if (!range) return;
+    const update = () => slider.style.setProperty("--home-pos", `${range.value}%`);
+    range.addEventListener("input", update, { passive: true });
+    update();
+  });
+</script>
+
+<style>
+  .home-page{--home-muted:var(--color-text-muted);background:var(--color-bg);color:var(--color-text);overflow:hidden}
+  .home-page h2{margin:0;max-width:800px;font-size:clamp(2rem,4vw,3.65rem);line-height:1.04;letter-spacing:-.035em;font-weight:900}
+  .home-page h2 span{background:linear-gradient(95deg,var(--color-cyan-light),#7e8cff 48%,var(--color-violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .home-copy,.home-heading p{max-width:700px;margin:18px 0 0;color:var(--home-muted);font-size:18px;font-weight:600}
+  .home-kicker{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;color:var(--color-cyan);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+  .home-kicker::before{content:"";width:28px;height:1px;background:linear-gradient(90deg,var(--color-cyan),var(--color-blue))}
+  .home-text-link{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,var(--color-cyan-light),#7787ff,var(--color-violet));-webkit-background-clip:text;background-clip:text;color:transparent;font-size:15px;font-weight:900}
+  .home-actions{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin-top:30px}
+  .home-btn{display:inline-flex;min-height:54px;align-items:center;justify-content:center;gap:10px;margin-top:28px;padding:14px 27px;border:1px solid transparent;border-radius:var(--radius-pill);font-size:15px;font-weight:900;transition:transform var(--transition-base),box-shadow var(--transition-base),border-color var(--transition-base)}
+  .home-btn:hover,.home-btn:focus-visible{transform:translateY(-2px)}
+  .home-btn--primary{background:linear-gradient(115deg,#5120a0,var(--color-blue) 58%,#087fa5);box-shadow:0 16px 44px rgba(57,119,255,.22)}
+  .home-btn--secondary{border-color:var(--color-border-strong);background:#090b18}
+  .home-trust{border-block:1px solid var(--color-border);background:linear-gradient(90deg,rgba(8,11,24,.97),rgba(26,12,41,.44),rgba(8,11,24,.97))}
+  .home-trust__grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .home-trust__grid>div{min-height:94px;display:flex;flex-direction:column;justify-content:center;padding:20px 25px;border-right:1px solid var(--color-border)}
+  .home-trust__grid>div:last-child{border-right:0}.home-trust strong{font-size:15px;font-weight:900}.home-trust span{margin-top:4px;color:var(--color-text-soft);font-size:13px;font-weight:700}
+  .home-services,.home-story{background:radial-gradient(circle at 88% 16%,rgba(57,119,255,.10),transparent 31%),linear-gradient(180deg,var(--color-bg-soft),var(--color-bg) 86%)}
+  .home-heading--split{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:42px}
+  .home-service-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:260px;gap:18px}
+  .home-service{position:relative;min-height:260px;overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-bg-elevated);box-shadow:var(--shadow-card);transition:transform var(--transition-base),border-color var(--transition-base)}
+  .home-service:hover,.home-service:focus-visible{transform:translateY(-5px);border-color:rgba(8,215,223,.5)}
+  .home-service img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+  .home-service:hover img{transform:scale(1.045)}
+  .home-service::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(6,7,15,.96),rgba(6,7,15,.68) 45%,rgba(6,7,15,.1))}
+  .home-service__content{position:absolute;inset:auto 0 0;z-index:2;padding:26px}.home-service__content>span{color:var(--color-cyan);font-size:11px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}.home-service h3{margin:7px 0 0;font-size:clamp(1.25rem,2.4vw,1.85rem);line-height:1.08;font-weight:900}.home-service p{max-width:510px;margin:8px 0 0;color:#b7bfd0;font-size:14px;font-weight:650}.home-service b{display:inline-flex;margin-top:13px;font-size:14px}
+  .home-service--interior{grid-column:span 7;grid-row:span 2}.home-service--full,.home-service--exterior{grid-column:span 5}.home-service--correction,.home-service--ceramic{grid-column:span 6}.home-service--commercial{grid-column:span 12}
+  .home-results{border-block:1px solid rgba(255,255,255,.06);background:radial-gradient(circle at 78% 30%,rgba(8,215,223,.075),transparent 31%),radial-gradient(circle at 20% 82%,rgba(57,119,255,.11),transparent 34%),var(--color-bg-soft)}
+  .home-results__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(360px,.75fr);align-items:center;gap:70px}
+  .home-result-points{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px}.home-result-points>div{padding:17px 15px;border:1px solid var(--color-border);border-radius:15px;background:var(--glass-bg)}.home-result-points strong,.home-result-points span{display:block}.home-result-points strong{font-size:14px}.home-result-points span{margin-top:4px;color:var(--color-text-soft);font-size:12px}
+  .home-ba-shell{justify-self:end;width:100%;max-width:470px}.home-ba{--home-pos:50%;position:relative;aspect-ratio:800/1066;overflow:hidden;border:1px solid rgba(8,215,223,.32);border-radius:22px;background:#0d0d18;box-shadow:0 26px 75px rgba(0,0,0,.46);user-select:none}.home-ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.home-ba__after{clip-path:inset(0 0 0 var(--home-pos))}.home-ba__line{position:absolute;inset:0 auto 0 var(--home-pos);width:2px;transform:translateX(-50%);background:var(--color-cyan);pointer-events:none}.home-ba__handle{position:absolute;top:50%;left:var(--home-pos);width:54px;height:54px;transform:translate(-50%,-50%);display:grid;place-items:center;border:2px solid var(--color-cyan);border-radius:50%;background:rgba(7,7,15,.9);pointer-events:none}.home-ba__badge{position:absolute;top:15px;z-index:5;padding:6px 11px;border-radius:var(--radius-pill);font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.home-ba__badge--before{left:15px;background:rgba(0,0,0,.58)}.home-ba__badge--after{right:15px;color:var(--color-cyan-light);background:rgba(5,22,25,.62)}.home-ba__range{position:absolute;inset:0;z-index:10;width:100%;height:100%;margin:0;opacity:0;cursor:col-resize}.home-slider-hint{text-align:center;margin-top:14px;color:var(--color-text-soft);font-size:12px;font-weight:800}
+  .home-mobile{background:radial-gradient(circle at 12% 82%,rgba(8,215,223,.075),transparent 29%),radial-gradient(circle at 88% 18%,rgba(121,87,255,.09),transparent 29%),var(--color-bg)}
+  .home-mobile__grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:70px}.home-photo-stack{position:relative;min-height:590px}.home-photo-stack figure{position:absolute;margin:0;overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius-md);box-shadow:var(--shadow-card)}.home-photo-stack img{width:100%;height:100%;object-fit:cover}.home-photo-stack__main{inset:0 70px 55px 0}.home-photo-stack__small{width:48%;height:42%;right:0;bottom:0;border-color:rgba(121,87,255,.38)!important}
+  .home-checks{display:grid;gap:13px;margin-top:28px}.home-checks div{display:flex;gap:12px;color:#d9deea;font-size:15px;font-weight:750}.home-checks div::before{content:"✓";flex:0 0 24px;width:24px;height:24px;display:grid;place-items:center;border:1px solid rgba(8,215,223,.35);border-radius:50%;color:var(--color-cyan);background:rgba(8,215,223,.08);font-size:12px}
+  .home-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:58px}.home-steps article{padding:26px;border:1px solid var(--color-border);border-radius:20px;background:rgba(57,119,255,.055)}.home-steps article>span{display:grid;width:38px;height:38px;place-items:center;border-radius:50%;color:#061114;background:var(--color-cyan);font-size:14px;font-weight:900}.home-steps h3{margin:18px 0 0}.home-steps p{margin:7px 0 0;color:var(--home-muted);font-size:14px}
+  .home-reviews{background:radial-gradient(circle at 12% 20%,rgba(121,87,255,.10),transparent 30%),#0b0c1b}.home-review-grid{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:17px;margin-top:42px}.home-review{display:flex;flex-direction:column;padding:28px;border:1px solid var(--color-border);border-radius:22px;background:rgba(255,255,255,.038)}.home-review:first-child{border-color:rgba(121,87,255,.3)}.home-stars{color:#ffc857;letter-spacing:2px}.home-review blockquote{margin:18px 0 26px;color:#dfe4ee;font-size:15px;line-height:1.7;font-weight:650}.home-review footer{margin-top:auto}.home-review footer span{display:block;margin-top:3px;color:var(--color-text-soft);font-size:12px}
+  .home-story__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.home-story-card,.home-area-card{position:relative;min-height:390px;overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius-md)}.home-story-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.home-story-card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(6,7,15,.98),rgba(6,7,15,.46) 66%,rgba(6,7,15,.12))}.home-story-card>div{position:absolute;inset:auto 0 0;z-index:2;padding:31px}.home-story-card p,.home-area-card p{color:var(--home-muted);font-size:15px;line-height:1.7}.home-area-card{padding:32px;background:linear-gradient(145deg,rgba(121,87,255,.10),rgba(8,215,223,.045))}.home-cities{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}.home-cities span{padding:8px 12px;border:1px solid var(--color-border);border-radius:var(--radius-pill);background:var(--glass-bg);font-size:12px;font-weight:850}
+  @media(max-width:991px){.home-heading--split{align-items:start;flex-direction:column}.home-service-grid{grid-template-columns:1fr 1fr;grid-auto-rows:300px}.home-service--interior,.home-service--full,.home-service--exterior,.home-service--correction,.home-service--ceramic,.home-service--commercial{grid-column:span 1;grid-row:span 1}.home-service--commercial{grid-column:span 2}.home-results__grid,.home-mobile__grid{grid-template-columns:1fr;gap:52px}.home-ba-shell{justify-self:center;max-width:430px}.home-review-grid{grid-template-columns:1fr 1fr}.home-review:first-child{grid-column:span 2}.home-story__grid{grid-template-columns:1fr}}
+  @media(max-width:700px){.home-copy,.home-heading p{font-size:16px}.home-trust__grid{grid-template-columns:1fr 1fr}.home-trust__grid>div{min-height:88px;padding:16px 14px}.home-trust__grid>div:nth-child(2){border-right:0}.home-trust__grid>div:nth-child(-n+2){border-bottom:1px solid var(--color-border)}.home-service-grid{grid-template-columns:1fr;grid-auto-rows:auto}.home-service,.home-service--interior,.home-service--commercial{grid-column:1/-1;min-height:330px}.home-service--interior{min-height:380px}.home-result-points,.home-steps,.home-review-grid{grid-template-columns:1fr}.home-review:first-child{grid-column:span 1}.home-photo-stack{min-height:420px}.home-photo-stack__main{inset:0 34px 42px 0}.home-photo-stack__small{height:38%}.home-actions{align-items:stretch}.home-actions .home-btn{width:100%}.home-story-card,.home-area-card{min-height:420px}}
+</style>

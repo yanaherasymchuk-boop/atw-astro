@@ -1,0 +1,66 @@
+---
+import { site } from "../../data/site";
+---
+
+<section class="home-hero" aria-labelledby="home-hero-title">
+  <img
+    class="home-hero__media"
+    src="/media/home/hero-new.webp"
+    alt="Detailed vehicle at night for ATW Detailing mobile car care"
+    width="1920"
+    height="1080"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
+  <div class="home-hero__inner">
+    <div class="home-hero__content" data-reveal="up">
+      <div class="home-hero__badges">
+        <span>Mobile Service · Bonney Lake, WA</span>
+        <a href="/promo/">20% Off · Limited Appointments Available</a>
+      </div>
+      <h1 id="home-hero-title">Mobile Car Detailing <span>in Bonney Lake, WA</span></h1>
+      <p>Professional interior and exterior detailing, paint correction, and ceramic coating brought directly to your driveway in Bonney Lake, Lake Tapps, Sumner, Puyallup, and surrounding areas.</p>
+      <div class="home-hero__actions">
+        <a class="home-btn home-btn--primary" href={site.bookingUrl}>Book Mobile Detailing <span aria-hidden="true">→</span></a>
+        <a class="home-btn home-btn--secondary" href="/contact/#contactform">Contact Us <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="home-hero__notes" aria-label="Mobile detailing service features">
+        <span>We bring water and power</span>
+        <span>Licensed and insured</span>
+        <span>Mobile service at your location</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-hero{position:relative;min-height:min(820px,calc(100vh - 60px));display:flex;align-items:center;overflow:hidden;background:#05050c;color:#fff}
+  .home-hero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center}
+  .home-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(4,5,12,.97),rgba(4,5,12,.82) 34%,rgba(4,5,12,.34) 64%,rgba(4,5,12,.18)),linear-gradient(0deg,rgba(4,5,12,.88),transparent 42%)}
+  .home-hero__inner{position:relative;z-index:2;width:min(calc(100% - var(--page-padding)*2),var(--container));margin:auto;padding:145px 0 92px}
+  .home-hero__content{max-width:760px}
+  .home-hero__badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:25px}
+  .home-hero__badges span,.home-hero__badges a{padding:7px 14px;border:1px solid var(--color-border-strong);border-radius:var(--radius-pill);background:rgba(6,8,18,.64);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+  .home-hero__badges a{border-color:rgba(121,87,255,.5);color:#c8c2ff}
+  .home-hero h1{max-width:760px;margin:0;font-size:clamp(3rem,6.2vw,6rem);line-height:.96;letter-spacing:-.055em;font-weight:900;text-wrap:balance;text-shadow:0 14px 45px rgba(0,0,0,.48)}
+  .home-hero h1 span{display:block;margin-top:8px;background:linear-gradient(90deg,var(--color-cyan-light),#87d8ff 40%,var(--color-violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .home-hero p{max-width:665px;margin:25px 0 0;color:#c5ccdc;font-size:clamp(17px,2vw,21px);line-height:1.6;font-weight:650;text-shadow:0 4px 24px rgba(0,0,0,.75)}
+  .home-hero__actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+  .home-btn{display:inline-flex;min-height:54px;align-items:center;justify-content:center;gap:10px;padding:14px 27px;border:1px solid transparent;border-radius:var(--radius-pill);font-size:15px;font-weight:900;transition:transform var(--transition-base),box-shadow var(--transition-base),border-color var(--transition-base)}
+  .home-btn:hover,.home-btn:focus-visible{transform:translateY(-2px)}
+  .home-btn--primary{background:linear-gradient(115deg,#5120a0,var(--color-blue) 58%,#087fa5);box-shadow:0 16px 44px rgba(57,119,255,.22)}
+  .home-btn--secondary{border-color:var(--color-border-strong);background:rgba(8,11,24,.72)}
+  .home-hero__notes{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:24px;color:#9da7bd;font-size:13px;font-weight:800}
+  .home-hero__notes span::before{content:"✓";margin-right:7px;color:var(--color-cyan)}
+  @media(max-width:700px){
+    .home-hero{min-height:760px;align-items:end}
+    .home-hero__media{object-position:63% center}
+    .home-hero::before{background:linear-gradient(0deg,rgba(4,5,12,.98),rgba(4,5,12,.86) 48%,rgba(4,5,12,.28) 80%),linear-gradient(90deg,rgba(4,5,12,.52),transparent 80%)}
+    .home-hero__inner{padding:140px 0 48px}
+    .home-hero h1{font-size:clamp(2.6rem,14vw,4.4rem)}
+    .home-hero p{font-size:16px;line-height:1.55}
+    .home-hero__actions{align-items:stretch}
+    .home-btn{width:100%}
+  }
+</style>

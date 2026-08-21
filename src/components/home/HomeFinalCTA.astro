@@ -1,0 +1,67 @@
+---
+import { site } from "../../data/site";
+---
+
+<section class="home-final" aria-labelledby="home-final-title">
+  <video
+    class="home-final__media"
+    muted
+    loop
+    playsinline
+    preload="none"
+    poster="/media/home/final-poster.webp"
+    aria-hidden="true"
+    data-home-video
+  >
+    <source data-src="/media/home/final-background.mp4" type="video/mp4" />
+  </video>
+  <div class="home-final__inner">
+    <div class="home-final__content" data-reveal="up">
+      <span class="home-final__kicker">Ready When You Are</span>
+      <h2 id="home-final-title">Choose a convenient time. <span>We’ll come to you.</span></h2>
+      <p>Book mobile detailing online, request a photo-based quote, or contact us with questions about the right service for your vehicle.</p>
+      <div class="home-final__actions">
+        <a class="home-final__btn home-final__btn--primary" href={site.bookingUrl}>Book Mobile Detailing <span aria-hidden="true">→</span></a>
+        <a class="home-final__btn home-final__btn--secondary" href={site.quoteUrl}>Get a Free Quote <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const videos = document.querySelectorAll<HTMLVideoElement>("[data-home-video]");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, io) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const video = entry.target as HTMLVideoElement;
+        const source = video.querySelector<HTMLSourceElement>("source[data-src]");
+        if (source?.dataset.src) {
+          source.src = source.dataset.src;
+          source.removeAttribute("data-src");
+          video.load();
+          video.play().catch(() => {});
+        }
+        io.unobserve(video);
+      });
+    }, { rootMargin: "300px 0px" });
+    videos.forEach((video) => observer.observe(video));
+  }
+</script>
+
+<style>
+  .home-final{position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;border-top:1px solid var(--color-border);background:var(--color-bg-soft)}
+  .home-final__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .home-final::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(5,6,13,.97),rgba(5,6,13,.75) 55%,rgba(5,6,13,.5)),radial-gradient(circle at 72% 50%,rgba(121,87,255,.16),transparent 36%)}
+  .home-final__inner{position:relative;z-index:2;width:min(calc(100% - var(--page-padding)*2),var(--container));margin:auto;padding:92px 0}
+  .home-final__content{max-width:760px}
+  .home-final__kicker{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;color:var(--color-cyan);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+  .home-final h2{margin:0;font-size:clamp(2rem,4vw,3.65rem);line-height:1.04;letter-spacing:-.035em;font-weight:900}
+  .home-final h2 span{background:linear-gradient(95deg,var(--color-cyan-light),#7e8cff,var(--color-violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .home-final p{max-width:700px;margin:18px 0 0;color:var(--color-text-muted);font-size:18px;font-weight:600}
+  .home-final__actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+  .home-final__btn{display:inline-flex;min-height:54px;align-items:center;justify-content:center;gap:10px;padding:14px 27px;border:1px solid transparent;border-radius:var(--radius-pill);font-size:15px;font-weight:900}
+  .home-final__btn--primary{background:linear-gradient(115deg,#5120a0,var(--color-blue) 58%,#087fa5)}
+  .home-final__btn--secondary{border-color:var(--color-border-strong);background:#090b18}
+  @media(max-width:700px){.home-final{min-height:580px}.home-final p{font-size:16px}.home-final__actions{align-items:stretch}.home-final__btn{width:100%}}
+</style>
