@@ -1,0 +1,56 @@
+:root {
+  /* Backgrounds */
+  --color-bg: #070814;
+  --color-bg-soft: #0b0c1b;
+  --color-bg-elevated: #101225;
+
+  /* Text */
+  --color-text: #ffffff;
+  --color-text-muted: #a8adbd;
+  --color-text-soft: #747b90;
+
+  /* Brand */
+  --color-cyan: #08d7df;
+  --color-cyan-light: #54f0f4;
+  --color-blue: #3977ff;
+  --color-violet: #7957ff;
+
+  /* Borders / glass */
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-cyan),
+    var(--color-blue),
+    var(--color-violet)
+  );
+
+  --gradient-cyan-blue: linear-gradient(
+    135deg,
+    var(--color-cyan),
+    var(--color-blue)
+  );
+
+  /* Layout */
+  --container: 1200px;
+  --container-wide: 1440px;
+  --page-padding: clamp(20px, 4vw, 64px);
+  --section-space: clamp(72px, 9vw, 140px);
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.28);
+  --shadow-glow: 0 0 40px rgba(8, 215, 223, 0.12);
+
+  /* Motion */
+  --transition-fast: 180ms ease;
+  --transition-base: 300ms ease;
+}

@@ -1,0 +1,295 @@
+<section class="interior-local">
+  <video
+    class="interior-local__video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    aria-hidden="true"
+  >
+    <source
+      src="https://atwdetailing.com/wp-content/uploads/2026/08/mount_rainier-video-bg-720.mp4"
+      type="video/mp4"
+    />
+  </video>
+
+  <div class="interior-local__overlay"></div>
+
+  <div class="container-wide interior-local__inner" data-reveal="up">
+    <div class="interior-local__copy">
+      <div class="interior-local__eyebrow">
+        Mobile Service · Bonney Lake
+      </div>
+
+      <h2>
+        Interior Detailing
+        <span>Where Your Car Already Is</span>
+      </h2>
+
+      <p>
+        ATW Detailing is based in Bonney Lake
+        and provides mobile detailing throughout nearby
+        Pierce County and South King County communities.
+        No shop drop-off is required.
+      </p>
+
+      <div class="interior-local__cities">
+        <span>Bonney Lake</span>
+        <span>Lake Tapps</span>
+        <span>Puyallup</span>
+        <span>Sumner</span>
+        <span>Tacoma</span>
+        <span>Auburn</span>
+        <span>Federal Way</span>
+        <span>Kent</span>
+      </div>
+
+      <div class="interior-local__actions">
+        <a
+          class="interior-local__button"
+          href="/mobile-detailing-price-estimate/"
+        >
+          Get Price Estimate →
+        </a>
+
+        <a
+          class="interior-local__link"
+          href="/service-areas/"
+        >
+          View All Service Areas →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .interior-local {
+    position: relative;
+    min-height: 520px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: var(--color-bg);
+  }
+
+  .interior-local__video {
+    position: absolute;
+    inset: -5% 0 auto 0;
+
+    width: 100%;
+    height: 110%;
+
+    object-fit: cover;
+
+    opacity: 0.6;
+
+    pointer-events: none;
+  }
+
+  .interior-local__overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 6, 17, 0.95),
+        rgba(5, 6, 17, 0.77) 48%,
+        rgba(5, 6, 17, 0.34) 80%
+      ),
+      linear-gradient(
+        0deg,
+        rgba(7, 8, 20, 0.9),
+        transparent 52%
+      );
+  }
+
+  .interior-local__inner {
+    position: relative;
+    z-index: 2;
+
+    padding-top: 95px;
+    padding-bottom: 95px;
+  }
+
+  .interior-local__copy {
+    max-width: 650px;
+  }
+
+  .interior-local__eyebrow {
+    margin-bottom: 14px;
+
+    color: var(--color-cyan);
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+  }
+
+  .interior-local h2 {
+    margin: 0 0 18px;
+
+    color: #fff;
+
+    font-size: clamp(34px, 4.2vw, 54px);
+    line-height: 1.08;
+    font-weight: 900;
+  }
+
+  .interior-local h2 span {
+    display: block;
+
+    background: linear-gradient(
+      90deg,
+      var(--color-cyan),
+      #3b8cff,
+      #8d49ec
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+  }
+
+  .interior-local p {
+    max-width: 650px;
+    margin: 0;
+
+    color: #d0d2de;
+
+    font-size: 18px;
+    line-height: 1.78;
+  }
+
+  .interior-local__cities {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin: 27px 0 29px;
+  }
+
+  .interior-local__cities span {
+    padding: 8px 14px;
+
+    border: 1px solid rgba(8, 215, 223, 0.18);
+    border-radius: var(--radius-pill);
+
+    background: rgba(8, 215, 223, 0.04);
+
+    color: #d0d2de;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition:
+      transform var(--transition-fast),
+      border-color var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  .interior-local__cities span:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(8, 215, 223, 0.4);
+    background: rgba(8, 215, 223, 0.08);
+  }
+
+  .interior-local__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 18px;
+  }
+
+  .interior-local__button {
+    min-height: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 28px;
+
+    border-radius: var(--radius-pill);
+
+    background: linear-gradient(
+      100deg,
+      #0ce1df,
+      #18c8d7,
+      #20aeda
+    );
+
+    color: #061218;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    box-shadow: 0 12px 34px rgba(8, 215, 223, 0.2);
+
+    transition:
+      transform var(--transition-fast),
+      filter var(--transition-fast);
+  }
+
+  .interior-local__button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+  }
+
+  .interior-local__link {
+    color: var(--color-cyan);
+
+    font-size: 14px;
+    font-weight: 900;
+
+    transition:
+      transform var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .interior-local__link:hover {
+    transform: translateX(4px);
+    color: #6bf9ff;
+  }
+
+  @media (max-width: 600px) {
+    .interior-local {
+      min-height: 600px;
+    }
+
+    .interior-local__inner {
+      padding-top: 76px;
+      padding-bottom: 76px;
+    }
+
+    .interior-local p {
+      font-size: 16px;
+    }
+
+    .interior-local__actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .interior-local__button {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .interior-local__video {
+      display: none;
+    }
+  }
+</style>

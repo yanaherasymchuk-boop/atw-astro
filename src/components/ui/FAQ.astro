@@ -1,0 +1,196 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  eyebrow?: string;
+  items: FAQItem[];
+}
+
+const {
+  title = "FAQ",
+  eyebrow = "Common Questions",
+  items,
+} = Astro.props;
+---
+
+<section class="faq-section section">
+  <div class="container">
+    <div class="faq-section__heading">
+      <div class="faq-section__eyebrow">
+        {eyebrow}
+      </div>
+
+      <h2>
+        {title}
+      </h2>
+    </div>
+
+    <div class="faq-list">
+      {items.map((item) => (
+        <div class="faq-item">
+          <button
+            class="faq-question"
+            type="button"
+            aria-expanded="false"
+          >
+            <span>{item.question}</span>
+            <span class="faq-icon">+</span>
+          </button>
+
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              {item.answer}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll(".faq-section").forEach((section) => {
+    const items = section.querySelectorAll(".faq-item");
+
+    items.forEach((item) => {
+      const button = item.querySelector(".faq-question");
+      const answer = item.querySelector(".faq-answer");
+
+      button?.addEventListener("click", () => {
+        const alreadyOpen = item.classList.contains("open");
+
+        items.forEach((other) => {
+          other.classList.remove("open");
+
+          const otherButton = other.querySelector(".faq-question");
+          const otherAnswer = other.querySelector(".faq-answer");
+
+          otherButton?.setAttribute("aria-expanded", "false");
+
+          if (otherAnswer instanceof HTMLElement) {
+            otherAnswer.style.maxHeight = "";
+          }
+        });
+
+        if (!alreadyOpen) {
+          item.classList.add("open");
+          button.setAttribute("aria-expanded", "true");
+
+          if (answer instanceof HTMLElement) {
+            answer.style.maxHeight = `${answer.scrollHeight}px`;
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .faq-section {
+    background: var(--color-bg-soft);
+  }
+
+  .faq-section__heading {
+    max-width: 780px;
+    margin: 0 auto 43px;
+
+    text-align: center;
+  }
+
+  .faq-section__eyebrow {
+    margin-bottom: 14px;
+
+    color: var(--color-cyan);
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+  }
+
+  .faq-section__heading h2 {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: clamp(34px, 4.2vw, 54px);
+    line-height: 1.08;
+    font-weight: 900;
+  }
+
+  .faq-list {
+    width: min(920px, 100%);
+
+    margin: 0 auto;
+
+    display: grid;
+    gap: 12px;
+  }
+
+  .faq-item {
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.022);
+  }
+
+  .faq-question {
+    width: 100%;
+
+    padding: 19px 22px;
+
+    border: 0;
+
+    background: transparent;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+  .faq-icon {
+    color: var(--color-cyan);
+
+    font-size: 22px;
+
+    transition: transform var(--transition-fast);
+  }
+
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition: max-height 0.32s ease;
+  }
+
+  .faq-answer__inner {
+    padding: 0 22px 20px;
+
+    color: var(--color-text-muted);
+
+    font-size: 14px;
+    line-height: 1.72;
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import InteriorHero from "../components/interior/InteriorHero.astro";
+import InteriorTrust from "../components/interior/InteriorTrust.astro";
+import InteriorMap from "../components/interior/InteriorMap.astro";
+import InteriorTreatment from "../components/interior/InteriorTreatment.astro";
+import InteriorPricing from "../components/interior/InteriorPricing.astro";
+import InteriorRealWork from "../components/interior/InteriorRealWork.astro";
+import InteriorCondition from "../components/interior/InteriorCondition.astro";
+import InteriorLocal from "../components/interior/InteriorLocal.astro";
+import InteriorRelated from "../components/interior/InteriorRelated.astro";
+import FAQ from "../components/ui/FAQ.astro";
+
+const interiorFaq = [
+  {
+    question: "How long does Interior Detailing take?",
+    answer:
+      "Most Interior Details take roughly 2–5 hours depending on vehicle size, condition and additional work such as heavy pet hair or extraction.",
+  },
+  {
+    question: "Is seat extraction included?",
+    answer:
+      "No. Standard Interior Detailing includes normal surface cleaning and light spot treatment. Deeper Seat Extraction is available when needed. With Interior Detail or Full Detail it is +$100 for Sedan/SUV and +$175 for XL SUV/Pickup/Van.",
+  },
+  {
+    question: "Can you clean only one seat or a few seats?",
+    answer:
+      "Yes. Partial work is possible. One seat, several seats, one row, cargo only, or another specific area is quoted individually. Send photos so we can price the actual work.",
+  },
+  {
+    question: "Do you remove odors?",
+    answer:
+      "We can improve many odor situations, but the source matters. If liquid has soaked into fabric or padding, the contaminated area needs to be cleaned first and extraction may be necessary. Ozone can be used after cleaning when appropriate.",
+  },
+  {
+  question: "Do you normally use steam cleaning?",
+  answer:
+    "No. Steam is not our standard method. We primarily use professional cleaning products, agitation, vacuuming and extraction when deeper fabric cleaning is needed.",
+},
+{
+  question: "Do I need to bring the vehicle to a shop?",
+  answer:
+    "No. ATW Detailing is mobile. We come to your home, workplace or another suitable location within our service area.",
+},
+];
+import InteriorFinalCTA from "../components/interior/InteriorFinalCTA.astro";
+---
+
+<BaseLayout
+  title="Interior Detailing | ATW Detailing"
+  description="Professional mobile interior detailing in Bonney Lake and surrounding South Sound areas."
+>
+  <InteriorHero />
+  <InteriorTrust />
+  <InteriorMap />
+  <InteriorTreatment />
+  <InteriorPricing />
+  <InteriorRealWork />
+  <InteriorCondition />
+  <InteriorLocal />
+  <InteriorRelated />
+   <div data-reveal="up">
+    <FAQ
+      title="Interior Detailing FAQ"
+      eyebrow="Common Questions"
+      items={interiorFaq}
+    />
+  </div>
+<InteriorFinalCTA />
+</BaseLayout>

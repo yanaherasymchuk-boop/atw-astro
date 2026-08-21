@@ -1,0 +1,81 @@
+<div class="interior-trust">
+  <div class="interior-trust__grid" data-reveal="up">
+    <div class="interior-trust__item">
+      <span class="interior-trust__check">✓</span>
+      Seats &amp; surfaces
+    </div>
+
+    <div class="interior-trust__item">
+      <span class="interior-trust__check">✓</span>
+      Carpets, mats &amp; cargo
+    </div>
+
+    <div class="interior-trust__item">
+      <span class="interior-trust__check">✓</span>
+      Light spot treatment
+    </div>
+
+    <div class="interior-trust__item">
+      <span class="interior-trust__check">✓</span>
+      Mobile — we come to you
+    </div>
+  </div>
+</div>
+
+<style>
+  .interior-trust {
+    background: #080916;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+  }
+
+  .interior-trust__grid {
+    width: min(1100px, calc(100% - 40px));
+
+    margin: 0 auto;
+    padding: 23px 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+  }
+
+  .interior-trust__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color: #c4c7d7;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-align: center;
+  }
+
+  .interior-trust__check {
+    color: var(--color-cyan);
+    font-size: 18px;
+  }
+
+  @media (max-width: 900px) {
+    .interior-trust__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .interior-trust__grid {
+      grid-template-columns: 1fr;
+      width: calc(100% - 28px);
+    }
+
+    .interior-trust__item {
+      justify-content: flex-start;
+    }
+  }
+</style>

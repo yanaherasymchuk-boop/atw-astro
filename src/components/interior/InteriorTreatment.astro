@@ -1,0 +1,382 @@
+<section class="interior-treatment section">
+  <div class="container">
+    <div class="interior-treatment__heading">
+      <div class="interior-treatment__eyebrow" data-reveal="up">
+        Choose the Right Level
+      </div>
+
+      <h2>
+        Standard Detail or <span>Deeper Treatment?</span>
+      </h2>
+
+      <p>
+        Most vehicles only need Interior Detailing.
+        Extraction is for fabric that needs more than normal surface cleaning.
+      </p>
+    </div>
+
+    <div class="interior-treatment__wrap"data-reveal="up"
+style="--reveal-delay: 100ms;">
+      <div class="interior-treatment__tabs" >
+        <button
+          class="interior-treatment__tab active"
+          type="button"
+          data-treatment="standard"
+        >
+          Standard Interior Detail
+        </button>
+
+        <button
+          class="interior-treatment__tab"
+          type="button"
+          data-treatment="deep"
+        >
+          Extraction / Deeper Cleaning
+        </button>
+      </div>
+
+      <div class="interior-treatment__body">
+        <div
+          class="interior-treatment__panel active"
+          data-treatment-panel="standard"
+        >
+          <div>
+            <div class="interior-treatment__eyebrow">
+              Everyday Interior Buildup
+            </div>
+
+            <h3>For normal daily-use dirt</h3>
+
+            <p>
+              If the interior mainly has dust, crumbs,
+              routine grime, light spots or normal buildup,
+              standard Interior Detailing is usually the right service.
+            </p>
+
+            <ul class="interior-treatment__checklist">
+              <li>Seats, carpets and mats vacuumed</li>
+              <li>Dashboard, console and trim cleaned</li>
+              <li>Door panels and high-touch surfaces cleaned</li>
+              <li>Interior glass</li>
+              <li>Light spot treatment as needed</li>
+              <li>Light pet hair included</li>
+            </ul>
+          </div>
+
+          <div class="interior-treatment__image">
+            <img
+              src="https://atwdetailing.com/wp-content/uploads/2026/03/852cd53f-2a4a-427f-915b-04b85b546d6c.webp"
+              alt="Clean vehicle interior"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div
+          class="interior-treatment__panel"
+          data-treatment-panel="deep"
+        >
+          <div>
+            <div class="interior-treatment__eyebrow">
+              Extraction &amp; Targeted Work
+            </div>
+
+            <h3>When surface cleaning is not enough</h3>
+
+            <p>
+              Extraction is used when contamination has worked
+              into fabric and requires deeper cleaning.
+            </p>
+
+            <ul class="interior-treatment__checklist">
+              <li>Heavier or older fabric stains</li>
+              <li>Soaked-in spills</li>
+              <li>Deeper upholstery contamination</li>
+              <li>Odor source soaked into fabric</li>
+              <li>One seat or several seats can be quoted separately</li>
+              <li>Steam is not our standard cleaning method</li>
+            </ul>
+          </div>
+
+          <div class="interior-treatment__image">
+            <img
+              src="https://atwdetailing.com/wp-content/uploads/2026/08/іефшті.png"
+              alt="Stained fabric requiring extraction"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector(".interior-treatment");
+
+  if (root) {
+    const tabs = root.querySelectorAll("[data-treatment]");
+    const panels = root.querySelectorAll("[data-treatment-panel]");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const key = tab.getAttribute("data-treatment");
+
+        tabs.forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        panels.forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        tab.classList.add("active");
+
+        const panel = root.querySelector(
+          `[data-treatment-panel="${key}"]`
+        );
+
+        panel?.classList.add("active");
+      });
+    });
+  }
+</script>
+
+<style>
+  .interior-treatment {
+    background: var(--color-bg-soft);
+  }
+
+  .interior-treatment__heading {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .interior-treatment__eyebrow {
+    margin-bottom: 14px;
+
+    color: var(--color-cyan);
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    line-height: 1.3;
+
+    text-transform: uppercase;
+  }
+
+  .interior-treatment__heading h2 {
+    margin: 0 0 18px;
+
+    color: #fff;
+
+    font-size: clamp(34px, 4.2vw, 54px);
+    line-height: 1.08;
+    font-weight: 900;
+  }
+
+  .interior-treatment__heading h2 span {
+    background: linear-gradient(
+      90deg,
+      var(--color-cyan),
+      #3b8cff,
+      #8d49ec
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .interior-treatment__heading p {
+    max-width: 760px;
+    margin: 0 auto;
+
+    color: var(--color-text-muted);
+
+    font-size: 18px;
+    line-height: 1.78;
+  }
+
+  .interior-treatment__wrap {
+    width: min(1030px, 100%);
+
+    margin: 46px auto 0;
+    padding: 10px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 28px;
+
+    background:
+      radial-gradient(
+        circle at 78% 0%,
+        rgba(125, 35, 221, 0.11),
+        transparent 40%
+      ),
+      rgba(255, 255, 255, 0.025);
+  }
+
+  .interior-treatment__tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .interior-treatment__tab {
+    min-height: 58px;
+
+    border: 1px solid transparent;
+    border-radius: 20px;
+
+    background: transparent;
+
+    color: #b8bbce;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 900;
+
+    transition:
+      color var(--transition-fast),
+      background var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  .interior-treatment__tab:hover {
+    transform: translateY(-2px);
+  }
+
+  .interior-treatment__tab.active {
+    color: #061218;
+
+    background: linear-gradient(
+      100deg,
+      #0ce1df,
+      #18c8d7,
+      #20aeda
+    );
+  }
+
+  .interior-treatment__body {
+    padding: 34px 30px;
+  }
+
+  .interior-treatment__panel {
+    display: none;
+  }
+
+  .interior-treatment__panel.active {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+
+    gap: 42px;
+
+    align-items: center;
+
+    animation: treatmentPanelIn 0.3s ease;
+  }
+
+  @keyframes treatmentPanelIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .interior-treatment__panel h3 {
+    margin: 0 0 13px;
+
+    color: #fff;
+
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 900;
+  }
+
+  .interior-treatment__panel p {
+    margin: 0;
+
+    color: var(--color-text-muted);
+
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .interior-treatment__checklist {
+    list-style: none;
+
+    padding: 0;
+    margin: 25px 0 0;
+
+    display: grid;
+    gap: 11px;
+  }
+
+  .interior-treatment__checklist li {
+    display: flex;
+    gap: 9px;
+
+    color: #eef0f8;
+
+    font-size: 14px;
+    line-height: 1.65;
+    font-weight: 750;
+  }
+
+  .interior-treatment__checklist li::before {
+    content: "✓";
+
+    color: var(--color-cyan);
+    font-weight: 900;
+  }
+
+  .interior-treatment__image {
+    min-height: 340px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+    border-radius: 22px;
+  }
+
+  .interior-treatment__image img {
+    width: 100%;
+    height: 340px;
+
+    object-fit: cover;
+
+    transition: transform 0.55s ease;
+  }
+
+  .interior-treatment__image:hover img {
+    transform: scale(1.035);
+  }
+
+  @media (max-width: 900px) {
+    .interior-treatment__panel.active {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .interior-treatment__tabs {
+      grid-template-columns: 1fr;
+    }
+
+    .interior-treatment__body {
+      padding: 24px 18px;
+    }
+
+    .interior-treatment__heading p {
+      font-size: 16px;
+    }
+  }
+</style>

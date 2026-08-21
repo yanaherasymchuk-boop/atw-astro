@@ -1,0 +1,266 @@
+<section class="interior-related section">
+  <div class="container">
+    <div class="interior-related__heading">
+      <div class="interior-related__eyebrow" data-reveal="up">
+        Need More Than Interior?
+      </div>
+
+      <h2>
+        Choose the <span>Right Next Service</span>
+      </h2>
+    </div>
+
+    <div class="interior-related__grid" data-reveal="up"
+style="--reveal-delay: 100ms;">
+      <a
+        class="interior-related__card"
+        href="/services/full-detailing/"
+      >
+        <img
+          src="https://atwdetailing.com/wp-content/uploads/2026/02/68f42b308161d2b060015bf7_61afeb76d7ceaa54599a4cdd_jose-pinto-DINxiQtW1dg-unsplash-scaled.webp"
+          alt="Full car detailing"
+          loading="lazy"
+        />
+
+        <div class="interior-related__overlay"></div>
+
+        <div class="interior-related__copy">
+          <div class="interior-related__eyebrow">
+            Interior + Exterior
+          </div>
+
+          <h3>Full Detail</h3>
+
+          <p>
+            If the inside and outside both need attention,
+            Full Detail combines Interior + Exterior
+            in one mobile appointment.
+          </p>
+
+          <span class="interior-related__link">
+            Explore Full Detail →
+          </span>
+        </div>
+      </a>
+
+      <a
+        class="interior-related__card"
+        href="/paint-correction-bonney-lake/"
+      >
+        <img
+          src="https://atwdetailing.com/wp-content/uploads/2026/03/22301.webp"
+          alt="Paint correction service"
+          loading="lazy"
+        />
+
+        <div class="interior-related__overlay"></div>
+
+        <div class="interior-related__copy">
+          <div class="interior-related__eyebrow">
+            Paint Improvement
+          </div>
+
+          <h3>Paint Correction</h3>
+
+          <p>
+            Swirl marks, oxidation and light scratches
+            are paint issues rather than interior issues.
+            If those are the main concern, start here.
+          </p>
+
+          <span class="interior-related__link">
+            Explore Paint Correction →
+          </span>
+        </div>
+      </a>
+    </div>
+
+    <div class="interior-related__footer">
+      <a
+        class="interior-related__text-link"
+        href="/exterior-detailing/"
+      >
+        Or explore Exterior Detailing only →
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .interior-related {
+    background: var(--color-bg);
+  }
+
+  .interior-related__heading {
+    max-width: 780px;
+    margin: 0 auto 46px;
+    text-align: center;
+  }
+
+  .interior-related__eyebrow {
+    margin-bottom: 14px;
+
+    color: var(--color-cyan);
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    line-height: 1.3;
+
+    text-transform: uppercase;
+  }
+
+  .interior-related__heading h2 {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: clamp(34px, 4.2vw, 54px);
+    line-height: 1.08;
+    font-weight: 900;
+  }
+
+  .interior-related__heading h2 span {
+    background: linear-gradient(
+      90deg,
+      var(--color-cyan),
+      #3b8cff,
+      #8d49ec
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+  }
+
+  .interior-related__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+  }
+
+  .interior-related__card {
+    position: relative;
+
+    min-height: 420px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+    border-radius: 26px;
+
+    isolation: isolate;
+
+    transition:
+      transform var(--transition-base),
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  .interior-related__card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(8, 215, 223, 0.38);
+
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .interior-related__card img {
+    position: absolute;
+    inset: 0;
+
+    z-index: -2;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.55s ease;
+  }
+
+  .interior-related__card:hover img {
+    transform: scale(1.04);
+  }
+
+  .interior-related__overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+      linear-gradient(
+        0deg,
+        rgba(5, 6, 17, 0.98),
+        rgba(5, 6, 17, 0.56) 50%,
+        rgba(5, 6, 17, 0.1) 80%
+      );
+  }
+
+  .interior-related__copy {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 30px;
+  }
+
+  .interior-related__copy h3 {
+    margin: 0 0 9px;
+
+    color: #fff;
+
+    font-size: 28px;
+    font-weight: 900;
+  }
+
+  .interior-related__copy p {
+    margin: 0 0 15px;
+
+    color: #c4c7d7;
+
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .interior-related__link,
+  .interior-related__text-link {
+    color: var(--color-cyan);
+
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  .interior-related__text-link {
+    display: inline-flex;
+
+    transition:
+      transform var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .interior-related__text-link:hover {
+    transform: translateX(4px);
+    color: #6bf9ff;
+  }
+
+  .interior-related__footer {
+    margin-top: 27px;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .interior-related__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .interior-related__card {
+      min-height: 360px;
+    }
+  }
+</style>
