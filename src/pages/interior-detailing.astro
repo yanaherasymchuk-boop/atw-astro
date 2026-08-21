@@ -10,6 +10,61 @@ import InteriorCondition from "../components/interior/InteriorCondition.astro";
 import InteriorLocal from "../components/interior/InteriorLocal.astro";
 import InteriorRelated from "../components/interior/InteriorRelated.astro";
 import FAQ from "../components/ui/FAQ.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+
+const title =
+  "Mobile Interior Detailing in Bonney Lake, WA | ATW Detailing";
+const description =
+  "Professional mobile interior detailing in Bonney Lake, WA. Stain treatment, pet hair removal and extraction options at your home or workplace.";
+const canonical = `${site.url}/interior-detailing/`;
+const ogImage = `${site.url}/media/interior/hero-interior.jpg`;
+
+const areaServed = [
+  "Bonney Lake",
+  "Lake Tapps",
+  "Puyallup",
+  "Sumner",
+  "Tacoma",
+  "Auburn",
+  "Federal Way",
+  "Kent",
+].map((name) => ({
+  "@type": "City",
+  name,
+  containedInPlace: {
+    "@type": "State",
+    name: "Washington",
+  },
+}));
+
+const interiorSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.url}/#business`,
+      name: site.name,
+      url: site.url,
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      image: ogImage,
+      areaServed,
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Interior Detailing",
+      serviceType: "Interior car detailing",
+      url: canonical,
+      description,
+      provider: {
+        "@id": `${site.url}/#business`,
+      },
+      areaServed,
+    },
+  ],
+};
 
 const interiorFaq = [
   {
@@ -47,9 +102,13 @@ import InteriorFinalCTA from "../components/interior/InteriorFinalCTA.astro";
 ---
 
 <BaseLayout
-  title="Interior Detailing | ATW Detailing"
-  description="Professional mobile interior detailing in Bonney Lake and surrounding South Sound areas."
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Detailed vehicle interior by ATW Detailing"
 >
+  <JsonLd slot="head" data={interiorSchema} />
   <InteriorHero />
   <InteriorTrust />
   <InteriorMap />
