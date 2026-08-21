@@ -23,6 +23,7 @@ import { site } from "../../data/site";
     id="mobile-menu"
     class="menu-panel"
     aria-hidden="true"
+    inert
     data-menu-panel
   >
     <div class="menu-head">
@@ -78,6 +79,7 @@ import { site } from "../../data/site";
   const backdrop = document.querySelector("[data-menu-backdrop]");
 
   function openMenu() {
+    panel?.removeAttribute("inert");
     panel?.classList.add("is-open");
     backdrop?.classList.add("is-open");
 
@@ -92,6 +94,7 @@ import { site } from "../../data/site";
     backdrop?.classList.remove("is-open");
 
     panel?.setAttribute("aria-hidden", "true");
+    panel?.setAttribute("inert", "");
     toggle?.setAttribute("aria-expanded", "false");
 
     document.body.style.overflow = "";
