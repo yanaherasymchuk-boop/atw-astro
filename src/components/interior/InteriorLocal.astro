@@ -5,11 +5,13 @@
     muted
     loop
     playsinline
-    preload="metadata"
+    preload="none"
+    poster="/media/interior/rainier-poster.webp"
     aria-hidden="true"
+    data-rainier-video
   >
     <source
-      src="https://atwdetailing.com/wp-content/uploads/2026/08/mount_rainier-video-bg-720.mp4"
+      data-src="/media/interior/rainier-background.mp4"
       type="video/mp4"
     />
   </video>
@@ -63,6 +65,47 @@
     </div>
   </div>
 </section>
+
+<script>
+  const rainierVideo = document.querySelector<HTMLVideoElement>(
+    "[data-rainier-video]"
+  );
+  const rainierSource = rainierVideo?.querySelector<HTMLSourceElement>(
+    "source[data-src]"
+  );
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (rainierVideo && rainierSource && !prefersReducedMotion) {
+    const loadRainierVideo = () => {
+      if (rainierSource.src) return;
+
+      const sourcePath = rainierSource.dataset.src;
+      if (!sourcePath) return;
+
+      rainierSource.src = sourcePath;
+      rainierVideo.load();
+      void rainierVideo.play().catch(() => {});
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry?.isIntersecting) return;
+
+          loadRainierVideo();
+          observer.disconnect();
+        },
+        { rootMargin: "300px 0px" }
+      );
+
+      observer.observe(rainierVideo);
+    } else {
+      loadRainierVideo();
+    }
+  }
+</script>
 
 <style>
   .interior-local {
