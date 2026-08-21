@@ -1,0 +1,172 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="home-faq section" aria-labelledby="home-faq-title">
+  <div class="container">
+    <div class="home-faq__head" data-reveal="up">
+      <div class="home-faq__eyebrow"><span aria-hidden="true"></span>Got Questions?</div>
+      <h2 id="home-faq-title">Frequently asked <span>questions</span></h2>
+      <p>What to expect before your mobile detailing appointment.</p>
+    </div>
+
+    <div class="home-faq__grid">
+      {items.map((item) => (
+        <details class="home-faq__item" data-reveal="up">
+          <summary>
+            <span>{item.question}</span>
+            <span class="home-faq__icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="home-faq__answer">{item.answer}</div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-faq {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 0% 48%, rgba(8, 215, 223, 0.07), transparent 34%),
+      radial-gradient(circle at 100% 42%, rgba(111, 78, 255, 0.06), transparent 34%),
+      #070814;
+  }
+
+  .home-faq__head {
+    max-width: 820px;
+    margin: 0 auto 42px;
+    text-align: center;
+  }
+
+  .home-faq__eyebrow {
+    margin-bottom: 13px;
+    color: var(--color-cyan);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+  }
+
+  .home-faq__eyebrow span {
+    display: inline-block;
+    width: 25px;
+    height: 1px;
+    margin-right: 10px;
+    vertical-align: middle;
+    background: linear-gradient(90deg, transparent, var(--color-cyan));
+  }
+
+  .home-faq h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(38px, 4.4vw, 56px);
+    line-height: 1.08;
+    font-weight: 900;
+  }
+
+  .home-faq h2 span {
+    background: linear-gradient(90deg, var(--color-cyan), #4aa9ff 48%, #805cff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .home-faq__head p {
+    margin: 14px auto 0;
+    color: var(--color-text-muted);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .home-faq__grid {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .home-faq__item {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .home-faq__item summary {
+    min-height: 66px;
+    padding: 18px 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    color: #fff;
+    cursor: pointer;
+    list-style: none;
+    font-size: 15px;
+    line-height: 1.35;
+    font-weight: 900;
+  }
+
+  .home-faq__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .home-faq__icon {
+    width: 27px;
+    height: 27px;
+    flex: 0 0 27px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(8, 215, 223, 0.28);
+    border-radius: 50%;
+    background: rgba(8, 215, 223, 0.06);
+    color: var(--color-cyan);
+    font-size: 18px;
+    line-height: 1;
+    transition: transform var(--transition-fast);
+  }
+
+  .home-faq__item:nth-child(even) .home-faq__icon {
+    border-color: rgba(113, 83, 255, 0.28);
+    background: rgba(113, 83, 255, 0.06);
+    color: #8270ff;
+  }
+
+  .home-faq__item[open] .home-faq__icon {
+    transform: rotate(45deg);
+  }
+
+  .home-faq__answer {
+    padding: 0 17px 18px;
+    color: var(--color-text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 767px) {
+    .home-faq__head {
+      margin-bottom: 32px;
+    }
+
+    .home-faq__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .home-faq__item summary {
+      min-height: 62px;
+      padding: 17px 16px;
+    }
+  }
+</style>

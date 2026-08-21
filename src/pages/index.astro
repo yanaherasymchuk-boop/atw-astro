@@ -1,15 +1,132 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeHero from "../components/home/HomeHero.astro";
+import HomeMain from "../components/home/HomeMain.astro";
+import HomeFinalCTA from "../components/home/HomeFinalCTA.astro";
+import HomeFAQ from "../components/home/HomeFAQ.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+
+const title = "Mobile Car Detailing in Bonney Lake, WA | ATW Detailing";
+const description =
+  "Mobile car detailing in Bonney Lake, WA. Interior and exterior detailing, paint correction, and ceramic coating brought to your location.";
+const canonical = `${site.url}/`;
+const ogImage = `${site.url}/media/home/hero-new.webp`;
+
+const areaServed = [
+  "Bonney Lake",
+  "Lake Tapps",
+  "Sumner",
+  "Puyallup",
+  "Auburn",
+  "Kent",
+  "Tacoma",
+  "University Place",
+  "Spanaway",
+].map((name) => ({
+  "@type": "City",
+  name,
+  containedInPlace: { "@type": "State", name: "Washington" },
+}));
+
+const businessId = `${site.url}/#business`;
+const websiteId = `${site.url}/#website`;
+const pageId = `${canonical}#webpage`;
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": businessId,
+      name: site.name,
+      url: site.url,
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      description,
+      image: ogImage,
+      areaServed,
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: site.url,
+      name: site.name,
+      inLanguage: "en-US",
+      publisher: { "@id": businessId },
+    },
+    {
+      "@type": "WebPage",
+      "@id": pageId,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: "en-US",
+      isPartOf: { "@id": websiteId },
+      about: { "@id": businessId },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: ogImage,
+      },
+    },
+  ],
+};
+
+const homeFaq = [
+  {
+    question: "Do you bring your own water and power?",
+    answer:
+      "Yes, we bring everything needed to complete the service at your location — water, power, and all professional-grade equipment.",
+  },
+  {
+    question: "How long does a detailing service take?",
+    answer:
+      "Most services take between 2 and 4 hours, depending on the vehicle size and condition.",
+  },
+  {
+    question: "How do I get a quote without calling?",
+    answer:
+      "Simply submit the online form and upload a few photos — we'll reply with a quote and time options.",
+  },
+  {
+    question: "What if it rains on the day of my appointment?",
+    answer:
+      "We bring a canopy and can work in most weather conditions as long as there is space.",
+  },
+  {
+    question: "Do I need to be present the whole time?",
+    answer:
+      "No, we only need access to the vehicle and keys at the start.",
+  },
+  {
+    question: "Is your cleaning chemistry safe for kids and pets?",
+    answer:
+      "Yes, we use eco-friendly, non-toxic products safe for your family.",
+  },
+  {
+    question: "Which areas do you serve?",
+    answer:
+      "We serve Bonney Lake, Lake Tapps, Puyallup, Auburn, Kent, Sumner, Tacoma, University Place, Spanaway, and nearby areas.",
+  },
+  {
+    question: "Are you licensed and insured?",
+    answer: "Yes, we are fully licensed and insured in Washington State.",
+  },
+];
 ---
 
 <BaseLayout
-  title="ATW Detailing"
-  description="ATW Detailing Astro migration test"
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="ATW Detailing mobile car detailing in Bonney Lake, Washington"
 >
-  <section class="section">
-    <div class="container">
-      <h1>ATW Astro Migration</h1>
-      <p>The new site shell is working.</p>
-    </div>
-  </section>
+  <JsonLd slot="head" data={homeSchema} />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+  <meta slot="head" property="og:locale" content="en_US" />
+  <HomeHero />
+  <HomeMain />
+  <HomeFAQ items={homeFaq} />
+  <HomeFinalCTA />
 </BaseLayout>
