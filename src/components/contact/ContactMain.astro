@@ -1,0 +1,344 @@
+---
+import { site } from "../../data/site";
+---
+
+<div id="atw-cp">
+  <canvas id="atw-cp-canvas" aria-hidden="true"></canvas>
+
+  <div class="atw-cp-shell">
+    <section class="atw-cp-hero">
+      <div class="atw-cp-hero-copy" data-reveal="left">
+        <div class="atw-cp-kicker">Mobile Detailing · Bonney Lake, WA</div>
+        <h1 class="atw-cp-title">
+          <span>Contact</span>
+          <span class="atw-cp-gradient">ATW Detailing</span>
+        </h1>
+        <p class="atw-cp-subtitle">
+          Text, call, book online, or send us a message. For a quick pricing estimate, use the calculator. For custom work, commercial vehicles, or questions about an existing appointment, contact us directly.
+        </p>
+
+        <div class="atw-cp-actions">
+          <a class="atw-cp-btn atw-cp-btn-primary" href="sms:+12533867243">Text Us</a>
+          <a class="atw-cp-btn atw-cp-btn-outline" href={site.bookingUrl} target="_blank" rel="noopener">Book Online</a>
+          <a class="atw-cp-btn atw-cp-btn-outline" href="/mobile-detailing-price-estimate/">Price Estimate</a>
+        </div>
+
+        <div class="atw-cp-hero-links">
+          <a href={site.phoneHref}>{site.phoneDisplay}</a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <span>Mobile service only</span>
+        </div>
+      </div>
+
+      <div class="atw-cp-hero-visual" data-reveal="right">
+        <div class="atw-cp-video-wrap">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="/media/contact/contact-hero.mp4" type="video/mp4">
+          </video>
+          <div class="atw-cp-video-tag">
+            <strong>We come to you.</strong>
+            Home, workplace, fleet lot, or another approved location inside our service area.
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <nav class="atw-cp-contact-rail" data-reveal="up" aria-label="Contact options">
+    <a class="atw-cp-contact-link" href="sms:+12533867243">
+      <small>Quick questions</small>
+      <strong>Text Us</strong>
+      <span>Photos, details, appointment questions</span>
+    </a>
+    <a class="atw-cp-contact-link" href={site.phoneHref}>
+      <small>Call directly</small>
+      <strong>{site.phoneDisplay}</strong>
+      <span>Talk through the service you need</span>
+    </a>
+    <a class="atw-cp-contact-link" href={`mailto:${site.email}`}>
+      <small>Email</small>
+      <strong>Send a Message</strong>
+      <span>Commercial, fleet, and general inquiries</span>
+    </a>
+    <a class="atw-cp-contact-link" href={site.bookingUrl} target="_blank" rel="noopener">
+      <small>Choose a time</small>
+      <strong>Book Online</strong>
+      <span>View available appointment times</span>
+    </a>
+  </nav>
+
+  <section class="atw-cp-message-section">
+    <div class="atw-cp-shell">
+      <div class="atw-cp-kicker" data-reveal="up">Send a Message</div>
+      <h2 class="atw-cp-section-title" data-reveal="up">Tell Us What You <span class="atw-cp-gradient-text">Need</span></h2>
+      <p class="atw-cp-section-copy" data-reveal="up">
+        Use the form for general questions, appointment changes, gift cards, commercial work, or anything that does not fit the standard online booking flow.
+      </p>
+
+      <div class="atw-cp-message-grid">
+        <div class="atw-cp-form-panel" data-reveal="up">
+          <div class="atw-cp-form-head">
+            <h3>Contact Form</h3>
+            <p>No payment is required. We will reply with the next step.</p>
+          </div>
+          
+          <form id="atw-contact-form" class="atw-cp-form" novalidate>
+            <input class="atw-cp-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="startedAt" id="atw-contact-started-at">
+
+            <div class="atw-cp-field">
+              <label for="contact-name">First Name</label>
+              <input id="contact-name" name="name" type="text" autocomplete="given-name" maxlength="80" required>
+            </div>
+
+            <div class="atw-cp-field">
+              <label for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="160" required>
+            </div>
+
+            <div class="atw-cp-field">
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" name="message" rows="6" maxlength="3000" required></textarea>
+            </div>
+
+            <button type="submit" class="atw-cp-submit">Send Message</button>
+            <p id="atw-contact-status" class="atw-cp-form-status" role="status" aria-live="polite"></p>
+          </form>
+
+        </div>
+
+        <aside class="atw-cp-info-column">
+          <div class="atw-cp-hours" data-reveal="up">
+            <h3>Business Hours</h3>
+            <div class="atw-cp-hours-row"><span>Monday–Friday</span><span>8:00 AM–6:00 PM</span></div>
+            <div class="atw-cp-hours-row"><span>Saturday–Sunday</span><span>9:00 AM–5:00 PM</span></div>
+          </div>
+
+          <div class="atw-cp-info-card" data-reveal="up">
+            <h3>Mobile Service</h3>
+            <p>ATW Detailing is mobile only. We travel to homes, workplaces, fleet lots, and approved parking locations throughout our service area.</p>
+            <a class="atw-cp-inline-link" href="#atw-cp-service-area">View Service Area →</a>
+          </div>
+
+          <div class="atw-cp-info-card orange" data-reveal="up">
+            <h3>Commercial & Fleet</h3>
+            <p>For recurring service, multiple vehicles, work vans, box trucks, or semi cabs, contact us directly for a custom plan.</p>
+            <a class="atw-cp-inline-link" href={`mailto:${site.email}?subject=Commercial%20or%20Fleet%20Inquiry`}>Send a Fleet Inquiry →</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="atw-cp-area-section" id="atw-cp-service-area">
+    <div class="atw-cp-shell">
+      <div class="atw-cp-kicker" data-reveal="up">Service Area</div>
+      <h2 class="atw-cp-section-title" data-reveal="up">We Come to You <span class="atw-cp-gradient-text">Across the South Sound</span></h2>
+      <p class="atw-cp-section-copy" data-reveal="up">
+        We are based in Bonney Lake and keep our routes focused so appointments stay practical and reliable. Check the map and city list below, or text us to confirm your exact address.
+      </p>
+
+      <div class="atw-cp-area-grid">
+        <div class="atw-cp-map-frame" data-reveal="up">
+          <img src="/media/contact/service-area.webp" alt="ATW Detailing mobile service area around Bonney Lake, Puyallup, Tacoma, Auburn, Kent, Enumclaw and surrounding cities" loading="lazy" decoding="async">
+        </div>
+
+        <div class="atw-cp-city-side" data-reveal="up">
+          <p class="atw-cp-city-copy">
+            Our regular mobile detailing area includes the following communities. Individual city pages can be linked here later without rebuilding the section.
+          </p>
+
+          <!-- Replace any span with an <a href="CITY-PAGE-URL" class="atw-cp-city">City</a> when city SEO pages are ready. -->
+          <div class="atw-cp-city-list">
+            <span class="atw-cp-city">Bonney Lake</span>
+            <span class="atw-cp-city">Lake Tapps</span>
+            <span class="atw-cp-city">Puyallup</span>
+            <span class="atw-cp-city">South Hill</span>
+            <span class="atw-cp-city">Sumner</span>
+            <span class="atw-cp-city">Auburn</span>
+            <span class="atw-cp-city">Kent</span>
+            <span class="atw-cp-city">Tacoma</span>
+            <span class="atw-cp-city">University Place</span>
+            <span class="atw-cp-city">Spanaway</span>
+            <span class="atw-cp-city">Orting</span>
+            <span class="atw-cp-city">Buckley</span>
+            <span class="atw-cp-city">Enumclaw</span>
+            <span class="atw-cp-city">Milton</span>
+            <span class="atw-cp-city">Edgewood</span>
+            <span class="atw-cp-city">Federal Way</span>
+            <span class="atw-cp-city">Fife</span>
+          </div>
+
+          <div class="atw-cp-area-note">
+            Outside the marked area? Send us the address before booking. Availability depends on travel time, route, and the size of the job.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="atw-cp-faq-section">
+    <div class="atw-cp-shell">
+      <div class="atw-cp-kicker" data-reveal="up">Before You Contact Us</div>
+      <h2 class="atw-cp-section-title" data-reveal="up">Quick <span class="atw-cp-gradient-text">Answers</span></h2>
+
+      <div class="atw-cp-faq-list" data-reveal="up">
+        <details class="atw-cp-faq-item" open>
+          <summary>Do you have a physical shop?</summary>
+          <div class="atw-cp-faq-answer">No. ATW Detailing is a mobile service. We come to your home, workplace, fleet lot, or another approved location inside our service area.</div>
+        </details>
+        <details class="atw-cp-faq-item">
+          <summary>Do you bring your own equipment?</summary>
+          <div class="atw-cp-faq-answer">Yes. We arrive with the equipment and products needed for the scheduled service. We will confirm any location-specific requirements before the appointment.</div>
+        </details>
+        <details class="atw-cp-faq-item">
+          <summary>Where should I go for pricing?</summary>
+          <div class="atw-cp-faq-answer">Use the online price estimate page for a starting price. For unusual vehicles, commercial jobs, heavy contamination, or custom work, contact us directly.</div>
+        </details>
+        <details class="atw-cp-faq-item">
+          <summary>Can you work at apartments or workplaces?</summary>
+          <div class="atw-cp-faq-answer">Often, yes. The location needs enough safe working space and permission when required. Send us the address and a quick description before booking.</div>
+        </details>
+        <details class="atw-cp-faq-item">
+          <summary>What happens if weather affects the appointment?</summary>
+          <div class="atw-cp-faq-answer">If weather makes the scheduled work impractical or unsafe, we will contact you and arrange the next suitable time.</div>
+        </details>
+        <details class="atw-cp-faq-item">
+          <summary>How do I change an existing appointment?</summary>
+          <div class="atw-cp-faq-answer">Text or call {site.phoneDisplay} as soon as possible. We will help move the appointment to another available time.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="atw-cp-final">
+    <div class="atw-cp-shell" data-reveal="up">
+      <h2>Ready to <span class="atw-cp-gradient-text">Get Started?</span></h2>
+      <p>Text us with a question, check your estimated price, or book an available appointment online.</p>
+      <div class="atw-cp-actions">
+        <a class="atw-cp-btn atw-cp-btn-primary" href="sms:+12533867243">Text Us</a>
+        <a class="atw-cp-btn atw-cp-btn-outline" href="/mobile-detailing-price-estimate/">Price Estimate</a>
+        <a class="atw-cp-btn atw-cp-btn-outline" href={site.bookingUrl} target="_blank" rel="noopener">Book Online</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  const root = document.getElementById('atw-cp');
+  if (!root || root.dataset.particlesInitialized === '1') return;
+  root.dataset.particlesInitialized = '1';
+
+  /* Lightweight particle background */
+  const canvas = document.getElementById('atw-cp-canvas');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!canvas || reduceMotion) return;
+
+  const ctx = canvas.getContext('2d');
+  let w = 0;
+  let h = 0;
+  let particles = [];
+  let animationFrame = null;
+  const colors = ['#17cfd6', '#c85be8', '#ff7a2a', '#ffffff'];
+
+  function resizeCanvas() {
+    w = Math.max(root.clientWidth, 1);
+    h = Math.max(root.scrollHeight, 1);
+    canvas.width = w;
+    canvas.height = h;
+    const count = Math.max(42, Math.min(84, Math.round(w / 18)));
+    particles = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.4 + .35,
+      vx: (Math.random() - .5) * .18,
+      vy: (Math.random() - .5) * .2 - .03,
+      a: Math.random() * .36 + .08,
+      c: colors[Math.floor(Math.random() * colors.length)]
+    }));
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach((p) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < -5) p.x = w + 5;
+      if (p.x > w + 5) p.x = -5;
+      if (p.y < -5) p.y = h + 5;
+      if (p.y > h + 5) p.y = -5;
+      ctx.globalAlpha = p.a;
+      ctx.fillStyle = p.c;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    animationFrame = requestAnimationFrame(drawParticles);
+  }
+
+  resizeCanvas();
+  drawParticles();
+  window.addEventListener('resize', () => {
+    clearTimeout(window.atwCpResizeTimer);
+    window.atwCpResizeTimer = setTimeout(resizeCanvas, 180);
+  });
+  setTimeout(resizeCanvas, 1200);
+
+  window.addEventListener('beforeunload', () => {
+    if (animationFrame) cancelAnimationFrame(animationFrame);
+  }, { once: true });
+
+})();
+
+
+const form = document.getElementById('atw-contact-form');
+const status = document.getElementById('atw-contact-status');
+const startedAt = document.getElementById('atw-contact-started-at');
+
+if (startedAt instanceof HTMLInputElement) startedAt.value = String(Date.now());
+
+if (form instanceof HTMLFormElement && status) {
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    status.textContent = '';
+    if (!form.reportValidity()) return;
+
+    const submit = form.querySelector('button[type="submit"]');
+    if (submit instanceof HTMLButtonElement) {
+      submit.disabled = true;
+      submit.textContent = 'Sending…';
+    }
+
+    try {
+      const payload = Object.fromEntries(new FormData(form).entries());
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data?.error || 'Could not send message.');
+
+      form.reset();
+      if (startedAt instanceof HTMLInputElement) startedAt.value = String(Date.now());
+      status.textContent = 'Thanks — your message was sent. We’ll get back to you soon.';
+      status.classList.remove('is-error');
+      status.classList.add('is-success');
+    } catch (error) {
+      status.textContent = error instanceof Error
+        ? error.message
+        : 'Could not send message. Please text or email us instead.';
+      status.classList.remove('is-success');
+      status.classList.add('is-error');
+    } finally {
+      if (submit instanceof HTMLButtonElement) {
+        submit.disabled = false;
+        submit.textContent = 'Send Message';
+      }
+    }
+  });
+}
+
+</script>
