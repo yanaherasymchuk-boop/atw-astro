@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import ContactMain from "../components/contact/ContactMain.astro";
+import { site } from "../data/site";
+import "../styles/contact.css";
+
+const title = "Contact ATW Detailing | Mobile Detailing in Bonney Lake, WA";
+const description =
+  "Contact ATW Detailing & Paint Correction in Bonney Lake, WA. Text, call, send a message, get a price estimate, or book mobile car detailing online.";
+const canonical = `${site.url}/contact-us/`;
+const ogImage = `${site.url}/media/contact/service-area.webp`;
+
+const areaServed = [
+  "Bonney Lake", "Lake Tapps", "Puyallup", "Sumner", "Tacoma",
+  "University Place", "Federal Way", "Auburn", "Kent",
+].map((name) => ({
+  "@type": "City",
+  name,
+  containedInPlace: { "@type": "State", name: "Washington" },
+}));
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.url}/#business`,
+      name: site.name,
+      url: site.url,
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      image: ogImage,
+      areaServed,
+    },
+    {
+      "@type": "ContactPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      about: { "@id": `${site.url}/#business` },
+      mainEntity: { "@id": `${site.url}/#business` },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="ATW Detailing mobile service area in the South Sound, Washington"
+>
+  <JsonLd slot="head" data={schema} />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+  <meta slot="head" property="og:locale" content="en_US" />
+  <ContactMain />
+</BaseLayout>
