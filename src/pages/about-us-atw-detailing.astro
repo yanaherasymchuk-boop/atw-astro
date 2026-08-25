@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import AboutHero from "../components/about/AboutHero.astro";
+import AboutStory from "../components/about/AboutStory.astro";
+import AboutApproach from "../components/about/AboutApproach.astro";
+import AboutServiceArea from "../components/about/AboutServiceArea.astro";
+import AboutFinalCTA from "../components/about/AboutFinalCTA.astro";
+import { site } from "../data/site";
+import "../styles/about.css";
+
+const title = "About ATW Detailing | Mobile Car Detailing in Bonney Lake, WA";
+const description =
+  "Meet ATW Detailing & Paint Correction, a family-owned mobile detailing business based in Bonney Lake, WA serving Pierce County and surrounding areas.";
+const canonical = `${site.url}/about-us-atw-detailing/`;
+const ogImage = `${site.url}/media/about/suv-after.webp`;
+
+const areaServed = [
+  "Bonney Lake",
+  "Puyallup",
+  "Tacoma",
+  "Auburn",
+  "Sumner",
+  "Edgewood",
+  "Milton",
+  "Federal Way",
+  "Fife",
+  "Kent",
+  "Enumclaw",
+  "Buckley",
+  "Orting",
+  "Graham",
+  "Lakewood",
+  "Covington",
+  "Maple Valley",
+].map((name) => ({
+  "@type": "City",
+  name,
+  containedInPlace: {
+    "@type": "State",
+    name: "Washington",
+  },
+}));
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.url}/#business`,
+      name: site.name,
+      url: site.url,
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      image: ogImage,
+      areaServed,
+    },
+    {
+      "@type": "AboutPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      about: {
+        "@id": `${site.url}/#business`,
+      },
+      mainEntity: {
+        "@id": `${site.url}/#business`,
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="ATW Detailing mobile car detailing result in Bonney Lake, Washington"
+>
+  <JsonLd slot="head" data={aboutSchema} />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+  <meta slot="head" property="og:locale" content="en_US" />
+
+  <div class="atw-about">
+    <AboutHero />
+    <AboutStory />
+    <AboutApproach />
+    <AboutServiceArea />
+    <AboutFinalCTA />
+  </div>
+</BaseLayout>
