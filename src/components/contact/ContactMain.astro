@@ -233,7 +233,11 @@ import { site } from "../../data/site";
   /* Lightweight particle background */
   const canvas = document.getElementById('atw-cp-canvas');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!canvas || reduceMotion) return;
+  const mobileViewport = window.matchMedia('(max-width: 900px)').matches;
+
+  // The full-page particle canvas is relatively expensive on mobile.
+  // Keep the visual effect on desktop and use the existing CSS background on smaller screens.
+  if (!canvas || reduceMotion || mobileViewport) return;
 
   const ctx = canvas.getContext('2d');
   let w = 0;

@@ -783,3 +783,29 @@
 }
 .atw-cp-form-status.is-success { color: #8df0c3; }
 .atw-cp-form-status.is-error { color: #ff9c9c; }
+
+
+/* CONTACT MOBILE PERFORMANCE */
+@media (max-width: 900px) {
+  #atw-cp-canvas {
+    display: none;
+  }
+
+  .atw-cp-title .atw-cp-gradient,
+  .atw-cp-gradient-text {
+    animation: none;
+    background-position: 50% center;
+  }
+
+  .atw-cp-contact-rail,
+  .atw-cp-btn-outline,
+  .atw-cp-video-tag {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .atw-cp-video-wrap::before {
+    filter: none;
+    opacity: .55;
+  }
+}
