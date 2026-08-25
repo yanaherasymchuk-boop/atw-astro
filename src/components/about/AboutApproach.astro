@@ -1,0 +1,63 @@
+---
+const items = [
+  {
+    num: "01",
+    title: "Professional Grade Only",
+    body: "Eco-friendly, vinyl and wrap safe products. Nothing cheap, nothing that cuts corners on your paint.",
+  },
+  {
+    num: "02",
+    title: "We Bring Everything",
+    body: "Water, power, equipment — all ours. Work at your home, office, or wherever is convenient.",
+  },
+  {
+    num: "03",
+    title: "Every Vehicle Is Different",
+    body: "We assess each vehicle individually. Size, condition, and your goals determine the work.",
+  },
+  {
+    num: "04",
+    title: "Transparent Pricing",
+    body: "Clear prices before we touch the car. No surprises, no hidden fees. Extra work — we tell you first.",
+  },
+  {
+    num: "05",
+    title: "No Rush, No Shortcuts",
+    body: "We don't overbook. Each job gets the time it needs. Done right, not just good enough.",
+  },
+  {
+    num: "06",
+    title: "Satisfaction Guaranteed",
+    body: "Not happy? We'll make it right. That's how a family business keeps its reputation.",
+  },
+];
+---
+
+<section class="ab3">
+  <div class="ab3-video-bg" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="/media/about/approach-bg.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="ab3-inner">
+    <div class="ab3-top" data-reveal="up">
+      <span class="ab3-eyebrow">How We Work</span>
+      <h2 class="ab3-title">Our Approach</h2>
+    </div>
+
+    <div class="ab3-grid">
+      {items.map((item, index) => (
+        <article
+          class="ab3-item"
+          data-reveal="up"
+          style={`--reveal-delay: ${Math.min(index, 2) * 70}ms`}
+        >
+          <span class="ab3-num">{item.num}</span>
+          <h3 class="ab3-item-title">{item.title}</h3>
+          <p class="ab3-item-body">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
