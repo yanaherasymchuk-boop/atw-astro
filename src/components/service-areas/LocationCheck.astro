@@ -1,0 +1,149 @@
+---
+import { site } from "../../data/site";
+---
+
+<section class="areas-section areas-section-alt" id="check-location">
+  <div class="areas-container">
+    <div class="areas-check-wrap" data-reveal="up">
+      <div class="areas-check-inner">
+        <div>
+          <div class="areas-eyebrow">Outside the Main List?</div>
+          <h2 class="areas-title">Check Your <span>Location</span></h2>
+          <p class="areas-lead">
+            If your city isn't listed above, send us your ZIP code or address.
+            We'll confirm whether the location fits the current route
+            before you book.
+          </p>
+
+          <div class="areas-btns areas-check-actions">
+            <a class="areas-btn areas-btn-orange" href="/contact-us/">Contact Us →</a>
+          </div>
+        </div>
+
+        <div class="areas-location-form-panel">
+          <div class="areas-form-head">
+            <strong>Check Your Location</strong>
+            <p>
+              Send your ZIP code or city and vehicle details.
+              We’ll confirm service availability for your address.
+            </p>
+          </div>
+
+          <form id="areas-location-form" class="areas-location-form" novalidate>
+            <input class="areas-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="startedAt" id="areas-location-started-at" />
+
+            <label>
+              <span>ZIP Code or City</span>
+              <input name="location" type="text" autocomplete="postal-code" maxlength="120" required />
+            </label>
+
+            <label>
+              <span>Vehicle</span>
+              <input name="vehicle" type="text" placeholder="Year, make and model" maxlength="160" required />
+            </label>
+
+            <label>
+              <span>Phone</span>
+              <input name="phone" type="tel" autocomplete="tel" maxlength="40" />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" autocomplete="email" maxlength="160" required />
+            </label>
+
+            <button type="submit" class="areas-form-submit">Check My Location</button>
+            <p id="areas-location-status" class="areas-form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <noscript>
+            <p class="areas-form-status is-error">
+              JavaScript is required for this form. Please contact us at {site.email}.
+            </p>
+          </noscript>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("areas-location-form");
+  const status = document.getElementById("areas-location-status");
+  const startedAt = document.getElementById("areas-location-started-at");
+
+  if (startedAt instanceof HTMLInputElement) {
+    startedAt.value = String(Date.now());
+  }
+
+  if (form instanceof HTMLFormElement && status instanceof HTMLElement) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      status.textContent = "";
+      status.classList.remove("is-success", "is-error");
+
+      if (!form.reportValidity()) return;
+
+      const submit = form.querySelector('button[type="submit"]');
+      if (submit instanceof HTMLButtonElement) {
+        submit.disabled = true;
+        submit.textContent = "Sending…";
+      }
+
+      try {
+        const data = new FormData(form);
+        const location = String(data.get("location") || "").trim();
+        const vehicle = String(data.get("vehicle") || "").trim();
+        const phone = String(data.get("phone") || "").trim();
+        const email = String(data.get("email") || "").trim();
+        const company = String(data.get("company") || "");
+        const startedAtValue = String(data.get("startedAt") || "");
+
+        const payload = {
+          name: "Service Area Check",
+          email,
+          message: [
+            "Service area availability request",
+            `Location: ${location}`,
+            `Vehicle: ${vehicle}`,
+            phone ? `Phone: ${phone}` : "",
+          ].filter(Boolean).join("\n"),
+          company,
+          startedAt: startedAtValue,
+        };
+
+        const response = await fetch("https://forms.atwdetailing.com/contact.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(result?.error || "Could not send your location.");
+        }
+
+        form.reset();
+        if (startedAt instanceof HTMLInputElement) {
+          startedAt.value = String(Date.now());
+        }
+
+        status.textContent = "Thanks — we’ll confirm service availability for your location.";
+        status.classList.add("is-success");
+      } catch (error) {
+        status.textContent =
+          error instanceof Error
+            ? error.message
+            : "Could not send your location. Please use the Contact Us button instead.";
+        status.classList.add("is-error");
+      } finally {
+        if (submit instanceof HTMLButtonElement) {
+          submit.disabled = false;
+          submit.textContent = "Check My Location";
+        }
+      }
+    });
+  }
+</script>

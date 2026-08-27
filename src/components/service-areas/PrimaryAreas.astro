@@ -1,0 +1,40 @@
+---
+const cities = [
+  ["01", "Bonney Lake", "Our home service area and base for mobile detailing routes."],
+  ["02", "Lake Tapps", "Mobile interior, exterior and paint-care services by appointment."],
+  ["03", "Puyallup", "Mobile detailing for homes, workplaces and suitable parking locations."],
+  ["04", "Sumner", "Part of our regular mobile detailing service area."],
+  ["05", "Tacoma", "Mobile service availability varies by location and appointment type."],
+  ["06", "University Place", "Residential and workplace mobile detailing by appointment."],
+  ["07", "Federal Way", "Mobile detailing available within our South King County routes."],
+  ["08", "Auburn", "Mobile detailing available depending on location and schedule."],
+  ["09", "Kent", "Part of the northern edge of our regular service area."],
+];
+---
+
+<section class="areas-section areas-section-alt">
+  <div class="areas-container">
+    <div class="areas-center" data-reveal="up">
+      <div class="areas-eyebrow">Primary Service Areas</div>
+      <h2 class="areas-title">Our Main <span>Mobile Detailing Area</span></h2>
+      <p class="areas-lead">
+        These communities make up our primary mobile detailing area
+        across Pierce County and South King County.
+      </p>
+    </div>
+
+    <div class="areas-primary-grid">
+      {cities.map(([no, city, copy], index) => (
+        <article
+          class="areas-city-card"
+          data-reveal="scale"
+          style={`--reveal-delay:${(index % 3) * 70}ms`}
+        >
+          <div class="areas-city-no">{no}</div>
+          <h3>{city}</h3>
+          <p>{copy}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import ServiceAreasHero from "../components/service-areas/ServiceAreasHero.astro";
+import ServiceAreasIntro from "../components/service-areas/ServiceAreasIntro.astro";
+import PrimaryAreas from "../components/service-areas/PrimaryAreas.astro";
+import NearbyAreas from "../components/service-areas/NearbyAreas.astro";
+import ServiceAreaServices from "../components/service-areas/ServiceAreaServices.astro";
+import MobileProcess from "../components/service-areas/MobileProcess.astro";
+import LocationCheck from "../components/service-areas/LocationCheck.astro";
+import ServiceAreasFaq from "../components/service-areas/ServiceAreasFaq.astro";
+import ServiceAreasCta from "../components/service-areas/ServiceAreasCta.astro";
+import { site } from "../data/site";
+import "../styles/service-areas.css";
+
+const title = "Mobile Detailing Service Areas | ATW Detailing";
+const description =
+  "Mobile car detailing service areas across Bonney Lake, Lake Tapps, Puyallup, Sumner, Tacoma, University Place, Federal Way, Auburn, Kent and surrounding South Sound communities.";
+const canonical = `${site.url}/service-areas/`;
+const ogImage = `${site.url}/media/service-areas/pnw-road.webp`;
+
+const primaryAreas = [
+  "Bonney Lake",
+  "Lake Tapps",
+  "Puyallup",
+  "Sumner",
+  "Tacoma",
+  "University Place",
+  "Federal Way",
+  "Auburn",
+  "Kent",
+].map((name) => ({
+  "@type": "City",
+  name,
+  containedInPlace: {
+    "@type": "State",
+    name: "Washington",
+  },
+}));
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.url}/#business`,
+      name: site.name,
+      url: site.url,
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      image: ogImage,
+      areaServed: primaryAreas,
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      about: {
+        "@id": `${site.url}/#business`,
+      },
+      mainEntity: {
+        "@id": `${site.url}/#business`,
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Road through the Pacific Northwest near ATW Detailing service areas"
+>
+  <JsonLd slot="head" data={schema} />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+  <meta slot="head" property="og:locale" content="en_US" />
+
+  <div class="atw-areas">
+    <ServiceAreasHero />
+    <ServiceAreasIntro />
+    <PrimaryAreas />
+    <NearbyAreas />
+    <ServiceAreaServices />
+    <MobileProcess />
+    <LocationCheck />
+    <ServiceAreasFaq />
+    <ServiceAreasCta />
+  </div>
+</BaseLayout>
