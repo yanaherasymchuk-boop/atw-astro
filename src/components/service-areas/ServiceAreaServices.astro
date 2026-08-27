@@ -1,0 +1,81 @@
+---
+const services = [
+  {
+    tag: "Interior",
+    title: "Interior Detailing",
+    copy: "Detailed cleaning for carpets, mats, seats, dashboard, trim, glass and interior surfaces.",
+    href: "/interior-detailing/",
+    link: "Explore Interior →",
+    type: "",
+  },
+  {
+    tag: "Exterior",
+    title: "Exterior Detailing",
+    copy: "Hand washing, wheels and tires, exterior cleaning, decontamination and paint protection.",
+    href: "/exterior-detailing/",
+    link: "Explore Exterior →",
+    type: "",
+  },
+  {
+    tag: "Inside + Outside",
+    title: "Full Detailing",
+    copy: "Interior and exterior detailing completed during the same mobile appointment.",
+    href: "/services/full-detailing/",
+    link: "Explore Full Detail →",
+    type: "",
+  },
+  {
+    tag: "Paint Improvement",
+    title: "Paint Correction",
+    copy: "Machine polishing options for swirl marks, surface defects, gloss and paint clarity.",
+    href: "/paint-correction-bonney-lake/",
+    link: "Explore Paint Correction →",
+    type: "polish",
+  },
+  {
+    tag: "Protection",
+    title: "Ceramic Coating",
+    copy: "Longer-term exterior protection after appropriate paint preparation.",
+    href: "/ceramic-coating/",
+    link: "Explore Ceramic Coating →",
+    type: "ceramic",
+  },
+  {
+    tag: "Business Vehicles",
+    title: "Commercial Detailing",
+    copy: "Mobile detailing options for commercial vehicles, fleets and business needs.",
+    href: "/commercial-vehicle-detailing/",
+    link: "Commercial Detailing →",
+    type: "",
+  },
+];
+---
+
+<section class="areas-section areas-section-alt">
+  <div class="areas-container">
+    <div class="areas-center" data-reveal="up">
+      <div class="areas-eyebrow">Mobile Services</div>
+      <h2 class="areas-title">Detailing Services <span>Across Our Area</span></h2>
+      <p class="areas-lead">
+        Choose the service your vehicle needs.
+        Our mobile services are available throughout
+        the listed service area by appointment.
+      </p>
+    </div>
+
+    <div class="areas-services-grid">
+      {services.map((service, index) => (
+        <article
+          class:list={["areas-service", service.type]}
+          data-reveal="scale"
+          style={`--reveal-delay:${(index % 3) * 70}ms`}
+        >
+          <div class="areas-service-tag">{service.tag}</div>
+          <h3>{service.title}</h3>
+          <p>{service.copy}</p>
+          <a class="areas-text-link" href={service.href}>{service.link}</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+import { site } from "../../data/site";
+---
+
+<section class="areas-hero">
+  <video
+    class="areas-hero-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="none"
+    poster="/media/service-areas/hero-poster.webp"
+    aria-hidden="true"
+  >
+    <source
+      src="/media/service-areas/hero.mp4"
+      type="video/mp4"
+      media="(min-width: 601px)"
+    />
+  </video>
+  <div class="areas-hero-overlay" aria-hidden="true"></div>
+
+  <div class="areas-hero-inner">
+    <div class="areas-hero-copy" data-reveal="up">
+      <div class="areas-badge">Mobile Detailing · South Sound, WA</div>
+
+      <h1>
+        Mobile Detailing<br />
+        <span class="areas-gradient-text">Service Areas</span>
+      </h1>
+
+      <p>
+        Based in Bonney Lake and serving communities across the South Sound.
+        We bring mobile detailing directly to your home, workplace,
+        or another suitable location.
+      </p>
+
+      <div class="areas-btns">
+        <a class="areas-btn areas-btn-cyan" href="#check-location">Check Your Location →</a>
+        <a class="areas-btn areas-btn-violet" href={site.bookingUrl} target="_blank" rel="noopener">
+          Book Mobile Detailing →
+        </a>
+      </div>
+
+      <div class="areas-hero-mini" aria-label="Service area highlights">
+        <span>Based in Bonney Lake</span>
+        <span>Mobile Service</span>
+        <span>Pierce + South King</span>
+      </div>
+    </div>
+  </div>
+</section>

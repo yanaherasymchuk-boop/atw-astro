@@ -1,0 +1,50 @@
+---
+const faqs = [
+  [
+    "Where is ATW Detailing based?",
+    "ATW Detailing is based in Bonney Lake, Washington, with mobile service throughout our listed South Sound service area.",
+  ],
+  [
+    "Do you provide mobile detailing in Tacoma and Puyallup?",
+    "Yes. Tacoma and Puyallup are part of our primary service area. Appointment availability still depends on the address, schedule and type of service.",
+  ],
+  [
+    "Do you serve locations outside the listed cities?",
+    "Sometimes. Nearby locations may be available depending on travel distance, route, schedule and the size of the job. Send us the address before booking.",
+  ],
+  [
+    "Do I need a garage?",
+    "No. A garage is not required. We need enough space to park our vehicle nearby and safely open your vehicle's doors while we work. A driveway, gravel, packed dirt or another stable parking surface is generally suitable.",
+  ],
+  [
+    "Do you bring your own detailing equipment?",
+    "Yes. We arrive with the equipment needed for the scheduled detailing service.",
+  ],
+  [
+    "Can you detail my vehicle at work?",
+    "A workplace can be suitable if the vehicle can remain accessible and there is enough safe space to complete the scheduled service.",
+  ],
+];
+---
+
+<section class="areas-section">
+  <div class="areas-container">
+    <div class="areas-center" data-reveal="up">
+      <div class="areas-eyebrow">Service Area FAQ</div>
+      <h2 class="areas-title">Questions About <span>Mobile Service</span></h2>
+    </div>
+
+    <div class="areas-faq-grid">
+      {faqs.map(([question, answer], index) => (
+        <article
+          class="areas-faq"
+          data-reveal="scale"
+          style={`--reveal-delay:${(index % 2) * 70}ms`}
+        >
+          <h3>{question}</h3>
+          <p>{answer}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

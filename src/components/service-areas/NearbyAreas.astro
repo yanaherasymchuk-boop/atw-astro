@@ -1,0 +1,72 @@
+---
+const groups = [
+  {
+    eyebrow: "South Pierce",
+    title: "Puyallup Area",
+    copy: "Nearby communities south and southeast of Puyallup.",
+    cities: ["South Hill", "Spanaway", "Graham"],
+  },
+  {
+    eyebrow: "Foothills",
+    title: "East Pierce Area",
+    copy: "Communities extending east toward the foothills.",
+    cities: ["Orting", "Buckley", "Enumclaw"],
+  },
+  {
+    eyebrow: "Tacoma Area",
+    title: "North & West Pierce",
+    copy: "Additional communities around Tacoma and the northern Pierce County corridor.",
+    cities: ["Edgewood", "Milton", "Fife", "Lakewood"],
+  },
+  {
+    eyebrow: "South King",
+    title: "Nearby South King County",
+    copy: "Additional locations may be available depending on route and appointment size.",
+    cities: ["Covington", "Maple Valley"],
+  },
+];
+---
+
+<section class="areas-section">
+  <div class="areas-container">
+    <div class="areas-center" data-reveal="up">
+      <div class="areas-eyebrow">Nearby Communities</div>
+      <h2 class="areas-title">We Also Serve <span>Surrounding Areas</span></h2>
+      <p class="areas-lead">
+        These communities are part of our wider service area.
+        Availability may depend on travel distance, route,
+        schedule and the size of the job.
+      </p>
+    </div>
+
+    <div class="areas-nearby-layout">
+      <figure class="areas-regional-photo" data-reveal="left">
+        <img
+          src="/media/service-areas/tacoma-south-sound.webp"
+          alt="Tacoma Washington and South Sound area"
+          width="900"
+          height="1100"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="areas-nearby-groups">
+        {groups.map((group, index) => (
+          <article
+            class="areas-nearby-card"
+            data-reveal="scale"
+            style={`--reveal-delay:${(index % 2) * 70}ms`}
+          >
+            <div class="areas-eyebrow">{group.eyebrow}</div>
+            <h3>{group.title}</h3>
+            <p>{group.copy}</p>
+            <div class="areas-pills">
+              {group.cities.map((city) => <span class="areas-pill">{city}</span>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+---
+import { site } from "../../data/site";
+---
+
+<section class="areas-final">
+  <video
+    class="areas-final-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="none"
+    poster="/media/service-areas/final-cta-poster.webp"
+    aria-hidden="true"
+  >
+    <source
+      src="/media/service-areas/final-cta.mp4"
+      type="video/mp4"
+      media="(min-width: 601px)"
+    />
+  </video>
+  <div class="areas-final-overlay" aria-hidden="true"></div>
+
+  <div class="areas-final-inner" data-reveal="up">
+    <div class="areas-eyebrow">Mobile Detailing · South Sound</div>
+    <h2>Ready to Schedule?</h2>
+    <p>
+      Book your detailing appointment online,
+      check pricing first, or send us your location
+      if you're unsure whether we service the address.
+    </p>
+
+    <div class="areas-btns">
+      <a class="areas-btn areas-btn-cyan" href={site.bookingUrl} target="_blank" rel="noopener">Book Online →</a>
+      <a class="areas-btn areas-btn-violet" href={site.quoteUrl}>Get Price Estimate →</a>
+      <a class="areas-btn areas-btn-orange" href="#check-location">Check My Location →</a>
+    </div>
+  </div>
+</section>
