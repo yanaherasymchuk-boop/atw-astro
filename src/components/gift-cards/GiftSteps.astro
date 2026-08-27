@@ -1,0 +1,29 @@
+---
+const steps = [
+  ["1", "Choose a design", "Birthday, thank you, congratulations, appreciation or a general gift."],
+  ["2", "Choose the amount", "Pick the gift card value that works for you."],
+  ["3", "Add the recipient", "Enter their information and your personal message."],
+  ["4", "Send the gift", "Send the digital gift card by email or text."],
+];
+---
+
+<section class="gift-section gift-steps">
+  <div class="gift-section-wrap">
+    <h2 class="gift-section-title" data-reveal="up">
+      How It <em>Works</em>
+    </h2>
+    <p class="gift-section-sub" data-reveal="up">
+      A few clicks and the gift is ready.
+    </p>
+
+    <div class="gift-steps-row">
+      {steps.map(([num, title, text], index) => (
+        <article class="gift-step" data-reveal="up" style={`--delay:${index * 70}ms`}>
+          <div class="gift-step-num">{num}</div>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

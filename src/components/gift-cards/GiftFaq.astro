@@ -1,0 +1,30 @@
+---
+const faqs = [
+  ["Can I choose the gift card amount?", "Yes. Choose the amount you would like to give during checkout."],
+  ["How is the gift card delivered?", "The eGift Card can be sent digitally to the recipient by email or text message."],
+  ["What can the gift card be used for?", "Gift cards can be applied toward ATW Detailing & Paint Correction services."],
+  ["Do I need to choose a detailing package?", "No. You choose the gift amount and the recipient can decide which service they would like to book."],
+  ["Is this a physical gift card?", "This page is for ATW digital eGift Cards purchased online through Square."],
+  ["Can I buy one as a last-minute gift?", "Yes. Because the card is digital, you can purchase and send it online without picking up a physical card."],
+];
+---
+
+<section class="gift-section gift-faq">
+  <div class="gift-section-wrap">
+    <h2 class="gift-section-title" data-reveal="up">
+      Gift Card <em>Questions</em>
+    </h2>
+    <p class="gift-section-sub" data-reveal="up">
+      A few things to know before purchasing.
+    </p>
+
+    <div class="gift-faq-grid">
+      {faqs.map(([question, answer], index) => (
+        <article class="gift-faq-item" data-reveal="up" style={`--delay:${index * 50}ms`}>
+          <h3>{question}</h3>
+          <p>{answer}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

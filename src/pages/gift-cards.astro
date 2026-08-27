@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import GiftHero from "../components/gift-cards/GiftHero.astro";
+import GiftIntro from "../components/gift-cards/GiftIntro.astro";
+import GiftOccasions from "../components/gift-cards/GiftOccasions.astro";
+import GiftSteps from "../components/gift-cards/GiftSteps.astro";
+import GiftUse from "../components/gift-cards/GiftUse.astro";
+import GiftFaq from "../components/gift-cards/GiftFaq.astro";
+import GiftCta from "../components/gift-cards/GiftCta.astro";
+import GiftEffects from "../components/gift-cards/GiftEffects.astro";
+import { site } from "../data/site";
+import "../styles/gift-cards.css";
+
+const title = "Car Detailing Gift Cards Bonney Lake WA | ATW Detailing";
+const description =
+  "Give the gift of a clean car with an ATW Detailing eGift Card. Choose any amount and send it by email or text. Mobile detailing in Bonney Lake, WA and surrounding areas.";
+const canonical = `${site.url}/gift-cards/`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.url}/#business`,
+      name: site.name,
+      url: site.url,
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      areaServed: "Bonney Lake and surrounding South Sound communities",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      about: {
+        "@id": `${site.url}/#business`,
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+>
+  <JsonLd slot="head" data={schema} />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+  <meta slot="head" property="og:locale" content="en_US" />
+
+  <div class="gift-page">
+    <GiftEffects />
+    <main class="gift-content">
+      <GiftHero />
+      <GiftIntro />
+      <GiftOccasions />
+      <GiftSteps />
+      <GiftUse />
+      <GiftFaq />
+      <GiftCta />
+    </main>
+  </div>
+</BaseLayout>

@@ -1,0 +1,59 @@
+<div class="gift-background" aria-hidden="true">
+  <div class="gift-orb gift-orb-1"></div>
+  <div class="gift-orb gift-orb-2"></div>
+  <div class="gift-orb gift-orb-3"></div>
+  <div class="gift-grid-layer"></div>
+  <div class="gift-fireworks" id="giftFireworks"></div>
+</div>
+
+<script is:inline>
+  (() => {
+    const layer = document.getElementById("giftFireworks");
+    if (!layer) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const desktop = window.matchMedia("(min-width: 769px)").matches;
+
+    if (reduced || !desktop) return;
+
+    const colors = ["#0ad2d9", "#22a7ff", "#9b5de5", "#e31b96", "#b629e7"];
+
+    function createFirework() {
+      const firework = document.createElement("span");
+      firework.className = "gift-firework";
+
+      const leftSide = Math.random() > 0.5;
+      const x = leftSide ? 5 + Math.random() * 24 : 71 + Math.random() * 24;
+      const y = 8 + Math.random() * 68;
+
+      firework.style.left = `${x}%`;
+      firework.style.top = `${y}%`;
+      firework.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+      const count = 8;
+      for (let i = 0; i < count; i++) {
+        const particle = document.createElement("i");
+        particle.style.setProperty("--angle", `${(360 / count) * i}deg`);
+        particle.style.setProperty("--distance", `${48 + Math.random() * 26}px`);
+        firework.appendChild(particle);
+      }
+
+      layer.appendChild(firework);
+      window.setTimeout(() => firework.remove(), 1500);
+    }
+
+    let timeoutId;
+
+    function schedule() {
+      timeoutId = window.setTimeout(() => {
+        createFirework();
+        schedule();
+      }, 4200 + Math.random() * 2600);
+    }
+
+    window.setTimeout(createFirework, 1000);
+    schedule();
+
+    window.addEventListener("pagehide", () => window.clearTimeout(timeoutId), { once: true });
+  })();
+</script>

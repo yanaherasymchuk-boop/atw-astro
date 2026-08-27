@@ -1,0 +1,30 @@
+---
+const occasions = [
+  ["🎂", "Happy Birthday", "A clean-car gift for their special day."],
+  ["🎁", "A Gift for You", "No occasion needed."],
+  ["✨", "Thank You", "A simple way to show your thanks."],
+  ["🎉", "Congratulations", "Celebrate a new milestone."],
+  ["💜", "With Appreciation", "A thoughtful way to show appreciation."],
+];
+---
+
+<section class="gift-section gift-occasions">
+  <div class="gift-section-wrap">
+    <h2 class="gift-section-title" data-reveal="up">
+      A Gift for <em>Any Occasion</em>
+    </h2>
+    <p class="gift-section-sub" data-reveal="up">
+      Pick the design that fits the moment.
+    </p>
+
+    <div class="gift-occasions-grid">
+      {occasions.map(([icon, title, text], index) => (
+        <article class="gift-occasion" data-reveal="up" style={`--delay:${index * 60}ms`}>
+          <div class="gift-occasion-icon" aria-hidden="true">{icon}</div>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
