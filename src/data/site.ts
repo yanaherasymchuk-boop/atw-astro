@@ -11,6 +11,8 @@ export const site = {
   bookingUrl:
     "https://book.squareup.com/appointments/2rs28l6kvlf0uz/location/LHBS0D4FBPRJ7/services",
 
+  giftCardUrl: "https://app.squareup.com/gift/MLYS6HB1AYAS0/order",
+
   quoteUrl: "/mobile-detailing-price-estimate/",
 
   galleryUrl: "https://gallery.atwdetailing.com/",
