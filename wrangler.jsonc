@@ -2,13 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "atw-astro",
   "compatibility_date": "2026-08-20",
-  "main": "./worker/index.js",
-  "secrets": {
-    "required": ["RESEND_API_KEY"]
-  },
   "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS",
-    "run_worker_first": ["/api/*"]
+    "directory": "./dist"
   }
 }
