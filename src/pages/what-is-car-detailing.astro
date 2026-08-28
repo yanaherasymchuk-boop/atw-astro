@@ -1,0 +1,1010 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/what-is-car-detailing.css";
+
+const title = "What Is Car Detailing? A Simple Guide for Car Owners";
+const description =
+  "A practical guide to car detailing: how it differs from a car wash, what interior and exterior detailing can include, and when paint correction is needed.";
+const canonical = `${site.url}/what-is-car-detailing/`;
+const ogImage = `${site.url}/media/blog/what-is-car-detailing/hero.webp`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": `${canonical}#article`,
+      headline: "What Is Car Detailing?",
+      description,
+      mainEntityOfPage: canonical,
+      image: ogImage,
+      inLanguage: "en-US",
+      author: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: site.url,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Blog",
+          item: `${site.url}/blog/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "What Is Car Detailing?",
+          item: canonical,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Vehicle detailing guide from ATW Detailing"
+>
+  <JsonLd slot="head" data={articleSchema} />
+
+<div class="atw-v4">
+
+  <div class="atw-wrap">
+    <nav class="atw-crumbs">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/blog/">Blog</a>
+      <span>/</span>
+      Car Care
+    </nav>
+  </div>
+
+  <!-- HERO -->
+
+  <section class="atw-hero">
+
+    <div class="atw-hero-bg"></div>
+
+    <div class="atw-wrap atw-hero-grid">
+
+      <div class="atw-hero-copy atw-reveal">
+
+        <div class="atw-pill">
+          <i class="atw-dot"></i>
+          Interactive Car Care Guide
+        </div>
+
+        <h1>
+          What Is
+          <span class="atw-gradient">Car Detailing?</span>
+        </h1>
+
+        <p>
+          Cleaning is only the beginning.
+          Explore the difference between washing,
+          detailing and working on the paint itself.
+        </p>
+
+        <div class="atw-meta">
+          <span>ATW Detailing</span>
+          <span>•</span>
+          <span>Quick Guide</span>
+          <span>•</span>
+          <span>Car Care</span>
+        </div>
+
+      </div>
+
+      <div class="atw-car-stage" id="atwCarStage">
+
+        <div class="atw-car-glow"></div>
+
+        <img
+          class="atw-car-img"
+          id="atwFloatingCar"
+          src="/media/blog/what-is-car-detailing/car-model.webp"
+          alt="Glossy vehicle used as an interactive car detailing illustration"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        >
+
+        <button
+          class="atw-hot atw-hot1"
+          data-title="Interior"
+          data-copy="Seats, carpets, trim and everyday interior buildup."
+          aria-label="Interior detailing"
+        ></button>
+
+        <button
+          class="atw-hot atw-hot2"
+          data-title="Exterior"
+          data-copy="Paint, wheels, glass and exterior contamination."
+          aria-label="Exterior detailing"
+        ></button>
+
+        <button
+          class="atw-hot atw-hot3"
+          data-title="Paint"
+          data-copy="Some defects need machine polishing rather than more washing."
+          aria-label="Paint correction"
+        ></button>
+
+        <div class="atw-hot-tip" id="atwHotTip">
+          <strong id="atwHotTitle">Explore the car</strong>
+          <span id="atwHotCopy">Tap a glowing point.</span>
+        </div>
+
+        <div class="atw-float-card atw-fl1">
+          <strong>Tap the car</strong>
+          See what each area needs
+        </div>
+
+        <div class="atw-float-card atw-fl2">
+          <strong>Wash ≠ Correction</strong>
+          Different problem. Different process.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MODE SWITCH -->
+
+  <section class="atw-mode-section">
+
+    <div class="atw-mid">
+
+      <div class="atw-switch-card atw-reveal">
+
+        <div class="atw-switch-nav">
+
+          <button
+            class="atw-mode-btn"
+            data-mode="wash"
+          >
+            <span>01</span>
+            Wash
+          </button>
+
+          <button
+            class="atw-mode-btn active"
+            data-mode="detail"
+          >
+            <span>02</span>
+            Detail
+          </button>
+
+          <button
+            class="atw-mode-btn"
+            data-mode="correction"
+          >
+            <span>03</span>
+            Correction
+          </button>
+
+        </div>
+
+        <div class="atw-switch-main">
+
+          <div class="atw-switch-copy">
+
+            <div
+              class="atw-switch-content"
+              data-content="wash"
+            >
+              <h2>Surface cleaning.</h2>
+              <p>
+                A wash primarily removes loose dirt and road film from the exterior.
+              </p>
+            </div>
+
+            <div
+              class="atw-switch-content active"
+              data-content="detail"
+            >
+              <h2>More than the visible dirt.</h2>
+              <p>
+                Detailing goes further into surfaces, materials,
+                contamination and neglected areas.
+              </p>
+            </div>
+
+            <div
+              class="atw-switch-content"
+              data-content="correction"
+            >
+              <h2>Now we’re working on the paint.</h2>
+              <p>
+                Suitable swirl marks and some scratches may require
+                machine polishing rather than additional cleaning.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="atw-switch-visual">
+
+            <img
+              class="atw-mode-media"
+              data-media="wash"
+              src="/media/blog/what-is-car-detailing/wash.webp"
+              alt="Car washing close-up"
+          loading="lazy"
+          decoding="async"
+            >
+
+            <img
+              class="atw-mode-media active"
+              data-media="detail"
+              src="/media/blog/what-is-car-detailing/detail.webp"
+            >
+
+            <img
+              class="atw-mode-media"
+              data-media="correction"
+              src="/media/blog/what-is-car-detailing/correction.webp"
+              alt="Car paint polishing"
+          loading="lazy"
+          decoding="async"
+            >
+
+            <div class="atw-mode-overlay"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- 3 THINGS -->
+
+  <section class="atw-section">
+
+    <div class="atw-wrap">
+
+      <div class="atw-heading atw-reveal">
+        <div class="atw-kicker">3 Things to Know</div>
+
+        <h2>
+          One word.
+          <span class="atw-gradient">
+            Very different jobs.
+          </span>
+        </h2>
+      </div>
+
+      <div class="atw-photo-tiles">
+
+        <article class="atw-photo-card atw-reveal">
+
+          <img
+            src="/media/blog/what-is-car-detailing/interior-macro.webp"
+            alt="Interior detailing close-up"
+          loading="lazy"
+          decoding="async"
+          >
+
+          <div class="atw-photo-copy">
+            <span class="atw-photo-num">01 / INSIDE</span>
+            <h3>Interior</h3>
+            <p>
+              Seats, carpets, trim and the things daily use leaves behind.
+            </p>
+          </div>
+
+        </article>
+
+        <article class="atw-photo-card atw-reveal">
+
+          <img
+            src="/media/blog/what-is-car-detailing/interior-audi.webp"
+            alt="Detailed vehicle interior"
+          loading="lazy"
+          decoding="async"
+          >
+
+          <div class="atw-photo-copy">
+            <span class="atw-photo-num">02 / DETAIL</span>
+            <h3>More than a wipe-down</h3>
+            <p>
+              Different materials need different care.
+            </p>
+          </div>
+
+        </article>
+
+        <article class="atw-photo-card atw-reveal">
+
+          <img
+            src="/media/blog/what-is-car-detailing/paint-gloss.webp"
+            alt="Car paint correction and polishing"
+          loading="lazy"
+          decoding="async"
+          >
+
+          <div class="atw-photo-copy">
+            <span class="atw-photo-num">03 / PAINT</span>
+            <h3>Correction</h3>
+            <p>
+              Some defects need polishing — not more washing.
+            </p>
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- BEFORE AFTER -->
+
+  <section class="atw-section alt">
+
+    <div class="atw-wrap atw-compare-wrap">
+
+      <div class="atw-compare-copy atw-reveal">
+
+        <div class="atw-kicker">
+          Drag to Compare
+        </div>
+
+        <h2>
+          Sometimes the difference
+          <span class="atw-gradient">
+            is easier to see.
+          </span>
+        </h2>
+
+        <p>
+          Drag the slider across the image.
+        </p>
+
+      </div>
+
+      <div class="atw-ba atw-reveal" id="atwBA">
+
+        <img
+          src="/media/blog/what-is-car-detailing/bmw-before.webp"
+          alt="BMW before detailing"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <img
+          class="atw-ba-after"
+          id="atwBAAfter"
+          src="/media/blog/what-is-car-detailing/bmw-after.webp"
+          alt="BMW after detailing"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <div class="atw-ba-line" id="atwBALine"></div>
+
+        <div class="atw-ba-handle" id="atwBAHandle">
+          ↔
+        </div>
+
+        <span class="atw-ba-label atw-before-label">
+          Before
+        </span>
+
+        <span class="atw-ba-label atw-after-label">
+          After
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CAN IT BE FIXED -->
+
+  <section class="atw-section">
+
+    <div class="atw-wrap">
+
+      <div class="atw-heading atw-reveal">
+
+        <div class="atw-kicker">
+          Can It Be Fixed?
+        </div>
+
+        <h2>
+          Pick the problem.
+        </h2>
+
+        <p>
+          The answer is not always “clean harder.”
+        </p>
+
+      </div>
+
+      <div class="atw-fix-layout">
+
+        <div class="atw-problem-list atw-reveal">
+
+          <button
+            class="atw-problem active"
+            data-status="Usually"
+            data-title="Surface dirt"
+            data-answer="Regular exterior cleaning is generally the right starting point."
+            data-image="/media/blog/what-is-car-detailing/surface-dirt.webp"
+          >
+            Surface dirt
+          </button>
+
+          <button
+            class="atw-problem"
+            data-status="Often"
+            data-title="Light swirl marks"
+            data-answer="Suitable swirl marks can often be improved with machine polishing."
+            data-image="/media/blog/what-is-car-detailing/swirls.webp"
+          >
+            Light swirl marks
+          </button>
+
+          <button
+            class="atw-problem"
+            data-status="Depends"
+            data-title="Deep scratches"
+            data-answer="Depth matters. Some scratches extend beyond what should safely be polished away."
+            data-image="/media/blog/what-is-car-detailing/deep-scratches.webp"
+          >
+            Deep scratches
+          </button>
+
+          <button
+            class="atw-problem"
+            data-status="Depends"
+            data-title="Water spots"
+            data-answer="Some deposits clean away. Others may require additional treatment depending on severity."
+            data-image="/media/blog/what-is-car-detailing/water-spots.webp"
+          >
+            Water spots
+          </button>
+
+        </div>
+
+        <div class="atw-fix-result atw-reveal">
+
+          <img
+            class="atw-fix-bg"
+            id="atwFixImage"
+            src="/media/blog/what-is-car-detailing/surface-dirt.webp"
+            alt=""
+          loading="lazy"
+          decoding="async"
+          >
+
+          <div class="atw-fix-shade"></div>
+
+          <div class="atw-fix-copy">
+
+            <span
+              class="atw-status"
+              id="atwFixStatus"
+            >
+              Usually
+            </span>
+
+            <h3 id="atwFixTitle">
+              Surface dirt
+            </h3>
+
+            <p id="atwFixText">
+              Regular exterior cleaning is generally the right starting point.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MYTH FACT -->
+
+  <section class="atw-section alt">
+
+    <div class="atw-mid">
+
+      <div class="atw-heading atw-reveal">
+
+        <div class="atw-kicker">
+          Myth vs Fact
+        </div>
+
+        <h2>
+          Does a detail
+          <span class="atw-gradient">
+            fix everything?
+          </span>
+        </h2>
+
+      </div>
+
+      <div class="atw-mf atw-reveal">
+
+        <div class="atw-mf-side atw-mf-myth">
+
+          <span class="atw-mf-tag">
+            Myth
+          </span>
+
+          <h3>
+            Every scratch and stain should disappear.
+          </h3>
+
+        </div>
+
+        <div class="atw-mf-side atw-mf-fact">
+
+          <span class="atw-mf-tag">
+            Fact
+          </span>
+
+          <div
+            class="atw-hidden-fact"
+            id="atwFact"
+          >
+            <h3>
+              Material, depth, age and condition matter.
+            </h3>
+
+            <p>
+              Some defects can be removed.
+              Others can only be improved.
+            </p>
+          </div>
+
+          <button
+            class="atw-fact-btn"
+            id="atwFactButton"
+          >
+            Reveal the fact →
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DO DON'T -->
+
+  <section class="atw-section">
+
+    <div class="atw-wrap">
+
+      <div class="atw-heading atw-reveal">
+
+        <div class="atw-kicker">
+          Do / Don’t
+        </div>
+
+        <h2>
+          Cleaner doesn’t mean
+          <span class="atw-gradient">
+            more aggressive.
+          </span>
+        </h2>
+
+      </div>
+
+      <div class="atw-care-grid">
+
+        <div class="atw-care-video atw-reveal">
+
+          <video
+            muted
+            preload="metadata"
+            autoplay
+            loop
+            playsinline
+          >
+            <source
+              src="/media/blog/what-is-car-detailing/washing.mp4"
+              type="video/mp4"
+            >
+          </video>
+
+          <div class="atw-care-badge">
+            <span class="atw-pill">
+              Proper technique matters
+            </span>
+          </div>
+
+        </div>
+
+        <div class="atw-care-list atw-reveal">
+
+          <div class="atw-care-item do">
+            <strong>DO · Use clean microfiber</strong>
+            Dirty tools can put contamination straight back onto the surface.
+          </div>
+
+          <div class="atw-care-item do">
+            <strong>DO · Match the product to the surface</strong>
+            Paint, screens, trim and upholstery are not the same material.
+          </div>
+
+          <div class="atw-care-item dont">
+            <strong>DON’T · Scrub stubborn contamination dry</strong>
+            More friction can create another problem.
+          </div>
+
+          <div class="atw-care-item dont">
+            <strong>DON’T · Assume polishing fixes every scratch</strong>
+            Deep defects can exceed what should safely be corrected.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="atw-cta">
+
+    <div class="atw-wrap atw-reveal">
+
+      <div class="atw-pill">
+        ATW Detailing
+      </div>
+
+      <h2>
+        Not sure what your vehicle
+        <span class="atw-gradient">
+          actually needs?
+        </span>
+      </h2>
+
+      <p>
+        Choose the service that matches the problem —
+        or start with a price estimate.
+      </p>
+
+      <div class="atw-buttons">
+
+        <a
+          class="atw-btn primary"
+          href={site.bookingUrl}
+        >
+          Book Online
+        </a>
+
+        <a
+          class="atw-btn secondary"
+          href={site.quoteUrl}
+        >
+          Get a Price Estimate
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* HOTSPOTS */
+
+  const hotspots = document.querySelectorAll(".atw-hot");
+  const hotTip = document.getElementById("atwHotTip");
+  const hotTitle = document.getElementById("atwHotTitle");
+  const hotCopy = document.getElementById("atwHotCopy");
+
+  hotspots.forEach(function (item) {
+
+    item.addEventListener("click", function () {
+
+      hotspots.forEach(function (x) {
+        x.classList.remove("active");
+      });
+
+      item.classList.add("active");
+
+      hotTitle.textContent = item.dataset.title;
+      hotCopy.textContent = item.dataset.copy;
+
+      hotTip.classList.add("show");
+    });
+
+  });
+
+  /* CAR MOUSE MOVEMENT */
+
+  const carStage = document.getElementById("atwCarStage");
+  const floatingCar = document.getElementById("atwFloatingCar");
+
+  if (
+    carStage &&
+    floatingCar &&
+    window.matchMedia("(pointer:fine)").matches
+  ) {
+
+    carStage.addEventListener("mousemove", function (e) {
+
+      const rect = carStage.getBoundingClientRect();
+
+      const x =
+        (e.clientX - rect.left) / rect.width - .5;
+
+      const y =
+        (e.clientY - rect.top) / rect.height - .5;
+
+      floatingCar.style.marginLeft =
+        (x * 10) + "px";
+
+      floatingCar.style.marginTop =
+        (y * 7) + "px";
+    });
+
+    carStage.addEventListener("mouseleave", function () {
+      floatingCar.style.marginLeft = "0px";
+      floatingCar.style.marginTop = "0px";
+    });
+
+  }
+
+  /* MODE SWITCH */
+
+  const modeButtons =
+    document.querySelectorAll(".atw-mode-btn");
+
+  const modeContents =
+    document.querySelectorAll(".atw-switch-content");
+
+  const modeMedia =
+    document.querySelectorAll(".atw-mode-media");
+
+  modeButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+      const mode = button.dataset.mode;
+
+      modeButtons.forEach(function (x) {
+        x.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      modeContents.forEach(function (content) {
+        content.classList.toggle(
+          "active",
+          content.dataset.content === mode
+        );
+      });
+
+      modeMedia.forEach(function (media) {
+        media.classList.toggle(
+          "active",
+          media.dataset.media === mode
+        );
+      });
+    });
+
+  });
+
+  /* BEFORE AFTER */
+
+  const ba = document.getElementById("atwBA");
+  const baAfter = document.getElementById("atwBAAfter");
+  const baLine = document.getElementById("atwBALine");
+  const baHandle = document.getElementById("atwBAHandle");
+
+  if (ba && baAfter && baLine && baHandle) {
+
+    let dragging = false;
+
+    function setPosition(clientX) {
+
+      const rect = ba.getBoundingClientRect();
+
+      let percent =
+        ((clientX - rect.left) / rect.width) * 100;
+
+      percent =
+        Math.max(3, Math.min(97, percent));
+
+      baAfter.style.clipPath =
+        "inset(0 0 0 " + percent + "%)";
+
+      baLine.style.left =
+        percent + "%";
+
+      baHandle.style.left =
+        percent + "%";
+    }
+
+    ba.addEventListener("pointerdown", function (e) {
+      dragging = true;
+      ba.setPointerCapture(e.pointerId);
+      setPosition(e.clientX);
+    });
+
+    ba.addEventListener("pointermove", function (e) {
+      if (dragging) {
+        setPosition(e.clientX);
+      }
+    });
+
+    ba.addEventListener("pointerup", function () {
+      dragging = false;
+    });
+
+    ba.addEventListener("pointercancel", function () {
+      dragging = false;
+    });
+  }
+
+  /* CAN IT BE FIXED */
+
+  const problems =
+    document.querySelectorAll(".atw-problem");
+
+  const fixStatus =
+    document.getElementById("atwFixStatus");
+
+  const fixTitle =
+    document.getElementById("atwFixTitle");
+
+  const fixText =
+    document.getElementById("atwFixText");
+
+  const fixImage =
+    document.getElementById("atwFixImage");
+
+  problems.forEach(function (problem) {
+
+    problem.addEventListener("click", function () {
+
+      problems.forEach(function (x) {
+        x.classList.remove("active");
+      });
+
+      problem.classList.add("active");
+
+      fixStatus.textContent =
+        problem.dataset.status;
+
+      fixTitle.textContent =
+        problem.dataset.title;
+
+      fixText.textContent =
+        problem.dataset.answer;
+
+      fixImage.style.opacity = "0";
+
+      setTimeout(function () {
+
+        fixImage.src =
+          problem.dataset.image;
+
+        fixImage.onload = function () {
+          fixImage.style.opacity = "1";
+        };
+
+      }, 140);
+    });
+
+  });
+
+  /* MYTH FACT */
+
+  const factButton =
+    document.getElementById("atwFactButton");
+
+  const fact =
+    document.getElementById("atwFact");
+
+  if (factButton && fact) {
+
+    factButton.addEventListener("click", function () {
+
+      fact.classList.toggle("show");
+
+      factButton.textContent =
+        fact.classList.contains("show")
+        ? "Hide fact ↑"
+        : "Reveal the fact →";
+    });
+  }
+
+  /* SCROLL REVEAL */
+
+  const revealItems =
+    document.querySelectorAll(".atw-reveal");
+
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+  if (
+    reducedMotion ||
+    !("IntersectionObserver" in window)
+  ) {
+
+    revealItems.forEach(function (item) {
+      item.classList.add("visible");
+    });
+
+  } else {
+
+    const observer =
+      new IntersectionObserver(
+        function (entries) {
+
+          entries.forEach(function (entry) {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+
+          });
+
+        },
+        {
+          threshold:.10,
+          rootMargin:"0px 0px -35px 0px"
+        }
+      );
+
+    revealItems.forEach(function (item) {
+      observer.observe(item);
+    });
+  }
+
+});
+</script>
+</BaseLayout>
