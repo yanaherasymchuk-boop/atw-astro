@@ -1,0 +1,2586 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/blog.css";
+
+const title = "Car Detailing Blog | Paint Care, Interior Tips & PNW Guides";
+const description =
+  "Practical car detailing guides about paint care, ceramic coating, interiors, odors, washing and Pacific Northwest driving conditions.";
+const canonical = `${site.url}/blog/`;
+const ogImage = `${site.url}/media/blog/gloss-reflection.webp`;
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": `${canonical}#blog`,
+  url: canonical,
+  name: "ATW Detailing Journal",
+  description,
+  inLanguage: "en-US",
+  publisher: {
+    "@type": "Organization",
+    name: site.name,
+    url: site.url,
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Glossy vehicle paint featured in the ATW Detailing Journal"
+>
+  <JsonLd slot="head" data={blogSchema} />
+<div class="atw-blog-hub">
+
+  <canvas id="atwbDropletCanvas"></canvas>
+
+  <div class="atwb-bg-glow"></div>
+
+
+  <!-- HERO -->
+
+  <section class="atwb-hero">
+
+    <div class="atwb-wrap atwb-hero-grid">
+
+
+      <div class="atwb-hero-copy atwb-reveal">
+
+        <div class="atwb-eyebrow">
+
+          <span class="atwb-pill">
+
+            <i class="atwb-pill-dot"></i>
+
+            ATW Detailing Journal
+
+          </span>
+
+        </div>
+
+
+        <h1>
+
+          Car care,
+
+          <span class="atwb-gradient">
+            without the guesswork.
+          </span>
+
+        </h1>
+
+
+        <p>
+
+          Practical answers about detailing,
+          paint care, interior problems
+          and what Pacific Northwest driving
+          really does to your vehicle.
+
+        </p>
+
+      </div>
+
+
+      <div class="atwb-orbit">
+
+        <div class="atwb-orbit-ring"></div>
+
+
+        <div class="atwb-orbit-core">
+
+          <strong>
+            Learn.<br>
+            Protect.<br>
+            Drive.
+          </strong>
+
+          <span>
+            ATW Car Care Journal
+          </span>
+
+        </div>
+
+
+        <div class="atwb-float-topic atwb-topic-1">
+
+          <small>Paint</small>
+
+          Scratches & Swirls
+
+        </div>
+
+
+        <div class="atwb-float-topic atwb-topic-2">
+
+          <small>Protection</small>
+
+          Ceramic Coating
+
+        </div>
+
+
+        <div class="atwb-float-topic atwb-topic-3">
+
+          <small>PNW</small>
+
+          Rain · Roads · Winter
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="atwb-scroll-cue">
+
+      Explore
+
+      <div class="atwb-scroll-line"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORIES -->
+
+  <section class="atwb-category-section">
+
+    <div class="atwb-wrap">
+
+
+      <div class="atwb-heading atwb-reveal">
+
+        <div class="atwb-kicker">
+          Explore the Journal
+        </div>
+
+
+        <h2>
+
+          Start with
+
+          <span class="atwb-gradient">
+            what matters to you.
+          </span>
+
+        </h2>
+
+
+        <p>
+
+          Hover over a category and watch the background respond.
+
+          Click one to jump straight to matching guides.
+
+        </p>
+
+      </div>
+
+
+      <div class="atwb-category-grid">
+
+
+        <article
+          class="atwb-category atwb-reveal"
+          data-shape="drop"
+          data-filter-target="car-care"
+        >
+
+          <div class="atwb-cat-number">
+            01 / EVERYDAY CARE
+          </div>
+
+
+          <div class="atwb-cat-icon">
+            ◌
+          </div>
+
+
+          <h3>
+            Car Care
+          </h3>
+
+
+          <p>
+
+            Washing, interiors, stains, odors,
+            maintenance and the everyday choices
+            that affect your vehicle.
+
+          </p>
+
+
+          <div class="atwb-cat-action">
+
+            Explore guides
+
+            <span>→</span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="atwb-category atwb-reveal"
+          data-shape="shield"
+          data-filter-target="paint"
+        >
+
+          <div class="atwb-cat-number">
+            02 / PAINT
+          </div>
+
+
+          <div class="atwb-cat-icon">
+            ◈
+          </div>
+
+
+          <h3>
+            Paint & Protection
+          </h3>
+
+
+          <p>
+
+            Polishing, paint correction,
+            ceramic coatings, scratches,
+            swirl marks and surface protection.
+
+          </p>
+
+
+          <div class="atwb-cat-action">
+
+            Explore guides
+
+            <span>→</span>
+
+          </div>
+
+        </article>
+
+
+        <article
+          class="atwb-category atwb-reveal"
+          data-shape="mountain"
+          data-filter-target="pnw"
+        >
+
+          <div class="atwb-cat-number">
+            03 / LOCAL
+          </div>
+
+
+          <div class="atwb-cat-icon">
+            ≋
+          </div>
+
+
+          <h3>
+            Mobile & PNW
+          </h3>
+
+
+          <p>
+
+            Mobile detailing,
+            Washington weather,
+            road treatment,
+            rain and other local realities.
+
+          </p>
+
+
+          <div class="atwb-cat-action">
+
+            Explore guides
+
+            <span>→</span>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GUIDES -->
+
+  <section
+    class="atwb-guides"
+    id="atwbGuides"
+  >
+
+    <div class="atwb-wrap">
+
+
+      <div class="atwb-heading atwb-reveal">
+
+        <div class="atwb-kicker">
+          Latest Guides
+        </div>
+
+
+        <h2>
+
+          Useful answers.
+
+          <span class="atwb-gradient">
+            No filler.
+          </span>
+
+        </h2>
+
+
+        <p>
+
+          New articles are added as we build out the journal.
+
+        </p>
+
+      </div>
+
+
+      <div class="atwb-filter-wrap">
+
+        <div class="atwb-filter-bar">
+
+          <button
+            class="atwb-filter active"
+            data-filter="all"
+          >
+            All
+          </button>
+
+
+          <button
+            class="atwb-filter"
+            data-filter="car-care"
+          >
+            Car Care
+          </button>
+
+
+          <button
+            class="atwb-filter"
+            data-filter="paint"
+          >
+            Paint & Protection
+          </button>
+
+
+          <button
+            class="atwb-filter"
+            data-filter="pnw"
+          >
+            Mobile & PNW
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="atwb-article-grid">
+
+
+        <!-- POST 1 -->
+
+        <a
+          class="atwb-article atwb-reveal"
+          data-category="paint"
+          href="/can-polishing-remove-scratches/"
+        >
+
+          <div class="atwb-article-media">
+
+            <img
+              src="/media/blog/gloss-reflection.webp"
+              alt="Glossy vehicle paint after polishing"
+              loading="lazy" decoding="async"
+            >
+
+
+            <span class="atwb-card-cat">
+              Paint & Protection
+            </span>
+
+
+            <span class="atwb-card-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb-card-copy">
+
+            <h3>
+              Can Polishing Remove Scratches?
+            </h3>
+
+
+            <p>
+
+              See what polishing can improve,
+              what may remain visible,
+              and when paint repair is the better answer.
+
+            </p>
+
+
+            <span class="atwb-card-read">
+              Read the guide →
+            </span>
+
+          </div>
+
+        </a>
+
+
+        <!-- POST 2 -->
+
+        <a
+          class="atwb-article atwb-reveal"
+          data-category="paint"
+          href="/does-ceramic-coating-protect-against-scratches/"
+        >
+
+          <div class="atwb-article-media">
+
+            <img
+              src="/media/blog/ceramic-drops.webp"
+              alt="Water beading reference for ceramic coating guide"
+              loading="lazy" decoding="async"
+            >
+
+
+            <span class="atwb-card-cat">
+              Paint & Protection
+            </span>
+
+
+            <span class="atwb-card-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb-card-copy">
+
+            <h3>
+              Does Ceramic Coating Protect Against Scratches?
+            </h3>
+
+
+            <p>
+              See what ceramic coating actually helps with,
+              what it cannot stop,
+              and what realistic protection looks like.
+            </p>
+
+
+            <span class="atwb-card-read">
+              Read the guide →
+            </span>
+
+          </div>
+
+        </a>
+
+
+        <!-- POST 3 -->
+
+        <a
+          class="atwb-article atwb-reveal"
+          data-category="car-care"
+          href="/what-is-car-detailing/"
+        >
+
+          <div class="atwb-article-media">
+
+            <img
+              src="/media/blog/detailing-foam.webp"
+              alt="Foam exterior close-up during vehicle detailing"
+              loading="lazy" decoding="async"
+            >
+
+
+            <span class="atwb-card-cat">
+              Car Care
+            </span>
+
+
+            <span class="atwb-card-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb-card-copy">
+
+            <h3>
+              What Is Car Detailing?
+            </h3>
+
+
+            <p>
+
+              A practical look at what detailing actually means,
+              what it can include,
+              and how it differs from a basic car wash.
+
+            </p>
+
+
+            <span class="atwb-card-read">
+              Read the guide →
+            </span>
+
+          </div>
+
+        </a>
+
+
+        <!-- POST 4 -->
+
+        <a
+          class="atwb-article atwb-reveal"
+          data-category="pnw"
+          href="/does-washington-use-road-salt/"
+        >
+
+          <div class="atwb-article-media">
+
+            <img
+              src="/media/blog/washington-road-salt.webp"
+              alt="Winter road treatment vehicle on a snowy Washington road"
+              loading="lazy" decoding="async"
+            >
+
+
+            <span class="atwb-card-cat">
+              Mobile & PNW
+            </span>
+
+
+            <span class="atwb-card-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb-card-copy">
+
+            <h3>
+              Does Washington Use Road Salt?
+            </h3>
+
+
+            <p>
+              What Pierce County drivers should know about road salt,
+              brine, chloride-based winter treatments
+              and the residue that can end up on a vehicle.
+            </p>
+
+
+            <span class="atwb-card-read">
+              Read the guide →
+            </span>
+
+          </div>
+
+        </a>
+
+
+        <!-- POST 5 -->
+
+        <a
+          class="atwb-article atwb-reveal"
+          data-category="car-care"
+          href="/why-car-odors-come-back-after-cleaning/"
+        >
+
+          <div class="atwb-article-media">
+
+            <img
+              src="/media/blog/car-odors.webp"
+              alt="Car interior odor guide cover"
+              loading="lazy" decoding="async"
+            >
+
+
+            <span class="atwb-card-cat">
+              Car Care
+            </span>
+
+
+            <span class="atwb-card-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb-card-copy">
+
+            <h3>
+              Why Car Odors Come Back After Interior Cleaning
+            </h3>
+
+
+            <p>
+              Why a car can smell clean at first,
+              then develop the same odor again —
+              and where the real source may still be hiding.
+            </p>
+
+
+            <span class="atwb-card-read">
+              Read the guide →
+            </span>
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+
+      <div
+        class="atwb-empty"
+        id="atwbEmpty"
+      >
+
+        <div>
+
+          <strong>
+            More PNW guides are on the way.
+          </strong>
+
+          <span>
+            We’re building this section around real Washington driving conditions.
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <section class="atwb-note">
+
+    <div class="atwb-wrap">
+
+
+      <div class="atwb-note-card atwb-reveal">
+
+
+        <div>
+
+          <div class="atwb-kicker">
+            Need the service instead?
+          </div>
+
+
+          <h2>
+
+            Learn first.
+
+            <span class="atwb-gradient">
+              Book when you’re ready.
+            </span>
+
+          </h2>
+
+
+          <p>
+
+            The journal explains the problems.
+
+            Our service pages show what ATW can actually do for your vehicle.
+
+          </p>
+
+        </div>
+
+
+        <div class="atwb-note-links">
+
+
+          <a
+            class="atwb-note-link"
+            href="/services/"
+          >
+            Services
+          </a>
+
+
+          <a
+            class="atwb-note-link"
+            href="/service-areas/"
+          >
+            Service Areas
+          </a>
+
+
+          <a
+            class="atwb-note-link"
+            href="/contact-us/"
+          >
+            Contact
+          </a>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+<script>
+(function(){
+
+function initATWBlog(){
+
+  const hub = document.querySelector(".atw-blog-hub");
+  if(!hub) return;
+
+  const canvas = document.getElementById("atwbDropletCanvas");
+
+  let setShapeGlobal = function(){};
+  let releaseShapeGlobal = function(){};
+
+  /* =======================================================
+     CANVAS — WATER + FOAM
+  ======================================================= */
+
+  if(canvas){
+
+    const ctx = canvas.getContext("2d");
+
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+
+    let particles = [];
+    let activeShape = null;
+    let shapeTargets = [];
+
+    let dispersing = false;
+    let disperseTargets = [];
+
+    const mouse = {
+      x:-9999,
+      y:-9999
+    };
+
+
+    /* -------------------------------------------------------
+       CANVAS SIZE
+    ------------------------------------------------------- */
+
+    function updateCanvasSize(rebuildParticles){
+
+      const rect = hub.getBoundingClientRect();
+
+      const newWidth = rect.width;
+      const categorySection = hub.querySelector(".atwb-category-section");
+      const hubRectForCanvas = hub.getBoundingClientRect();
+      const categoryRectForCanvas = categorySection
+        ? categorySection.getBoundingClientRect()
+        : null;
+
+      const effectsHeight = categoryRectForCanvas
+        ? Math.max(
+            window.innerHeight,
+            categoryRectForCanvas.bottom - hubRectForCanvas.top + 80
+          )
+        : Math.max(window.innerHeight, 1500);
+
+      const newHeight = effectsHeight;
+
+      const oldWidth = width || newWidth;
+      const oldHeight = height || newHeight;
+
+      width = newWidth;
+      height = newHeight;
+
+      dpr = Math.min(
+        window.devicePixelRatio || 1,
+        1.5
+      );
+
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+
+      ctx.setTransform(
+        dpr,0,0,dpr,0,0
+      );
+
+      if(
+        rebuildParticles ||
+        particles.length === 0
+      ){
+        buildParticles();
+      }
+      else{
+
+        /* preserve positions when filtering changes page height */
+
+        const scaleX = width / oldWidth;
+        const scaleY = height / oldHeight;
+
+        particles.forEach(function(p){
+
+          p.x *= scaleX;
+          p.y *= scaleY;
+
+        });
+
+      }
+
+    }
+
+
+    /* -------------------------------------------------------
+       PARTICLE
+    ------------------------------------------------------- */
+
+    class Droplet{
+
+      constructor(index){
+
+        this.index = index;
+        this.reset(true);
+
+      }
+
+
+      reset(initial){
+
+        this.foam = Math.random() > .64;
+
+        /*
+          foam = smaller
+          water drops = larger
+        */
+
+        if(this.foam){
+
+          this.size =
+            Math.random() * 2.2 + 1.2;
+
+        }
+        else{
+
+          this.size =
+            Math.random() * 4.6 + 1.5;
+
+        }
+
+
+        /*
+          Guarantee good distribution,
+          including hero.
+        */
+
+        if(initial && this.index < 42){
+
+          this.y =
+            Math.random() *
+            Math.min(760,height);
+
+        }
+        else{
+
+          this.y =
+            Math.random() *
+            height;
+
+        }
+
+        this.x =
+          Math.random() *
+          width;
+
+
+        this.speedX =
+          (Math.random() - .5) *
+          .13;
+
+
+        this.speedY =
+          -(Math.random() * .13 + .02);
+
+
+        this.opacity =
+          this.foam
+          ?
+          Math.random() * .35 + .25
+          :
+          Math.random() * .34 + .16;
+
+
+        this.phase =
+          Math.random() *
+          Math.PI *
+          2;
+
+
+        this.foamSeed =
+          Math.random() *
+          100;
+
+      }
+
+
+      update(time){
+
+        /* SHAPE MORPH */
+
+        if(
+          activeShape &&
+          shapeTargets[this.index]
+        ){
+
+          const target =
+            shapeTargets[this.index];
+
+          this.x +=
+            (target.x - this.x) *
+            .065;
+
+          this.y +=
+            (target.y - this.y) *
+            .065;
+
+        }
+
+        /* REDISTRIBUTE AFTER SHAPE */
+
+        else if(
+          dispersing &&
+          disperseTargets[this.index]
+        ){
+
+          const target =
+            disperseTargets[this.index];
+
+          this.x +=
+            (target.x - this.x) *
+            .035;
+
+          this.y +=
+            (target.y - this.y) *
+            .035;
+
+        }
+
+        /* NORMAL FREE MOTION */
+
+        else{
+
+          this.x +=
+            this.speedX +
+            Math.sin(
+              time * .00048 +
+              this.phase
+            ) * .08;
+
+
+          this.y +=
+            this.speedY;
+
+
+          /*
+            When a particle leaves the top,
+            re-enter it at a RANDOM vertical region
+            instead of only the very bottom.
+
+            This keeps hero populated.
+          */
+
+          if(this.y < -35){
+
+            if(Math.random() < .32){
+
+              this.y =
+                Math.random() *
+                Math.min(700,height);
+
+            }
+            else{
+
+              this.y =
+                Math.random() *
+                height;
+
+            }
+
+            this.x =
+              Math.random() *
+              width;
+
+          }
+
+
+          if(this.x < -35){
+
+            this.x =
+              width + 25;
+
+          }
+
+
+          if(this.x > width + 35){
+
+            this.x =
+              -25;
+
+          }
+
+        }
+
+
+        /* CURSOR REPULSION */
+
+        const dx =
+          mouse.x -
+          this.x;
+
+        const dy =
+          mouse.y -
+          this.y;
+
+        const dist =
+          Math.sqrt(
+            dx*dx +
+            dy*dy
+          );
+
+
+        if(
+          dist < 135 &&
+          dist > 1
+        ){
+
+          const force =
+            (135 - dist) /
+            135;
+
+          this.x -=
+            (dx / dist) *
+            force *
+            2.2;
+
+          this.y -=
+            (dy / dist) *
+            force *
+            2.2;
+
+        }
+
+      }
+
+
+      /* -----------------------------------------------------
+         WATER DROP
+      ----------------------------------------------------- */
+
+      drawWater(){
+
+        const radius =
+          this.size * 2.35;
+
+
+        const grad =
+          ctx.createRadialGradient(
+
+            this.x - radius * .30,
+            this.y - radius * .34,
+            0,
+
+            this.x,
+            this.y,
+
+            radius
+
+          );
+
+
+        grad.addColorStop(
+          0,
+          "rgba(255,255,255,.98)"
+        );
+
+        grad.addColorStop(
+          .18,
+          "rgba(190,242,255,.72)"
+        );
+
+        grad.addColorStop(
+          .46,
+          "rgba(92,196,255,.37)"
+        );
+
+        grad.addColorStop(
+          .72,
+          "rgba(71,105,255,.18)"
+        );
+
+        grad.addColorStop(
+          1,
+          "rgba(153,86,255,.025)"
+        );
+
+
+        ctx.fillStyle = grad;
+
+        ctx.beginPath();
+
+        ctx.arc(
+          this.x,
+          this.y,
+          radius,
+          0,
+          Math.PI * 2
+        );
+
+        ctx.fill();
+
+
+        /* GLASS EDGE */
+
+        ctx.strokeStyle =
+          "rgba(185,238,255,.20)";
+
+        ctx.lineWidth = .7;
+
+        ctx.stroke();
+
+
+        /* SPECULAR DOT */
+
+        if(this.size > 2.6){
+
+          ctx.globalAlpha =
+            this.opacity * .9;
+
+          ctx.fillStyle =
+            "rgba(255,255,255,.92)";
+
+          ctx.beginPath();
+
+          ctx.arc(
+            this.x - radius * .28,
+            this.y - radius * .30,
+            Math.max(1.1,radius * .11),
+            0,
+            Math.PI * 2
+          );
+
+          ctx.fill();
+
+        }
+
+      }
+
+
+      /* -----------------------------------------------------
+         FOAM CLUSTER
+      ----------------------------------------------------- */
+
+      drawFoam(){
+
+        /*
+          One foam particle renders as several connected
+          bubbles so it actually reads as FOAM.
+        */
+
+        const base =
+          this.size;
+
+
+        const bubbles = [
+
+          {
+            x:0,
+            y:0,
+            r:base * 1.75
+          },
+
+          {
+            x:base * 1.45,
+            y:base * .22,
+            r:base * 1.18
+          },
+
+          {
+            x:-base * 1.20,
+            y:base * .45,
+            r:base * .95
+          },
+
+          {
+            x:base * .30,
+            y:-base * 1.18,
+            r:base * .82
+          }
+
+        ];
+
+
+        bubbles.forEach(
+          function(bubble,index){
+
+            const bx =
+              this.x +
+              bubble.x;
+
+            const by =
+              this.y +
+              bubble.y;
+
+            const br =
+              bubble.r;
+
+
+            const grad =
+              ctx.createRadialGradient(
+
+                bx - br * .32,
+                by - br * .34,
+                0,
+
+                bx,
+                by,
+                br
+
+              );
+
+
+            grad.addColorStop(
+              0,
+              "rgba(255,255,255,1)"
+            );
+
+            grad.addColorStop(
+              .24,
+              "rgba(239,252,255,.88)"
+            );
+
+            grad.addColorStop(
+              .60,
+              "rgba(173,232,255,.36)"
+            );
+
+            grad.addColorStop(
+              1,
+              "rgba(56,232,255,.055)"
+            );
+
+
+            ctx.fillStyle =
+              grad;
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+              bx,
+              by,
+              br,
+              0,
+              Math.PI * 2
+            );
+
+            ctx.fill();
+
+
+            ctx.strokeStyle =
+              index === 0
+              ?
+              "rgba(255,255,255,.43)"
+              :
+              "rgba(220,248,255,.32)";
+
+            ctx.lineWidth =
+              .65;
+
+            ctx.stroke();
+
+          },
+          this
+        );
+
+      }
+
+
+      draw(){
+
+        ctx.save();
+
+        ctx.globalAlpha =
+          this.opacity;
+
+
+        if(this.foam){
+
+          this.drawFoam();
+
+        }
+        else{
+
+          this.drawWater();
+
+        }
+
+
+        ctx.restore();
+
+      }
+
+    }
+
+
+    /* -------------------------------------------------------
+       BUILD PARTICLES
+    ------------------------------------------------------- */
+
+    function buildParticles(){
+
+      const mobile =
+        window.innerWidth < 700;
+
+
+      /*
+        More particles than before.
+        Foam is roughly a third of them.
+      */
+
+      const count =
+        mobile
+        ?
+        64
+        :
+        150;
+
+
+      particles = [];
+
+
+      for(
+        let i=0;
+        i<count;
+        i++
+      ){
+
+        particles.push(
+          new Droplet(i)
+        );
+
+      }
+
+    }
+
+
+    /* =======================================================
+       SHAPES
+    ======================================================= */
+
+    function shapeCenter(){
+
+      const section =
+        hub.querySelector(
+          ".atwb-category-section"
+        );
+
+
+      const sectionRect =
+        section.getBoundingClientRect();
+
+
+      const hubRect =
+        hub.getBoundingClientRect();
+
+
+      return {
+
+        x:
+          width * .5,
+
+        y:
+          sectionRect.top -
+          hubRect.top +
+          Math.min(
+            420,
+            sectionRect.height * .52
+          )
+
+      };
+
+    }
+
+
+    /* DROP */
+
+    function createDropShape(){
+
+      const c =
+        shapeCenter();
+
+      const points = [];
+
+      const scale =
+        window.innerWidth < 700
+        ?
+        92
+        :
+        150;
+
+
+      particles.forEach(
+        function(particle,i){
+
+          const t =
+            (i / particles.length) *
+            Math.PI *
+            2;
+
+
+          /*
+            pointed upper section +
+            round lower section
+          */
+
+          const sin =
+            Math.sin(t);
+
+          const cos =
+            Math.cos(t);
+
+
+          let x =
+            sin *
+            scale *
+            .70;
+
+
+          let y =
+            -cos *
+            scale;
+
+
+          if(cos < 0){
+
+            x *= 1.04;
+
+          }
+          else{
+
+            x *=
+              .72 +
+              (1-cos) * .28;
+
+          }
+
+
+          x +=
+            (Math.random()-.5) *
+            12;
+
+          y +=
+            (Math.random()-.5) *
+            12;
+
+
+          points.push({
+
+            x:c.x+x,
+            y:c.y+y
+
+          });
+
+        }
+      );
+
+
+      return points;
+
+    }
+
+
+    /* SHIELD */
+
+    function createShieldShape(){
+
+      const c =
+        shapeCenter();
+
+      const points = [];
+
+      const scale =
+        window.innerWidth < 700
+        ?
+        96
+        :
+        152;
+
+
+      particles.forEach(
+        function(particle,i){
+
+          const t =
+            i /
+            particles.length;
+
+
+          let x;
+          let y;
+
+
+          if(t < .25){
+
+            const p =
+              t / .25;
+
+            x =
+              -scale +
+              p * scale * 2;
+
+            y =
+              -scale;
+
+          }
+
+          else if(t < .55){
+
+            const p =
+              (t-.25)/.30;
+
+            x =
+              scale *
+              (1-p*.45);
+
+            y =
+              -scale +
+              p*scale*1.55;
+
+          }
+
+          else if(t < .75){
+
+            const p =
+              (t-.55)/.20;
+
+            x =
+              scale*.55*
+              (1-p);
+
+            y =
+              scale*.55 +
+              p*scale*.75;
+
+          }
+
+          else{
+
+            const p =
+              (t-.75)/.25;
+
+            x =
+              -scale*.55*p;
+
+            y =
+              scale*1.3 -
+              p*scale*.75;
+
+          }
+
+
+          x +=
+            (Math.random()-.5)*14;
+
+          y +=
+            (Math.random()-.5)*14;
+
+
+          points.push({
+
+            x:c.x+x,
+            y:c.y+y
+
+          });
+
+        }
+      );
+
+
+      return points;
+
+    }
+
+
+    /* MOUNTAIN */
+
+    function createMountainShape(){
+
+      const c =
+        shapeCenter();
+
+      const points = [];
+
+      const scale =
+        window.innerWidth < 700
+        ?
+        105
+        :
+        170;
+
+
+      particles.forEach(
+        function(particle,i){
+
+          const t =
+            i /
+            particles.length;
+
+
+          let x =
+            -scale +
+            t *
+            scale *
+            2;
+
+
+          let y;
+
+
+          if(t < .48){
+
+            y =
+              scale*.65 -
+              (t/.48) *
+              scale*1.55;
+
+          }
+          else{
+
+            y =
+              -scale*.90 +
+              ((t-.48)/.52) *
+              scale*1.55;
+
+          }
+
+
+          y +=
+            Math.sin(
+              t*Math.PI*4
+            ) *
+            13;
+
+
+          x +=
+            (Math.random()-.5)*15;
+
+          y +=
+            (Math.random()-.5)*12;
+
+
+          points.push({
+
+            x:c.x+x,
+            y:c.y+y
+
+          });
+
+        }
+      );
+
+
+      return points;
+
+    }
+
+
+    function setShape(name){
+
+      dispersing = false;
+      activeShape = name;
+
+
+      if(name === "drop"){
+
+        shapeTargets =
+          createDropShape();
+
+      }
+
+
+      if(name === "shield"){
+
+        shapeTargets =
+          createShieldShape();
+
+      }
+
+
+      if(name === "mountain"){
+
+        shapeTargets =
+          createMountainShape();
+
+      }
+
+    }
+
+
+    /* =======================================================
+       REDISTRIBUTE AFTER MORPH
+    ======================================================= */
+
+    function scatterParticles(){
+
+      activeShape = null;
+      shapeTargets = [];
+
+      dispersing = true;
+
+      disperseTargets =
+        particles.map(
+          function(particle,index){
+
+            /*
+              Force a healthy percentage back into HERO.
+            */
+
+            if(index < 50){
+
+              return {
+
+                x:
+                  Math.random() *
+                  width,
+
+                y:
+                  Math.random() *
+                  Math.min(
+                    720,
+                    height
+                  )
+
+              };
+
+            }
+
+
+            /*
+              Some around categories.
+            */
+
+            if(index < 105){
+
+              const section =
+                hub.querySelector(
+                  ".atwb-category-section"
+                );
+
+              const sr =
+                section
+                .getBoundingClientRect();
+
+              const hr =
+                hub
+                .getBoundingClientRect();
+
+
+              return {
+
+                x:
+                  Math.random() *
+                  width,
+
+                y:
+                  sr.top -
+                  hr.top +
+                  Math.random() *
+                  sr.height
+
+              };
+
+            }
+
+
+            /*
+              Rest over the full page.
+            */
+
+            return {
+
+              x:
+                Math.random() *
+                width,
+
+              y:
+                Math.random() *
+                height
+
+            };
+
+          }
+        );
+
+
+      /*
+        After particles travel toward their new spread,
+        return to free floating mode.
+      */
+
+      setTimeout(
+        function(){
+
+          dispersing = false;
+
+          disperseTargets = [];
+
+        },
+        2200
+      );
+
+    }
+
+
+    function releaseShape(){
+
+      scatterParticles();
+
+    }
+
+
+    setShapeGlobal =
+      setShape;
+
+    releaseShapeGlobal =
+      releaseShape;
+
+
+    /* =======================================================
+       CATEGORY HOVER
+    ======================================================= */
+
+    hub
+    .querySelectorAll(
+      ".atwb-category"
+    )
+    .forEach(
+      function(card){
+
+        card.addEventListener(
+          "mouseenter",
+          function(){
+
+            setShape(
+              card.dataset.shape
+            );
+
+          }
+        );
+
+
+        card.addEventListener(
+          "mouseleave",
+          function(){
+
+            if(
+              !card.dataset.holding
+            ){
+
+              releaseShape();
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+    /* =======================================================
+       CURSOR
+    ======================================================= */
+
+    window.addEventListener(
+      "mousemove",
+      function(e){
+
+        const rect =
+          hub.getBoundingClientRect();
+
+
+        mouse.x =
+          e.clientX -
+          rect.left;
+
+
+        mouse.y =
+          e.clientY -
+          rect.top;
+
+      }
+    );
+
+
+    document.addEventListener(
+      "mouseleave",
+      function(){
+
+        mouse.x =
+          -9999;
+
+        mouse.y =
+          -9999;
+
+      }
+    );
+
+
+    /* =======================================================
+       ANIMATE
+    ======================================================= */
+
+    function animate(time){
+
+      ctx.clearRect(
+        0,
+        0,
+        width,
+        height
+      );
+
+
+      particles.forEach(
+        function(particle){
+
+          particle.update(time);
+          particle.draw();
+
+        }
+      );
+
+
+      /*
+        Subtle cyan connections.
+        Stronger among foam particles.
+      */
+
+      for(
+        let i=0;
+        i<particles.length;
+        i+=4
+      ){
+
+        for(
+          let j=i+1;
+          j<particles.length;
+          j+=8
+        ){
+
+          const a =
+            particles[i];
+
+          const b =
+            particles[j];
+
+
+          const dx =
+            a.x-b.x;
+
+          const dy =
+            a.y-b.y;
+
+          const dist =
+            Math.sqrt(
+              dx*dx+
+              dy*dy
+            );
+
+
+          if(dist < 62){
+
+            ctx.save();
+
+
+            ctx.globalAlpha =
+              (1-dist/62) *
+              (
+                a.foam &&
+                b.foam
+                ?
+                .10
+                :
+                .055
+              );
+
+
+            ctx.strokeStyle =
+              a.foam &&
+              b.foam
+              ?
+              "#e2faff"
+              :
+              "#38e8ff";
+
+
+            ctx.lineWidth =
+              .6;
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+              a.x,
+              a.y
+            );
+
+            ctx.lineTo(
+              b.x,
+              b.y
+            );
+
+            ctx.stroke();
+
+
+            ctx.restore();
+
+          }
+
+        }
+
+      }
+
+
+      requestAnimationFrame(
+        animate
+      );
+
+    }
+
+
+    /* =======================================================
+       RESIZING
+    ======================================================= */
+
+    let resizeTimer;
+
+
+    window.addEventListener(
+      "resize",
+      function(){
+
+        clearTimeout(
+          resizeTimer
+        );
+
+
+        resizeTimer =
+          setTimeout(
+            function(){
+
+              updateCanvasSize(true);
+
+            },
+            170
+          );
+
+      }
+    );
+
+
+    /*
+      Filtering changes hub height.
+      ResizeObserver updates canvas WITHOUT throwing away
+      all particle positions.
+    */
+
+    if(
+      "ResizeObserver"
+      in window
+    ){
+
+      let lastObservedHeight = 0;
+
+
+      const resizeObserver =
+        new ResizeObserver(
+          function(){
+
+            const currentHeight =
+              hub.scrollHeight;
+
+
+            if(
+              Math.abs(
+                currentHeight -
+                lastObservedHeight
+              )
+              >
+              5
+            ){
+
+              lastObservedHeight =
+                currentHeight;
+
+
+              requestAnimationFrame(
+                function(){
+
+                  updateCanvasSize(false);
+
+                }
+              );
+
+            }
+
+          }
+        );
+
+
+      resizeObserver.observe(
+        hub
+      );
+
+    }
+
+
+    updateCanvasSize(true);
+
+    requestAnimationFrame(
+      animate
+    );
+
+  }
+
+
+  /* =======================================================
+     ARTICLE FILTERING
+  ======================================================= */
+
+  const filters =
+    hub.querySelectorAll(
+      ".atwb-filter"
+    );
+
+
+  const articles =
+    hub.querySelectorAll(
+      ".atwb-article"
+    );
+
+
+  const empty =
+    document.getElementById(
+      "atwbEmpty"
+    );
+
+
+  function applyFilter(category){
+
+    filters.forEach(
+      function(filter){
+
+        filter.classList.toggle(
+          "active",
+          filter.dataset.filter ===
+          category
+        );
+
+      }
+    );
+
+
+    let visibleCount = 0;
+
+
+    articles.forEach(
+      function(article){
+
+        const show =
+          category === "all" ||
+          article.dataset.category ===
+          category;
+
+
+        if(show){
+
+          visibleCount++;
+
+          article.style.display = "";
+
+
+          requestAnimationFrame(
+            function(){
+
+              article.style.opacity =
+                "1";
+
+              article.style.transform =
+                "";
+
+            }
+          );
+
+        }
+        else{
+
+          article.style.opacity =
+            "0";
+
+          article.style.transform =
+            "translateY(18px) scale(.97)";
+
+
+          setTimeout(
+            function(){
+
+              if(
+                category !== "all" &&
+                article.dataset.category !==
+                category
+              ){
+
+                article.style.display =
+                  "none";
+
+              }
+
+            },
+            260
+          );
+
+        }
+
+      }
+    );
+
+
+    if(empty){
+
+      empty.classList.toggle(
+        "show",
+        visibleCount === 0
+      );
+
+    }
+
+  }
+
+
+  filters.forEach(
+    function(filter){
+
+      filter.addEventListener(
+        "click",
+        function(){
+
+          applyFilter(
+            filter.dataset.filter
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  /* =======================================================
+     CATEGORY CLICK
+  ======================================================= */
+
+  let shapeHoldTimer;
+
+
+  hub
+  .querySelectorAll(
+    ".atwb-category"
+  )
+  .forEach(
+    function(card){
+
+      card.addEventListener(
+        "click",
+        function(){
+
+          const category =
+            card.dataset.filterTarget;
+
+
+          hub
+          .querySelectorAll(
+            ".atwb-category"
+          )
+          .forEach(
+            function(item){
+
+              delete item.dataset.holding;
+
+            }
+          );
+
+
+          card.dataset.holding =
+            "true";
+
+
+          clearTimeout(
+            shapeHoldTimer
+          );
+
+
+          setShapeGlobal(
+            card.dataset.shape
+          );
+
+
+          applyFilter(
+            category
+          );
+
+
+          const guides =
+            document.getElementById(
+              "atwbGuides"
+            );
+
+
+          if(guides){
+
+            guides.scrollIntoView({
+              behavior:"smooth",
+              block:"start"
+            });
+
+          }
+
+
+          /*
+            Short hold so user sees the shape,
+            then redistribute — INCLUDING HERO.
+          */
+
+          shapeHoldTimer =
+            setTimeout(
+              function(){
+
+                delete card.dataset.holding;
+
+                releaseShapeGlobal();
+
+              },
+              1100
+            );
+
+        }
+      );
+
+    }
+  );
+
+
+  /* =======================================================
+     MAGNETIC ARTICLE CARDS
+  ======================================================= */
+
+  if(
+    window.matchMedia(
+      "(pointer:fine)"
+    ).matches
+  ){
+
+    articles.forEach(
+      function(card){
+
+        card.addEventListener(
+          "mousemove",
+          function(e){
+
+            const rect =
+              card.getBoundingClientRect();
+
+
+            const x =
+              e.clientX -
+              rect.left -
+              rect.width/2;
+
+
+            const y =
+              e.clientY -
+              rect.top -
+              rect.height/2;
+
+
+            card.style.transform =
+              "perspective(900px) rotateX(" +
+              (-y/35) +
+              "deg) rotateY(" +
+              (x/35) +
+              "deg) translateY(-3px)";
+
+          }
+        );
+
+
+        card.addEventListener(
+          "mouseleave",
+          function(){
+
+            card.style.transform =
+              "";
+
+          }
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     SCROLL REVEAL
+  ======================================================= */
+
+  const revealItems =
+    hub.querySelectorAll(
+      ".atwb-reveal"
+    );
+
+
+  const reducedMotion =
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+
+  if(
+    reducedMotion ||
+    !("IntersectionObserver" in window)
+  ){
+
+    revealItems.forEach(
+      function(item){
+
+        item.classList.add(
+          "visible"
+        );
+
+      }
+    );
+
+  }
+  else{
+
+    const observer =
+      new IntersectionObserver(
+        function(entries){
+
+          entries.forEach(
+            function(entry){
+
+              if(entry.isIntersecting){
+
+                entry.target
+                .classList
+                .add(
+                  "visible"
+                );
+
+
+                observer.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold:.10,
+          rootMargin:
+            "0px 0px -35px 0px"
+        }
+      );
+
+
+    revealItems.forEach(
+      function(item){
+
+        observer.observe(
+          item
+        );
+
+      }
+    );
+
+  }
+
+}
+
+
+/* Brizy-safe initialization */
+
+if(
+  document.readyState === "loading"
+){
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    initATWBlog
+  );
+
+}
+else{
+
+  initATWBlog();
+
+}
+
+})();
+</script>
+</BaseLayout>
