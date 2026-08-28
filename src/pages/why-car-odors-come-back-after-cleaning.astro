@@ -1,0 +1,260 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/why-car-odors-come-back-after-cleaning.css";
+
+const title = "Why Your Car Still Smells After Cleaning";
+const description =
+  "Why car odors can return after cleaning, including hidden moisture, deep contamination, HVAC sources, drying issues, and when detailing alone may not be enough.";
+const canonical = `${site.url}/why-car-odors-come-back-after-cleaning/`;
+const ogImage = `${site.url}/media/blog/why-car-odors-come-back-after-cleaning/hero-interior.webp`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": `${canonical}#article`,
+      headline: "Why Your Car Still Smells After Cleaning",
+      description,
+      mainEntityOfPage: canonical,
+      image: ogImage,
+      inLanguage: "en-US",
+      author: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: site.name,
+        url: site.url,
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: site.url,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Blog",
+          item: `${site.url}/blog/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Why Your Car Still Smells After Cleaning",
+          item: canonical,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Vehicle interior illustrating possible odor sources"
+>
+  <JsonLd slot="head" data={articleSchema} />
+
+<div class="atw-odor-page">
+<section class="atw-section atw-odor-hero" id="odor-hero">
+  <div class="atw-odor-hero__bg">
+  <img
+    src="/media/blog/why-car-odors-come-back-after-cleaning/hero-interior.webp"
+    alt=""
+    width="1920"
+    height="1080"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+</div><div class="atw-odor-hero__shade"></div>
+  <div class="atw-odor-hero__inner">
+    <div class="atw-odor-hero__copy">
+      <div class="atw-eyebrow">Interior odor guide</div>
+      <h1>Why Your Car<br>Still Smells <em>After Cleaning</em></h1>
+      <p class="atw-odor-hero__lead">A fresh scent can change the air. It doesn’t always remove the source.</p>
+      <div class="atw-odor-hero__note">Odor can remain deeper in carpet, padding, seat material, hidden moisture or the vehicle’s airflow system.</div>
+    </div>
+    <div class="atw-odor-car-wrap">
+      <div class="atw-odor-car-stage">
+        <img
+  class="atw-odor-car"
+  src="/media/blog/why-car-odors-come-back-after-cleaning/odors-post.webp"
+  srcset="
+    /media/blog/why-car-odors-come-back-after-cleaning/odors-post-768.webp 768w,
+    /media/blog/why-car-odors-come-back-after-cleaning/odors-post.webp 1536w
+  "
+  sizes="(max-width: 1050px) 92vw, 56vw"
+  width="1536"
+  height="1024"
+  alt="Cutaway illustration of a vehicle interior"
+  decoding="async"
+>
+        <div class="atw-airflow"><svg viewBox="0 0 600 300" preserveAspectRatio="none"><defs><linearGradient id="atwAirGradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#bce9ff" stop-opacity="0"/><stop offset="12%" stop-color="#c9edff" stop-opacity=".65"/><stop offset="45%" stop-color="#a7d8ff" stop-opacity=".48"/><stop offset="75%" stop-color="#ad9cff" stop-opacity=".23"/><stop offset="100%" stop-color="#917cff" stop-opacity="0"/></linearGradient><filter id="atwAirGlow"><feGaussianBlur stdDeviation="4.5"/></filter></defs><path class="atw-airflow__glow" d="M 10 86 C 95 78,180 90,305 128"/><path class="atw-airflow__glow" d="M 12 112 C 110 110,210 128,350 170"/><path class="atw-airflow__glow" d="M 10 138 C 118 145,235 170,390 210"/><path class="atw-airflow__line" d="M 10 86 C 95 78,180 90,305 128"/><path class="atw-airflow__line" d="M 12 112 C 110 110,210 128,350 170"/><path class="atw-airflow__line" d="M 10 138 C 118 145,235 170,390 210"/></svg></div>
+        <div class="atw-odor-emitter"><i style="--x:-18px;--y:-62px;--d:0s;--s:.7"></i><i style="--x:-4px;--y:-82px;--d:.35s;--s:.9"></i><i style="--x:14px;--y:-73px;--d:.7s;--s:.65"></i><i style="--x:25px;--y:-96px;--d:1.05s;--s:.75"></i><i style="--x:-27px;--y:-101px;--d:1.4s;--s:.6"></i><i style="--x:5px;--y:-117px;--d:1.75s;--s:.7"></i></div>
+      </div>
+      <div class="atw-odor-car-label"><span>Hover the cabin</span><strong>Smells better ≠ source removed</strong></div>
+    </div>
+  </div>
+  <a class="atw-odor-scroll" href="#odor-map">Where is the smell hiding?</a>
+</section>
+
+<section class="atw-section atw-map" id="odor-map">
+  <div class="atw-section__inner atw-reveal">
+    <div class="atw-head"><div class="atw-kicker">Below the surface</div><h2>Where Is the <span class="atw-gradient">Smell Hiding?</span></h2><p>The smell you notice is in the air. The source may be somewhere else.</p></div>
+    <div class="atw-map__grid">
+      <div class="atw-map__visual atw-glass"><img
+  src="/media/blog/why-car-odors-come-back-after-cleaning/odors-post.webp"
+  srcset="
+    /media/blog/why-car-odors-come-back-after-cleaning/odors-post-768.webp 768w,
+    /media/blog/why-car-odors-come-back-after-cleaning/odors-post.webp 1536w
+  "
+  sizes="(max-width: 1050px) 92vw, 46vw"
+  width="1536"
+  height="1024"
+  alt="Vehicle interior odor source diagram"
+  loading="lazy"
+  decoding="async"
+><button class="atw-hotspot" style="--left:36%;--top:37%" data-i="0">1</button><button class="atw-hotspot" style="--left:51%;--top:51%" data-i="1">2</button><button class="atw-hotspot" style="--left:47%;--top:64%" data-i="2">3</button><button class="atw-hotspot" style="--left:78%;--top:54%" data-i="3">4</button></div>
+      <div class="atw-map__panel atw-glass"><div class="atw-map__panel-index" id="mapIndex">01</div><h3 id="mapTitle">HVAC & cabin filter</h3><p id="mapText">If an odor appears mainly when the fan or A/C starts, the airflow system may be part of the problem. A contaminated cabin filter can matter, but replacing it cannot remove a source that is still in the carpet or seats.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="atw-section atw-moisture">
+  <div class="atw-section__inner atw-reveal">
+    <div class="atw-moisture__photo atw-glass"><img src="/media/blog/why-car-odors-come-back-after-cleaning/wet-trunk-spare-tire.webp" alt="Standing water in a vehicle spare tire well"><div class="atw-moisture__caption"><span>Real ATW case</span><strong>Standing water below the trunk floor</strong></div></div>
+    <div class="atw-split"><div class="atw-kicker">Hidden moisture</div><h2>Sometimes the Odor <span class="atw-gradient">Isn't the First Problem.</span></h2><p class="atw-lead">If water is still entering or sitting inside the vehicle, deodorizing it first misses the real issue.</p>
+      <div class="atw-water-steps">
+        <div class="atw-water-step"><div class="atw-water-step__num">01</div><div><strong>Find the water source</strong><p>A continuing leak can recreate the same moisture problem after cleaning.</p></div></div>
+        <div class="atw-water-step"><div class="atw-water-step__num">02</div><div><strong>Remove standing water</strong><p>Free or pooled water should be removed promptly instead of treating the smell around it.</p></div></div>
+        <div class="atw-water-step"><div class="atw-water-step__num">03</div><div><strong>Assess & clean affected material</strong><p>Carpet, padding and other layers may need to be exposed, cleaned or extracted where appropriate.</p></div></div>
+        <div class="atw-water-step"><div class="atw-water-step__num">04</div><div><strong>Actively dry the area</strong><p>Airflow and humidity control help wet materials dry instead of remaining a continuing odor source.</p></div></div>
+        <div class="atw-water-step"><div class="atw-water-step__num">05</div><div><strong>Then reassess the odor</strong><p>Final odor treatment comes after the moisture problem is under control.</p></div></div>
+      </div>
+      <div class="atw-moisture-note"><span>Important</span><br>A musty smell can be a reason to investigate moisture, but smell alone does not confirm mold.</div>
+    </div>
+  </div>
+</section>
+
+<section class="atw-section atw-depth">
+  <div class="atw-section__inner atw-reveal">
+    <div class="atw-split"><div class="atw-kicker">Animal odor</div><h2>How Deep <span class="atw-gradient">Did It Go?</span></h2><p class="atw-lead">The deeper liquid or organic residue reaches, the harder it becomes to treat the source from the surface.</p>
+      <div class="atw-depth__state atw-glass"><div class="atw-depth__state-top"><span class="atw-depth__state-index" id="depthIndex">01</span><span class="atw-depth__state-label" id="depthLabel">Surface</span></div><h3 id="depthTitle">The contamination stays near the top.</h3><p id="depthText">Material-appropriate cleaning may be able to reach most of the affected area when contamination has not penetrated deeply.</p></div>
+      <div class="atw-depth__control"><div class="atw-depth__drag-label">Drag to see how deep contamination can travel →</div><div class="atw-depth__slider-wrap"><input id="depthRange" class="atw-depth__range" type="range" min="0" max="100" value="8" aria-label="Contamination depth"><div class="atw-depth__floating-label" id="depthFloat">SURFACE</div></div><div class="atw-depth__range-labels"><span class="atw-depth__range-label is-active" data-depth="surface">Surface</span><span class="atw-depth__range-label" data-depth="fabric">Fabric</span><span class="atw-depth__range-label" data-depth="foam">Foam</span></div></div>
+      <div class="atw-depth__small-note">Not every odor follows the same path. This diagram shows why deeper contamination can be harder to reach.</div>
+    </div>
+    <div class="atw-seat-card atw-glass"><div class="atw-seat-card__top"><span>Seat cross-section</span><strong id="depthBadge">Surface</strong></div><div class="atw-seat"><div class="atw-seat__layer atw-seat__layer--fabric"><div class="atw-seat__layer-name">Upholstery</div></div><div class="atw-seat__layer atw-seat__layer--foam"><div class="atw-seat__layer-name">Seat foam</div></div><div class="atw-seat__layer atw-seat__layer--base"><div class="atw-seat__layer-name">Seat structure</div></div><div class="atw-seat__contamination" id="contamination"></div><div class="atw-seat__depth-line" id="depthLine"><span></span></div></div><div class="atw-seat-card__bottom"><div>Material</div><div>Possible contamination</div></div></div>
+  </div>
+</section>
+
+<section class="atw-section atw-animal">
+  <div class="atw-section__inner atw-reveal">
+    <div class="atw-animal-photo atw-glass"><img src="/media/blog/why-car-odors-come-back-after-cleaning/before.webp" alt="Heavily contaminated vehicle interior before cleaning"><div class="atw-animal-photo__caption"><span>Real ATW case</span><strong>Heavy interior contamination</strong><p>The vehicle had a strong animal / rodent-type odor. The exact source was not confirmed.</p></div></div>
+    <div class="atw-split"><div class="atw-kicker">Different problem, different rules</div><h2>Pet Odor <span class="atw-gradient">Isn't the Same as Rodent Contamination.</span></h2><p class="atw-lead">A strong animal smell does not tell you exactly what caused it. Visible rodent waste or nesting material changes how the vehicle should be handled.</p>
+      <div class="atw-animal-cards"><article class="atw-animal-card atw-glass"><div class="atw-animal-card__tag">Pet / animal odor</div><h3>Usually a cleaning-depth problem.</h3><p>Hair, oils, urine, food residue or other organic contamination may remain in carpet, upholstery, padding or foam.</p><div class="atw-animal-card__bottom">Deep cleaning or extraction may help where the material allows.</div></article><article class="atw-animal-card atw-glass"><div class="atw-animal-card__tag">Rodent signs</div><h3>Safety rules come first.</h3><p>Droppings, urine, nesting material or a carcass should not be treated like ordinary interior dirt.</p><div class="atw-animal-card__warning">Do not dry-vacuum or sweep rodent waste before proper disinfection.</div></article></div>
+      <div class="atw-animal-boundary"><div class="atw-animal-boundary__line"></div><div><span>Where detailing stops</span><p>Heavy infestation, inaccessible nests, a dead animal behind trim or contamination deep inside HVAC components may require mechanical, pest-control or other specialist access first.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="atw-section atw-treatment">
+  <div class="atw-section__inner atw-reveal">
+    <div class="atw-head"><div class="atw-kicker">Reaching the source</div><h2>What Actually <span class="atw-gradient">Helps?</span></h2><p>Different odor sources need different work. Cleaning deeper helps only when the contaminated material can actually be reached.</p></div>
+    <div class="atw-treatment__grid">
+      <div class="atw-treatment__video-card atw-glass"><video class="atw-treatment__video" autoplay muted loop playsinline preload="metadata"><source src="/media/blog/why-car-odors-come-back-after-cleaning/carpet-extraction-8s.mp4" type="video/mp4"></video><div class="atw-treatment__video-copy"><span>Real ATW process</span><strong>Extraction reaches deeper than a surface wipe.</strong><p>It can remove loosened and suspended contamination from suitable carpet or upholstery — but it does not prove that every deeper layer has been reached.</p></div></div>
+      <div class="atw-treatment__cards"><article class="atw-treatment-card atw-glass"><div class="atw-kicker">01 · Extraction</div><h3>Useful when contamination is in reachable textile.</h3><p>Carpet and suitable upholstery can often be cleaned below the immediate surface. The limit is depth: padding, foam, seams or hidden layers may still hold contamination.</p><div class="atw-treatment-card__rule">Wet cleaning also means proper drying matters afterward.</div></article><article class="atw-treatment-card atw-glass"><div class="atw-kicker">02 · Airflow system</div><h3>Sometimes the smell is coming through the vents.</h3><p>A cabin air filter can be relevant when it is contaminated, but replacing it will not remove an odor source that is still in the carpet, seats, trunk or another HVAC component.</p><div class="atw-treatment-card__rule">If the odor appears mainly when the fan or A/C starts, the HVAC system deserves separate attention.</div></article></div>
+    </div>
+  </div>
+</section>
+
+<section class="atw-section atw-ozone">
+  <div class="atw-section__inner atw-reveal">
+    <div class="atw-split"><div class="atw-kicker">Supplemental treatment</div><h2>Ozone Isn't <span class="atw-gradient">Step One.</span></h2><p class="atw-lead">Ozone can react with some odor-causing compounds. It does not physically remove urine, standing water, dirty padding, rodent material or another source that is still there.</p>
+      <div class="atw-ozone-flow"><div class="atw-ozone-step"><span>1</span><strong>Find the source</strong></div><div class="atw-ozone-arrow">→</div><div class="atw-ozone-step"><span>2</span><strong>Clean / remove</strong></div><div class="atw-ozone-arrow">→</div><div class="atw-ozone-step"><span>3</span><strong>Dry if needed</strong></div><div class="atw-ozone-arrow">→</div><div class="atw-ozone-step"><span>4</span><strong>Ozone when appropriate</strong></div></div>
+      <div class="atw-ozone-note"><span>ATW approach</span>When appropriate, ozone may be used in an unoccupied vehicle as a supplemental odor-treatment step after accessible sources have been removed or cleaned as far as practical.</div>
+    </div>
+    <div class="atw-ozone__panel atw-glass"><div class="atw-ozone__panel-head"><span>What ozone can — and can't — do</span><div class="atw-ozone-orb"></div></div><div class="atw-ozone-columns"><div class="atw-ozone-column atw-ozone-column--can"><div class="atw-ozone-column__label">Can</div><div class="atw-ozone-point"><span>+</span><p>React with some odor-related organic compounds.</p></div><div class="atw-ozone-point"><span>+</span><p>Be used as a supplemental treatment after source control.</p></div><div class="atw-ozone-point"><span>+</span><p>Be part of a broader odor-removal process when used carefully.</p></div></div><div class="atw-ozone-column atw-ozone-column--cannot"><div class="atw-ozone-column__label">Can't</div><div class="atw-ozone-point"><span>×</span><p>Replace physical cleaning or source removal.</p></div><div class="atw-ozone-point"><span>×</span><p>Guarantee permanent odor removal.</p></div><div class="atw-ozone-point"><span>×</span><p>Prove that embedded contamination in foam or padding is gone.</p></div></div></div><div class="atw-ozone-safety"><div>!</div><div><strong>Controlled use matters.</strong><p>Ozone should not be used with people or pets inside the vehicle. The vehicle is ventilated before it is returned to use.</p></div></div></div>
+  </div>
+</section>
+
+<section class="atw-section atw-return">
+  <div class="atw-section__inner atw-reveal">
+    <div class="atw-head"><div class="atw-kicker">Recurring odor</div><h2>Why Did the Smell <span class="atw-gradient">Come Back?</span></h2><p>A car can smell much better right after cleaning and still have a source that keeps putting odor back into the cabin.</p></div>
+    <div class="atw-return__grid"><div class="atw-return__options">
+      <button class="atw-return-option is-active" data-number="01" data-tag="Hidden layer" data-title="The contamination was deeper than the surface." data-text="Carpet backing, padding or seat foam can hold contamination below the visible material. Cleaning the surface may improve the smell without fully reaching the deeper source."><span class="atw-return-option__num">01</span><div><strong>Deeper contamination</strong><p>Carpet, padding or foam.</p></div><i>→</i></button>
+      <button class="atw-return-option" data-number="02" data-tag="Moisture" data-title="Moisture is still present — or coming back." data-text="Standing water, wet padding or an unresolved leak can recreate the same conditions after cleaning. The moisture source has to be controlled, not just deodorized."><span class="atw-return-option__num">02</span><div><strong>Hidden moisture</strong><p>Wet material or a continuing leak.</p></div><i>→</i></button>
+      <button class="atw-return-option" data-number="03" data-tag="HVAC" data-title="The airflow system is part of the problem." data-text="If the odor appears mainly when the blower or A/C starts, the cabin filter or another HVAC component may be involved. Interior cleaning alone may not address that pathway."><span class="atw-return-option__num">03</span><div><strong>HVAC / cabin filter</strong><p>The smell appears through the vents.</p></div><i>→</i></button>
+      <button class="atw-return-option" data-number="04" data-tag="Source remains" data-title="The physical source is still there." data-text="A spill below trim, contaminated insulation, nesting material or another inaccessible source can keep producing odor even when the visible cabin looks clean."><span class="atw-return-option__num">04</span><div><strong>Source still present</strong><p>Something was never fully reached.</p></div><i>→</i></button>
+      <button class="atw-return-option" data-number="05" data-tag="Drying" data-title="The material did not dry properly." data-text="Wet cleaning introduces moisture. Carpet and upholstery need to dry properly afterward; leaving material damp can create another reason for odor to persist or return."><span class="atw-return-option__num">05</span><div><strong>Insufficient drying</strong><p>Wet cleaning needs a dry finish.</p></div><i>→</i></button>
+    </div><div class="atw-return__panel atw-glass"><div class="atw-return__panel-top"><span id="returnTag">Hidden layer</span><strong id="returnNum">01</strong></div><h3 id="returnTitle">The contamination was deeper than the surface.</h3><p id="returnText">Carpet backing, padding or seat foam can hold contamination below the visible material. Cleaning the surface may improve the smell without fully reaching the deeper source.</p><div class="atw-return__rule"><span>Key idea</span><strong>Cleaner air today does not always mean the source is gone.</strong></div></div></div>
+  </div>
+</section>
+
+<section class="atw-section atw-limits">
+  <div class="atw-section__inner atw-reveal"><div class="atw-split"><div class="atw-kicker">Honest limits</div><h2>Sometimes Cleaning <span class="atw-gradient">Isn't Enough.</span></h2><p class="atw-lead">Many interior odors can improve substantially when the source can be identified and reached. Some problems need repair, access or replacement before detailing can finish the job.</p><div class="atw-limits__statement atw-glass"><span>What matters most</span><strong>Can the source actually be reached and controlled?</strong></div></div><div class="atw-limits__cards"><article class="atw-limit-card atw-glass"><h3>The leak is still active.</h3><p>If water keeps entering the vehicle, cleaning may only improve the condition temporarily.</p><div class="atw-limit-card__action">Repair first</div></article><article class="atw-limit-card atw-glass"><h3>Padding or foam is deeply saturated.</h3><p>Some absorbent material may need deeper access, removal or replacement instead of repeated surface cleaning.</p><div class="atw-limit-card__action">Access / replace</div></article><article class="atw-limit-card atw-glass"><h3>The source is behind trim or inside a cavity.</h3><p>A carcass, nest or contaminated insulation may require mechanical or pest-control access before cleaning can help.</p><div class="atw-limit-card__action">Locate / remove</div></article><article class="atw-limit-card atw-glass"><h3>The odor is inside the HVAC system.</h3><p>Some vent-related odors need HVAC diagnosis or component service rather than more carpet or seat cleaning.</p><div class="atw-limit-card__action">HVAC service</div></article></div></div>
+  <div class="atw-limits__bottom"><div class="atw-limits__bottom-inner"><span class="atw-limits__bottom-label">No blanket guarantees</span><p>Odor-removal results depend on the source, how deeply contamination has reached and whether the affected material can actually be accessed.</p></div></div>
+</section>
+
+<section class="atw-section atw-faq">
+  <div class="atw-section__inner atw-reveal"><div class="atw-head"><div class="atw-kicker">Quick answers</div><h2>Car Odor <span class="atw-gradient">FAQ</span></h2><p>The short version of the questions we hear most often when a vehicle still smells after cleaning.</p></div><div class="atw-faq__list">
+    <article class="atw-faq-item is-open"><button class="atw-faq-item__button" aria-expanded="true"><span class="atw-faq-item__number">01</span><strong>Why does my car still smell after I cleaned it?</strong><i></i></button><div class="atw-faq-item__answer"><div>The visible surface may be clean while odor-causing material remains deeper in carpet, padding, upholstery, seat foam, hidden moisture or the vehicle's airflow system.</div></div></article>
+    <article class="atw-faq-item"><button class="atw-faq-item__button" aria-expanded="false"><span class="atw-faq-item__number">02</span><strong>Will shampooing or extraction remove every odor?</strong><i></i></button><div class="atw-faq-item__answer"><div>Not always. Extraction can reach deeper into suitable carpet and upholstery, but contamination may extend into padding, foam, seams or other areas that cannot be fully reached from the surface.</div></div></article>
+    <article class="atw-faq-item"><button class="atw-faq-item__button" aria-expanded="false"><span class="atw-faq-item__number">03</span><strong>Can a wet carpet make the smell come back?</strong><i></i></button><div class="atw-faq-item__answer"><div>Yes. If carpet, padding or another absorbent layer remains wet — or if water keeps entering the vehicle — odor can continue or return. The moisture problem needs to be controlled and the affected area properly dried.</div></div></article>
+    <article class="atw-faq-item"><button class="atw-faq-item__button" aria-expanded="false"><span class="atw-faq-item__number">04</span><strong>Can the cabin air filter cause a bad smell?</strong><i></i></button><div class="atw-faq-item__answer"><div>It can contribute in some cases, especially when the odor is noticeable as soon as the blower or A/C starts. But replacing the filter will not fix a source that is still somewhere else inside the vehicle.</div></div></article>
+    <article class="atw-faq-item"><button class="atw-faq-item__button" aria-expanded="false"><span class="atw-faq-item__number">05</span><strong>Does ozone permanently remove car odors?</strong><i></i></button><div class="atw-faq-item__answer"><div>It should not be treated as a substitute for cleaning or source removal. When appropriate, ozone can be used as a supplemental step after accessible odor sources have already been addressed.</div></div></article>
+    <article class="atw-faq-item"><button class="atw-faq-item__button" aria-expanded="false"><span class="atw-faq-item__number">06</span><strong>Can every interior odor be removed with detailing?</strong><i></i></button><div class="atw-faq-item__answer"><div>No. An active water leak, deeply saturated foam, inaccessible contamination, rodent material behind trim or an HVAC problem may require repair, removal or specialist access before detailing can fully address the odor.</div></div></article>
+  </div></div>
+</section>
+
+<section class="atw-section atw-cta">
+  <div class="atw-cta__inner atw-reveal"><div class="atw-cta__media"><img src="/media/blog/why-car-odors-come-back-after-cleaning/cta-interior.webp" alt="Clean vehicle interior after professional detailing"></div><div class="atw-cta__content"><div class="atw-kicker">ATW Detailing · Mobile Interior Service</div><h2>Still Trying to Find <span class="atw-gradient">Where the Smell Is Coming From?</span></h2><p class="atw-cta__lead">Send us a few photos and tell us when you notice the odor — all the time, after rain, or mainly when the fan or A/C starts. That usually gives us a much better place to begin.</p><div class="atw-cta__checks"><div><span>✓</span><p>Interior deep cleaning</p></div><div><span>✓</span><p>Carpet extraction when appropriate</p></div><div><span>✓</span><p>Seat cleaning based on material</p></div><div><span>✓</span><p>Cabin filter replacement when relevant</p></div></div><div class="atw-cta__actions"><a class="atw-cta__button atw-cta__button--primary" href="/interior-detailing/">View Interior Detailing →</a><a class="atw-cta__button atw-cta__button--secondary" href="/contact-us/">Ask About Your Vehicle</a></div><div class="atw-cta__area">Mobile service in Bonney Lake, Lake Tapps, Puyallup, Sumner, Tacoma and nearby areas.</div></div></div>
+</section>
+</div>
+
+<script is:inline>
+document.addEventListener("DOMContentLoaded",function(){
+  const reveals=document.querySelectorAll(".atw-reveal");
+  if("IntersectionObserver" in window){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("atw-visible");obs.unobserve(entry.target)}})},{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    reveals.forEach(el=>obs.observe(el));
+  }else{reveals.forEach(el=>el.classList.add("atw-visible"))}
+
+  const mapData=[
+    ["01","HVAC & cabin filter","If an odor appears mainly when the fan or A/C starts, the airflow system may be part of the problem. A contaminated cabin filter can matter, but replacing it cannot remove a source that is still in the carpet or seats."],
+    ["02","Seat material & foam","A seat can look clean on the surface while liquid or organic residue has reached deeper material. When contamination reaches foam, access becomes more limited."],
+    ["03","Carpet, backing & padding","Carpet is layered. Contamination can move through the visible fibers into backing or padding underneath, where ordinary surface cleaning may not reach it."],
+    ["04","Cargo area & hidden cavities","Spills, moisture, debris or animal contamination can sit underneath liners or behind trim. A clean visible surface does not prove the hidden area is dry or clean."]
+  ];
+  document.querySelectorAll(".atw-hotspot").forEach(btn=>btn.addEventListener("click",()=>{const d=mapData[Number(btn.dataset.i)];document.getElementById("mapIndex").textContent=d[0];document.getElementById("mapTitle").textContent=d[1];document.getElementById("mapText").textContent=d[2]}));
+
+  const range=document.getElementById("depthRange");
+  if(range){
+    const contamination=document.getElementById("contamination"),depthLine=document.getElementById("depthLine"),index=document.getElementById("depthIndex"),label=document.getElementById("depthLabel"),title=document.getElementById("depthTitle"),text=document.getElementById("depthText"),badge=document.getElementById("depthBadge"),floating=document.getElementById("depthFloat"),labels=document.querySelectorAll("[data-depth]");
+    const active=name=>labels.forEach(x=>x.classList.toggle("is-active",x.dataset.depth===name));
+    const update=()=>{const v=Number(range.value);floating.style.left=v+"%";if(v<34){contamination.style.height=(14+v*.17)+"%";depthLine.style.top=(24+v*.12)+"%";index.textContent="01";label.textContent="Surface";title.textContent="The contamination stays near the top.";text.textContent="Material-appropriate cleaning may be able to reach most of the affected area when contamination has not penetrated deeply.";badge.textContent=floating.textContent="Surface";active("surface")}else if(v<68){contamination.style.height=(22+(v-34)*.63)+"%";depthLine.style.top=(31+(v-34)*.53)+"%";index.textContent="02";label.textContent="Through the material";title.textContent="The source is no longer only on the surface.";text.textContent="Liquid and organic residue can move through upholstery or carpet layers. Deep cleaning or extraction may help where the material and construction allow it.";badge.textContent=floating.textContent="Fabric";active("fabric")}else{contamination.style.height=(43+(v-68)*.85)+"%";depthLine.style.top=(49+(v-68)*.72)+"%";index.textContent="03";label.textContent="Into the foam";title.textContent="Now access becomes the limitation.";text.textContent="Once contamination reaches deeper foam or padding, a clean surface does not prove that the source is gone. Some cases may require deeper access or material replacement.";badge.textContent=floating.textContent="Foam";active("foam")}};
+    range.addEventListener("input",update);update();
+  }
+
+  const opts=document.querySelectorAll(".atw-return-option");
+  opts.forEach(opt=>opt.addEventListener("click",()=>{opts.forEach(x=>x.classList.remove("is-active"));opt.classList.add("is-active");document.getElementById("returnNum").textContent=opt.dataset.number;document.getElementById("returnTag").textContent=opt.dataset.tag;document.getElementById("returnTitle").textContent=opt.dataset.title;document.getElementById("returnText").textContent=opt.dataset.text}));
+
+  const faqItems=document.querySelectorAll(".atw-faq-item");
+  faqItems.forEach(item=>{const button=item.querySelector(".atw-faq-item__button");button.addEventListener("click",()=>{const isOpen=item.classList.contains("is-open");faqItems.forEach(x=>{x.classList.remove("is-open");x.querySelector(".atw-faq-item__button").setAttribute("aria-expanded","false")});if(!isOpen){item.classList.add("is-open");button.setAttribute("aria-expanded","true")}})});
+});
+</script>
+</BaseLayout>
