@@ -1,0 +1,3468 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/does-washington-use-road-salt.css";
+
+const title = "Does Washington Use Road Salt? | Pierce County Winter Roads";
+const description =
+  "Washington uses road salt, brine and other chloride-based winter treatments. Learn what Pierce County drivers should know about winter road residue and vehicle care.";
+const canonical = `${site.url}/does-washington-use-road-salt/`;
+const ogImage = `${site.url}/media/blog/washington-road-salt.webp`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": `${canonical}#article`,
+      headline: "Does Washington Use Road Salt?",
+      description,
+      mainEntityOfPage: canonical,
+      image: ogImage,
+      inLanguage: "en-US",
+      author: { "@type": "Organization", name: site.name, url: site.url },
+      publisher: { "@type": "Organization", name: site.name, url: site.url },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog/` },
+        { "@type": "ListItem", position: 3, name: "Does Washington Use Road Salt?", item: canonical },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Winter road treatment vehicle on a Washington road"
+>
+  <JsonLd slot="head" data={articleSchema} />
+
+<div id="atw-winter-block-01">
+
+  <!-- =====================================================
+       SECTION 01 — HERO
+  ====================================================== -->
+
+  <section class="atwb01-hero">
+
+    <div class="atwb01-grid-bg"></div>
+
+    <div class="atwb01-bg-glow atwb01-bg-glow-a"></div>
+    <div class="atwb01-bg-glow atwb01-bg-glow-b"></div>
+
+
+    <div class="atwb01-wrap atwb01-hero-wrap">
+
+
+      <!-- =========================
+           HERO COPY
+      ========================== -->
+
+      <div class="atwb01-copy">
+
+        <div class="atwb01-eyebrow">
+          <span></span>
+          MOBILE &amp; PNW
+        </div>
+
+
+        <h1>
+          Does Washington Use
+          <em>Road Salt?</em>
+        </h1>
+
+
+        <h2>
+          What Pierce County Drivers Should Know
+        </h2>
+
+
+        <p class="atwb01-lead">
+          Yes — Washington uses winter road treatments that include
+          salt-based and other chloride-based materials.
+          Roads can also be treated
+          <strong>before you ever see snow.</strong>
+        </p>
+
+
+        <div class="atwb01-hero-facts">
+
+          <div>
+            <strong>WSDOT</strong>
+            <span>
+              Salt + chloride-based treatments
+            </span>
+          </div>
+
+          <div>
+            <strong>Pierce County</strong>
+            <span>
+              Sodium chloride brine documented
+            </span>
+          </div>
+
+          <div>
+            <strong>Winter roads</strong>
+            <span>
+              Can be treated before freezing
+            </span>
+          </div>
+
+        </div>
+
+
+        <a
+          class="atwb01-main-button"
+          href="#atw-short-answer"
+        >
+          See What Actually Happens
+          <span>↓</span>
+        </a>
+
+      </div>
+
+
+
+      <!-- =========================
+           INTERACTIVE TRUCK
+      ========================== -->
+
+      <div class="atwb01-visual">
+
+
+        <div class="atwb01-hint">
+          <i></i>
+          Hover or tap the truck
+        </div>
+
+
+        <div
+          class="atwb01-stage"
+          id="atwb01Truck"
+          tabindex="0"
+          role="button"
+          aria-label="Interactive winter road treatment truck"
+        >
+
+
+          <!-- ambient glow -->
+
+          <div class="atwb01-truck-aura"></div>
+
+
+          <!-- road -->
+
+          <div class="atwb01-road">
+
+            <span class="atwb01-road-line"></span>
+
+            <span class="atwb01-treated-area"></span>
+
+          </div>
+
+
+          <!-- truck -->
+
+          <img
+            class="atwb01-truck"
+            src="/media/blog/does-washington-use-road-salt/salt-stuck.webp"
+            alt="Winter road treatment truck"
+            loading="eager"
+            decoding="async"
+          >
+
+
+          <!-- spreader glow -->
+
+          <div class="atwb01-spreader-glow"></div>
+
+
+          <!-- salt -->
+
+          <div
+            class="atwb01-salt-cloud"
+            aria-hidden="true"
+          >
+
+            <i style="--x:0;--d:0"></i>
+            <i style="--x:5;--d:.06"></i>
+            <i style="--x:10;--d:.12"></i>
+            <i style="--x:15;--d:.18"></i>
+            <i style="--x:20;--d:.24"></i>
+            <i style="--x:25;--d:.30"></i>
+            <i style="--x:30;--d:.36"></i>
+            <i style="--x:35;--d:.42"></i>
+            <i style="--x:40;--d:.48"></i>
+            <i style="--x:45;--d:.54"></i>
+
+            <i style="--x:50;--d:.08"></i>
+            <i style="--x:55;--d:.14"></i>
+            <i style="--x:60;--d:.20"></i>
+            <i style="--x:65;--d:.26"></i>
+            <i style="--x:70;--d:.32"></i>
+            <i style="--x:75;--d:.38"></i>
+            <i style="--x:80;--d:.44"></i>
+            <i style="--x:85;--d:.50"></i>
+            <i style="--x:90;--d:.56"></i>
+            <i style="--x:95;--d:.62"></i>
+            <i style="--x:100;--d:.68"></i>
+
+            <i style="--x:3;--d:.70"></i>
+            <i style="--x:12;--d:.78"></i>
+            <i style="--x:21;--d:.86"></i>
+            <i style="--x:31;--d:.94"></i>
+            <i style="--x:42;--d:.74"></i>
+            <i style="--x:53;--d:.82"></i>
+            <i style="--x:64;--d:.90"></i>
+            <i style="--x:74;--d:.98"></i>
+            <i style="--x:84;--d:.76"></i>
+            <i style="--x:94;--d:.88"></i>
+
+            <i style="--x:7;--d:.21"></i>
+            <i style="--x:18;--d:.41"></i>
+            <i style="--x:28;--d:.11"></i>
+            <i style="--x:38;--d:.61"></i>
+            <i style="--x:47;--d:.31"></i>
+            <i style="--x:58;--d:.51"></i>
+            <i style="--x:68;--d:.17"></i>
+            <i style="--x:78;--d:.37"></i>
+            <i style="--x:88;--d:.57"></i>
+            <i style="--x:98;--d:.27"></i>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       SECTION 02 — THE SHORT ANSWER
+  ====================================================== -->
+
+  <section
+    class="atwb01-short"
+    id="atw-short-answer"
+  >
+
+    <div class="atwb01-wrap">
+
+
+      <div class="atwb01-short-intro">
+
+        <div class="atwb01-section-label">
+          THE SHORT ANSWER
+        </div>
+
+
+        <h2>
+          Yes, Washington
+          <span>does use road salt.</span>
+        </h2>
+
+
+        <p>
+          More accurately, winter road crews can use several different
+          materials — including solid sodium chloride,
+          liquid chloride-based anti-icers and sand or abrasives,
+          depending on the road system and conditions.
+        </p>
+
+      </div>
+
+
+
+      <div class="atwb01-agency-grid">
+
+
+        <!-- WSDOT -->
+
+        <article class="atwb01-agency">
+
+          <div class="atwb01-agency-top">
+
+            <span class="atwb01-agency-icon">
+              WA
+            </span>
+
+            <small>
+              STATE HIGHWAYS
+            </small>
+
+          </div>
+
+
+          <h3>
+            WSDOT
+          </h3>
+
+
+          <p>
+            Uses solid salt and several liquid
+            chloride-based products as part of winter operations.
+          </p>
+
+        </article>
+
+
+
+        <!-- PIERCE COUNTY -->
+
+        <article class="atwb01-agency">
+
+          <div class="atwb01-agency-top">
+
+            <span class="atwb01-agency-icon">
+              PC
+            </span>
+
+            <small>
+              COUNTY ROADS
+            </small>
+
+          </div>
+
+
+          <h3>
+            Pierce County
+          </h3>
+
+
+          <p>
+            Documents sodium chloride brine for anti-icing,
+            plus sand under some conditions.
+          </p>
+
+        </article>
+
+
+
+        <!-- CITY -->
+
+        <article class="atwb01-agency">
+
+          <div class="atwb01-agency-top">
+
+            <span class="atwb01-agency-icon">
+              CITY
+            </span>
+
+            <small>
+              CITY STREETS
+            </small>
+
+          </div>
+
+
+          <h3>
+            City-specific
+          </h3>
+
+
+          <p>
+            Tacoma and Sumner document salt-based treatment.
+            Local winter practices vary by jurisdiction.
+          </p>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+
+
+
+
+
+<div id="atw-winter-block-02">
+
+
+  <!-- =====================================================
+       SECTION 03
+       IT'S NOT JUST "SALT"
+  ====================================================== -->
+
+  <section class="atwb02-methods">
+
+    <div class="atwb02-method-glow atwb02-method-glow-a"></div>
+    <div class="atwb02-method-glow atwb02-method-glow-b"></div>
+
+
+    <div class="atwb02-wrap">
+
+
+      <!-- HEADER -->
+
+      <div class="atwb02-method-head">
+
+        <div class="atwb02-label">
+          WHAT DOES WINTER TREATMENT MEAN?
+        </div>
+
+        <h2>
+          It’s Not Just
+          <span>“Salt”</span>
+        </h2>
+
+        <p>
+          Different winter materials do different jobs.
+          Choose one to see what crews are trying to accomplish.
+        </p>
+
+      </div>
+
+
+
+      <!-- INTERACTIVE MODULE -->
+
+      <div class="atwb02-lab">
+
+
+        <!-- SELECTOR -->
+
+        <div class="atwb02-tabs">
+
+          <button
+            type="button"
+            class="atwb02-tab active"
+            data-mode="anti"
+          >
+
+            <i>01</i>
+
+            <span>
+              <strong>Anti-icing</strong>
+              <small>Before freezing</small>
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="atwb02-tab"
+            data-mode="de"
+          >
+
+            <i>02</i>
+
+            <span>
+              <strong>De-icing</strong>
+              <small>After snow or ice begins</small>
+            </span>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="atwb02-tab"
+            data-mode="traction"
+          >
+
+            <i>03</i>
+
+            <span>
+              <strong>Traction</strong>
+              <small>Adds grip</small>
+            </span>
+
+          </button>
+
+        </div>
+
+
+
+        <!-- MAIN -->
+
+        <div class="atwb02-lab-main">
+
+
+          <!-- ROAD VISUAL -->
+
+          <div
+            class="atwb02-road-scene"
+            id="atwb02RoadScene"
+            data-mode="anti"
+          >
+
+            <div class="atwb02-sky"></div>
+
+            <div class="atwb02-horizon"></div>
+
+
+            <div class="atwb02-road">
+
+              <div class="atwb02-road-edge"></div>
+
+              <div class="atwb02-treatment-layer"></div>
+
+              <div class="atwb02-ice-layer"></div>
+
+              <div class="atwb02-grit-layer"></div>
+
+              <div class="atwb02-center-line"></div>
+
+            </div>
+
+
+            <div class="atwb02-scene-badge">
+
+              <span id="atwb02SceneBadge">
+                BEFORE FREEZING
+              </span>
+
+            </div>
+
+
+            <div class="atwb02-scene-status">
+
+              <i></i>
+
+              <span id="atwb02SceneStatus">
+                Liquid treatment on mostly bare pavement
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- TEXT -->
+
+          <div class="atwb02-mode-copy">
+
+            <div
+              class="atwb02-mode-kicker"
+              id="atwb02Kicker"
+            >
+              ANTI-ICING
+            </div>
+
+
+            <h3 id="atwb02Title">
+              Applied before freezing
+            </h3>
+
+
+            <p
+              class="atwb02-mode-text"
+              id="atwb02Text"
+            >
+              Liquid chloride treatment can be applied before
+              snow or ice begins so frozen precipitation is
+              less likely to bond tightly to the pavement.
+            </p>
+
+
+            <div class="atwb02-facts">
+
+              <div>
+                <b>01</b>
+
+                <span id="atwb02Fact1">
+                  Can be used before visible snow.
+                </span>
+              </div>
+
+
+              <div>
+                <b>02</b>
+
+                <span id="atwb02Fact2">
+                  The pavement may still look mostly clear.
+                </span>
+              </div>
+
+
+              <div>
+                <b>03</b>
+
+                <span id="atwb02Fact3">
+                  Treated spray can still reach vehicles.
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       SECTION 04
+       WINTER ROAD FILM
+  ====================================================== -->
+
+  <section class="atwb02-film">
+
+
+    <div class="atwb02-film-bg-number">
+      04
+    </div>
+
+
+    <div class="atwb02-wrap">
+
+
+      <div class="atwb02-film-layout">
+
+
+        <!-- LEFT COPY -->
+
+        <div class="atwb02-film-copy">
+
+          <div class="atwb02-label">
+            WHAT ENDS UP ON THE VEHICLE?
+          </div>
+
+
+          <h2>
+            Winter Road Film Is
+            <span>More Than Salt</span>
+          </h2>
+
+
+          <p>
+            A winter vehicle can collect several kinds of
+            contamination at the same time.
+          </p>
+
+
+          <div class="atwb02-film-note">
+
+            <i>+</i>
+
+            <span>
+              Water, treatment residue, grit and ordinary road dirt
+              can combine into one dirty winter film.
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- RIGHT STACK -->
+
+        <div class="atwb02-film-stack">
+
+
+          <!-- 01 -->
+
+          <article class="atwb02-film-row">
+
+            <div class="atwb02-film-number">
+              01
+            </div>
+
+            <div class="atwb02-film-symbol">
+              ≋
+            </div>
+
+            <div>
+
+              <h3>
+                Road Spray
+              </h3>
+
+              <p>
+                Water from wet pavement is lifted by tires
+                and thrown onto lower body panels.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 02 -->
+
+          <article class="atwb02-film-row">
+
+            <div class="atwb02-film-number">
+              02
+            </div>
+
+            <div class="atwb02-film-symbol">
+              ◌
+            </div>
+
+            <div>
+
+              <h3>
+                Deicer Residue
+              </h3>
+
+              <p>
+                Dissolved chloride-based treatment can remain
+                as pale residue after the water dries.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 03 -->
+
+          <article class="atwb02-film-row">
+
+            <div class="atwb02-film-number">
+              03
+            </div>
+
+            <div class="atwb02-film-symbol atwb02-film-symbol-warm">
+              •••
+            </div>
+
+            <div>
+
+              <h3>
+                Sand &amp; Grit
+              </h3>
+
+              <p>
+                Traction material and normal road debris can
+                become part of the same winter buildup.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 04 -->
+
+          <article class="atwb02-film-row">
+
+            <div class="atwb02-film-number">
+              04
+            </div>
+
+            <div class="atwb02-film-symbol">
+              ◍
+            </div>
+
+            <div>
+
+              <h3>
+                Ordinary Dirt
+              </h3>
+
+              <p>
+                Mud, traffic grime and other contamination
+                mix with wet winter road spray.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="atw-winter-block-03">
+
+
+  <!-- =====================================================
+       SECTION 05
+       WINTER ROAD RESIDUE SLIDER
+  ====================================================== -->
+
+  <section class="atwb03-residue">
+
+    <div class="atwb03-residue-glow atwb03-residue-glow-a"></div>
+    <div class="atwb03-residue-glow atwb03-residue-glow-b"></div>
+
+
+    <div class="atwb03-wrap">
+
+      <div class="atwb03-residue-layout">
+
+
+        <!-- COPY -->
+
+        <div class="atwb03-residue-copy">
+
+          <div class="atwb03-label">
+            INTERACTIVE
+          </div>
+
+
+          <h2>
+            What Winter
+            <span>Road Residue</span>
+            Can Look Like
+          </h2>
+
+
+          <p class="atwb03-residue-lead">
+            Drag across the vehicle to move from a clean finish
+            through road film to a heavier treated-road residue reference.
+          </p>
+
+
+          <div class="atwb03-status">
+
+            <div class="atwb03-status-top">
+
+              <span id="atwb03StageLabel">
+                CLEAN
+              </span>
+
+              <b id="atwb03Percent">
+                0%
+              </b>
+
+            </div>
+
+
+            <strong id="atwb03StageTitle">
+              Clean winter finish
+            </strong>
+
+
+            <p id="atwb03StageText">
+              No visible winter road buildup.
+            </p>
+
+          </div>
+
+
+          <div class="atwb03-note">
+
+            <i>i</i>
+
+            <span>
+              <strong>Illustrative visual.</strong>
+              Actual winter buildup varies with road conditions,
+              exposure and vehicle use.
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- INTERACTIVE VISUAL -->
+
+        <div class="atwb03-slider-shell">
+
+
+          <div
+            class="atwb03-compare"
+            id="atwb03Compare"
+            tabindex="0"
+            role="slider"
+            aria-label="Winter road residue comparison"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+
+
+            <!-- CLEAN BASE -->
+
+            <img
+              class="atwb03-car atwb03-clean"
+              src="/media/blog/does-washington-use-road-salt/car-model.webp"
+              alt="Clean SUV"
+              loading="lazy"
+              draggable="false"
+            >
+
+
+            <!-- ROAD FILM -->
+
+            <div
+              class="atwb03-layer-mask atwb03-dirty-mask"
+              id="atwb03DirtyMask"
+            >
+
+              <img
+                class="atwb03-car"
+                src="/media/blog/does-washington-use-road-salt/dirty-suv.webp"
+                alt="SUV with winter road film"
+                loading="lazy"
+                draggable="false"
+              >
+
+            </div>
+
+
+            <!-- TREATED ROAD RESIDUE -->
+
+            <div
+              class="atwb03-layer-mask atwb03-salt-mask"
+              id="atwb03SaltMask"
+            >
+
+              <img
+                class="atwb03-car"
+                src="/media/blog/does-washington-use-road-salt/dirty-suv-salt.webp"
+                alt="SUV with illustrative treated-road residue"
+                loading="lazy"
+                draggable="false"
+              >
+
+            </div>
+
+
+
+            <!-- LIGHT GRID -->
+
+            <div class="atwb03-floor-grid"></div>
+
+
+            <!-- DRAG LINE -->
+
+            <div
+              class="atwb03-drag-line"
+              id="atwb03DragLine"
+            >
+
+              <span class="atwb03-handle">
+                <i>‹</i>
+                <i>›</i>
+              </span>
+
+            </div>
+
+
+            <!-- TOP LABELS -->
+
+            <span class="atwb03-side-label atwb03-side-left">
+              CLEAN
+            </span>
+
+            <span class="atwb03-side-label atwb03-side-right">
+              RESIDUE
+            </span>
+
+
+          </div>
+
+
+
+          <!-- RANGE -->
+
+          <div class="atwb03-range-area">
+
+            <input
+              type="range"
+              id="atwb03Range"
+              min="0"
+              max="100"
+              value="0"
+              step="1"
+              aria-label="Winter residue level"
+            >
+
+
+            <div class="atwb03-range-labels">
+
+              <button
+                type="button"
+                data-value="0"
+                class="active"
+              >
+                <b>01</b>
+                <span>CLEAN</span>
+              </button>
+
+
+              <button
+                type="button"
+                data-value="50"
+              >
+                <b>02</b>
+                <span>ROAD FILM</span>
+              </button>
+
+
+              <button
+                type="button"
+                data-value="100"
+              >
+                <b>03</b>
+                <span>TREATED RESIDUE</span>
+              </button>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- CONTAMINATION KEY -->
+
+          <div class="atwb03-chips">
+
+            <span>
+              <i>≋</i>
+              ROAD SPRAY
+            </span>
+
+            <span>
+              <i>•••</i>
+              GRIT + DIRT
+            </span>
+
+            <span>
+              <i>◌</i>
+              DEICER RESIDUE
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       SECTION 06
+       LOCAL FOCUS
+  ====================================================== -->
+
+  <section class="atwb03-local">
+
+    <div class="atwb03-local-grid-bg"></div>
+
+
+    <div class="atwb03-wrap">
+
+
+      <div class="atwb03-local-head">
+
+        <div>
+
+          <div class="atwb03-label">
+            LOCAL FOCUS
+          </div>
+
+
+          <h2>
+            Pierce County &
+            <span>Nearby Roads</span>
+          </h2>
+
+        </div>
+
+
+        <p>
+          Different agencies maintain different road systems,
+          so winter treatment practices depend on jurisdiction.
+          These are examples we found documented locally.
+        </p>
+
+      </div>
+
+
+
+      <!-- LOCAL MAP-LIKE STRIP -->
+
+      <div class="atwb03-local-board">
+
+
+        <div class="atwb03-local-spine">
+
+          <span></span>
+
+          <b>LOCAL WINTER OPERATIONS</b>
+
+          <span></span>
+
+        </div>
+
+
+
+        <div class="atwb03-local-list">
+
+
+          <!-- PIERCE COUNTY -->
+
+          <article class="atwb03-local-item">
+
+            <div class="atwb03-local-code">
+              PC
+            </div>
+
+
+            <div class="atwb03-local-title">
+
+              <small>
+                COUNTY ROADS
+              </small>
+
+              <h3>
+                Pierce County
+              </h3>
+
+            </div>
+
+
+            <div class="atwb03-local-material">
+
+              <span>
+                SODIUM CHLORIDE BRINE
+              </span>
+
+              <span>
+                SAND
+              </span>
+
+            </div>
+
+
+            <p>
+              The County documents sodium chloride brine
+              for anti-icing and sand for traction.
+            </p>
+
+
+            <div class="atwb03-confirm">
+              <i>✓</i>
+              DOCUMENTED
+            </div>
+
+          </article>
+
+
+
+          <!-- TACOMA -->
+
+          <article class="atwb03-local-item">
+
+            <div class="atwb03-local-code">
+              TC
+            </div>
+
+
+            <div class="atwb03-local-title">
+
+              <small>
+                CITY STREETS
+              </small>
+
+              <h3>
+                Tacoma
+              </h3>
+
+            </div>
+
+
+            <div class="atwb03-local-material">
+
+              <span>
+                SALT BRINE
+              </span>
+
+              <span>
+                PRE-TREATMENT
+              </span>
+
+            </div>
+
+
+            <p>
+              Tacoma documents salt-brine application
+              before frost forms in selected areas.
+            </p>
+
+
+            <div class="atwb03-confirm">
+              <i>✓</i>
+              DOCUMENTED
+            </div>
+
+          </article>
+
+
+
+          <!-- SUMNER -->
+
+          <article class="atwb03-local-item">
+
+            <div class="atwb03-local-code">
+              SU
+            </div>
+
+
+            <div class="atwb03-local-title">
+
+              <small>
+                CITY STREETS
+              </small>
+
+              <h3>
+                Sumner
+              </h3>
+
+            </div>
+
+
+            <div class="atwb03-local-material">
+
+              <span>
+                SALT + WATER
+              </span>
+
+              <span>
+                BEFORE FREEZING
+              </span>
+
+            </div>
+
+
+            <p>
+              Sumner has documented a salt-and-water
+              deicer applied before freezing.
+            </p>
+
+
+            <div class="atwb03-confirm">
+              <i>✓</i>
+              DOCUMENTED
+            </div>
+
+          </article>
+
+
+
+          <!-- PUYALLUP -->
+
+          <article class="atwb03-local-item">
+
+            <div class="atwb03-local-code">
+              PY
+            </div>
+
+
+            <div class="atwb03-local-title">
+
+              <small>
+                CITY STREETS
+              </small>
+
+              <h3>
+                Puyallup
+              </h3>
+
+            </div>
+
+
+            <div class="atwb03-local-material">
+
+              <span>
+                DE-ICING
+              </span>
+
+              <span>
+                HISTORICAL SALT USE
+              </span>
+
+            </div>
+
+
+            <p>
+              Current de-icing operations are documented.
+              Salt use is also documented historically.
+            </p>
+
+
+            <div class="atwb03-confirm atwb03-confirm-alt">
+              <i>↗</i>
+              DOCUMENTED RECORDS
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+
+
+      <div class="atwb03-local-foot">
+
+        <span>
+          <i></i>
+          Treatment can differ from one road system to another.
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+
+
+
+
+
+<div id="atw-winter-block-04">
+
+
+  <!-- =====================================================
+       SECTION 07
+       COMPACT WET ROAD WARNING
+  ====================================================== -->
+
+  <section class="atwb04-wet-compact">
+
+    <div class="atwb04-wet-water"></div>
+    <div class="atwb04-wet-reflection atwb04-wet-reflection-a"></div>
+    <div class="atwb04-wet-reflection atwb04-wet-reflection-b"></div>
+
+    <div class="atwb04-wrap">
+
+      <div class="atwb04-wet-compact-grid">
+
+
+        <div class="atwb04-wet-compact-copy">
+
+          <div class="atwb04-label">
+            WHY IT HAPPENS
+          </div>
+
+          <h2>
+            Even Wet Roads
+            <span>Can Be Treated</span>
+          </h2>
+
+        </div>
+
+
+        <div class="atwb04-wet-warning">
+
+          <div class="atwb04-warning-icon">
+            ≋
+          </div>
+
+          <div>
+
+            <strong>
+              A road does not need to look snowy to be treated.
+            </strong>
+
+            <p>
+              Anti-icing can happen before snow or frost,
+              so wet or mostly clear pavement may already have
+              chloride-based treatment on it.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="atwb04-wet-chain">
+
+          <span>
+            PRE-TREATMENT
+          </span>
+
+          <i>→</i>
+
+          <span>
+            WET ROAD
+          </span>
+
+          <i>→</i>
+
+          <span>
+            TIRE SPRAY
+          </span>
+
+          <i>→</i>
+
+          <span>
+            WINTER FILM
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       SECTION 08
+       LOWER AREAS
+  ====================================================== -->
+
+  <section class="atwb04-zones">
+
+    <div class="atwb04-zones-glow"></div>
+
+
+    <div class="atwb04-wrap">
+
+
+      <!-- HEADER -->
+
+      <div class="atwb04-zones-head">
+
+        <div class="atwb04-label">
+          WHERE BUILDUP MATTERS
+        </div>
+
+
+        <h2>
+          Pay Attention to
+          <span>the Lower Areas</span>
+        </h2>
+
+
+        <p>
+          Winter film is visible on paint,
+          but chloride-related corrosion concerns are especially relevant
+          to exposed metal and underbody areas.
+        </p>
+
+      </div>
+
+
+
+      <!-- IMAGE CARDS -->
+
+      <div class="atwb04-zone-grid">
+
+
+        <!-- 01 LOWER PANELS -->
+
+        <article class="atwb04-zone-card">
+
+          <div class="atwb04-zone-image">
+
+            <img
+              src="/media/blog/does-washington-use-road-salt/lower-panels-car.webp"
+              alt="Lower panels of a vehicle"
+              loading="lazy"
+            >
+
+            <span>
+              01
+            </span>
+
+          </div>
+
+
+          <div class="atwb04-zone-copy">
+
+            <small>
+              ROAD SPRAY ZONE
+            </small>
+
+            <h3>
+              Lower Panels
+            </h3>
+
+            <p>
+              Common target for wet road spray
+              and visible winter film.
+            </p>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- 02 WHEELS -->
+
+        <article class="atwb04-zone-card">
+
+          <div class="atwb04-zone-image">
+
+            <img
+              src="/media/blog/does-washington-use-road-salt/wheels.webp"
+              alt="Vehicle wheel"
+              loading="lazy"
+            >
+
+            <span>
+              02
+            </span>
+
+          </div>
+
+
+          <div class="atwb04-zone-copy">
+
+            <small>
+              CONSTANT EXPOSURE
+            </small>
+
+            <h3>
+              Wheels
+            </h3>
+
+            <p>
+              Exposed to road spray,
+              grit and normal brake contamination.
+            </p>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- 03 WHEEL WELLS -->
+
+        <article class="atwb04-zone-card">
+
+          <div class="atwb04-zone-image">
+
+            <img
+              src="/media/blog/does-washington-use-road-salt/wheel-wells.webp"
+              alt="Vehicle wheel well"
+              loading="lazy"
+            >
+
+            <span>
+              03
+            </span>
+
+          </div>
+
+
+          <div class="atwb04-zone-copy">
+
+            <small>
+              RECESSED AREA
+            </small>
+
+            <h3>
+              Wheel Wells
+            </h3>
+
+            <p>
+              Recessed areas can collect
+              wet winter contamination.
+            </p>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- 04 UNDERBODY -->
+
+        <article class="atwb04-zone-card atwb04-zone-important">
+
+          <div class="atwb04-zone-image">
+
+            <img
+              src="/media/blog/does-washington-use-road-salt/underbody.webp"
+              alt="Vehicle underbody"
+              loading="lazy"
+            >
+
+            <span>
+              04
+            </span>
+
+
+            <div class="atwb04-important-tag">
+              IMPORTANT
+            </div>
+
+          </div>
+
+
+          <div class="atwb04-zone-copy">
+
+            <small>
+              HIDDEN EXPOSURE
+            </small>
+
+            <h3>
+              Underbody
+            </h3>
+
+            <p>
+              The most important area when discussing
+              chloride exposure and exposed-metal corrosion risk.
+            </p>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+
+
+<div id="atw-winter-block-05">
+
+
+  <!-- =====================================================
+       SECTION 09
+       MYTH VS FACT
+  ====================================================== -->
+
+  <section class="atwb05-myths">
+
+    <div class="atwb05-myth-glow atwb05-myth-glow-a"></div>
+    <div class="atwb05-myth-glow atwb05-myth-glow-b"></div>
+
+
+    <div class="atwb05-wrap">
+
+
+      <!-- HEADER -->
+
+      <div class="atwb05-myth-head">
+
+        <div class="atwb05-label">
+          MYTH VS FACT
+        </div>
+
+
+        <h2>
+          Let’s Clear Up
+          <span>Four Common Beliefs</span>
+        </h2>
+
+
+        <p>
+          Tap each statement for the short answer.
+        </p>
+
+      </div>
+
+
+
+      <!-- GRID -->
+
+      <div class="atwb05-myth-grid">
+
+
+        <!-- MYTH 01 -->
+
+        <button
+          type="button"
+          class="atwb05-myth"
+          aria-expanded="false"
+        >
+
+          <div class="atwb05-myth-top">
+
+            <span class="atwb05-verdict">
+              FALSE
+            </span>
+
+            <span class="atwb05-plus">
+              +
+            </span>
+
+          </div>
+
+
+          <h3>
+            “Washington doesn’t use road salt.”
+          </h3>
+
+
+          <div class="atwb05-answer">
+
+            <div>
+              Washington does use sodium chloride
+              and other chloride-based winter road treatments.
+            </div>
+
+          </div>
+
+        </button>
+
+
+
+        <!-- MYTH 02 -->
+
+        <button
+          type="button"
+          class="atwb05-myth"
+          aria-expanded="false"
+        >
+
+          <div class="atwb05-myth-top">
+
+            <span class="atwb05-verdict">
+              FALSE
+            </span>
+
+            <span class="atwb05-plus">
+              +
+            </span>
+
+          </div>
+
+
+          <h3>
+            “If there’s no snow, there’s no treatment.”
+          </h3>
+
+
+          <div class="atwb05-answer">
+
+            <div>
+              Anti-icing is specifically designed to happen
+              before snow, ice or frost develops.
+            </div>
+
+          </div>
+
+        </button>
+
+
+
+        <!-- MYTH 03 -->
+
+        <button
+          type="button"
+          class="atwb05-myth"
+          aria-expanded="false"
+        >
+
+          <div class="atwb05-myth-top">
+
+            <span class="atwb05-verdict">
+              FALSE
+            </span>
+
+            <span class="atwb05-plus">
+              +
+            </span>
+
+          </div>
+
+
+          <h3>
+            “Rain washes everything off the car.”
+          </h3>
+
+
+          <div class="atwb05-answer">
+
+            <div>
+              Rain can dilute contamination,
+              but it does not guarantee the underbody,
+              wheel wells and recessed areas are thoroughly rinsed.
+            </div>
+
+          </div>
+
+        </button>
+
+
+
+        <!-- MYTH 04 -->
+
+        <button
+          type="button"
+          class="atwb05-myth"
+          aria-expanded="false"
+        >
+
+          <div class="atwb05-myth-top">
+
+            <span class="atwb05-verdict">
+              FALSE
+            </span>
+
+            <span class="atwb05-plus">
+              +
+            </span>
+
+          </div>
+
+
+          <h3>
+            “Ceramic coating makes the vehicle salt-proof.”
+          </h3>
+
+
+          <div class="atwb05-answer">
+
+            <div>
+              A coating can help painted surfaces clean more easily,
+              but it does not replace washing and it is not
+              an underbody corrosion treatment.
+            </div>
+
+          </div>
+
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       SECTION 10
+       PRACTICAL WINTER CARE
+  ====================================================== -->
+
+  <section class="atwb05-care">
+
+    <div class="atwb05-care-glow"></div>
+
+
+    <div class="atwb05-wrap">
+
+
+      <div class="atwb05-care-panel">
+
+
+        <!-- LEFT -->
+
+        <div class="atwb05-care-copy">
+
+          <div class="atwb05-label">
+            PRACTICAL WINTER CARE
+          </div>
+
+
+          <h2>
+            What Drivers Should
+            <span>Actually Do</span>
+          </h2>
+
+
+          <p>
+            There is no universal DOT rule saying every vehicle
+            must be washed within a specific number of hours.
+            The useful principle is simpler:
+            <strong>
+              don’t let heavy winter buildup accumulate indefinitely.
+            </strong>
+          </p>
+
+        </div>
+
+
+
+        <!-- RIGHT -->
+
+        <div class="atwb05-care-list">
+
+
+          <!-- 01 -->
+
+          <article class="atwb05-care-item">
+
+            <div class="atwb05-care-number">
+              01
+            </div>
+
+
+            <div>
+
+              <h3>
+                Remove buildup when practical.
+              </h3>
+
+              <p>
+                Rinse or wash accumulated winter road film
+                instead of letting it build up for long periods.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 02 -->
+
+          <article class="atwb05-care-item">
+
+            <div class="atwb05-care-number">
+              02
+            </div>
+
+
+            <div>
+
+              <h3>
+                Remember the hidden areas.
+              </h3>
+
+              <p>
+                Underbody and wheel-well rinsing matter
+                when roads have been treated.
+              </p>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- 03 -->
+
+          <article class="atwb05-care-item">
+
+            <div class="atwb05-care-number">
+              03
+            </div>
+
+
+            <div>
+
+              <h3>
+                Don’t count on rain alone.
+              </h3>
+
+              <p>
+                A rainy drive is not the same thing
+                as thoroughly rinsing recessed areas.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CERAMIC NOTE -->
+
+      <div class="atwb05-coating-note">
+
+
+        <div class="atwb05-coating-icon">
+          ◇
+        </div>
+
+
+        <div>
+
+          <small>
+            WHERE CERAMIC COATING FITS
+          </small>
+
+
+          <h3>
+            Easier cleanup — not corrosion immunity.
+          </h3>
+
+
+          <p>
+            A ceramic coating may make painted surfaces easier
+            to clean, but it does not make the entire vehicle salt-proof
+            and it does not replace washing.
+          </p>
+
+
+          <a
+            href="/does-ceramic-coating-protect-against-scratches/"
+          >
+            What Ceramic Coating Actually Does
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="atw-winter-block-06">
+
+
+  <!-- =====================================================
+       SECTION 11
+       WINTER DRIVER RESOURCES
+  ====================================================== -->
+
+  <section class="atwb06-resources">
+
+
+    <!-- VIDEO BACKGROUND -->
+
+    <video
+      class="atwb06-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      aria-hidden="true"
+    >
+
+      <source
+        src="/media/blog/does-washington-use-road-salt/pnw-forest-video.mp4"
+        type="video/mp4"
+      >
+
+    </video>
+
+
+    <!-- VIDEO OVERLAYS -->
+
+    <div class="atwb06-video-dark"></div>
+    <div class="atwb06-video-gradient"></div>
+    <div class="atwb06-video-vignette"></div>
+
+
+    <div class="atwb06-wrap">
+
+
+      <!-- HEADER -->
+
+      <div class="atwb06-resource-head">
+
+
+        <div>
+
+          <div class="atwb06-label">
+            USEFUL LINKS
+          </div>
+
+
+          <h2>
+            Winter Driver
+            <span>Resources</span>
+          </h2>
+
+        </div>
+
+
+        <p>
+          Check road conditions, passes, closures
+          and winter-weather alerts before you go.
+        </p>
+
+      </div>
+
+
+
+      <!-- RESOURCE GRID -->
+
+      <div class="atwb06-resource-grid">
+
+
+        <!-- 01 -->
+
+        <a
+          class="atwb06-resource"
+          href="https://wsdot.wa.gov/map/"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="atwb06-resource-top">
+
+            <span class="atwb06-resource-number">
+              01
+            </span>
+
+            <span class="atwb06-resource-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb06-resource-icon">
+            ◉
+          </div>
+
+
+          <strong>
+            WSDOT Travel Center
+          </strong>
+
+
+          <small>
+            Traffic · cameras · closures
+          </small>
+
+
+          <span class="atwb06-open">
+            Open resource
+          </span>
+
+        </a>
+
+
+
+        <!-- 02 -->
+
+        <a
+          class="atwb06-resource"
+          href="https://wsdot.wa.gov/travel/roads-bridges/mountain-passes"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="atwb06-resource-top">
+
+            <span class="atwb06-resource-number">
+              02
+            </span>
+
+            <span class="atwb06-resource-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb06-resource-icon">
+            △
+          </div>
+
+
+          <strong>
+            Mountain Passes
+          </strong>
+
+
+          <small>
+            Pass reports · restrictions
+          </small>
+
+
+          <span class="atwb06-open">
+            Open resource
+          </span>
+
+        </a>
+
+
+
+        <!-- 03 -->
+
+        <a
+          class="atwb06-resource"
+          href="https://www.wsdot.wa.gov/winter/"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="atwb06-resource-top">
+
+            <span class="atwb06-resource-number">
+              03
+            </span>
+
+            <span class="atwb06-resource-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb06-resource-icon">
+            ❄
+          </div>
+
+
+          <strong>
+            WSDOT Winter Driving
+          </strong>
+
+
+          <small>
+            Chains · traction · preparation
+          </small>
+
+
+          <span class="atwb06-open">
+            Open resource
+          </span>
+
+        </a>
+
+
+
+        <!-- 04 -->
+
+        <a
+          class="atwb06-resource"
+          href="https://www.piercecountywa.gov/1691/Snow-and-Ice"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="atwb06-resource-top">
+
+            <span class="atwb06-resource-number">
+              04
+            </span>
+
+            <span class="atwb06-resource-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb06-resource-icon">
+            PC
+          </div>
+
+
+          <strong>
+            Pierce County Snow &amp; Ice
+          </strong>
+
+
+          <small>
+            County winter response
+          </small>
+
+
+          <span class="atwb06-open">
+            Open resource
+          </span>
+
+        </a>
+
+
+
+        <!-- 05 -->
+
+        <a
+          class="atwb06-resource"
+          href="https://www.piercecountywa.gov/4906/Pierce-County-Road-Alerts"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="atwb06-resource-top">
+
+            <span class="atwb06-resource-number">
+              05
+            </span>
+
+            <span class="atwb06-resource-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb06-resource-icon">
+            !
+          </div>
+
+
+          <strong>
+            County Road Alerts
+          </strong>
+
+
+          <small>
+            Closures · road impacts
+          </small>
+
+
+          <span class="atwb06-open">
+            Open resource
+          </span>
+
+        </a>
+
+
+
+        <!-- 06 -->
+
+        <a
+          class="atwb06-resource"
+          href="https://www.weather.gov/sew/winter"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="atwb06-resource-top">
+
+            <span class="atwb06-resource-number">
+              06
+            </span>
+
+            <span class="atwb06-resource-arrow">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="atwb06-resource-icon">
+            ≋
+          </div>
+
+
+          <strong>
+            NWS Seattle
+          </strong>
+
+
+          <small>
+            Winter weather alerts
+          </small>
+
+
+          <span class="atwb06-open">
+            Open resource
+          </span>
+
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       SECTION 12
+       FINAL CTA
+  ====================================================== -->
+
+  <section class="atwb06-cta">
+
+
+    <div class="atwb06-cta-grid-bg"></div>
+
+    <div class="atwb06-cta-glow atwb06-cta-glow-a"></div>
+    <div class="atwb06-cta-glow atwb06-cta-glow-b"></div>
+
+
+    <div class="atwb06-wrap">
+
+
+      <div class="atwb06-cta-panel">
+
+
+        <!-- COPY -->
+
+        <div class="atwb06-cta-copy">
+
+          <div class="atwb06-label">
+            ATW DETAILING · BONNEY LAKE
+          </div>
+
+
+          <h2>
+            Need Winter Buildup
+            <span>Cleaned Off Properly?</span>
+          </h2>
+
+
+          <p>
+            If your vehicle has heavy road film,
+            dirty lower panels or winter buildup around the wheels,
+            ATW can help with exterior cleaning in the Bonney Lake
+            and Pierce County area.
+          </p>
+
+
+          <div class="atwb06-cta-tags">
+
+            <span>
+              MOBILE
+            </span>
+
+            <span>
+              PIERCE COUNTY
+            </span>
+
+            <span>
+              EXTERIOR DETAILING
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ACTION -->
+
+        <div class="atwb06-cta-action">
+
+
+          <div class="atwb06-action-line">
+            WINTER ROAD FILM DOESN’T NEED TO STAY THERE.
+          </div>
+
+
+          <a
+            class="atwb06-button"
+            href="/contact/"
+          >
+            Get a Free Quote
+
+            <span>
+              →
+            </span>
+          </a>
+
+
+          <a
+            class="atwb06-button atwb06-button-ghost"
+            href="/services/"
+          >
+            See Services
+
+            <span>
+              →
+            </span>
+          </a>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="atwb06-bottom-line">
+
+        <span></span>
+
+        <small>
+          ATW DETAILING &amp; PAINT CORRECTION · MOBILE DETAILING
+        </small>
+
+        <span></span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+</div>
+
+<script is:inline>
+(function(){
+
+  const root =
+    document.getElementById(
+      'atw-winter-block-01'
+    );
+
+
+  if(!root){
+    return;
+  }
+
+
+  const truck =
+    root.querySelector(
+      '#atwb01Truck'
+    );
+
+
+  if(!truck){
+    return;
+  }
+
+
+  let locked = false;
+
+
+
+  function activate(){
+
+    truck.classList.add(
+      'is-active'
+    );
+
+  }
+
+
+
+  function deactivate(){
+
+    if(!locked){
+
+      truck.classList.remove(
+        'is-active'
+      );
+
+    }
+
+  }
+
+
+
+  /* desktop hover */
+
+  truck.addEventListener(
+    'mouseenter',
+    activate
+  );
+
+
+  truck.addEventListener(
+    'mouseleave',
+    deactivate
+  );
+
+
+
+  /* click / tap */
+
+  truck.addEventListener(
+    'click',
+    function(){
+
+      locked = !locked;
+
+      truck.classList.toggle(
+        'is-active',
+        locked
+      );
+
+    }
+  );
+
+
+
+  /* keyboard */
+
+  truck.addEventListener(
+    'keydown',
+    function(event){
+
+      if(
+        event.key === 'Enter' ||
+        event.key === ' '
+      ){
+
+        event.preventDefault();
+
+        locked = !locked;
+
+        truck.classList.toggle(
+          'is-active',
+          locked
+        );
+
+      }
+
+    }
+  );
+
+
+
+  /* touch */
+
+  if(
+    window.matchMedia &&
+    window.matchMedia(
+      '(hover:none)'
+    ).matches
+  ){
+
+    locked = true;
+
+    activate();
+
+  }
+
+})();
+
+(function(){
+
+  const root =
+    document.getElementById(
+      'atw-winter-block-02'
+    );
+
+
+  if(!root){
+    return;
+  }
+
+
+  const tabs =
+    root.querySelectorAll(
+      '.atwb02-tab'
+    );
+
+
+  const scene =
+    root.querySelector(
+      '#atwb02RoadScene'
+    );
+
+
+  const kicker =
+    root.querySelector(
+      '#atwb02Kicker'
+    );
+
+
+  const title =
+    root.querySelector(
+      '#atwb02Title'
+    );
+
+
+  const text =
+    root.querySelector(
+      '#atwb02Text'
+    );
+
+
+  const fact1 =
+    root.querySelector(
+      '#atwb02Fact1'
+    );
+
+
+  const fact2 =
+    root.querySelector(
+      '#atwb02Fact2'
+    );
+
+
+  const fact3 =
+    root.querySelector(
+      '#atwb02Fact3'
+    );
+
+
+  const badge =
+    root.querySelector(
+      '#atwb02SceneBadge'
+    );
+
+
+  const status =
+    root.querySelector(
+      '#atwb02SceneStatus'
+    );
+
+
+
+  const modes = {
+
+
+    anti:{
+
+      kicker:
+        'ANTI-ICING',
+
+      title:
+        'Applied before freezing',
+
+      text:
+        'Liquid chloride treatment can be applied before snow or ice begins so frozen precipitation is less likely to bond tightly to the pavement.',
+
+      fact1:
+        'Can be used before visible snow.',
+
+      fact2:
+        'The pavement may still look mostly clear.',
+
+      fact3:
+        'Treated spray can still reach vehicles.',
+
+      badge:
+        'BEFORE FREEZING',
+
+      status:
+        'Liquid treatment on mostly bare pavement'
+
+    },
+
+
+
+    de:{
+
+      kicker:
+        'DE-ICING',
+
+      title:
+        'Used after snow or ice begins',
+
+      text:
+        'Salt-based deicing material can help loosen or break the bond between a thin layer of snow or ice and the road surface.',
+
+      fact1:
+        'Used after frozen material begins forming.',
+
+      fact2:
+        'Its job is different from pre-treatment.',
+
+      fact3:
+        'Meltwater can become part of winter road spray.',
+
+      badge:
+        'AFTER ICE OR SNOW',
+
+      status:
+        'Treatment works with frozen material already present'
+
+    },
+
+
+
+    traction:{
+
+      kicker:
+        'TRACTION',
+
+      title:
+        'Adds grip — not melting',
+
+      text:
+        'Sand or other abrasive material can improve tire traction in slick conditions, but it is not the same thing as a chemical deicer.',
+
+      fact1:
+        'Adds physical grip.',
+
+      fact2:
+        'Does not melt ice by itself.',
+
+      fact3:
+        'Grit can become part of winter road film.',
+
+      badge:
+        'TRACTION MATERIAL',
+
+      status:
+        'Abrasive material adds grip to the road surface'
+
+    }
+
+  };
+
+
+
+  function changeMode(mode){
+
+    const data =
+      modes[mode];
+
+
+    if(!data){
+      return;
+    }
+
+
+    tabs.forEach(
+      function(tab){
+
+        tab.classList.toggle(
+          'active',
+          tab.dataset.mode === mode
+        );
+
+      }
+    );
+
+
+    scene.dataset.mode =
+      mode;
+
+
+    kicker.textContent =
+      data.kicker;
+
+
+    title.textContent =
+      data.title;
+
+
+    text.textContent =
+      data.text;
+
+
+    fact1.textContent =
+      data.fact1;
+
+
+    fact2.textContent =
+      data.fact2;
+
+
+    fact3.textContent =
+      data.fact3;
+
+
+    badge.textContent =
+      data.badge;
+
+
+    status.textContent =
+      data.status;
+
+  }
+
+
+
+  tabs.forEach(
+    function(tab){
+
+      tab.addEventListener(
+        'click',
+        function(){
+
+          changeMode(
+            tab.dataset.mode
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  changeMode('anti');
+
+})();
+
+(function(){
+
+  const root =
+    document.getElementById(
+      'atw-winter-block-03'
+    );
+
+
+  if(!root){
+    return;
+  }
+
+
+  const compare =
+    root.querySelector(
+      '#atwb03Compare'
+    );
+
+
+  const range =
+    root.querySelector(
+      '#atwb03Range'
+    );
+
+
+  const dirtyMask =
+    root.querySelector(
+      '#atwb03DirtyMask'
+    );
+
+
+  const saltMask =
+    root.querySelector(
+      '#atwb03SaltMask'
+    );
+
+
+  const dragLine =
+    root.querySelector(
+      '#atwb03DragLine'
+    );
+
+
+  const stageLabel =
+    root.querySelector(
+      '#atwb03StageLabel'
+    );
+
+
+  const stageTitle =
+    root.querySelector(
+      '#atwb03StageTitle'
+    );
+
+
+  const stageText =
+    root.querySelector(
+      '#atwb03StageText'
+    );
+
+
+  const percent =
+    root.querySelector(
+      '#atwb03Percent'
+    );
+
+
+  const labelButtons =
+    root.querySelectorAll(
+      '.atwb03-range-labels button'
+    );
+
+
+
+  if(
+    !compare ||
+    !range
+  ){
+    return;
+  }
+
+
+
+  let value = 0;
+  let dragging = false;
+
+
+
+  /* =====================================================
+     UPDATE VISUAL
+  ===================================================== */
+
+  function update(newValue){
+
+    value =
+      Math.max(
+        0,
+        Math.min(
+          100,
+          Number(newValue)
+        )
+      );
+
+
+    range.value =
+      value;
+
+
+    compare.setAttribute(
+      'aria-valuenow',
+      Math.round(value)
+    );
+
+
+    /*
+      0–50:
+      reveal dirty image
+
+      50–100:
+      dirty remains fully visible,
+      salt residue image reveals over it
+    */
+
+
+    let dirtyReveal;
+    let saltReveal;
+
+
+    if(value <= 50){
+
+      dirtyReveal =
+        value * 2;
+
+      saltReveal =
+        0;
+
+    }
+
+    else{
+
+      dirtyReveal =
+        100;
+
+      saltReveal =
+        (value - 50) * 2;
+
+    }
+
+
+    dirtyMask.style.clipPath =
+      'inset(0 ' +
+      (100 - dirtyReveal) +
+      '% 0 0)';
+
+
+    saltMask.style.clipPath =
+      'inset(0 ' +
+      (100 - saltReveal) +
+      '% 0 0)';
+
+
+    dragLine.style.left =
+      value + '%';
+
+
+    percent.textContent =
+      Math.round(value) + '%';
+
+
+
+    /* =================================================
+       STATUS
+    ================================================= */
+
+    labelButtons.forEach(
+      function(button){
+
+        button.classList.remove(
+          'active'
+        );
+
+      }
+    );
+
+
+    if(value < 27){
+
+      stageLabel.textContent =
+        'CLEAN';
+
+      stageTitle.textContent =
+        'Clean winter finish';
+
+      stageText.textContent =
+        'No visible winter road buildup.';
+
+      if(labelButtons[0]){
+        labelButtons[0]
+          .classList.add('active');
+      }
+
+    }
+
+    else if(value < 69){
+
+      stageLabel.textContent =
+        'ROAD FILM';
+
+      stageTitle.textContent =
+        'Road spray + ordinary grime';
+
+      stageText.textContent =
+        'Wet pavement, dirt and grit can build up across lower vehicle surfaces.';
+
+      if(labelButtons[1]){
+        labelButtons[1]
+          .classList.add('active');
+      }
+
+    }
+
+    else{
+
+      stageLabel.textContent =
+        'TREATED-ROAD RESIDUE';
+
+      stageTitle.textContent =
+        'Heavier visible winter residue';
+
+      stageText.textContent =
+        'An illustrative reference showing road film plus pale dried treatment residue.';
+
+      if(labelButtons[2]){
+        labelButtons[2]
+          .classList.add('active');
+      }
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     RANGE INPUT
+  ===================================================== */
+
+  range.addEventListener(
+    'input',
+    function(){
+
+      update(
+        range.value
+      );
+
+    }
+  );
+
+
+
+  /* =====================================================
+     CLICKABLE LABELS
+  ===================================================== */
+
+  labelButtons.forEach(
+    function(button){
+
+      button.addEventListener(
+        'click',
+        function(){
+
+          update(
+            button.dataset.value
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+
+  /* =====================================================
+     STAGE POINTER POSITION
+  ===================================================== */
+
+  function pointerToValue(event){
+
+    const rect =
+      compare.getBoundingClientRect();
+
+
+    const clientX =
+      event.clientX;
+
+
+    const relative =
+      clientX -
+      rect.left;
+
+
+    return(
+      relative /
+      rect.width *
+      100
+    );
+
+  }
+
+
+
+  /* =====================================================
+     POINTER DOWN
+  ===================================================== */
+
+  compare.addEventListener(
+    'pointerdown',
+    function(event){
+
+      dragging = true;
+
+      compare.setPointerCapture(
+        event.pointerId
+      );
+
+      update(
+        pointerToValue(event)
+      );
+
+    }
+  );
+
+
+
+  /* =====================================================
+     POINTER MOVE
+  ===================================================== */
+
+  compare.addEventListener(
+    'pointermove',
+    function(event){
+
+      if(!dragging){
+        return;
+      }
+
+
+      update(
+        pointerToValue(event)
+      );
+
+    }
+  );
+
+
+
+  /* =====================================================
+     POINTER UP
+  ===================================================== */
+
+  compare.addEventListener(
+    'pointerup',
+    function(event){
+
+      dragging = false;
+
+
+      if(
+        compare.hasPointerCapture(
+          event.pointerId
+        )
+      ){
+
+        compare.releasePointerCapture(
+          event.pointerId
+        );
+
+      }
+
+    }
+  );
+
+
+  compare.addEventListener(
+    'pointercancel',
+    function(){
+
+      dragging = false;
+
+    }
+  );
+
+
+
+  /* =====================================================
+     KEYBOARD
+  ===================================================== */
+
+  compare.addEventListener(
+    'keydown',
+    function(event){
+
+      if(
+        event.key === 'ArrowRight'
+      ){
+
+        event.preventDefault();
+
+        update(
+          value + 5
+        );
+
+      }
+
+
+      if(
+        event.key === 'ArrowLeft'
+      ){
+
+        event.preventDefault();
+
+        update(
+          value - 5
+        );
+
+      }
+
+
+      if(
+        event.key === 'Home'
+      ){
+
+        event.preventDefault();
+
+        update(0);
+
+      }
+
+
+      if(
+        event.key === 'End'
+      ){
+
+        event.preventDefault();
+
+        update(100);
+
+      }
+
+    }
+  );
+
+
+
+  /* INITIAL STATE */
+
+  update(0);
+
+})();
+
+(function(){
+
+  const root =
+    document.getElementById(
+      'atw-winter-block-05'
+    );
+
+
+  if(!root){
+    return;
+  }
+
+
+  const myths =
+    root.querySelectorAll(
+      '.atwb05-myth'
+    );
+
+
+
+  myths.forEach(
+    function(myth){
+
+      myth.addEventListener(
+        'click',
+        function(){
+
+          const isOpen =
+            myth.classList.contains(
+              'open'
+            );
+
+
+          /*
+            Only one card open at a time.
+          */
+
+          myths.forEach(
+            function(item){
+
+              item.classList.remove(
+                'open'
+              );
+
+              item.setAttribute(
+                'aria-expanded',
+                'false'
+              );
+
+            }
+          );
+
+
+          if(!isOpen){
+
+            myth.classList.add(
+              'open'
+            );
+
+            myth.setAttribute(
+              'aria-expanded',
+              'true'
+            );
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+})();
+</script>
+
+</BaseLayout>
