@@ -692,3 +692,92 @@
     transition: none;
   }
 }
+
+/* =========================================================
+   GIFT USE — IMAGE BACKGROUND
+========================================================= */
+
+.gift-use {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 6, 22, .92) 0%,
+      rgba(5, 6, 22, .78) 44%,
+      rgba(5, 6, 22, .42) 100%
+    ),
+    url("/media/gift-cards/gift-use-bg.webp") center / cover no-repeat;
+}
+
+.gift-use::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 50%, rgba(123,34,176,.22), transparent 42%),
+    radial-gradient(circle at 82% 55%, rgba(10,210,217,.12), transparent 36%);
+  pointer-events: none;
+}
+
+.gift-use-inner {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 760px) {
+  .gift-use {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 6, 22, .88) 0%,
+        rgba(5, 6, 22, .72) 55%,
+        rgba(5, 6, 22, .82) 100%
+      ),
+      url("/media/gift-cards/gift-use-bg.webp") 68% center / cover no-repeat;
+  }
+}
+
+
+/* =========================================================
+   HERO MOTION
+========================================================= */
+
+.gift-hero-glow {
+  animation: giftHeroGlow 6s ease-in-out infinite alternate;
+}
+
+.gift-badge {
+  animation: giftBadgeFloat 4s ease-in-out infinite;
+}
+
+@keyframes giftHeroGlow {
+  from {
+    transform: translateX(-50%) scale(.92);
+    opacity: .72;
+  }
+
+  to {
+    transform: translateX(-50%) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes giftBadgeFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gift-hero-glow,
+  .gift-badge {
+    animation: none;
+  }
+}

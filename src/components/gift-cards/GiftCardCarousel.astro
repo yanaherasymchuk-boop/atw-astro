@@ -1,0 +1,107 @@
+---
+import "../../styles/gift-card-carousel.css";
+
+const cards = [
+  { src: "/media/gift-cards/gift-card.webp", alt: "ATW Detailing general gift card" },
+  { src: "/media/gift-cards/happy-birthday.webp", alt: "ATW Detailing Happy Birthday gift card" },
+  { src: "/media/gift-cards/thank-you.webp", alt: "ATW Detailing Thank You gift card" },
+  { src: "/media/gift-cards/congratulations.webp", alt: "ATW Detailing Congratulations gift card" },
+  { src: "/media/gift-cards/with-appreciation.webp", alt: "ATW Detailing With Appreciation gift card" },
+  { src: "/media/gift-cards/a-gift-for-you.webp", alt: "ATW Detailing A Gift for You gift card" },
+];
+---
+
+<div class="gift-carousel" data-gift-carousel>
+  <div class="gift-carousel-stage">
+    {cards.map((card, index) => (
+      <figure
+        class:list={["gift-carousel-card", index === 0 && "is-active"]}
+        data-gift-slide
+        aria-hidden={index === 0 ? "false" : "true"}
+      >
+        <img
+          src={card.src}
+          alt={card.alt}
+          width="1200"
+          height="751"
+          loading={index === 0 ? "eager" : "lazy"}
+          decoding="async"
+        />
+      </figure>
+    ))}
+
+    <button
+      class="gift-carousel-arrow gift-carousel-prev"
+      type="button"
+      aria-label="Previous gift card design"
+      data-gift-prev
+    >‹</button>
+
+    <button
+      class="gift-carousel-arrow gift-carousel-next"
+      type="button"
+      aria-label="Next gift card design"
+      data-gift-next
+    >›</button>
+  </div>
+
+  <div class="gift-carousel-dots" aria-label="Gift card designs">
+    {cards.map((_, index) => (
+      <button
+        type="button"
+        class:list={["gift-carousel-dot", index === 0 && "is-active"]}
+        aria-label={`Show gift card design ${index + 1}`}
+        aria-current={index === 0 ? "true" : undefined}
+        data-gift-dot={index}
+      ></button>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll("[data-gift-carousel]").forEach((carousel) => {
+    const slides = [...carousel.querySelectorAll("[data-gift-slide]")];
+    const dots = [...carousel.querySelectorAll("[data-gift-dot]")];
+    const prev = carousel.querySelector("[data-gift-prev]");
+    const next = carousel.querySelector("[data-gift-next]");
+
+    let current = 0;
+    let startX = null;
+
+    const show = (index) => {
+      current = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, i) => {
+        const active = i === current;
+        slide.classList.toggle("is-active", active);
+        slide.setAttribute("aria-hidden", String(!active));
+      });
+
+      dots.forEach((dot, i) => {
+        const active = i === current;
+        dot.classList.toggle("is-active", active);
+        if (active) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+    };
+
+    prev?.addEventListener("click", () => show(current - 1));
+    next?.addEventListener("click", () => show(current + 1));
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => show(index));
+    });
+
+    carousel.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse") return;
+      startX = event.clientX;
+    });
+
+    carousel.addEventListener("pointerup", (event) => {
+      if (startX === null) return;
+      const diff = event.clientX - startX;
+      if (Math.abs(diff) > 45) show(diff > 0 ? current - 1 : current + 1);
+      startX = null;
+    });
+  });
+</script>

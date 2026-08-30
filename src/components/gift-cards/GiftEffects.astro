@@ -12,48 +12,76 @@
     if (!layer) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const desktop = window.matchMedia("(min-width: 769px)").matches;
+    if (reduced) return;
 
-    if (reduced || !desktop) return;
-
-    const colors = ["#0ad2d9", "#22a7ff", "#9b5de5", "#e31b96", "#b629e7"];
+    const colors = [
+      "#0ad2d9",
+      "#22a7ff",
+      "#9b5de5",
+      "#e31b96",
+      "#b629e7"
+    ];
 
     function createFirework() {
       const firework = document.createElement("span");
       firework.className = "gift-firework";
 
-      const leftSide = Math.random() > 0.5;
-      const x = leftSide ? 5 + Math.random() * 24 : 71 + Math.random() * 24;
-      const y = 8 + Math.random() * 68;
+      const x = 8 + Math.random() * 84;
+      const y = 6 + Math.random() * 52;
 
       firework.style.left = `${x}%`;
       firework.style.top = `${y}%`;
-      firework.style.color = colors[Math.floor(Math.random() * colors.length)];
+      firework.style.color =
+        colors[Math.floor(Math.random() * colors.length)];
 
-      const count = 8;
+      const count = 10;
+
       for (let i = 0; i < count; i++) {
         const particle = document.createElement("i");
-        particle.style.setProperty("--angle", `${(360 / count) * i}deg`);
-        particle.style.setProperty("--distance", `${48 + Math.random() * 26}px`);
+        particle.style.setProperty(
+          "--angle",
+          `${(360 / count) * i}deg`
+        );
+        particle.style.setProperty(
+          "--distance",
+          `${52 + Math.random() * 30}px`
+        );
         firework.appendChild(particle);
       }
 
       layer.appendChild(firework);
-      window.setTimeout(() => firework.remove(), 1500);
+
+      window.setTimeout(() => {
+        firework.remove();
+      }, 1500);
+    }
+
+    function burst() {
+      createFirework();
+
+      window.setTimeout(createFirework, 260);
+
+      if (Math.random() > 0.45) {
+        window.setTimeout(createFirework, 520);
+      }
     }
 
     let timeoutId;
 
     function schedule() {
       timeoutId = window.setTimeout(() => {
-        createFirework();
+        burst();
         schedule();
-      }, 4200 + Math.random() * 2600);
+      }, 2600 + Math.random() * 1800);
     }
 
-    window.setTimeout(createFirework, 1000);
+    window.setTimeout(burst, 600);
     schedule();
 
-    window.addEventListener("pagehide", () => window.clearTimeout(timeoutId), { once: true });
+    window.addEventListener(
+      "pagehide",
+      () => window.clearTimeout(timeoutId),
+      { once: true }
+    );
   })();
 </script>

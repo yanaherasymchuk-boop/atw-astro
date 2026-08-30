@@ -1,19 +1,12 @@
 ---
 import { site } from "../../data/site";
+import GiftCardCarousel from "./GiftCardCarousel.astro";
 ---
 
 <section class="gift-intro-wrap">
   <div class="gift-intro">
-    <div class="gift-visual" data-reveal="left" aria-label="ATW Detailing gift card illustration">
-      <div class="gift-logo">
-        <strong>ATW</strong>
-        <span>Detailing &amp; Paint Correction</span>
-      </div>
-
-      <div class="gift-card-title">
-        <h2>GIFT CARD</h2>
-        <p>Mobile Detailing &amp; Paint Correction</p>
-      </div>
+    <div class="gift-real-cards" data-reveal="left">
+      <GiftCardCarousel />
     </div>
 
     <div class="gift-copy" data-reveal="right">
