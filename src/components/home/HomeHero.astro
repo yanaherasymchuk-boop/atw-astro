@@ -3,18 +3,24 @@ import { site } from "../../data/site";
 ---
 
 <section class="home-hero" aria-labelledby="home-hero-title">
-  <img
-    class="home-hero__media"
-    src="/media/home/hero-new.webp"
-    alt="Detailed vehicle at night for ATW Detailing mobile car care"
-    width="1920"
-    height="1080"
-    loading="eager"
-    decoding="async"
-    fetchpriority="high"
-  />
+  <picture>
+    <source
+      media="(max-width: 700px)"
+      srcset="/media/home/hero-new-960.webp"
+    />
+    <img
+      class="home-hero__media"
+      src="/media/home/hero-new.webp"
+      alt="Detailed vehicle at night for ATW Detailing mobile car care"
+      width="1672"
+      height="942"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </picture>
   <div class="home-hero__inner">
-    <div class="home-hero__content" data-reveal="up">
+    <div class="home-hero__content">
       <div class="home-hero__badges">
         <span>Mobile Service · Bonney Lake, WA</span>
         <a href="/promo/">20% Off · Limited Appointments Available</a>
@@ -36,7 +42,7 @@ import { site } from "../../data/site";
 
 <style>
   .home-hero{position:relative;min-height:min(820px,calc(100vh - 60px));display:flex;align-items:center;overflow:hidden;background:#05050c;color:#fff}
-  .home-hero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center}
+  .home-hero picture{position:absolute;inset:0;width:100%;height:100%}.home-hero__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left center}
   .home-hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(4,5,12,.97),rgba(4,5,12,.82) 34%,rgba(4,5,12,.34) 64%,rgba(4,5,12,.18)),linear-gradient(0deg,rgba(4,5,12,.88),transparent 42%)}
   .home-hero__inner{position:relative;z-index:2;width:min(calc(100% - var(--page-padding)*2),var(--container));margin:auto;padding:145px 0 92px}
   .home-hero__content{max-width:760px}
