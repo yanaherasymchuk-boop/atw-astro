@@ -2,12 +2,20 @@
 import { navigation } from "../../data/navigation";
 import { site } from "../../data/site";
 import MobileNav from "./MobileNav.astro";
+const smsHref = site.phoneHref.replace("tel:", "sms:");
 ---
 
 <header class="site-header">
   <div class="container-wide header-inner">
-    <a class="brand" href="/">
-      {site.shortName}
+    <a class="brand" href="/" aria-label={`${site.shortName} home`}>
+      <img
+        src="/media/global/logo-atw.webp"
+        alt={site.name}
+        width="520"
+        height="520"
+        decoding="async"
+        fetchpriority="high"
+      />
     </a>
 
     <nav class="desktop-nav" aria-label="Primary navigation">
@@ -18,7 +26,7 @@ import MobileNav from "./MobileNav.astro";
           <>
             <a class="nav-link" href={item.href}>
               {item.label}
-              <span class="nav-chevron" aria-hidden="true">⌄</span>
+              <span class="nav-chevron" aria-hidden="true"></span>
             </a>
 
             <div class="desktop-dropdown">
@@ -43,6 +51,10 @@ import MobileNav from "./MobileNav.astro";
 <a class="header-phone" href={site.phoneHref}>
   {site.phoneDisplay}
 </a>
+    <a class="header-sms" href={smsHref}>
+      Text Us
+    </a>
+
     <a class="header-cta" href={site.bookingUrl}>
       Book Now
     </a>
@@ -60,19 +72,27 @@ import MobileNav from "./MobileNav.astro";
   }
 
   .header-inner {
-    min-height: 76px;
+    min-height: 104px;
     display: flex;
     align-items: center;
     gap: 28px;
   }
 
   .brand {
-    font-weight: 900;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+  }
+
+  .brand img {
+    display: block;
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
   }
 .header-phone {
   color: var(--color-text-muted);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   white-space: nowrap;
 }
@@ -93,7 +113,7 @@ import MobileNav from "./MobileNav.astro";
   .desktop-nav ul {
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 25px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -109,7 +129,7 @@ import MobileNav from "./MobileNav.astro";
   gap: 5px;
 
   color: var(--color-text-muted);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
 
   transition:
@@ -122,15 +142,47 @@ import MobileNav from "./MobileNav.astro";
 }
 
 .nav-chevron {
-  color: var(--color-cyan);
-  font-size: 13px;
-  line-height: 1;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+
+  border: 1px solid rgba(8, 215, 223, 0.32);
+  border-radius: 50%;
+
+  background: rgba(8, 215, 223, 0.045);
+
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.nav-chevron::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46%;
+
+  width: 5px;
+  height: 5px;
+
+  border-right: 1.5px solid var(--color-cyan);
+  border-bottom: 1.5px solid var(--color-cyan);
+
+  transform: translate(-50%, -50%) rotate(45deg);
   transition: transform var(--transition-fast);
 }
 
 .has-children:hover .nav-chevron,
 .has-children:focus-within .nav-chevron {
-  transform: rotate(180deg);
+  border-color: rgba(8, 215, 223, 0.72);
+  background: rgba(8, 215, 223, 0.11);
+}
+
+.has-children:hover .nav-chevron::after,
+.has-children:focus-within .nav-chevron::after {
+  transform: translate(-50%, -25%) rotate(225deg);
 }
 .desktop-dropdown {
   position: absolute;
@@ -223,6 +275,39 @@ import MobileNav from "./MobileNav.astro";
 
   transform: translate(-50%, 0);
 }
+.header-sms {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(8, 215, 223, 0.55);
+  border-radius: 999px;
+  background: rgba(8, 215, 223, 0.06);
+  color: var(--color-cyan);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.header-sms:hover {
+  color: #ffffff;
+  background: rgba(8, 215, 223, 0.14);
+  border-color: rgba(8, 215, 223, 0.9);
+  transform: translateY(-1px);
+}
+
+.header-sms:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+}
+
 .header-cta {
   display: inline-flex;
   align-items: center;
@@ -274,8 +359,19 @@ import MobileNav from "./MobileNav.astro";
   @media (max-width: 980px) {
   .desktop-nav,
   .header-cta,
-  .header-phone {
+  .header-phone,
+  .header-sms {
     display: none;
+  }
+
+  .brand img {
+    width: 68px;
+    height: 68px;
+  }
+
+  .header-inner {
+    min-height: 82px;
+    gap: 16px;
   }
 }
 </style>

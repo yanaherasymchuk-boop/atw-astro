@@ -7,7 +7,7 @@ import "../styles/service-detail-pages.css";
 const title = "Commercial Vehicle Detailing Bonney Lake, WA | ATW Detailing";
 const description = "Mobile commercial vehicle detailing for cargo vans, Sprinters, work trucks, box trucks, semi cabs and fleets around Bonney Lake, Pierce County and South King County.";
 const canonical = `${site.url}/commercial-vehicle-detailing/`;
-const ogImage = `${site.url}/media/home/commercial-detailing.webp`;
+const ogImage = `${site.url}/media/commercial/hero.webp`;
 const smsHref = site.phoneHref.replace("tel:", "sms:");
 const cities = ["Bonney Lake","Lake Tapps","Puyallup","Sumner","Tacoma","University Place","Federal Way","Auburn","Kent"];
 const areaServed = cities.map((name) => ({"@type":"City",name,containedInPlace:{"@type":"State",name:"Washington"}}));
@@ -31,7 +31,8 @@ const schema = {
 
 <BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} ogImageAlt="Commercial vehicle detailing by ATW Detailing">
   <JsonLd slot="head" data={schema} />
-  <link slot="head" rel="preload" href="/media/home/commercial-detailing.webp" as="image" type="image/webp" fetchpriority="high" />
+  <link slot="head" rel="preload" href="/media/commercial/hero-960.webp" as="image" type="image/webp" media="(max-width: 650px)" fetchpriority="high" />
+  <link slot="head" rel="preload" href="/media/commercial/hero.webp" as="image" type="image/webp" media="(min-width: 651px)" fetchpriority="high" />
   <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
 
   <div class="atw-detail-page atw-commercial">
@@ -63,16 +64,25 @@ const schema = {
           <p class="atw-lead">Commercial vehicles vary too much for normal retail size categories. We quote the actual vehicle, condition, requested work and fleet size.</p>
         </div>
         <div class="atw-card-grid atw-grid-3">
-          <article class="atw-card atw-vehicle-card" data-reveal="left"><div class="atw-vehicle-mark" aria-hidden="true">▰</div><div class="atw-eyebrow">Cargo & Service Vehicles</div><h3>Vans & Sprinters</h3><p>Cargo vans, high-roof vans, service vehicles and passenger configurations are quoted according to layout and requested areas.</p></article>
-          <article class="atw-card atw-vehicle-card" data-reveal="scale"><div class="atw-vehicle-mark" aria-hidden="true">▣</div><div class="atw-eyebrow">Delivery & Moving Vehicles</div><h3>Box Trucks</h3><p>Cab, exterior, cargo-box access and work-specific contamination are reviewed before the quote is confirmed.</p></article>
-          <article class="atw-card atw-vehicle-card" data-reveal="right"><div class="atw-vehicle-mark" aria-hidden="true">▱</div><div class="atw-eyebrow">Heavy-Duty</div><h3>Semi Cabs & Sleepers</h3><p>Day cabs, sleeper cabs and heavy-use interiors are reviewed individually for access, condition and the level of work required.</p></article>
+          <article class="atw-card atw-vehicle-card" data-reveal="left">
+            <img src="/media/commercial/sprinter.webp" alt="Mercedes Sprinter commercial vehicle" loading="lazy" decoding="async" />
+            <div class="atw-vehicle-card-copy"><div class="atw-eyebrow">Cargo & Service Vehicles</div><h3>Vans & Sprinters</h3><p>Cargo vans, high-roof vans, service vehicles and passenger configurations are quoted according to layout and requested areas.</p></div>
+          </article>
+          <article class="atw-card atw-vehicle-card" data-reveal="scale">
+            <img src="/media/commercial/box-truck-card.webp" alt="Commercial box truck" loading="lazy" decoding="async" />
+            <div class="atw-vehicle-card-copy"><div class="atw-eyebrow">Delivery & Moving Vehicles</div><h3>Box Trucks</h3><p>Cab, exterior, cargo-box access and work-specific contamination are reviewed before the quote is confirmed.</p></div>
+          </article>
+          <article class="atw-card atw-vehicle-card" data-reveal="right">
+            <img src="/media/commercial/semi.webp" alt="Semi truck commercial detailing" loading="lazy" decoding="async" />
+            <div class="atw-vehicle-card-copy"><div class="atw-eyebrow">Heavy-Duty</div><h3>Semi Cabs & Sleepers</h3><p>Day cabs, sleeper cabs and heavy-use interiors are reviewed individually for access, condition and the level of work required.</p></div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="atw-section atw-section-dark">
       <div class="atw-container atw-split">
-        <div class="atw-visual" data-reveal="left"><img src="/media/home/commercial-detailing.webp" alt="Commercial work vehicle prepared for mobile detailing" loading="lazy" decoding="async" /></div>
+        <div class="atw-visual" data-reveal="left"><img src="/media/commercial/box-truck.webp" alt="Commercial box truck used for working vehicle detailing" loading="lazy" decoding="async" /></div>
         <div class="atw-copy" data-reveal="right">
           <div class="atw-eyebrow">Built for Working Vehicles</div><h2 class="atw-title">Different Use Means <span>Different Detailing Needs</span></h2>
           <p>Work vehicles deal with road grime, frequent entry and exit, cargo residue, dirty step wells and high-use cab interiors. That is why we do not force commercial vehicles into normal sedan/SUV pricing.</p>

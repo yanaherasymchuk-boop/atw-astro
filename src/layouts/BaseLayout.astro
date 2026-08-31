@@ -102,6 +102,145 @@ const {
 </main>
 
 <Footer />
+
+<button
+  class="back-to-top"
+  type="button"
+  aria-label="Back to top"
+  title="Back to top"
+>
+  <span aria-hidden="true"></span>
+</button>
+
 <Reveal />
+
+<script>
+  const backToTop = document.querySelector(".back-to-top");
+
+  if (backToTop instanceof HTMLButtonElement) {
+    const updateBackToTop = () => {
+      backToTop.classList.toggle("is-visible", window.scrollY > 520);
+    };
+
+    updateBackToTop();
+
+    window.addEventListener("scroll", updateBackToTop, { passive: true });
+
+    backToTop.addEventListener("click", () => {
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+    });
+  }
+</script>
+
+<style is:global>
+  .back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 90;
+
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+    border: 1px solid rgba(8, 215, 223, 0.42);
+    border-radius: 50%;
+
+    background:
+      radial-gradient(
+        circle at 30% 20%,
+        rgba(8, 215, 223, 0.18),
+        transparent 48%
+      ),
+      rgba(10, 12, 28, 0.9);
+
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.32),
+      0 0 24px rgba(8, 215, 223, 0.08);
+
+    backdrop-filter: blur(12px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(10px) scale(0.94);
+
+    cursor: pointer;
+
+    transition:
+      opacity var(--transition-fast),
+      visibility var(--transition-fast),
+      transform var(--transition-fast),
+      border-color var(--transition-fast),
+      background var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  .back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .back-to-top:hover {
+    border-color: rgba(8, 215, 223, 0.9);
+    background:
+      radial-gradient(
+        circle at 30% 20%,
+        rgba(8, 215, 223, 0.28),
+        transparent 52%
+      ),
+      rgba(12, 16, 34, 0.96);
+
+    box-shadow:
+      0 14px 34px rgba(0, 0, 0, 0.36),
+      0 0 28px rgba(8, 215, 223, 0.16);
+
+    transform: translateY(-2px);
+  }
+
+  .back-to-top:focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 3px;
+  }
+
+  .back-to-top span {
+    width: 11px;
+    height: 11px;
+
+    border-top: 2px solid var(--color-cyan);
+    border-left: 2px solid var(--color-cyan);
+
+    transform: translateY(3px) rotate(45deg);
+  }
+
+  @media (max-width: 650px) {
+    .back-to-top {
+      right: 16px;
+      bottom: 18px;
+
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .back-to-top {
+      transition: none;
+    }
+  }
+</style>
   </body>
 </html>

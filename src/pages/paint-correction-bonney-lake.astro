@@ -7,7 +7,7 @@ import "../styles/service-detail-pages.css";
 const title = "Paint Correction Bonney Lake, WA | ATW Detailing";
 const description = "Mobile paint correction in Bonney Lake, WA for swirl marks, haze, oxidation and light paint defects. 1-step polishing from $300 and 2-step correction from $500.";
 const canonical = `${site.url}/paint-correction-bonney-lake/`;
-const ogImage = `${site.url}/media/blog/does-ceramic-coating-protect-against-scratches/car-sunsrt-gloss.webp`;
+const ogImage = `${site.url}/media/paint-correction/hero.webp`;
 const smsHref = site.phoneHref.replace("tel:", "sms:");
 
 const cities = ["Bonney Lake","Lake Tapps","Puyallup","Sumner","Tacoma","University Place","Federal Way","Auburn","Kent"];
@@ -33,7 +33,8 @@ const schema = {
 
 <BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} ogImageAlt="Glossy vehicle finish after paint correction">
   <JsonLd slot="head" data={schema} />
-  <link slot="head" rel="preload" href="/media/blog/does-ceramic-coating-protect-against-scratches/car-sunsrt-gloss.webp" as="image" type="image/webp" fetchpriority="high" />
+  <link slot="head" rel="preload" href="/media/paint-correction/hero-960.webp" as="image" type="image/webp" media="(max-width: 650px)" fetchpriority="high" />
+  <link slot="head" rel="preload" href="/media/paint-correction/hero.webp" as="image" type="image/webp" media="(min-width: 651px)" fetchpriority="high" />
   <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
 
   <div class="atw-detail-page atw-paint">
@@ -66,7 +67,7 @@ const schema = {
     <section class="atw-section">
       <div class="atw-container atw-split">
         <div class="atw-visual" data-reveal="left">
-          <img src="/media/blog/what-is-car-detailing/swirls.webp" alt="Swirl marks and paint defects visible on vehicle paint" loading="lazy" decoding="async" />
+          <img src="/media/paint-correction/scratches-macro.webp" alt="Swirl marks and paint defects visible on vehicle paint" loading="lazy" decoding="async" />
         </div>
         <div class="atw-copy" data-reveal="right">
           <div class="atw-eyebrow">What Paint Correction Does</div>
@@ -91,15 +92,15 @@ const schema = {
           <article class="atw-card atw-result" data-reveal="scale">
             <div class="atw-result-head"><h3>Light Surface Marks</h3><p>Polishing can make a visible difference when marks are in the workable surface of the clear coat.</p></div>
             <div class="atw-before-after">
-              <div class="atw-shot"><img src="/media/blog/can-polishing-remove-scratches/handle_before.webp" alt="Light paint marks before polishing" loading="lazy" decoding="async" /><span class="atw-shot-tag">BEFORE</span></div>
-              <div class="atw-shot"><img src="/media/blog/can-polishing-remove-scratches/handle_after.webp" alt="Vehicle paint after polishing light marks" loading="lazy" decoding="async" /><span class="atw-shot-tag">AFTER</span></div>
+              <div class="atw-shot"><img src="/media/paint-correction/water-spots-before.webp" alt="Light paint marks before polishing" loading="lazy" decoding="async" /><span class="atw-shot-tag">BEFORE</span></div>
+              <div class="atw-shot"><img src="/media/paint-correction/water-spots-after.webp" alt="Vehicle paint after polishing light marks" loading="lazy" decoding="async" /><span class="atw-shot-tag">AFTER</span></div>
             </div>
           </article>
           <article class="atw-card atw-result" data-reveal="scale">
             <div class="atw-result-head"><h3>Finish Improvement</h3><p>When a vehicle looks flat or marked up, the right polishing process can restore much more clarity than washing alone.</p></div>
             <div class="atw-before-after">
-              <div class="atw-shot"><img src="/media/blog/what-is-car-detailing/bmw-before.webp" alt="Vehicle finish before detailing and paint improvement" loading="lazy" decoding="async" /><span class="atw-shot-tag">BEFORE</span></div>
-              <div class="atw-shot"><img src="/media/blog/what-is-car-detailing/bmw-after.webp" alt="Vehicle finish after detailing and paint improvement" loading="lazy" decoding="async" /><span class="atw-shot-tag">AFTER</span></div>
+              <div class="atw-shot"><img src="/media/paint-correction/dull-before.webp" alt="Vehicle finish before detailing and paint improvement" loading="lazy" decoding="async" /><span class="atw-shot-tag">BEFORE</span></div>
+              <div class="atw-shot"><img src="/media/paint-correction/dull-after.webp" alt="Vehicle finish after detailing and paint improvement" loading="lazy" decoding="async" /><span class="atw-shot-tag">AFTER</span></div>
             </div>
           </article>
         </div>
@@ -159,11 +160,11 @@ const schema = {
         <div class="atw-center" data-reveal="up"><div class="atw-eyebrow">Need a Different Package?</div><h2 class="atw-title">Paint Improvement <span>Fits Into Larger Services Too</span></h2></div>
         <div class="atw-card-grid atw-grid-2">
           <a class="atw-related-card" href="/services/" data-reveal="left">
-            <img src="/media/full-detail/paint-correction.webp" alt="Paint polishing included with Restore Package" loading="lazy" decoding="async" />
+            <img src="/media/paint-correction/restore.webp" alt="Paint polishing included with Restore Package" loading="lazy" decoding="async" />
             <div class="atw-related-copy"><div class="atw-eyebrow">Full + Polish</div><h3>Restore Package</h3><p>Full Package with a one-step machine polish for vehicles that need interior, exterior and paint improvement.</p><span class="atw-text-link">Explore Services →</span></div>
           </a>
           <a class="atw-related-card" href="/ceramic-coating/" data-reveal="right">
-            <img src="/media/services/ceramic-coating.webp" alt="Ceramic coating protection on glossy paint" loading="lazy" decoding="async" />
+            <img src="/media/paint-correction/ceramic-related.webp" alt="Ceramic coating protection on glossy paint" loading="lazy" decoding="async" />
             <div class="atw-related-copy"><div class="atw-eyebrow">Protection After Prep</div><h3>Ceramic Coating</h3><p>When you want longer-term protection after polishing, ceramic coating is the next step.</p><span class="atw-text-link">Explore Ceramic Coating →</span></div>
           </a>
         </div>

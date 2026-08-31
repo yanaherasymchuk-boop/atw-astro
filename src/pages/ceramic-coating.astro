@@ -7,7 +7,7 @@ import "../styles/service-detail-pages.css";
 const title = "Ceramic Coating Bonney Lake, WA | ATW Detailing";
 const description = "Mobile ceramic coating in Bonney Lake, WA for hydrophobic protection, easier maintenance and added gloss. Standalone coating from $300 or combine it with polishing and detailing.";
 const canonical = `${site.url}/ceramic-coating/`;
-const ogImage = `${site.url}/media/blog/does-ceramic-coating-protect-against-scratches/hero-blog-ceramic.webp`;
+const ogImage = `${site.url}/media/ceramic-coating/hero.webp`;
 const smsHref = site.phoneHref.replace("tel:", "sms:");
 const cities = ["Bonney Lake","Lake Tapps","Puyallup","Sumner","Tacoma","University Place","Federal Way","Auburn","Kent"];
 const areaServed = cities.map((name) => ({"@type":"City",name,containedInPlace:{"@type":"State",name:"Washington"}}));
@@ -31,7 +31,8 @@ const schema = {
 
 <BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} ogImageAlt="Glossy protected vehicle finish after ceramic coating">
   <JsonLd slot="head" data={schema} />
-  <link slot="head" rel="preload" href="/media/blog/does-ceramic-coating-protect-against-scratches/hero-blog-ceramic.webp" as="image" type="image/webp" fetchpriority="high" />
+  <link slot="head" rel="preload" href="/media/ceramic-coating/hero-960.webp" as="image" type="image/webp" media="(max-width: 650px)" fetchpriority="high" />
+  <link slot="head" rel="preload" href="/media/ceramic-coating/hero.webp" as="image" type="image/webp" media="(min-width: 651px)" fetchpriority="high" />
   <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
 
   <div class="atw-detail-page atw-ceramic">
@@ -58,7 +59,7 @@ const schema = {
 
     <section class="atw-section">
       <div class="atw-container atw-split">
-        <div class="atw-visual" data-reveal="left"><img src="/media/blog/does-ceramic-coating-protect-against-scratches/gloss-car.webp" alt="Glossy vehicle finish with ceramic coating protection" loading="lazy" decoding="async" /></div>
+        <div class="atw-visual" data-reveal="left"><img src="/media/ceramic-coating/coating-finish.webp" alt="Glossy vehicle finish with ceramic coating protection" loading="lazy" decoding="async" /></div>
         <div class="atw-copy" data-reveal="right">
           <div class="atw-eyebrow">What Ceramic Coating Does</div>
           <h2 class="atw-title">Protection on Top of a <span>Properly Prepared Finish</span></h2>
@@ -89,11 +90,11 @@ const schema = {
         <div class="atw-center" data-reveal="up"><div class="atw-eyebrow">What You Notice</div><h2 class="atw-title">Water Behavior and <span>Gloss You Can See</span></h2></div>
         <div class="atw-card-grid atw-grid-2">
           <article class="atw-photo-card" data-reveal="left">
-            <img src="/media/blog/does-ceramic-coating-protect-against-scratches/coated.webp" alt="Water beading on ceramic coated paint" loading="lazy" decoding="async" />
+            <img src="/media/ceramic-coating/coated.webp" alt="Water beading on ceramic coated paint" loading="lazy" decoding="async" />
             <div class="atw-photo-copy"><div class="atw-eyebrow">Hydrophobic Surface</div><h3>Water beads instead of sitting flat</h3><p>Hydrophobic behavior is one of the clearest differences you will notice after coating.</p></div>
           </article>
           <article class="atw-photo-card" data-reveal="right">
-            <img src="/media/blog/does-ceramic-coating-protect-against-scratches/glossy-wet-car-closeup.webp" alt="Glossy vehicle paint prepared for protection" loading="lazy" decoding="async" />
+            <img src="/media/ceramic-coating/paint-prep.webp" alt="Paint preparation before ceramic coating" loading="lazy" decoding="async" />
             <div class="atw-photo-copy"><div class="atw-eyebrow">Gloss</div><h3>Preparation determines the finish underneath</h3><p>Ceramic can enhance gloss, but polishing is what improves existing defects before the coating goes on.</p></div>
           </article>
         </div>
@@ -128,7 +129,7 @@ const schema = {
         </div>
         <p style="margin:22px 0 0;color:#9ea2b6;font-size:12px;line-height:1.65">Dealer, fleet, Sprinter, cargo van, box truck, semi and other commercial or oversized configurations require manager review.</p>
 
-        <div class="atw-fleet-feature" style="margin-top:44px;background:linear-gradient(90deg,rgba(5,6,17,.94),rgba(5,6,17,.66) 52%,rgba(5,6,17,.18)),url('/media/blog/does-ceramic-coating-protect-against-scratches/glossy-wet-car-closeup.webp') center/cover" data-reveal="scale">
+        <div class="atw-fleet-feature" style="margin-top:44px;background:linear-gradient(90deg,rgba(5,6,17,.94),rgba(5,6,17,.66) 52%,rgba(5,6,17,.18)),url('/media/ceramic-coating/package-visual.webp') center/cover" data-reveal="scale">
           <div class="atw-fleet-copy">
             <div class="atw-eyebrow">Outside Elite vs Elite</div>
             <h2 class="atw-title">The Difference Is <span>Interior Work</span></h2>

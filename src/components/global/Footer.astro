@@ -1,12 +1,31 @@
 ---
 import { site } from "../../data/site";
+const smsHref = site.phoneHref.replace("tel:", "sms:");
 ---
 
 <footer class="site-footer">
   <div class="container-wide footer-grid">
     <div class="footer-brand">
-      <strong>{site.name}</strong>
+      <a class="footer-logo" href="/" aria-label={`${site.shortName} home`}>
+        <img
+          src="/media/global/footer-emblem.webp"
+          alt={site.name}
+          width="700"
+          height="700"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
       <p>Mobile Detailing Service in Bonney Lake, WA</p>
+
+      <div class="footer-actions">
+        <a class="footer-action footer-action-secondary" href={smsHref}>
+          Text Us
+        </a>
+        <a class="footer-action footer-action-primary" href={site.bookingUrl}>
+          Book Now
+        </a>
+      </div>
     </div>
 
     <div class="footer-column">
@@ -54,29 +73,90 @@ import { site } from "../../data/site";
 
  .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.25fr 0.65fr 1fr;
+  align-items: start;
+  gap: 44px;
 
-  padding-top: 64px;
-  padding-bottom: 52px;
+  padding-top: 42px;
+  padding-bottom: 34px;
 }
 
-  .footer-brand strong {
-    display: block;
-
-    color: var(--color-text);
-    font-size: 20px;
-    font-weight: 900;
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
   }
+
+  .footer-logo img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
 
   .footer-brand p {
-    max-width: 420px;
-    margin: 10px 0 0;
+  max-width: 360px;
+  margin: 8px 0 0;
 
-    color: var(--color-text-muted);
-  }
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
 
-  .footer-column {
+  .footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.footer-action {
+  min-height: 38px;
+  padding: 0 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.footer-action:hover {
+  transform: translateY(-1px);
+}
+
+.footer-action-secondary {
+  border: 1px solid rgba(8, 215, 223, 0.42);
+  background: rgba(8, 215, 223, 0.055);
+  color: var(--color-cyan);
+}
+
+.footer-action-secondary:hover {
+  border-color: rgba(8, 215, 223, 0.8);
+  background: rgba(8, 215, 223, 0.11);
+}
+
+.footer-action-primary {
+  border: 1px solid transparent;
+  background: linear-gradient(135deg,#08d7df,#168cff 55%,#7457ff);
+  color: #fff;
+}
+
+.footer-action-primary:hover {
+  color: #fff;
+  filter: brightness(1.06);
+}
+
+.footer-column {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -114,14 +194,14 @@ import { site } from "../../data/site";
   }
 
   .footer-bottom {
-    padding-top: 20px;
-    padding-bottom: 26px;
+  padding-top: 16px;
+  padding-bottom: 18px;
 
-    border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
 
-    color: var(--color-text-soft);
-    font-size: 12px;
-  }
+  color: var(--color-text-soft);
+  font-size: 12px;
+}
 
   @media (max-width: 760px) {
     .footer-grid {
@@ -142,6 +222,11 @@ import { site } from "../../data/site";
 }
 
 @media (max-width: 600px) {
+  .footer-logo img {
+    width: 140px;
+    height: 140px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 32px;
