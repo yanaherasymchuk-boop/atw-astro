@@ -1,0 +1,246 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/service-detail-pages.css";
+
+const title = "Commercial Vehicle Detailing Bonney Lake, WA | ATW Detailing";
+const description = "Mobile commercial vehicle detailing for cargo vans, Sprinters, work trucks, box trucks, semi cabs and fleets around Bonney Lake, Pierce County and South King County.";
+const canonical = `${site.url}/commercial-vehicle-detailing/`;
+const ogImage = `${site.url}/media/home/commercial-detailing.webp`;
+const smsHref = site.phoneHref.replace("tel:", "sms:");
+const cities = ["Bonney Lake","Lake Tapps","Puyallup","Sumner","Tacoma","University Place","Federal Way","Auburn","Kent"];
+const areaServed = cities.map((name) => ({"@type":"City",name,containedInPlace:{"@type":"State",name:"Washington"}}));
+const faqs = [
+  ["Why don't you list fixed commercial prices?","Commercial vehicles vary widely in height, body configuration, interior layout, cargo use and condition. We review the actual vehicle and requested work before confirming the price."],
+  ["Do you bring your own water and power?","We arrive with our mobile detailing setup. For large fleet or heavy-duty jobs, we confirm site access and job requirements in advance so the service can be planned correctly."],
+  ["Can you detail wrapped or lettered business vehicles?","Yes. Let us know that the vehicle has vinyl graphics or a wrap when requesting the quote so we can account for the surface and condition before service."],
+  ["Do you offer recurring fleet service?","Recurring service may be available for fleets depending on vehicle count, location, route and schedule. Send the fleet details and preferred frequency for review."],
+  ["Can you detail a single work vehicle?","Yes. Commercial quoting is not limited to large fleets. A single cargo van, work truck, box truck or semi cab can be reviewed and quoted individually."],
+  ["Are you licensed and insured?","Yes. ATW Detailing is a licensed and insured mobile detailing business in Washington State."]
+];
+const schema = {
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"LocalBusiness","@id":`${site.url}/#business`,name:site.name,url:site.url,telephone:site.phoneHref.replace("tel:",""),email:site.email,image:ogImage,areaServed},
+    {"@type":"Service","@id":`${canonical}#service`,name:"Mobile Commercial Vehicle Detailing",serviceType:"Commercial vehicle and fleet detailing",url:canonical,description,provider:{"@id":`${site.url}/#business`},areaServed},
+    {"@type":"FAQPage","@id":`${canonical}#faq`,mainEntity:faqs.map(([question,answer])=>({"@type":"Question",name:question,acceptedAnswer:{"@type":"Answer",text:answer}}))}
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} ogImageAlt="Commercial vehicle detailing by ATW Detailing">
+  <JsonLd slot="head" data={schema} />
+  <link slot="head" rel="preload" href="/media/home/commercial-detailing.webp" as="image" type="image/webp" fetchpriority="high" />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+
+  <div class="atw-detail-page atw-commercial">
+    <section class="atw-hero">
+      <div class="atw-hero-inner">
+        <div class="atw-hero-copy">
+          <div class="atw-badge">Mobile Commercial Detailing · Bonney Lake, WA</div>
+          <h1>Commercial Vehicle Detailing<br /><span class="atw-gradient">For Vehicles That Work for a Living</span></h1>
+          <p>Mobile detailing for cargo vans, Sprinters, work trucks, box trucks, semi cabs and fleets. We come to your lot, yard or job site and build the service around the vehicle type, condition and number of units.</p>
+          <div class="atw-btns"><a class="atw-btn atw-btn-cyan" href="#commercial-quote">Request Fleet Quote →</a><a class="atw-btn atw-btn-violet" href={smsHref}>Text Vehicle Photos →</a></div>
+          <div class="atw-hero-mini"><span>Custom Commercial Quotes</span><span>Single Vehicles & Fleets</span><span>Mobile to Your Location</span><span>Manager Review</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="atw-trust">
+      <div class="atw-trust-grid">
+        <div class="atw-trust-item"><span class="atw-check">✓</span>Cargo vans & Sprinters</div>
+        <div class="atw-trust-item"><span class="atw-check">✓</span>Box trucks & work trucks</div>
+        <div class="atw-trust-item"><span class="atw-check">✓</span>Semi cabs & sleepers</div>
+        <div class="atw-trust-item"><span class="atw-check">✓</span>Fleet service available</div>
+      </div>
+    </div>
+
+    <section class="atw-section">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Commercial Vehicle Types</div><h2 class="atw-title">Built Around the <span>Actual Vehicle</span></h2>
+          <p class="atw-lead">Commercial vehicles vary too much for normal retail size categories. We quote the actual vehicle, condition, requested work and fleet size.</p>
+        </div>
+        <div class="atw-card-grid atw-grid-3">
+          <article class="atw-card atw-vehicle-card" data-reveal="left"><div class="atw-vehicle-mark" aria-hidden="true">▰</div><div class="atw-eyebrow">Cargo & Service Vehicles</div><h3>Vans & Sprinters</h3><p>Cargo vans, high-roof vans, service vehicles and passenger configurations are quoted according to layout and requested areas.</p></article>
+          <article class="atw-card atw-vehicle-card" data-reveal="scale"><div class="atw-vehicle-mark" aria-hidden="true">▣</div><div class="atw-eyebrow">Delivery & Moving Vehicles</div><h3>Box Trucks</h3><p>Cab, exterior, cargo-box access and work-specific contamination are reviewed before the quote is confirmed.</p></article>
+          <article class="atw-card atw-vehicle-card" data-reveal="right"><div class="atw-vehicle-mark" aria-hidden="true">▱</div><div class="atw-eyebrow">Heavy-Duty</div><h3>Semi Cabs & Sleepers</h3><p>Day cabs, sleeper cabs and heavy-use interiors are reviewed individually for access, condition and the level of work required.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container atw-split">
+        <div class="atw-visual" data-reveal="left"><img src="/media/home/commercial-detailing.webp" alt="Commercial work vehicle prepared for mobile detailing" loading="lazy" decoding="async" /></div>
+        <div class="atw-copy" data-reveal="right">
+          <div class="atw-eyebrow">Built for Working Vehicles</div><h2 class="atw-title">Different Use Means <span>Different Detailing Needs</span></h2>
+          <p>Work vehicles deal with road grime, frequent entry and exit, cargo residue, dirty step wells and high-use cab interiors. That is why we do not force commercial vehicles into normal sedan/SUV pricing.</p>
+          <p>Tell us what the vehicle does, which areas need attention and whether you have one unit or a fleet. We review the job before confirming service and price.</p>
+          <ul class="atw-checklist"><li>Cab interior cleaning</li><li>Exterior hand washing and detailing</li><li>Step wells and high-use areas</li><li>Cargo-area cleaning when requested</li><li>Fleet and multi-vehicle scheduling</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up"><div class="atw-eyebrow">Commercial Service Options</div><h2 class="atw-title">No One-Size-Fits-All <span>Commercial Package</span></h2><p class="atw-lead">Choose the type of work you need. Final scope and price are confirmed after we review the vehicle or fleet.</p></div>
+        <div class="atw-card-grid atw-grid-4">
+          <article class="atw-card" data-reveal="scale"><h3>Commercial Interior</h3><p>Cab, seats, dash, controls, floor, storage and other accessible interior areas. Cargo-area work can be added when needed.</p><div class="atw-quote">Custom Quote</div></article>
+          <article class="atw-card" data-reveal="scale"><h3>Commercial Exterior</h3><p>Exterior cleaning for work vehicles with service matched to height, body configuration and surface condition.</p><div class="atw-quote">Custom Quote</div></article>
+          <article class="atw-card" data-reveal="scale"><h3>Full Commercial Detail</h3><p>Interior and exterior work combined into one mobile service when the vehicle needs a more complete reset.</p><div class="atw-quote">Custom Quote</div></article>
+          <article class="atw-card" data-reveal="scale"><h3>Fleet Service</h3><p>Multi-vehicle work planned around the number of units, vehicle mix, access and desired service frequency.</p><div class="atw-quote">Fleet Quote</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark" id="commercial-quote">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Commercial / Fleet Quote</div><h2 class="atw-title">Tell Us About the <span>Vehicle or Fleet</span></h2>
+          <p class="atw-lead">Commercial pricing depends on vehicle type, condition, requested work, location and the number of units. Send the details below and we will review the job before scheduling.</p>
+        </div>
+
+        <div class="atw-form-shell" data-reveal="scale">
+          <form id="atw-commercial-form" novalidate data-endpoint="https://forms.atwdetailing.com/contact.php">
+            <input class="atw-hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="startedAt" id="atw-commercial-started-at" />
+            <div class="atw-form-grid">
+              <div class="atw-field"><label for="commercial-name">Name</label><input id="commercial-name" name="name" type="text" autocomplete="name" maxlength="80" required /></div>
+              <div class="atw-field"><label for="commercial-business">Business / Company Name <span style="color:#9095aa">(optional)</span></label><input id="commercial-business" name="businessName" type="text" autocomplete="organization" maxlength="140" /></div>
+              <div class="atw-field"><label for="commercial-email">Email</label><input id="commercial-email" name="email" type="email" autocomplete="email" maxlength="160" required /></div>
+              <div class="atw-field"><label for="commercial-phone">Phone</label><input id="commercial-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" /></div>
+              <div class="atw-field"><label for="commercial-location">Service Location</label><input id="commercial-location" name="location" type="text" autocomplete="street-address" maxlength="180" placeholder="City or service address" required /></div>
+              <div class="atw-field"><label for="commercial-vehicle">Vehicle Type</label><input id="commercial-vehicle" name="vehicleType" type="text" maxlength="160" placeholder="Sprinter, box truck, semi cab…" required /></div>
+              <div class="atw-field"><label for="commercial-units">Number of Vehicles</label><input id="commercial-units" name="units" type="number" min="1" max="500" value="1" required /></div>
+              <div class="atw-field full"><label for="commercial-details">What needs attention?</label><textarea id="commercial-details" name="details" maxlength="2400" placeholder="Interior, exterior, fleet frequency, condition, cargo area, access notes…" required></textarea></div>
+            </div>
+            <button class="atw-btn atw-btn-cyan" type="submit">Send Commercial Request →</button>
+            <p class="atw-form-status" id="atw-commercial-status" role="status" aria-live="polite"></p>
+          </form>
+          <p style="margin:18px 0 0;color:#9095aa;font-size:12px;text-align:center">For faster review, you can also text vehicle photos to <a class="atw-text-link" href={smsHref}>{site.phoneDisplay}</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section">
+      <div class="atw-container">
+        <div class="atw-fleet-feature" data-reveal="scale">
+          <div class="atw-fleet-copy">
+            <div class="atw-eyebrow">Fleet & Multi-Vehicle Work</div><h2 class="atw-title">Keep Business Vehicles <span>Client-Ready</span></h2>
+            <p>For multiple vehicles, we review the fleet mix, location, condition and service frequency before building the quote. Regular scheduled visits may be available depending on route and workload.</p>
+            <p>Send the number of vehicles, vehicle types, location and a few representative photos. We will confirm what is practical and how the work should be scheduled.</p>
+            <a class="atw-btn atw-btn-violet" href="#commercial-quote">Request Fleet Quote →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up"><div class="atw-eyebrow">How Commercial Booking Works</div><h2 class="atw-title">Quote First. <span>Then We Schedule.</span></h2><p class="atw-lead">Commercial jobs are reviewed before booking so the time, equipment and price match the actual vehicle or fleet.</p></div>
+        <div class="atw-process">
+          <article class="atw-step" data-reveal="scale"><div class="atw-step-num">01</div><h3>Send the Vehicle Details</h3><p>Vehicle type, number of units, location and the work you want completed.</p></article>
+          <article class="atw-step" data-reveal="scale"><div class="atw-step-num">02</div><h3>Send Photos</h3><p>Photos help us review size, condition, access areas and unusual contamination.</p></article>
+          <article class="atw-step" data-reveal="scale"><div class="atw-step-num">03</div><h3>We Confirm the Quote</h3><p>Scope, price, expected time and any job-site requirements are confirmed first.</p></article>
+          <article class="atw-step" data-reveal="scale"><div class="atw-step-num">04</div><h3>We Come to You</h3><p>Service is completed at an approved lot, yard, workplace or other suitable location.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section">
+      <div class="atw-container atw-center" data-reveal="up">
+        <div class="atw-eyebrow">Mobile Commercial Service</div><h2 class="atw-title">Based in Bonney Lake. <span>Commercial Routes Vary.</span></h2>
+        <p class="atw-lead">Our regular mobile routes cover Pierce County and South King County. Commercial availability may extend differently depending on job size, travel distance, fleet size and schedule.</p>
+        <div class="atw-cities">{cities.map((city)=><span class="atw-city">{city}</span>)}</div>
+        <div style="margin-top:28px"><a class="atw-text-link" href="/service-areas/">View Service Areas →</a></div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up"><div class="atw-eyebrow">Common Questions</div><h2 class="atw-title">Commercial Detailing <span>FAQ</span></h2></div>
+        <div class="atw-faq">{faqs.map(([question,answer]) => <details data-reveal="scale"><summary>{question}</summary><div class="atw-faq-answer">{answer}</div></details>)}</div>
+      </div>
+    </section>
+
+    <section class="atw-final">
+      <div class="atw-final-inner" data-reveal="up">
+        <div class="atw-eyebrow">Commercial & Fleet Detailing</div><h2>Tell Us What You Need Cleaned.</h2>
+        <p>Send the vehicle type, location, number of units and photos. We will review the job and confirm the right scope before scheduling.</p>
+        <div class="atw-btns"><a class="atw-btn atw-btn-cyan" href={smsHref}>Text Vehicle Photos →</a><a class="atw-btn atw-btn-orange" href="#commercial-quote">Request Fleet Quote →</a></div>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const form = document.getElementById("atw-commercial-form");
+      const status = document.getElementById("atw-commercial-status");
+      const startedAt = document.getElementById("atw-commercial-started-at");
+      if (!(form instanceof HTMLFormElement) || !status) return;
+      if (startedAt instanceof HTMLInputElement) startedAt.value = String(Date.now());
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        status.textContent = "";
+        status.className = "atw-form-status";
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const submit = form.querySelector('button[type="submit"]');
+        const originalText = submit?.textContent || "Send Commercial Request →";
+        if (submit instanceof HTMLButtonElement) {
+          submit.disabled = true;
+          submit.textContent = "Sending…";
+        }
+
+        const fd = new FormData(form);
+        const message = [
+          "Commercial / Fleet Inquiry",
+          `Business / Company: ${String(fd.get("businessName") || "Not provided")}`,
+          `Phone: ${String(fd.get("phone") || "Not provided")}`,
+          `Service location: ${String(fd.get("location") || "")}`,
+          `Vehicle type: ${String(fd.get("vehicleType") || "")}`,
+          `Number of vehicles: ${String(fd.get("units") || "1")}`,
+          "",
+          String(fd.get("details") || "")
+        ].join("\n");
+
+        const payload = {
+          company: String(fd.get("company") || ""),
+          startedAt: String(fd.get("startedAt") || ""),
+          name: String(fd.get("name") || ""),
+          email: String(fd.get("email") || ""),
+          message
+        };
+
+        try {
+          const response = await fetch(form.dataset.endpoint, {
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify(payload)
+          });
+          const data = await response.json().catch(() => ({}));
+          if (!response.ok) throw new Error(data?.error || "Could not send request.");
+
+          form.reset();
+          if (startedAt instanceof HTMLInputElement) startedAt.value = String(Date.now());
+          status.textContent = "Thanks — your commercial request was sent. We’ll review the details and reply with the next step.";
+          status.classList.add("is-success");
+        } catch (error) {
+          status.textContent = error instanceof Error ? error.message : "Could not send request. Please text or call us instead.";
+          status.classList.add("is-error");
+        } finally {
+          if (submit instanceof HTMLButtonElement) {
+            submit.disabled = false;
+            submit.textContent = originalText;
+          }
+        }
+      });
+    })();
+  </script>
+</BaseLayout>

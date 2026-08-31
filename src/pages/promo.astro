@@ -1,0 +1,130 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+import "../styles/promo.css";
+
+const title = "20% Off Mobile Detailing | ATW Detailing";
+const description = "Limited ATW Detailing promotion: 20% off Interior Detailing and Full Package for the remaining promo spots in Bonney Lake and surrounding service areas.";
+const canonical = `${site.url}/promo/`;
+const soldSpots = 15;
+const totalSpots = 20;
+
+const interior = [
+  ["Sedan / Coupe / Compact / Regular Cab Pickup", "$200", "$160"],
+  ["SUV / Crossover / Double Cab Pickup", "$225", "$180"],
+  ["Large SUV / 3-Row / Minivan / Crew Cab Pickup", "$250", "$200"],
+  ["Van / Oversized", "$300", "$240"]
+];
+
+const full = [
+  ["Sedan / Coupe / Compact", "$280", "$225"],
+  ["SUV / Crossover", "$330", "$265"],
+  ["Large SUV / Minivan / Pickup", "$380", "$305"],
+  ["Van / Oversized", "$480", "$385"]
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+
+  <div class="atw-promo">
+    <div class="inner">
+      <section class="hero">
+        <div class="badge"><span class="dot" aria-hidden="true"></span>Limited offer · 5 current spots left</div>
+        <h1 class="title"><span class="green">20%</span><br />Off</h1>
+        <div class="sold">First 10 customers at <span>30% off</span> — SOLD OUT</div>
+        <p class="sub">Mobile detailing in Bonney Lake & surrounding areas.<br />We bring our mobile setup — you provide access to the vehicle.</p>
+
+        <div class="spots" aria-label="Promotion availability: 15 of 20 total promotional spots claimed, 5 current spots remain">
+          <span class="spots-label">Promo status:</span>
+          {Array.from({length: totalSpots}, (_, index) => <span class:list={["spot", {open:index >= soldSpots}]} aria-hidden="true"></span>)}
+          <span class="left">5 left</span>
+        </div>
+
+        <a href={site.bookingUrl} class="btn" target="_blank" rel="noopener">Book My 20% Discount</a>
+        <p class="fine">Bonney Lake · Puyallup · Auburn · Tacoma · Sumner</p>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="sec" data-reveal="up">
+        <p class="label">How the deal works</p>
+        <div class="grid2">
+          <div class="tier sold-tier">
+            <div class="tag red">Sold out</div>
+            <div class="tier-label">First 10 customers</div>
+            <div class="tier-num">−30%</div>
+            <div class="tier-desc">This tier is closed. The first 10 promo spots have been claimed.</div>
+          </div>
+          <div class="tier current">
+            <div class="tag green">Current tier</div>
+            <div class="tier-label">Next 10 customers</div>
+            <div class="tier-num">−20%</div>
+            <div class="tier-desc">Five of the current 20% spots remain before regular pricing returns.</div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="sec" data-reveal="up">
+        <p class="label">Current promo prices</p>
+
+        <div class="pblock">
+          <div class="ptitle">Interior Detailing</div>
+          <div class="psub">Mobile interior detailing. Condition-related extra work is priced separately when applicable.</div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Vehicle</th><th>Regular</th><th>Current Promo −20%</th></tr></thead>
+              <tbody>
+                {interior.map(([vehicle,regular,current]) => <tr><td class="vehicle">{vehicle}</td><td class="regular">{regular}</td><td class="promo-price">{current}</td></tr>)}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="pblock">
+          <div class="ptitle">Full Package</div>
+          <div class="psub">Interior + Exterior in one mobile appointment.</div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Vehicle</th><th>Regular</th><th>Current Promo −20%</th></tr></thead>
+              <tbody>
+                {full.map(([vehicle,regular,current]) => <tr><td class="vehicle">{vehicle}</td><td class="regular">{regular}</td><td class="promo-price">{current}</td></tr>)}
+              </tbody>
+            </table>
+          </div>
+          <div class="note">
+            <strong>30% promo is sold out.</strong> The current offer is 20% off for the remaining spots. Prices are before sales tax where applicable. Promo applies to Interior Detailing and Full Package; paint correction and ceramic coating are excluded.
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:40px">
+          <a href={site.bookingUrl} class="btn" target="_blank" rel="noopener">Book My 20% Discount</a>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="sec" data-reveal="up">
+        <p class="label">Why mobile detailing works</p>
+        <div class="trust">
+          <div class="trust-card"><div class="icon" aria-hidden="true">⌂</div><div class="trust-title">We come to you</div><div class="trust-desc">Home, workplace, or another suitable location in the service area. No drop-off needed.</div></div>
+          <div class="trust-card"><div class="icon" aria-hidden="true">🧰</div><div class="trust-title">We bring equipment</div><div class="trust-desc">We arrive with the tools, supplies and mobile setup needed for the scheduled service.</div></div>
+          <div class="trust-card"><div class="icon" aria-hidden="true">🛡️</div><div class="trust-title">Licensed & insured</div><div class="trust-desc">ATW Detailing is a licensed and insured mobile detailing business in Washington State.</div></div>
+        </div>
+      </section>
+
+      <section class="bottom-cta" data-reveal="up">
+        <h2 class="bottom-title">Ready?<br />Claim <span>one of the remaining spots.</span></h2>
+        <p class="bottom-copy">The first 10 spots at 30% off are sold out. The current customers receive 20% off Interior Detailing or Full Package while the remaining promo spots are available.</p>
+        <a href={site.bookingUrl} class="btn" target="_blank" rel="noopener">Book My 20% Discount</a>
+        <div class="contacts">
+          <div class="contact-item"><a href={site.phoneHref}>{site.phoneDisplay}</a></div>
+          <div class="contact-item"><a href="/">atwdetailing.com</a></div>
+          <div class="contact-item">Bonney Lake, WA · Mobile service</div>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,67 @@
+
+.atw-promo{--green:#22c55e;--red:#ff3b30;--gold:#d4a843;position:relative;overflow:hidden;background:#070d07;color:#f0f7f0}
+.atw-promo *{box-sizing:border-box}
+.atw-promo::before,.atw-promo::after{content:"";position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.atw-promo::before{width:480px;height:480px;top:-100px;left:-140px;background:rgba(34,197,94,.18)}
+.atw-promo::after{width:380px;height:380px;right:-120px;top:34%;background:rgba(212,168,67,.12)}
+.atw-promo .inner{position:relative;z-index:1}
+.atw-promo .hero{min-height:calc(92vh - 70px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 22px 64px}
+.atw-promo .badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:30px;padding:7px 18px;border:1px solid rgba(34,197,94,.35);border-radius:6px;background:rgba(34,197,94,.1);color:var(--green);font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.atw-promo .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:promoPulse 1.6s ease infinite}
+@keyframes promoPulse{50%{opacity:.35;transform:scale(.65)}}
+.atw-promo .title{margin:0 0 20px;color:#f0f7f0;font-size:clamp(72px,14vw,136px);font-weight:1000;line-height:.86;letter-spacing:-.04em;text-transform:uppercase}
+.atw-promo .title .green{color:var(--green)}
+.atw-promo .sold{margin:8px 0 24px;color:var(--red);font-size:clamp(18px,4vw,30px);font-weight:1000;text-transform:uppercase}
+.atw-promo .sub{max-width:590px;margin:0 0 32px;color:rgba(240,247,240,.64);font-size:clamp(15px,2.4vw,18px);font-weight:650;line-height:1.65}
+.atw-promo .spots{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;max-width:600px;margin-bottom:34px}
+.atw-promo .spots-label{margin-right:6px;color:rgba(240,247,240,.45);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+.atw-promo .spot{width:21px;height:8px;border-radius:3px;background:var(--red)}
+.atw-promo .spot.open{border:1px solid rgba(34,197,94,.48);background:rgba(34,197,94,.22)}
+.atw-promo .left{margin-left:6px;color:var(--green);font-size:13px;font-weight:900;text-transform:uppercase}
+.atw-promo .btn{display:inline-flex;align-items:center;justify-content:center;min-width:260px;padding:18px 46px;border-radius:7px;background:var(--green);color:#07130a;font-size:16px;font-weight:1000;letter-spacing:.05em;text-transform:uppercase;transition:transform .15s ease,background .15s ease}
+.atw-promo .btn:hover{transform:translateY(-2px);background:#4ade80}
+.atw-promo .btn:focus-visible{outline:3px solid rgba(74,222,128,.6);outline-offset:4px}
+.atw-promo .fine{margin-top:15px;color:rgba(240,247,240,.35);font-size:12px;font-weight:700}
+.atw-promo .divider{border:0;border-top:1px solid rgba(34,197,94,.11);margin:0 24px}
+.atw-promo .sec{max-width:980px;margin-inline:auto;padding:70px 22px}
+.atw-promo .label{margin:0 0 38px;text-align:center;color:rgba(240,247,240,.45);font-size:10px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}
+.atw-promo .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.atw-promo .tier{position:relative;overflow:hidden;padding:30px 24px;border-radius:16px}
+.atw-promo .tier.sold-tier{border:1px solid rgba(255,59,48,.4);background:rgba(255,59,48,.06)}
+.atw-promo .tier.current{border:1px solid rgba(34,197,94,.32);background:rgba(34,197,94,.06)}
+.atw-promo .tier-label{margin-bottom:10px;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.atw-promo .sold-tier .tier-label,.atw-promo .sold-tier .tier-num{color:var(--red)}
+.atw-promo .current .tier-label,.atw-promo .current .tier-num{color:var(--green)}
+.atw-promo .tier-num{margin-bottom:10px;font-size:76px;font-weight:1000;line-height:1}
+.atw-promo .sold-tier .tier-num{text-decoration:line-through;text-decoration-thickness:4px}
+.atw-promo .tier-desc{color:rgba(240,247,240,.58);font-size:14px;font-weight:700;line-height:1.55}
+.atw-promo .tag{position:absolute;top:16px;right:16px;padding:5px 10px;border-radius:4px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.atw-promo .tag.red{border:1px solid rgba(255,59,48,.42);background:rgba(255,59,48,.12);color:var(--red)}
+.atw-promo .tag.green{border:1px solid rgba(34,197,94,.42);background:rgba(34,197,94,.12);color:var(--green)}
+.atw-promo .pblock{margin-bottom:48px}
+.atw-promo .ptitle{margin-bottom:4px;color:var(--green);font-size:38px;font-weight:1000;letter-spacing:.02em}
+.atw-promo .psub{margin-bottom:16px;color:rgba(240,247,240,.48);font-size:14px;font-weight:600;line-height:1.5}
+.atw-promo .table-wrap{overflow-x:auto;border:1px solid rgba(34,197,94,.1);border-radius:14px}
+.atw-promo table{width:100%;min-width:660px;border-collapse:collapse}
+.atw-promo th{padding:13px 15px;border-bottom:1px solid rgba(34,197,94,.1);color:rgba(240,247,240,.45);font-size:11px;font-weight:900;letter-spacing:.1em;text-align:left;text-transform:uppercase}
+.atw-promo td{padding:15px;border-bottom:1px solid rgba(34,197,94,.06)}
+.atw-promo tr:last-child td{border-bottom:0}
+.atw-promo .vehicle{max-width:330px;color:rgba(240,247,240,.9);font-size:15px;font-weight:800}
+.atw-promo .regular{color:rgba(240,247,240,.34);font-size:15px;font-weight:700;text-decoration:line-through}
+.atw-promo .promo-price{color:var(--green);font-size:21px;font-weight:900}
+.atw-promo .note{margin-top:18px;padding:16px 18px;border:1px solid rgba(255,59,48,.3);border-radius:12px;background:rgba(255,59,48,.07);color:rgba(240,247,240,.7);font-size:14px;font-weight:700;line-height:1.55}
+.atw-promo .note strong{color:var(--red)}
+.atw-promo .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.atw-promo .trust-card{padding:26px 20px;border:1px solid rgba(34,197,94,.11);border-radius:14px;background:rgba(34,197,94,.045);text-align:center}
+.atw-promo .icon{margin-bottom:12px;font-size:28px}
+.atw-promo .trust-title{margin-bottom:7px;color:#f0f7f0;font-size:15px;font-weight:900}
+.atw-promo .trust-desc{color:rgba(240,247,240,.52);font-size:13px;font-weight:600;line-height:1.55}
+.atw-promo .bottom-cta{padding:74px 22px 82px;border-top:1px solid rgba(34,197,94,.11);text-align:center}
+.atw-promo .bottom-title{margin:0 0 14px;color:#f0f7f0;font-size:clamp(44px,9vw,72px);font-weight:1000;line-height:1}
+.atw-promo .bottom-title span{color:var(--green)}
+.atw-promo .bottom-copy{max-width:580px;margin:0 auto 30px;color:rgba(240,247,240,.56);font-size:16px;font-weight:650;line-height:1.65}
+.atw-promo .contacts{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:24px;flex-wrap:wrap}
+.atw-promo .contact-item{color:rgba(240,247,240,.48);font-size:14px;font-weight:800}
+.atw-promo .contact-item a{color:var(--green)}
+@media(max-width:700px){.atw-promo .grid2,.atw-promo .trust{grid-template-columns:1fr}.atw-promo .sec{padding:56px 16px}.atw-promo .hero{padding:64px 16px 54px}.atw-promo .title{font-size:clamp(66px,22vw,96px)}.atw-promo .btn{min-width:240px;padding:16px 24px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){.atw-promo .dot{animation:none}}

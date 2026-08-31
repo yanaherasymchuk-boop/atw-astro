@@ -1,0 +1,157 @@
+
+.atw-detail-page{
+  --page-bg:#070814;
+  --page-bg-2:#0b0c1b;
+  --accent:#08d7df;
+  --accent-2:#7d23dd;
+  --accent-warm:#ff7a22;
+  --text:#f6f5fb;
+  --muted:#b4b7cd;
+  overflow:hidden;
+  background:var(--page-bg);
+  color:var(--text);
+}
+.atw-detail-page *{box-sizing:border-box}
+.atw-detail-page .atw-container{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+.atw-detail-page .atw-section{position:relative;padding:88px 0}
+.atw-detail-page .atw-section-dark{background:var(--page-bg-2)}
+.atw-detail-page .atw-center{text-align:center}
+.atw-detail-page .atw-eyebrow{margin:0 0 14px;color:var(--accent);font-size:12px;font-weight:900;line-height:1.3;letter-spacing:3px;text-transform:uppercase}
+.atw-detail-page .atw-title{margin:0 0 18px;color:#fff;font-size:clamp(34px,4.2vw,54px);line-height:1.08;font-weight:900}
+.atw-detail-page .atw-title span,.atw-detail-page .atw-gradient{background:linear-gradient(90deg,var(--accent),#3b8cff,var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.atw-ceramic .atw-title span,.atw-ceramic .atw-gradient{background-image:linear-gradient(90deg,var(--accent),#3b8cff,var(--accent-warm))}
+.atw-detail-page .atw-lead{max-width:780px;margin:0;color:var(--muted);font-size:18px;line-height:1.78}
+.atw-detail-page .atw-center .atw-lead{margin-inline:auto}
+.atw-detail-page .atw-btns{display:flex;align-items:center;flex-wrap:wrap;gap:14px}
+.atw-detail-page .atw-btn{min-height:50px;padding:0 28px;border:1px solid rgba(255,255,255,.08);border-radius:999px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:900;box-shadow:0 12px 30px rgba(0,0,0,.18);transition:transform .23s ease,filter .23s ease}
+.atw-detail-page .atw-btn:hover{transform:translateY(-3px);filter:brightness(1.08)}
+.atw-detail-page .atw-btn:focus-visible,.atw-detail-page summary:focus-visible,.atw-detail-page input:focus-visible,.atw-detail-page textarea:focus-visible,.atw-detail-page select:focus-visible{outline:3px solid rgba(8,215,223,.5);outline-offset:3px}
+.atw-detail-page .atw-btn-cyan{color:#061218;background:linear-gradient(100deg,#0ce1df,#18c8d7,#20aeda)}
+.atw-detail-page .atw-btn-violet{background:linear-gradient(105deg,#922bdd,#5e19dd,#2413c3)}
+.atw-detail-page .atw-btn-orange{background:linear-gradient(105deg,#ff8b25,#f06716,#c92c0d)}
+.atw-detail-page .atw-text-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-size:14px;font-weight:900}
+.atw-detail-page .atw-hero{position:relative;min-height:650px;display:flex;align-items:center;background-position:center;background-size:cover;background-repeat:no-repeat}
+.atw-paint .atw-hero{background-image:linear-gradient(90deg,rgba(4,5,15,.96),rgba(4,5,15,.86) 38%,rgba(4,5,15,.42) 70%,rgba(4,5,15,.3)),linear-gradient(0deg,rgba(7,8,20,.98),transparent 42%),url("/media/blog/does-ceramic-coating-protect-against-scratches/car-sunsrt-gloss.webp")}
+.atw-ceramic .atw-hero{background-image:linear-gradient(90deg,rgba(4,5,15,.96),rgba(4,5,15,.84) 38%,rgba(4,5,15,.42) 70%,rgba(4,5,15,.28)),linear-gradient(0deg,rgba(7,8,20,.98),transparent 42%),url("/media/blog/does-ceramic-coating-protect-against-scratches/hero-blog-ceramic.webp")}
+.atw-commercial .atw-hero{min-height:680px;background-image:linear-gradient(90deg,rgba(4,5,15,.97),rgba(4,5,15,.86) 40%,rgba(4,5,15,.38) 73%,rgba(4,5,15,.25)),linear-gradient(0deg,rgba(7,8,20,.98),transparent 42%),url("/media/home/commercial-detailing.webp")}
+.atw-detail-page .atw-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 32%,rgba(8,215,223,.13),transparent 33%),radial-gradient(circle at 82% 78%,rgba(125,35,221,.14),transparent 36%);pointer-events:none}
+.atw-ceramic .atw-hero::after{background:radial-gradient(circle at 18% 32%,rgba(8,215,223,.13),transparent 33%),radial-gradient(circle at 82% 78%,rgba(255,122,34,.12),transparent 36%)}
+.atw-detail-page .atw-hero-inner{position:relative;z-index:2;width:min(1180px,calc(100% - 40px));margin-inline:auto;padding:100px 0 110px}
+.atw-detail-page .atw-hero-copy{max-width:760px}
+.atw-detail-page .atw-badge{display:inline-flex;padding:9px 17px;margin-bottom:24px;border:1px solid rgba(8,215,223,.65);border-radius:999px;background:rgba(6,17,29,.64);color:#e3feff;font-size:11px;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.atw-detail-page .atw-hero h1{margin:0 0 22px;color:#fff;font-size:clamp(44px,6vw,70px);line-height:1.02;font-weight:900;letter-spacing:-1.5px}
+.atw-detail-page .atw-hero p{max-width:700px;margin:0 0 30px;color:#d8dae8;font-size:17px;line-height:1.72}
+.atw-detail-page .atw-hero-mini{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.atw-detail-page .atw-hero-mini span{padding:7px 12px;border:1px solid rgba(255,255,255,.11);border-radius:999px;background:rgba(4,5,15,.56);color:#d9dbea;font-size:11px;font-weight:800}
+.atw-detail-page .atw-trust{background:#080916;border-block:1px solid rgba(255,255,255,.05)}
+.atw-detail-page .atw-trust-grid{width:min(1100px,calc(100% - 40px));margin-inline:auto;padding:23px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.atw-detail-page .atw-trust-item{display:flex;align-items:center;justify-content:center;gap:9px;color:#c4c7d7;font-size:12px;font-weight:800;text-align:center}
+.atw-detail-page .atw-check{color:var(--accent);font-size:18px}
+.atw-detail-page .atw-split{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+.atw-detail-page .atw-visual{min-height:500px;overflow:hidden;border:1px solid rgba(8,215,223,.18);border-radius:28px;box-shadow:0 28px 75px rgba(0,0,0,.32)}
+.atw-detail-page .atw-visual img{width:100%;height:500px;object-fit:cover}
+.atw-detail-page .atw-copy p{color:var(--muted);font-size:16px;line-height:1.78}
+.atw-detail-page .atw-checklist{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:11px}
+.atw-detail-page .atw-checklist li{display:flex;gap:9px;color:#eef0f8;font-size:14px;line-height:1.65;font-weight:750}
+.atw-detail-page .atw-checklist li::before{content:"✓";color:var(--accent);font-weight:900}
+.atw-detail-page .atw-card-grid{display:grid;gap:20px;margin-top:46px}
+.atw-detail-page .atw-grid-2{grid-template-columns:repeat(2,1fr)}
+.atw-detail-page .atw-grid-3{grid-template-columns:repeat(3,1fr)}
+.atw-detail-page .atw-grid-4{grid-template-columns:repeat(4,1fr)}
+.atw-detail-page .atw-card{padding:28px 24px;border:1px solid rgba(255,255,255,.09);border-radius:24px;background:rgba(255,255,255,.024)}
+.atw-detail-page .atw-card.featured{border-color:rgba(8,215,223,.48);box-shadow:0 0 50px rgba(8,215,223,.07)}
+.atw-ceramic .atw-card.featured{border-color:rgba(255,122,34,.52);background:linear-gradient(180deg,rgba(255,122,34,.065),rgba(255,255,255,.024));box-shadow:0 0 55px rgba(255,122,34,.07)}
+.atw-detail-page .atw-card h3{margin:0 0 8px;color:#fff;font-size:clamp(22px,2.2vw,30px);font-weight:900}
+.atw-detail-page .atw-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.68}
+.atw-detail-page .atw-pill{display:inline-block;padding:6px 12px;margin-bottom:16px;border-radius:999px;border:1px solid rgba(8,215,223,.33);background:rgba(8,215,223,.1);color:var(--accent);font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}
+.atw-detail-page .atw-price{margin:18px 0;color:#fff;font-size:30px;font-weight:900;line-height:1}
+.atw-detail-page .atw-price small{display:block;margin-top:7px;color:#a7abbd;font-size:12px;line-height:1.45;font-weight:800}
+.atw-detail-page .atw-result{padding:22px}
+.atw-detail-page .atw-result-head h3{margin:0 0 8px;color:#fff;font-size:24px;font-weight:900}
+.atw-detail-page .atw-before-after{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.atw-detail-page .atw-shot{position:relative;min-height:280px;overflow:hidden;border-radius:18px;border:1px solid rgba(255,255,255,.08)}
+.atw-detail-page .atw-shot img{width:100%;height:280px;object-fit:cover}
+.atw-detail-page .atw-shot-tag{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(5,6,17,.78);color:#fff;font-size:10px;font-weight:900;letter-spacing:1.2px}
+.atw-detail-page .atw-pricing-wrap{width:min(1080px,100%);margin:44px auto 0;padding:34px;border:1px solid rgba(8,215,223,.29);border-radius:26px;background:radial-gradient(circle at 74% 0%,rgba(118,33,200,.11),transparent 42%),rgba(255,255,255,.022)}
+.atw-detail-page .atw-price-main{display:grid;grid-template-columns:270px 1fr;gap:28px;align-items:center}
+.atw-detail-page .atw-prices{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.atw-detail-page .atw-price-box{padding:20px 12px;border:1px solid rgba(255,255,255,.08);border-radius:17px;background:rgba(3,4,13,.39);text-align:center}
+.atw-detail-page .atw-price-box small{display:block;margin-bottom:6px;color:#b8bbce;font-size:13px;font-weight:800}
+.atw-detail-page .atw-price-box strong{color:#fff;font-size:25px;font-weight:900}
+.atw-detail-page .atw-pricing-note{margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);color:#9da1b8;font-size:13px;line-height:1.68}
+.atw-detail-page .atw-photo-card{position:relative;min-height:440px;overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:25px}
+.atw-detail-page .atw-photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.atw-detail-page .atw-photo-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,6,17,.97),rgba(5,6,17,.38) 58%,transparent 82%)}
+.atw-detail-page .atw-photo-copy{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:28px}
+.atw-detail-page .atw-photo-copy h3{margin:0 0 8px;color:#fff;font-size:26px;font-weight:900}
+.atw-detail-page .atw-photo-copy p{margin:0;color:#c8cbda;font-size:14px;line-height:1.68}
+.atw-detail-page .atw-related-card{position:relative;min-height:390px;overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:25px}
+.atw-detail-page .atw-related-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.atw-detail-page .atw-related-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,6,17,.97),rgba(5,6,17,.52) 52%,rgba(5,6,17,.12) 80%)}
+.atw-detail-page .atw-related-copy{position:absolute;z-index:2;inset:auto 0 0;padding:28px}
+.atw-detail-page .atw-related-copy h3{margin:0 0 8px;color:#fff;font-size:27px;font-weight:900}
+.atw-detail-page .atw-related-copy p{margin:0 0 14px;color:#c4c7d7;font-size:14px;line-height:1.67}
+.atw-detail-page .atw-cities{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;max-width:900px;margin:28px auto 0}
+.atw-detail-page .atw-city{padding:8px 14px;border:1px solid rgba(8,215,223,.18);border-radius:999px;background:rgba(8,215,223,.04);color:#d0d2de;font-size:12px;font-weight:800}
+.atw-detail-page .atw-faq{width:min(920px,100%);margin:43px auto 0;display:grid;gap:12px}
+.atw-detail-page .atw-faq details{overflow:hidden;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.022)}
+.atw-detail-page .atw-faq summary{padding:19px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#fff;cursor:pointer;list-style:none;font-size:16px;font-weight:900}
+.atw-detail-page .atw-faq summary::-webkit-details-marker{display:none}
+.atw-detail-page .atw-faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1}
+.atw-detail-page .atw-faq details[open] summary::after{content:"×"}
+.atw-detail-page .atw-faq-answer{padding:0 22px 20px;color:var(--muted);font-size:14px;line-height:1.72}
+.atw-detail-page .atw-final{position:relative;min-height:440px;display:flex;align-items:center;text-align:center;background-position:center;background-size:cover}
+.atw-paint .atw-final{background-image:linear-gradient(rgba(5,6,17,.76),rgba(5,6,17,.91)),url("/media/blog/does-ceramic-coating-protect-against-scratches/glossy-wet-car-closeup.webp")}
+.atw-ceramic .atw-final{background-image:linear-gradient(rgba(5,6,17,.72),rgba(5,6,17,.91)),url("/media/blog/does-ceramic-coating-protect-against-scratches/atmospheric-car-gloss.webp")}
+.atw-commercial .atw-final{min-height:460px;background-image:linear-gradient(rgba(5,6,17,.75),rgba(5,6,17,.92)),url("/media/home/commercial-detailing.webp")}
+.atw-detail-page .atw-final::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 43%,rgba(8,215,223,.14),transparent 43%)}
+.atw-ceramic .atw-final::before{background:radial-gradient(circle at 50% 43%,rgba(255,122,34,.14),transparent 43%)}
+.atw-detail-page .atw-final-inner{position:relative;z-index:2;width:min(830px,calc(100% - 40px));margin-inline:auto;padding:72px 0}
+.atw-detail-page .atw-final h2{margin:0 0 16px;color:#fff;font-size:clamp(36px,5vw,55px);line-height:1.08;font-weight:900}
+.atw-detail-page .atw-final p{margin:0 0 27px;color:#d0d2de;font-size:16px;line-height:1.65}
+.atw-detail-page .atw-final .atw-btns{justify-content:center}
+.atw-detail-page .atw-benefit-icon{width:52px;height:52px;margin-bottom:18px;display:grid;place-items:center;border:1px solid rgba(8,215,223,.28);border-radius:16px;background:rgba(8,215,223,.06);font-size:25px}
+.atw-commercial .atw-vehicle-card{min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(145deg,rgba(8,215,223,.08),rgba(125,35,221,.05)),rgba(255,255,255,.02)}
+.atw-commercial .atw-vehicle-mark{font-size:38px;margin-bottom:22px}
+.atw-commercial .atw-quote{margin-top:14px;color:var(--accent);font-size:17px;font-weight:900}
+.atw-detail-page .atw-fleet-feature{position:relative;min-height:520px;overflow:hidden;border:1px solid rgba(8,215,223,.22);border-radius:28px;background:linear-gradient(90deg,rgba(5,6,17,.97),rgba(5,6,17,.72) 54%,rgba(5,6,17,.3)),url("/media/home/commercial-detailing.webp") center/cover}
+.atw-detail-page .atw-fleet-copy{position:relative;z-index:2;max-width:640px;padding:68px 48px}
+.atw-detail-page .atw-fleet-copy p{color:#c8cbda;font-size:15px;line-height:1.75}
+.atw-commercial .atw-process{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.atw-commercial .atw-step{padding:24px 20px;border:1px solid rgba(255,255,255,.08);border-radius:20px;background:rgba(255,255,255,.023)}
+.atw-commercial .atw-step-num{margin-bottom:13px;color:var(--accent);font-size:12px;font-weight:900;letter-spacing:2px}
+.atw-commercial .atw-step h3{margin:0 0 8px;color:#fff;font-size:18px;font-weight:900}
+.atw-commercial .atw-step p{margin:0;color:var(--muted);font-size:13px;line-height:1.65}
+.atw-commercial .atw-form-shell{width:min(980px,100%);margin:46px auto 0;padding:34px;border:1px solid rgba(8,215,223,.24);border-radius:26px;background:radial-gradient(circle at 80% 0%,rgba(125,35,221,.1),transparent 38%),rgba(255,255,255,.024);box-shadow:0 24px 70px rgba(0,0,0,.24)}
+.atw-commercial .atw-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.atw-commercial .atw-field{margin-bottom:16px}
+.atw-commercial .atw-field.full{grid-column:1/-1}
+.atw-commercial label{display:block;margin-bottom:7px;color:#eef0f8;font-size:13px;font-weight:800}
+.atw-commercial input,.atw-commercial select,.atw-commercial textarea{width:100%;min-height:48px;padding:12px 14px;border:1px solid rgba(255,255,255,.11);border-radius:12px;outline:none;background:#0d1020;color:#f6f5fb;font-size:14px}
+.atw-commercial textarea{min-height:130px;resize:vertical}
+.atw-commercial .atw-hp{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+.atw-commercial .atw-form-status{min-height:1.5em;margin:14px 0 0;color:#c8cbda;font-size:13px}
+.atw-commercial .atw-form-status.is-error{color:#ff9a9a}
+.atw-commercial .atw-form-status.is-success{color:#6bf9ff}
+@media(max-width:900px){
+  .atw-detail-page .atw-trust-grid{grid-template-columns:1fr 1fr}
+  .atw-detail-page .atw-split,.atw-detail-page .atw-grid-3,.atw-detail-page .atw-grid-4,.atw-commercial .atw-process{grid-template-columns:1fr 1fr}
+  .atw-detail-page .atw-price-main{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .atw-detail-page .atw-container,.atw-detail-page .atw-hero-inner{width:calc(100% - 28px)}
+  .atw-detail-page .atw-section{padding:64px 0}
+  .atw-detail-page .atw-hero{min-height:660px;background-position:58% center}
+  .atw-commercial .atw-hero{min-height:680px}
+  .atw-detail-page .atw-hero h1{font-size:42px}
+  .atw-detail-page .atw-btns{flex-direction:column;align-items:stretch}
+  .atw-detail-page .atw-btn{width:100%}
+  .atw-detail-page .atw-trust-grid,.atw-detail-page .atw-split,.atw-detail-page .atw-grid-2,.atw-detail-page .atw-grid-3,.atw-detail-page .atw-grid-4,.atw-detail-page .atw-prices,.atw-detail-page .atw-before-after,.atw-commercial .atw-process,.atw-commercial .atw-form-grid{grid-template-columns:1fr}
+  .atw-detail-page .atw-trust-item{justify-content:flex-start}
+  .atw-detail-page .atw-visual{min-height:350px}
+  .atw-detail-page .atw-visual img{height:350px}
+  .atw-detail-page .atw-shot,.atw-detail-page .atw-shot img{min-height:240px;height:240px}
+  .atw-detail-page .atw-pricing-wrap,.atw-commercial .atw-form-shell{padding:23px 17px}
+  .atw-detail-page .atw-fleet-copy{padding:44px 23px}
+  .atw-commercial .atw-field.full{grid-column:auto}
+}

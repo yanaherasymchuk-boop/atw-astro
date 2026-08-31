@@ -1,0 +1,166 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/service-detail-pages.css";
+
+const title = "Ceramic Coating Bonney Lake, WA | ATW Detailing";
+const description = "Mobile ceramic coating in Bonney Lake, WA for hydrophobic protection, easier maintenance and added gloss. Standalone coating from $300 or combine it with polishing and detailing.";
+const canonical = `${site.url}/ceramic-coating/`;
+const ogImage = `${site.url}/media/blog/does-ceramic-coating-protect-against-scratches/hero-blog-ceramic.webp`;
+const smsHref = site.phoneHref.replace("tel:", "sms:");
+const cities = ["Bonney Lake","Lake Tapps","Puyallup","Sumner","Tacoma","University Place","Federal Way","Auburn","Kent"];
+const areaServed = cities.map((name) => ({"@type":"City",name,containedInPlace:{"@type":"State",name:"Washington"}}));
+const faqs = [
+  ["Does ceramic coating remove scratches?","No. Ceramic coating protects the prepared surface but does not remove existing swirl marks or scratches. Those are addressed with polishing or paint correction before coating when needed."],
+  ["Do I need paint correction before ceramic coating?","Not every vehicle needs the same level of correction. If visible swirls, haze or defects are present, polishing should be considered before the coating is applied."],
+  ["What is the difference between Outside Elite and Elite?","Outside Elite includes Exterior Detailing, a one-step machine polish and ceramic coating. Elite includes the Full Package — Interior + Exterior — plus a one-step machine polish and ceramic coating."],
+  ["How are vehicles categorized for ceramic packages?","Package pricing uses Sedan / Coupe / Compact, SUV / Crossover, and Large SUV / Minivan / Pickup. Van, oversized and commercial configurations require a custom quote."],
+  ["Will ceramic coating make the vehicle scratch-proof?","No. Ceramic coating is not a substitute for paint protection film and does not make paint scratch-proof. It is a protective, hydrophobic layer that helps with environmental exposure and maintenance."],
+  ["Do I need to bring the vehicle to a shop?","No. ATW Detailing is mobile. We come to your home, workplace or another suitable location within our service area."]
+];
+const schema = {
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"LocalBusiness","@id":`${site.url}/#business`,name:site.name,url:site.url,telephone:site.phoneHref.replace("tel:",""),email:site.email,image:ogImage,areaServed},
+    {"@type":"Service","@id":`${canonical}#service`,name:"Mobile Ceramic Coating",serviceType:"Automotive ceramic coating",url:canonical,description,provider:{"@id":`${site.url}/#business`},areaServed},
+    {"@type":"FAQPage","@id":`${canonical}#faq`,mainEntity:faqs.map(([question,answer])=>({"@type":"Question",name:question,acceptedAnswer:{"@type":"Answer",text:answer}}))}
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} ogImageAlt="Glossy protected vehicle finish after ceramic coating">
+  <JsonLd slot="head" data={schema} />
+  <link slot="head" rel="preload" href="/media/blog/does-ceramic-coating-protect-against-scratches/hero-blog-ceramic.webp" as="image" type="image/webp" fetchpriority="high" />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+
+  <div class="atw-detail-page atw-ceramic">
+    <section class="atw-hero">
+      <div class="atw-hero-inner">
+        <div class="atw-hero-copy">
+          <div class="atw-badge">Mobile Ceramic Coating · Bonney Lake, WA</div>
+          <h1>Ceramic Coating<br /><span class="atw-gradient">Protection That Makes Maintenance Easier</span></h1>
+          <p>Professional ceramic coating for drivers who want stronger, longer-lasting paint protection, hydrophobic water behavior and a finish that is easier to maintain than an unprotected surface.</p>
+          <div class="atw-btns"><a class="atw-btn atw-btn-cyan" href="/contact-us/">Request Ceramic Quote →</a><a class="atw-btn atw-btn-violet" href={smsHref}>Text Photos for Review →</a></div>
+          <div class="atw-hero-mini"><span>Standalone from $300</span><span>Hydrophobic Protection</span><span>Paint Prep Matters</span><span>Mobile Service</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="atw-trust">
+      <div class="atw-trust-grid">
+        <div class="atw-trust-item"><span class="atw-check">✓</span>Hydrophobic surface</div>
+        <div class="atw-trust-item"><span class="atw-check">✓</span>UV & environmental protection</div>
+        <div class="atw-trust-item"><span class="atw-check">✓</span>Easier maintenance</div>
+        <div class="atw-trust-item"><span class="atw-check">✓</span>Mobile application</div>
+      </div>
+    </div>
+
+    <section class="atw-section">
+      <div class="atw-container atw-split">
+        <div class="atw-visual" data-reveal="left"><img src="/media/blog/does-ceramic-coating-protect-against-scratches/gloss-car.webp" alt="Glossy vehicle finish with ceramic coating protection" loading="lazy" decoding="async" /></div>
+        <div class="atw-copy" data-reveal="right">
+          <div class="atw-eyebrow">What Ceramic Coating Does</div>
+          <h2 class="atw-title">Protection on Top of a <span>Properly Prepared Finish</span></h2>
+          <p>Ceramic coating adds a durable protective layer over the prepared exterior surface. Its hydrophobic behavior helps water bead and makes routine cleaning easier.</p>
+          <p>Coating does not remove existing swirl marks, scratches or paint defects. If those are visible, polishing or paint correction should be considered before coating.</p>
+          <ul class="atw-checklist"><li>Hydrophobic water behavior</li><li>Helps protect against UV exposure and environmental contamination</li><li>Makes routine washing and maintenance easier</li><li>Enhances gloss on properly prepared paint</li><li>Can be paired with polishing when the finish needs improvement first</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">What Protection Changes</div>
+          <h2 class="atw-title">Ceramic Is About <span>Protection & Maintenance</span></h2>
+          <p class="atw-lead">It does not make paint damage-proof. The practical benefit is a protected, hydrophobic surface that is easier to keep clean.</p>
+        </div>
+        <div class="atw-card-grid atw-grid-3">
+          <article class="atw-card" data-reveal="scale"><div class="atw-benefit-icon" aria-hidden="true">💧</div><h3>Hydrophobic Behavior</h3><p>Water forms beads and moves off a coated surface more easily, which helps during normal maintenance.</p></article>
+          <article class="atw-card" data-reveal="scale"><div class="atw-benefit-icon" aria-hidden="true">◉</div><h3>Prep Matters</h3><p>Ceramic preserves the condition underneath it. Visible swirls or defects should be evaluated before coating.</p></article>
+          <article class="atw-card" data-reveal="scale"><div class="atw-benefit-icon" aria-hidden="true">✦</div><h3>Easier Upkeep</h3><p>A properly maintained coated surface is easier to wash than neglected, unprotected paint.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up"><div class="atw-eyebrow">What You Notice</div><h2 class="atw-title">Water Behavior and <span>Gloss You Can See</span></h2></div>
+        <div class="atw-card-grid atw-grid-2">
+          <article class="atw-photo-card" data-reveal="left">
+            <img src="/media/blog/does-ceramic-coating-protect-against-scratches/coated.webp" alt="Water beading on ceramic coated paint" loading="lazy" decoding="async" />
+            <div class="atw-photo-copy"><div class="atw-eyebrow">Hydrophobic Surface</div><h3>Water beads instead of sitting flat</h3><p>Hydrophobic behavior is one of the clearest differences you will notice after coating.</p></div>
+          </article>
+          <article class="atw-photo-card" data-reveal="right">
+            <img src="/media/blog/does-ceramic-coating-protect-against-scratches/glossy-wet-car-closeup.webp" alt="Glossy vehicle paint prepared for protection" loading="lazy" decoding="async" />
+            <div class="atw-photo-copy"><div class="atw-eyebrow">Gloss</div><h3>Preparation determines the finish underneath</h3><p>Ceramic can enhance gloss, but polishing is what improves existing defects before the coating goes on.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Ceramic Options</div><h2 class="atw-title">Standalone or <span>Built Into a Package</span></h2>
+          <p class="atw-lead">Choose coating only when the paint is already in suitable condition, or combine polishing and detailing when the vehicle needs more preparation first.</p>
+        </div>
+        <div class="atw-card-grid atw-grid-3">
+          <article class="atw-card" data-reveal="scale">
+            <div class="atw-eyebrow">Coating Only</div><h3>Ceramic Coating</h3><p>For paint already suitable for coating.</p>
+            <ul class="atw-checklist"><li>Exterior preparation for coating</li><li>Professional ceramic application</li><li>Hydrophobic protection</li><li>Paint condition reviewed first</li></ul>
+            <div class="atw-price">From $300 <small>Final quote depends on vehicle size and paint condition.</small></div>
+            <a class="atw-btn atw-btn-violet" href="/contact-us/">Request Quote →</a>
+          </article>
+          <article class="atw-card featured" data-reveal="scale">
+            <div class="atw-eyebrow" style="color:var(--accent-warm)">Exterior + Polish + Ceramic</div><h3>Outside Elite</h3><p>Exterior-focused preparation and protection.</p>
+            <ul class="atw-checklist"><li>Exterior Detailing</li><li>1-step machine polish</li><li>Ceramic coating</li><li>Longer-term exterior protection</li></ul>
+            <div class="atw-price">From $580 <small>Van / Oversized: quote</small></div>
+            <a class="atw-btn atw-btn-orange" href={site.quoteUrl}>Get Estimate →</a>
+          </article>
+          <article class="atw-card" data-reveal="scale">
+            <div class="atw-eyebrow">Full + Polish + Ceramic</div><h3>Elite Package</h3><p>Full vehicle detailing with paint improvement and coating.</p>
+            <ul class="atw-checklist"><li>Full Package: Interior + Exterior</li><li>1-step machine polish</li><li>Professional ceramic coating</li><li>Complete detail and protection package</li></ul>
+            <div class="atw-price">From $850 <small>Van / Oversized: quote</small></div>
+            <a class="atw-btn atw-btn-violet" href={site.quoteUrl}>Get Estimate →</a>
+          </article>
+        </div>
+        <p style="margin:22px 0 0;color:#9ea2b6;font-size:12px;line-height:1.65">Dealer, fleet, Sprinter, cargo van, box truck, semi and other commercial or oversized configurations require manager review.</p>
+
+        <div class="atw-fleet-feature" style="margin-top:44px;background:linear-gradient(90deg,rgba(5,6,17,.94),rgba(5,6,17,.66) 52%,rgba(5,6,17,.18)),url('/media/blog/does-ceramic-coating-protect-against-scratches/glossy-wet-car-closeup.webp') center/cover" data-reveal="scale">
+          <div class="atw-fleet-copy">
+            <div class="atw-eyebrow">Outside Elite vs Elite</div>
+            <h2 class="atw-title">The Difference Is <span>Interior Work</span></h2>
+            <p>Outside Elite is exterior-focused: Exterior Detail + one-step polish + ceramic coating. Elite adds the complete Interior Detail as part of the package.</p>
+            <a class="atw-text-link" href="/services/">Explore All Services →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section">
+      <div class="atw-container atw-center" data-reveal="up">
+        <div class="atw-eyebrow">Mobile Service · Bonney Lake</div><h2 class="atw-title">Ceramic Coating <span>Near Bonney Lake</span></h2>
+        <p class="atw-lead">ATW Detailing is based in Bonney Lake and provides mobile detailing, paint improvement and coating services throughout nearby Pierce County and South King County communities.</p>
+        <div class="atw-cities">{cities.map((city)=><span class="atw-city">{city}</span>)}</div>
+        <div style="margin-top:28px"><a class="atw-text-link" href="/service-areas/">View All Service Areas →</a></div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up"><div class="atw-eyebrow">Common Questions</div><h2 class="atw-title">Ceramic Coating <span>FAQ</span></h2></div>
+        <div class="atw-faq">{faqs.map(([question,answer]) => <details data-reveal="scale"><summary>{question}</summary><div class="atw-faq-answer">{answer}</div></details>)}</div>
+      </div>
+    </section>
+
+    <section class="atw-final">
+      <div class="atw-final-inner" data-reveal="up">
+        <div class="atw-eyebrow">Mobile Ceramic Coating</div><h2>Ready to Protect the Finish?</h2>
+        <p>Send photos or request a quote and we will confirm the right coating option and preparation level for your vehicle.</p>
+        <div class="atw-btns"><a class="atw-btn atw-btn-cyan" href={smsHref}>Text Photos →</a><a class="atw-btn atw-btn-orange" href="/contact-us/">Request Ceramic Quote →</a></div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
