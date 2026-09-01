@@ -1,0 +1,150 @@
+---
+import { site } from "../../data/site";
+
+const smsNumber = site.phoneHref.replace("tel:", "");
+const smsHref =
+  `sms:${smsNumber}?body=${encodeURIComponent(
+    "Hi ATW, I would like an estimate for my vehicle."
+  )}`;
+---
+
+<section class="atwq-shell" data-atw-estimator>
+      <canvas class="atwq-canvas" aria-hidden="true"></canvas>
+      <div class="atwq-orb atwq-orb-a"></div><div class="atwq-orb atwq-orb-b"></div>
+      <div class="atwq-wrap">
+        <div class="atwq-topbar">
+          <div class="atwq-brand">
+            <div class="atwq-logo">ATW<small>Detailing &amp; Paint Correction</small></div>
+            <div class="atwq-location"><span>▣</span><div>Mobile Service<br>Bonney Lake, WA</div></div>
+          </div>
+          <div class="atwq-progress" aria-hidden="true">
+            <div class="atwq-progress-step is-active" data-progress><b>01</b>Vehicle</div>
+            <div class="atwq-progress-step" data-progress><b>02</b>Service</div>
+            <div class="atwq-progress-step" data-progress><b>03</b>Condition</div>
+            <div class="atwq-progress-step" data-progress><b>04</b>Add-ons</div>
+            <div class="atwq-progress-step" data-progress><b>05</b>Your Info</div>
+          </div>
+        </div>
+
+        <div class="atwq-hero">
+          <h2>Get Your <span>Instant Estimate</span></h2>
+          <p class="atwq-sub">Fast. Accurate. No Obligation.</p>
+        </div>
+
+        
+        <div
+          id="atw-estimate-status"
+          class="atwq-submit-status"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></div>
+        
+
+        <form id="atw-estimate-form" class="atwq-grid" novalidate>
+          <input type="text" class="atwq-hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="startedAt" data-atw-started-at>
+          <input type="hidden" name="quote_payload" data-atw-payload>
+
+          <div class="atwq-flow">
+            <div class="atwq-step is-active" data-step="vehicle">
+              <div class="atwq-step-top"><span>01</span><div><h3>Select your vehicle</h3><p>Search your make and model, or browse by vehicle type.</p></div></div>
+              <div class="atwq-search-wrap">
+                <div class="atwq-search-row"><span class="atwq-search-icon">⌕</span><input class="atwq-search" data-vehicle-search type="search" placeholder="Search make, model, or type your vehicle..." autocomplete="off" aria-label="Search your vehicle"></div>
+                <div class="atwq-results" data-vehicle-results></div>
+              </div>
+              <div class="atwq-label">Or browse by vehicle type</div>
+              <div class="atwq-type-grid">
+                <button type="button" class="atwq-type-card" data-kind="standard" data-type="SUV" data-label="SUV"><span class="atwq-type-icon"><svg viewBox="0 0 160 72"><path d="M18 48h10l11-22h58l23 8 16 14h8"/><path d="M44 26l11-13h36l16 16"/><path d="M29 48h104"/><circle cx="48" cy="51" r="9"/><circle cx="118" cy="51" r="9"/><path d="M58 16v31M93 18v29"/></svg></span><strong>SUV</strong><span>Small / Mid-Size SUVs</span></button>
+                <button type="button" class="atwq-type-card" data-kind="standard" data-type="Sedan/Coupe" data-label="Sedan / Coupe"><span class="atwq-type-icon"><svg viewBox="0 0 160 72"><path d="M17 49h12l13-15 20-16h34l22 16 19 5 8 10"/><path d="M45 34h72"/><path d="M62 18l-10 16M95 18l15 16"/><circle cx="49" cy="51" r="9"/><circle cx="119" cy="51" r="9"/></svg></span><strong>Sedan / Coupe</strong><span>Cars &amp; Coupes</span></button>
+                <button type="button" class="atwq-type-card" data-kind="standard" data-type="LARGE" data-label="Large SUV / 3-Row / Minivan"><span class="atwq-type-icon"><svg viewBox="0 0 160 72"><path d="M15 48h11l10-25h68l25 12 15 13"/><path d="M40 23l12-12h44l17 18"/><path d="M28 48h107"/><circle cx="47" cy="51" r="9"/><circle cx="120" cy="51" r="9"/><path d="M59 13v34M95 13v34"/></svg></span><strong>Large / 3-Row</strong><span>Large SUVs &amp; Minivans</span></button>
+                <button type="button" class="atwq-type-card" data-kind="pickup" data-type="LARGE" data-label="Pickup"><span class="atwq-type-icon"><svg viewBox="0 0 160 72"><path d="M14 49h22V24h43l13 14h14V27h39v22"/><path d="M79 24v25M106 38v11"/><path d="M14 49h132"/><circle cx="48" cy="52" r="9"/><circle cx="124" cy="52" r="9"/><path d="M46 24l10-13h19l12 13"/></svg></span><strong>Pickup</strong><span>Regular, Double or Crew Cab</span></button>
+                <button type="button" class="atwq-type-card" data-kind="van" data-type="VAN" data-label="Van / Oversized"><span class="atwq-type-icon"><svg viewBox="0 0 160 72"><path d="M17 49V23c0-8 7-14 15-14h81c15 0 27 10 31 25l3 15"/><path d="M48 10v39M90 10v39M122 20v29"/><path d="M18 49h129"/><circle cx="48" cy="52" r="9"/><circle cx="120" cy="52" r="9"/></svg></span><strong>Van</strong><span>Van / Oversized</span></button>
+                <button type="button" class="atwq-type-card" data-kind="commercial"><span class="atwq-type-icon"><svg viewBox="0 0 160 72"><path d="M12 49h22V27h35v22h77V14H69v35"/><path d="M34 27l12-14h23"/><path d="M84 20h49M84 30h49"/><circle cx="46" cy="52" r="9"/><circle cx="121" cy="52" r="9"/></svg></span><strong>Commercial</strong><span>Box Trucks &amp; More</span></button>
+              </div>
+              <div class="atwq-commercial-branch" data-commercial-branch>
+                <button type="button" class="atwq-commercial-choice" data-commercial="Cargo Van" data-label="Cargo Van"><strong>Cargo Van</strong><span>Transit Low Roof, Express, NV Cargo</span></button>
+                <button type="button" class="atwq-commercial-choice" data-commercial="Sprinter / High Roof" data-label="High Roof Van"><strong>High Roof Van</strong><span>Sprinter, Transit 250/350, ProMaster</span></button>
+                <button type="button" class="atwq-commercial-choice" data-commercial="Passenger Van" data-label="Passenger Van"><strong>Passenger Van</strong><span>Transit Passenger, NV Passenger</span></button>
+                <button type="button" class="atwq-commercial-choice" data-commercial="Box Truck" data-label="Box Truck"><strong>Box Truck</strong><span>Delivery / moving trucks</span></button>
+                <button type="button" class="atwq-commercial-choice" data-commercial="Semi Truck Day Cab" data-label="Semi Truck Day Cab"><strong>Semi Day Cab</strong><span>Commercial tractor cab</span></button>
+                <button type="button" class="atwq-commercial-choice" data-commercial="Semi Truck Sleeper" data-label="Semi Truck Sleeper"><strong>Semi Sleeper</strong><span>Cab with sleeper area</span></button>
+              </div>
+              <div class="atwq-selected" data-selected-vehicle hidden></div>
+              <div class="atwq-pickup-branch" data-pickup-branch hidden>
+                <div class="atwq-label">Pickup cab configuration</div>
+                <div class="atwq-pickup-options">
+                  <button type="button" class="atwq-commercial-choice" data-pickup-cab="regular"><strong>Regular Cab</strong><span>1 seating row</span></button>
+                  <button type="button" class="atwq-commercial-choice" data-pickup-cab="double"><strong>Double Cab</strong><span>Smaller rear seating area</span></button>
+                  <button type="button" class="atwq-commercial-choice" data-pickup-cab="crew"><strong>Crew Cab</strong><span>Full-size rear seating area</span></button>
+                </div>
+                <div class="atwq-note atwq-pickup-note">
+                  Cab type affects Interior pricing. Exterior and paint-related services use pickup-size pricing.
+                </div>
+              </div>
+            </div>
+
+            <div class="atwq-step" data-step="service">
+              <div class="atwq-step-top"><span>02</span><div><h3>Choose your service</h3><p>Select the detailing package that fits your needs.</p></div></div>
+              <div class="atwq-cards" data-service-cards></div>
+            </div>
+
+            <div class="atwq-step" data-step="condition">
+              <div class="atwq-step-top"><span>03</span><div><h3>Vehicle condition</h3><p>Select the option that best matches your vehicle. Choose None / No when it does not apply.</p></div></div>
+              <div class="atwq-addons" data-contamination></div>
+              <div class="atwq-note">Light everyday contamination is included. Extra charges apply only when additional labor or treatment is selected.</div>
+            </div>
+
+            <div class="atwq-step" data-step="addons">
+              <div class="atwq-step-top"><span>04</span><div><h3>Add-ons</h3><p>Bundle upgrade pricing is applied automatically based on your selected vehicle category and service. Washington State sales tax will be added as required by law.</p></div></div>
+              <div class="atwq-addons" data-addons></div>
+            </div>
+
+            <div class="atwq-step" data-step="contact">
+              <div class="atwq-step-top"><span>05</span><div><h3>Send estimate request</h3><p>We’ll receive your vehicle, package and estimate details.</p></div></div>
+              <div class="atwq-fields">
+                <label>Full Name<input name="name" type="text" placeholder="Your name" required data-contact-focus></label>
+                <label>Phone Number<input name="phone" type="tel" placeholder="(253) 123-4567" required></label>
+                <label>Email (optional)<input name="email" type="email" placeholder="you@example.com"></label>
+                <label class="atwq-wide">Preferred Date<input name="preferred_date" type="date" data-atw-date></label>
+                <label class="atwq-wide">Notes<textarea name="notes" rows="3" placeholder="Anything we should know? Pet hair, odor, stains, parking, etc."></textarea></label>
+              </div>
+              <div class="atwq-actions"><button class="atwq-submit" type="submit">Get My Estimate <span>→</span></button><a class="atwq-text" href={smsHref}>Text Us Instead</a></div>
+              <div class="atwq-secure">▣ All fields are secure and confidential</div>
+            </div>
+          </div>
+
+          <aside class="atwq-panel">
+            <div class="atwq-panel-inner">
+              <div class="atwq-panel-top"><p class="atwq-panel-kicker">✧ Estimate Preview</p><div class="atwq-spark"></div></div>
+              <p class="atwq-panel-label">Estimated Price</p>
+              <h3 data-estimate-price>$—</h3>
+              <p class="atwq-panel-note">Clear base price from your price sheet. Bundle upgrades and condition adjustments are applied only when selected. Washington State sales tax will be added as required by law.</p>
+              <p class="atwq-summary-title">Your Selections</p>
+              <div class="atwq-summary" data-summary></div>
+              <div class="atwq-alert" data-alert hidden></div>
+              <div class="atwq-why"><h4>Why ATW Detailing?</h4><div class="atwq-why-grid"><div class="atwq-why-item"><i>▣</i><div><b>Professional Results</b><span>Detailing done right, every time</span></div></div><div class="atwq-why-item"><i>◇</i><div><b>Premium Products</b><span>High quality products &amp; equipment</span></div></div><div class="atwq-why-item"><i>▱</i><div><b>Mobile Convenience</b><span>We come to you</span></div></div><div class="atwq-why-item"><i>✓</i><div><b>Licensed &amp; Insured</b><span>$1M coverage</span></div></div></div></div>
+              <div class="atwq-textbox"><div><b>Not sure about your vehicle?</b><span>Text us a photo and we’ll confirm the right price.</span></div><a href={smsHref}>Text Us</a></div>
+            </div>
+          </aside>
+        </form>
+
+        <div class="atwq-mobile-total" data-mobile-total hidden>
+  <div>
+    <span data-mobile-total-label>Estimated total</span>
+    <small data-mobile-total-note>before WA sales tax</small>
+  </div>
+  <strong data-mobile-total-price>$—</strong>
+</div>
+
+<div class="atwq-bottom-trust">
+          <div class="atwq-trust"><i>▯</i><div><b>Licensed &amp; Insured</b><span>$1M Coverage</span></div></div>
+          <div class="atwq-trust"><i>◇</i><div><b>Mobile Service</b><span>We come to you</span></div></div>
+          <div class="atwq-trust"><i>✦</i><div><b>5 stars Reviews on Google</b><span>See our Google reviews</span></div></div>
+          <div class="atwq-trust"><i>◎</i><div><b>Eco-Friendly Products</b><span>Professional detailing products</span></div></div>
+        </div>
+      </div>
+    </section>
+
+<script is:inline src="/scripts/estimate-vehicles.js"></script>
+<script is:inline src="/scripts/estimate.js"></script>

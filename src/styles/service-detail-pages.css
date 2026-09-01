@@ -187,3 +187,152 @@
 .atw-commercial .atw-vehicle-card-copy{
   padding:24px;
 }
+
+
+/* EXTERIOR DETAILING */
+.atw-exterior .atw-hero{
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(4,5,15,.96) 0%,
+      rgba(4,5,15,.86) 38%,
+      rgba(4,5,15,.42) 70%,
+      rgba(4,5,15,.28) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7,8,20,.98),
+      transparent 42%
+    ),
+    url("/media/exterior-detailing/hero.webp");
+}
+
+.atw-exterior-process{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:46px;
+}
+
+.atw-exterior-process article{
+  padding:25px 22px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  background:rgba(255,255,255,.024);
+}
+
+.atw-exterior .atw-process-num{
+  margin-bottom:14px;
+  color:var(--accent);
+  font-size:13px;
+  font-weight:900;
+}
+
+.atw-exterior-process h3{
+  margin:0 0 9px;
+  color:#fff;
+  font-size:19px;
+  font-weight:900;
+}
+
+.atw-exterior-process p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.66;
+}
+
+.atw-exterior-photo-grid{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:22px;
+  margin-top:46px;
+}
+
+.atw-exterior-photo-grid .atw-photo-card{
+  min-height:520px;
+}
+
+.atw-exterior-prices{
+  grid-template-columns:repeat(4,1fr)!important;
+}
+
+.atw-exterior-paint-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:54px;
+  align-items:center;
+}
+
+.atw-exterior-paint-image{
+  min-height:470px;
+  overflow:hidden;
+  border:1px solid rgba(125,35,221,.30);
+  border-radius:27px;
+}
+
+.atw-exterior-paint-image img{
+  width:100%;
+  height:470px;
+  object-fit:cover;
+}
+
+.atw-exterior-final{
+  background-image:
+    linear-gradient(
+      rgba(5,6,17,.76),
+      rgba(5,6,17,.91)
+    ),
+    url("/media/exterior-detailing/final.webp");
+}
+
+@media(max-width:900px){
+  .atw-exterior-process{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .atw-exterior-paint-grid{
+    grid-template-columns:1fr;
+  }
+
+  .atw-exterior-prices{
+    grid-template-columns:1fr 1fr!important;
+  }
+}
+
+@media(max-width:650px){
+  .atw-exterior .atw-hero{
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(4,5,15,.96),
+        rgba(4,5,15,.86) 38%,
+        rgba(4,5,15,.42) 70%,
+        rgba(4,5,15,.28)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(7,8,20,.98),
+        transparent 42%
+      ),
+      url("/media/exterior-detailing/hero-960.webp");
+  }
+
+  .atw-exterior-process,
+  .atw-exterior-photo-grid,
+  .atw-exterior-prices{
+    grid-template-columns:1fr!important;
+  }
+
+  .atw-exterior-photo-grid .atw-photo-card{
+    min-height:390px;
+  }
+
+  .atw-exterior-paint-image{
+    min-height:340px;
+  }
+
+  .atw-exterior-paint-image img{
+    height:340px;
+  }
+}

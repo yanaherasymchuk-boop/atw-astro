@@ -1,0 +1,45 @@
+---
+import { site } from "../../data/site";
+
+const smsNumber = site.phoneHref.replace("tel:", "");
+const smsHref = `sms:${smsNumber}`;
+const mailHref = `mailto:${site.email}?subject=Detailing%20Estimate%20Request`;
+---
+
+<section class="estimate-cta" aria-labelledby="estimate-cta-title">
+  <div class="estimate-cta-line"></div>
+
+  <div class="estimate-cta-inner">
+    <span class="estimate-cta-eyebrow">Ready to Book?</span>
+
+    <h2 id="estimate-cta-title" class="estimate-cta-title">
+      Not sure what your car needs?<br />
+      <em>Send us a photo — we'll tell you in minutes.</em>
+    </h2>
+
+    <p class="estimate-cta-sub">
+      Every vehicle is different. Text us a photo and we'll confirm the exact service and price before we show up.
+    </p>
+
+    <div class="estimate-cta-buttons">
+      <a href={site.bookingUrl} target="_blank" rel="noopener" class="estimate-btn-primary">
+        Book Online
+      </a>
+
+      <a href={smsHref} class="estimate-btn-outline">
+        Text a Photo · {site.phoneDisplay}
+      </a>
+    </div>
+
+    <p class="estimate-disclaimer">
+      Prices shown are estimates before Washington State sales tax.<br />
+      Extra dirty vehicles may require an additional charge — confirmed before work begins.
+    </p>
+
+    <div class="estimate-contact-strip">
+      <a href={site.phoneHref} class="estimate-contact-item">{site.phoneDisplay}</a>
+      <a href={mailHref} class="estimate-contact-item">{site.email}</a>
+      <span class="estimate-contact-item">{site.location}</span>
+    </div>
+  </div>
+</section>

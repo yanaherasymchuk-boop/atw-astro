@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import EstimateHero from "../components/estimate/EstimateHero.astro";
+import EstimateCalculator from "../components/estimate/EstimateCalculator.astro";
+import EstimateCta from "../components/estimate/EstimateCta.astro";
+import { site } from "../data/site";
+
+import "../styles/estimate-engine.css";
+import "../styles/estimate-page.css";
+
+const title = "Mobile Detailing Price Estimate | ATW Detailing";
+const description =
+  "Get an instant mobile detailing price estimate for your vehicle in Bonney Lake, Puyallup, Auburn, Tacoma and surrounding areas.";
+
+const canonical = `${site.url}${site.quoteUrl}`;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Auto Detailing Price Estimate",
+      provider: { "@id": `${site.url}/#business` },
+      areaServed: {
+        "@type": "AdministrativeArea",
+        name: "Pierce County, Washington",
+      },
+      url: canonical,
+    },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <JsonLd slot="head" data={schema} />
+  <EstimateHero />
+  <EstimateCalculator />
+  <EstimateCta />
+</BaseLayout>

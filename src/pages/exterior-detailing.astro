@@ -1,0 +1,609 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/service-detail-pages.css";
+
+const title = "Exterior Detailing Bonney Lake, WA | ATW Detailing";
+const description =
+  "Mobile exterior detailing in Bonney Lake, WA. Exterior hand wash, wheels and tires, surface decontamination, paint sealant and protection from $100.";
+const canonical = `${site.url}/exterior-detailing/`;
+const ogImage = `${site.url}/media/exterior-detailing/hero.webp`;
+const smsHref = site.phoneHref.replace("tel:", "sms:");
+
+const cities = [
+  "Bonney Lake",
+  "Lake Tapps",
+  "Puyallup",
+  "Sumner",
+  "Tacoma",
+  "University Place",
+  "Federal Way",
+  "Auburn",
+  "Kent",
+];
+
+const areaServed = cities.map((name) => ({
+  "@type": "City",
+  name,
+  containedInPlace: {
+    "@type": "State",
+    name: "Washington",
+  },
+}));
+
+const faqs = [
+  [
+    "What is included in Exterior Detailing?",
+    "Exterior Detailing includes exterior washing, wheels and tires, exterior trim, surface decontamination as needed, exterior glass and paint protection.",
+  ],
+  [
+    "Does Exterior Detailing remove swirl marks or scratches?",
+    "No. Exterior Detailing focuses on cleaning and protection. Swirl marks, oxidation and light scratches require machine polishing or paint correction.",
+  ],
+  [
+    "Is ceramic coating included?",
+    "No. Exterior Detail includes paint protection, but ceramic coating is a separate service for customers who want longer-term protection.",
+  ],
+  [
+    "Where does a pickup fall for Exterior Detail?",
+    "Standard retail pickups are priced in the Large SUV / Minivan / Pickup exterior category. Commercial, heavy-duty or oversized configurations may require confirmation.",
+  ],
+  [
+    "Is a minivan priced as a van?",
+    "No. Minivans such as the Toyota Sienna, Honda Odyssey, Chrysler Pacifica and similar passenger minivans are in the Large SUV / Minivan / Pickup category, not the Van / Oversized category.",
+  ],
+  [
+    "Do I need to bring the vehicle to a shop?",
+    "No. ATW Detailing is mobile. We come to your home, workplace or another suitable location within our service area.",
+  ],
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.url}/#business`,
+      name: site.name,
+      url: site.url,
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      image: ogImage,
+      areaServed,
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Exterior Detailing",
+      serviceType: "Automotive exterior detailing",
+      url: canonical,
+      description,
+      provider: { "@id": `${site.url}/#business` },
+      areaServed,
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqs.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Glossy vehicle exterior after mobile exterior detailing"
+>
+  <JsonLd slot="head" data={schema} />
+
+  <link
+    slot="head"
+    rel="preload"
+    href="/media/exterior-detailing/hero-960.webp"
+    as="image"
+    type="image/webp"
+    media="(max-width: 650px)"
+    fetchpriority="high"
+  />
+  <link
+    slot="head"
+    rel="preload"
+    href="/media/exterior-detailing/hero.webp"
+    as="image"
+    type="image/webp"
+    media="(min-width: 651px)"
+    fetchpriority="high"
+  />
+
+  <meta
+    slot="head"
+    name="robots"
+    content="index,follow,max-image-preview:large"
+  />
+
+  <div class="atw-detail-page atw-exterior">
+
+    <section class="atw-hero">
+      <div class="atw-hero-inner">
+        <div class="atw-hero-copy">
+          <div class="atw-badge">
+            Mobile Exterior Detailing · Bonney Lake, WA
+          </div>
+
+          <h1>
+            Exterior Detailing<br />
+            <span class="atw-gradient">Clean. Refined. Protected.</span>
+          </h1>
+
+          <p>
+            Professional mobile exterior detailing for road grime, surface
+            contamination, wheels, tires, trim and paint protection. We come
+            to your home or workplace with the equipment needed to clean the
+            exterior properly without a shop visit.
+          </p>
+
+          <div class="atw-btns">
+            <a class="atw-btn atw-btn-cyan" href={site.bookingUrl}>
+              Book Exterior Detail →
+            </a>
+            <a class="atw-btn atw-btn-violet" href={site.quoteUrl}>
+              Get Price Estimate →
+            </a>
+          </div>
+
+          <div class="atw-hero-mini">
+            <span>From $100</span>
+            <span>Mobile Service</span>
+            <span>Paint Sealant</span>
+            <span>Wheels, Tires & Trim</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="atw-trust">
+      <div class="atw-trust-grid">
+        <div class="atw-trust-item">
+          <span class="atw-check">✓</span>Exterior hand wash
+        </div>
+        <div class="atw-trust-item">
+          <span class="atw-check">✓</span>Wheels & tires
+        </div>
+        <div class="atw-trust-item">
+          <span class="atw-check">✓</span>Surface decontamination
+        </div>
+        <div class="atw-trust-item">
+          <span class="atw-check">✓</span>Paint sealant & protection
+        </div>
+      </div>
+    </div>
+
+    <section class="atw-section">
+      <div class="atw-container atw-split">
+
+        <div class="atw-visual" data-reveal="left">
+          <img
+            src="/media/exterior-detailing/included.webp"
+            alt="Detailed vehicle exterior close-up"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="atw-copy" data-reveal="right">
+          <div class="atw-eyebrow">What's Included</div>
+
+          <h2 class="atw-title">
+            More Than a <span>Quick Wash</span>
+          </h2>
+
+          <p>
+            Exterior Detailing is focused on cleaning the areas that collect
+            road film, dirt and contamination while finishing the paint,
+            wheels, tires and exterior trim.
+          </p>
+
+          <p>
+            This service is for vehicles that need a proper exterior reset
+            without machine polishing or ceramic coating.
+          </p>
+
+          <ul class="atw-checklist">
+            <li>Careful exterior wash and dry</li>
+            <li>Wheels and tires cleaned</li>
+            <li>Exterior trim cleaned</li>
+            <li>Paint surface decontamination as needed</li>
+            <li>Paint sealant and UV protection</li>
+            <li>Exterior glass cleaned</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container">
+
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Exterior Process</div>
+
+          <h2 class="atw-title">
+            A Cleaner Finish <span>Starts With the Process</span>
+          </h2>
+
+          <p class="atw-lead">
+            Different exterior surfaces collect different types of
+            contamination. The service is built around safely cleaning each
+            area instead of treating the whole vehicle like one surface.
+          </p>
+        </div>
+
+        <div class="atw-exterior-process">
+
+          <article data-reveal="scale">
+            <div class="atw-process-num">01</div>
+            <h3>Wash</h3>
+            <p>
+              Road grime, loose dirt and everyday exterior buildup are removed
+              with a careful wash process.
+            </p>
+          </article>
+
+          <article data-reveal="scale">
+            <div class="atw-process-num">02</div>
+            <h3>Wheels & Tires</h3>
+            <p>
+              Wheels, tires and surrounding areas receive dedicated cleaning
+              rather than being treated as an afterthought.
+            </p>
+          </article>
+
+          <article data-reveal="scale">
+            <div class="atw-process-num">03</div>
+            <h3>Decontamination</h3>
+            <p>
+              Bonded surface contamination is addressed when needed before
+              protection is applied.
+            </p>
+          </article>
+
+          <article data-reveal="scale">
+            <div class="atw-process-num">04</div>
+            <h3>Protection</h3>
+            <p>
+              Paint sealant is applied to leave the exterior protected and
+              easier to maintain after the appointment.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section">
+      <div class="atw-container">
+
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Real Exterior Conditions</div>
+
+          <h2 class="atw-title">
+            Dirt Is Only <span>Part of the Job</span>
+          </h2>
+
+          <p class="atw-lead">
+            Exterior surfaces deal with road film, water, weather and
+            contamination. Cleaning and protection help reset the finish
+            without promising paint correction where polishing is actually
+            required.
+          </p>
+        </div>
+
+        <div class="atw-exterior-photo-grid">
+
+          <article class="atw-photo-card" data-reveal="left">
+            <img
+              src="/media/exterior-detailing/wash.webp"
+              alt="Vehicle exterior wash process"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="atw-photo-copy">
+              <div class="atw-eyebrow">Cleaning</div>
+              <h3>
+                Road film and buildup need proper contact cleaning
+              </h3>
+              <p>
+                A clean finish starts by removing the contamination sitting on
+                the surface before adding protection.
+              </p>
+            </div>
+          </article>
+
+          <article class="atw-photo-card" data-reveal="right">
+            <img
+              src="/media/exterior-detailing/protection.webp"
+              alt="Water beading on protected automotive paint"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="atw-photo-copy">
+              <div class="atw-eyebrow">Protection</div>
+              <h3>
+                Protection helps with ongoing maintenance
+              </h3>
+              <p>
+                Exterior Detail includes paint protection. Longer-term ceramic
+                protection is available as a separate service level.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container">
+
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Straightforward Pricing</div>
+
+          <h2 class="atw-title">
+            Exterior Detailing <span>Pricing</span>
+          </h2>
+
+          <p class="atw-lead">
+            Pricing is based primarily on the exterior size and workload of
+            the vehicle.
+          </p>
+        </div>
+
+        <div class="atw-pricing-wrap" data-reveal="scale">
+          <div class="atw-price-main">
+
+            <div>
+              <h3>Exterior Detail</h3>
+              <p>Exterior-only cleaning and protection.</p>
+            </div>
+
+            <div class="atw-prices atw-exterior-prices">
+
+              <div class="atw-price-box">
+                <small>Sedan / Coupe / Compact</small>
+                <strong>$100</strong>
+              </div>
+
+              <div class="atw-price-box">
+                <small>SUV / Crossover</small>
+                <strong>$125</strong>
+              </div>
+
+              <div class="atw-price-box">
+                <small>Large SUV / Minivan / Pickup</small>
+                <strong>$150</strong>
+              </div>
+
+              <div class="atw-price-box">
+                <small>Van / Oversized</small>
+                <strong>$200</strong>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="atw-pricing-note">
+            Dealer, fleet, cargo van, Sprinter, box truck, semi and other
+            commercial or oversized configurations may require manager review
+            instead of standard retail pricing.
+          </div>
+
+          <div class="atw-btns" style="margin-top:26px">
+            <a class="atw-btn atw-btn-cyan" href={site.quoteUrl}>
+              Check Your Vehicle →
+            </a>
+            <a class="atw-btn atw-btn-violet" href={smsHref}>
+              Text Photos for a Quote →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="atw-section">
+      <div class="atw-container">
+
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Need More Than Exterior Cleaning?</div>
+
+          <h2 class="atw-title">
+            Choose the <span>Right Next Level</span>
+          </h2>
+
+          <p class="atw-lead">
+            Exterior Detail handles cleaning and protection. If the interior,
+            paint condition or long-term protection is the bigger concern,
+            move to the service that addresses it directly.
+          </p>
+        </div>
+
+        <div class="atw-card-grid atw-grid-3">
+
+          <article class="atw-card" data-reveal="scale">
+            <div class="atw-eyebrow">Interior + Exterior</div>
+            <h3>Full Package</h3>
+            <p>
+              Choose Full when the vehicle needs both Interior Detailing and
+              Exterior Detailing during the same mobile appointment.
+            </p>
+            <div style="margin-top:22px">
+              <a class="atw-text-link" href="/services/full-detailing/">
+                Explore Full Package →
+              </a>
+            </div>
+          </article>
+
+          <article class="atw-card" data-reveal="scale">
+            <div class="atw-eyebrow">Paint Improvement</div>
+            <h3>Restore / Paint Correction</h3>
+            <p>
+              Swirl marks, oxidation, dullness and visible paint defects are
+              not solved by an exterior wash. Those require machine polishing.
+            </p>
+            <div style="margin-top:22px">
+              <a
+                class="atw-text-link"
+                href="/paint-correction-bonney-lake/"
+              >
+                Explore Paint Correction →
+              </a>
+            </div>
+          </article>
+
+          <article class="atw-card" data-reveal="scale">
+            <div class="atw-eyebrow">Long-Term Protection</div>
+            <h3>Ceramic Coating</h3>
+            <p>
+              Choose ceramic coating when you want longer-term exterior
+              protection after the paint has been properly prepared.
+            </p>
+            <div style="margin-top:22px">
+              <a class="atw-text-link" href="/ceramic-coating/">
+                Explore Ceramic Coating →
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container atw-exterior-paint-grid">
+
+        <div class="atw-exterior-paint-image" data-reveal="left">
+          <img
+            src="/media/exterior-detailing/polishing.webp"
+            alt="Machine polishing automotive paint"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div data-reveal="right">
+          <div class="atw-eyebrow">Know the Difference</div>
+
+          <h2 class="atw-title">
+            Cleaning Paint Is Not the Same as{" "}
+            <span>Correcting Paint</span>
+          </h2>
+
+          <p class="atw-lead">
+            Exterior Detailing removes dirt and contamination from the
+            surface. Machine polishing is what improves swirl marks,
+            oxidation, light scratches and dullness in the paint itself.
+          </p>
+
+          <div class="atw-btns" style="margin-top:28px">
+            <a
+              class="atw-btn atw-btn-violet"
+              href="/paint-correction-bonney-lake/"
+            >
+              Explore Paint Correction →
+            </a>
+            <a class="atw-btn atw-btn-orange" href="/ceramic-coating/">
+              Explore Ceramic Coating →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="atw-section">
+      <div class="atw-container atw-center" data-reveal="up">
+
+        <div class="atw-eyebrow">Mobile Service · Bonney Lake</div>
+
+        <h2 class="atw-title">
+          Exterior Detailing{" "}
+          <span>Where Your Vehicle Already Is</span>
+        </h2>
+
+        <p class="atw-lead">
+          ATW Detailing is based in Bonney Lake and provides mobile detailing
+          throughout nearby Pierce County and South King County communities.
+        </p>
+
+        <div class="atw-cities">
+          {cities.map((city) => <span class="atw-city">{city}</span>)}
+        </div>
+
+        <div style="margin-top:28px">
+          <a class="atw-text-link" href="/service-areas/">
+            View All Service Areas →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container">
+
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Common Questions</div>
+          <h2 class="atw-title">
+            Exterior Detailing <span>FAQ</span>
+          </h2>
+        </div>
+
+        <div class="atw-faq">
+          {
+            faqs.map(([question, answer]) => (
+              <details data-reveal="scale">
+                <summary>{question}</summary>
+                <div class="atw-faq-answer">{answer}</div>
+              </details>
+            ))
+          }
+        </div>
+
+      </div>
+    </section>
+
+    <section class="atw-final atw-exterior-final">
+      <div class="atw-final-inner" data-reveal="up">
+        <div class="atw-eyebrow">Mobile Exterior Detailing</div>
+
+        <h2>Ready for a Cleaner Exterior?</h2>
+
+        <p>
+          Book Exterior Detailing online or check your vehicle category and
+          pricing first.
+        </p>
+
+        <div class="atw-btns">
+          <a class="atw-btn atw-btn-cyan" href={site.bookingUrl}>
+            Book Exterior Detail →
+          </a>
+          <a class="atw-btn atw-btn-violet" href={site.quoteUrl}>
+            Get Price Estimate →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
