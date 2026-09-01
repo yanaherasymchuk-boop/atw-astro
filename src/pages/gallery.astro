@@ -1,0 +1,505 @@
+---
+import { readdirSync } from "node:fs";
+import { join } from "node:path";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/gallery.css";
+
+const categories = [
+  { slug: "interior", label: "Interior" },
+  { slug: "exterior", label: "Exterior" },
+  { slug: "shampoo", label: "Shampoo Extraction" },
+  { slug: "paint-correction", label: "Paint Correction" },
+] as const;
+
+const mediaRoot = join(process.cwd(), "public", "media", "gallery");
+const thumbsRoot = join(process.cwd(), "public", "media", "gallery-thumbs");
+
+const galleryOrder = {'interior': ['interior/interior-02.webp', 'interior/interior-05.webp', 'interior/interior-09.webp', 'interior/interior-03.webp', 'interior/interior-24.webp', 'interior/interior-17.webp', 'interior/interior-06.webp', 'interior/interior-12.webp', 'interior/interior-13.webp', 'interior/interior-10.webp', 'interior/interior-14.webp', 'interior/interior-08.webp', 'interior/interior-07.webp', 'interior/interior-11.webp', 'interior/interior-20.webp', 'interior/interior-27.webp', 'interior/interior-19.webp', 'interior/interior-26.webp', 'interior/interior-21.webp', 'interior/interior-25.webp', 'interior/interior-15.webp', 'interior/interior-01.webp', 'interior/interior-28.webp', 'interior/interior-04.webp', 'interior/interior-29.webp', 'interior/interior-30.webp', 'interior/interior-22.webp', 'interior/interior-31.webp', 'interior/interior-32.webp', 'interior/interior-34.webp', 'interior/interior-18.webp', 'interior/interior-23.webp', 'interior/interior-33.webp', 'interior/interior-16.webp', 'interior/legacy-interior-02.webp', 'interior/legacy-interior-01.webp', 'interior/legacy-interior-09.webp', 'interior/legacy-interior-22.webp', 'interior/legacy-interior-11.webp', 'interior/legacy-interior-03.webp', 'interior/legacy-interior-16.webp', 'interior/legacy-interior-12.webp', 'interior/legacy-interior-04.webp', 'interior/legacy-interior-06.webp', 'interior/legacy-interior-20.webp', 'interior/legacy-interior-05.webp', 'interior/legacy-interior-18.webp', 'interior/legacy-interior-07.webp', 'interior/legacy-interior-19.webp', 'interior/legacy-interior-08.webp', 'interior/legacy-interior-21.webp', 'interior/legacy-interior-10.webp', 'interior/legacy-interior-15.webp', 'interior/legacy-interior-14.webp', 'interior/legacy-interior-13.webp', 'interior/legacy-interior-17.webp'], 'exterior': ['exterior/legacy-exterior-12.webp', 'exterior/legacy-exterior-04.webp', 'exterior/legacy-exterior-05.webp', 'exterior/legacy-exterior-03.webp', 'exterior/legacy-exterior-09.webp', 'exterior/legacy-exterior-10.webp', 'exterior/legacy-exterior-13.webp', 'exterior/legacy-exterior-01.webp', 'exterior/legacy-exterior-15.webp', 'exterior/exterior-02.webp', 'exterior/exterior-03.webp', 'exterior/exterior-06.webp', 'exterior/exterior-01.webp', 'exterior/legacy-exterior-08.webp', 'exterior/legacy-exterior-11.webp', 'exterior/legacy-exterior-14.webp', 'exterior/legacy-exterior-06.webp', 'exterior/legacy-exterior-07.webp', 'exterior/exterior-04.webp', 'exterior/exterior-05.webp', 'exterior/legacy-exterior-02.webp'], 'shampoo': ['shampoo/legacy-shampoo-05.webp', 'shampoo/legacy-shampoo-08.webp', 'shampoo/legacy-shampoo-01.webp', 'shampoo/legacy-shampoo-03.webp', 'shampoo/legacy-shampoo-02.webp', 'shampoo/legacy-shampoo-06.webp', 'shampoo/legacy-shampoo-04.webp', 'shampoo/legacy-shampoo-07.webp', 'shampoo/shampoo-02.webp', 'shampoo/shampoo-05.webp', 'shampoo/shampoo-03.webp', 'shampoo/shampoo-04.webp', 'shampoo/shampoo-06.webp', 'shampoo/shampoo-01.webp'], 'paint-correction': ['paint-correction/legacy-paint-correction-01.webp', 'paint-correction/paint-correction-02.webp', 'paint-correction/paint-correction-01.webp', 'paint-correction/paint-correction-03.webp', 'paint-correction/paint-correction-04.webp', 'paint-correction/legacy-paint-correction-02.webp', 'paint-correction/legacy-paint-correction-03.webp']};
+
+const galleryData = categories.map((category) => {
+  const diskFiles = readdirSync(join(mediaRoot, category.slug))
+    .filter((file) => file.toLowerCase().endsWith(".webp"));
+
+  const orderedKeys = galleryOrder[category.slug] ?? [];
+  const orderedNames = orderedKeys
+    .map((key) => key.split("/").pop())
+    .filter((name) => name && diskFiles.includes(name));
+
+  const orderedSet = new Set(orderedNames);
+  const remainingNames = diskFiles
+    .filter((name) => !orderedSet.has(name))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+  const files = [...orderedNames, ...remainingNames];
+
+  const thumbFiles = new Set(
+    readdirSync(join(thumbsRoot, category.slug))
+      .filter((file) => file.toLowerCase().endsWith(".webp"))
+  );
+
+  return {
+    ...category,
+    items: files.map((file, index) => ({
+      src: `/media/gallery/${category.slug}/${file}`,
+      thumb: thumbFiles.has(file)
+        ? `/media/gallery-thumbs/${category.slug}/${file}`
+        : `/media/gallery/${category.slug}/${file}`,
+      thumb640: `/media/gallery-thumbs-640/${category.slug}/${file}`,
+      thumb960: `/media/gallery-thumbs-960/${category.slug}/${file}`,
+      alt: `${category.label} detailing portfolio photo ${index + 1}`,
+    })),
+  };
+});
+
+const categoryItems = Object.fromEntries(
+  galleryData.map((category) => [
+    category.slug,
+    category.items.map((item) => ({
+      ...item,
+      category: category.slug,
+      categoryLabel: category.label,
+    })),
+  ])
+);
+
+const allItems = [];
+const maxCategoryLength = Math.max(...galleryData.map((category) => category.items.length));
+
+for (let i = 0; i < maxCategoryLength; i += 1) {
+  for (const category of categories) {
+    const item = categoryItems[category.slug]?.[i];
+    if (item) allItems.push(item);
+  }
+}
+
+const canonical = `${site.url}/gallery/`;
+const smsHref = site.phoneHref.replace(/^tel:/, "sms:");
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "ATW Detailing Gallery",
+  description:
+    "Portfolio of real interior detailing, exterior detailing, shampoo extraction, and paint correction work by ATW Detailing & Paint Correction.",
+  url: canonical,
+  isPartOf: {
+    "@type": "WebSite",
+    name: site.name,
+    url: site.url,
+  },
+};
+
+const lightboxData = JSON.stringify(
+  Object.fromEntries(
+    galleryData.map((category) => [
+      category.slug,
+      {
+        label: category.label,
+        items: category.items,
+      },
+    ])
+  )
+);
+---
+
+<BaseLayout
+  title={`Gallery | ${site.shortName}`}
+  description="Browse real detailing work from ATW Detailing & Paint Correction, including interiors, exteriors, shampoo extraction, and paint correction."
+  canonical={canonical}
+  ogImage={allItems[0]?.src}
+  ogImageAlt="ATW Detailing portfolio"
+>
+  <JsonLd data={jsonLd} />
+
+  <div class="gallery-page">
+    <canvas id="gallery-canvas" aria-hidden="true"></canvas>
+
+    <div class="gallery-float gallery-float--one" aria-hidden="true"></div>
+    <div class="gallery-float gallery-float--two" aria-hidden="true"></div>
+    <div class="gallery-float gallery-float--three" aria-hidden="true"></div>
+
+    <section class="gallery-hero" aria-labelledby="gallery-title">
+      <div class="gallery-hero__inner">
+        <p class="gallery-eyebrow">ATW Detailing — Portfolio</p>
+        <img
+          class="gallery-hero__logo"
+          src="/media/global/logo-atw.webp"
+          alt="ATW Detailing & Paint Correction"
+          width="240"
+          height="240"
+          decoding="async"
+        />
+        <h1 id="gallery-title">
+          <span>Mobile Detailing</span>
+          <span class="gallery-gradient-text">Gallery</span>
+        </h1>
+        <p class="gallery-hero__copy">
+          Browse real mobile detailing results from ATW Detailing & Paint Correction — interior detailing,
+          exterior detailing, shampoo extraction, and paint correction in Bonney Lake, Puyallup, Tacoma,
+          Auburn, and nearby Washington areas.
+        </p>
+        <a class="gallery-scroll-cue" href="#portfolio" aria-label="Scroll to portfolio">
+          <span>Scroll</span>
+          <i aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="portfolio" class="gallery-portfolio" aria-labelledby="portfolio-title">
+      <div class="gallery-section-head">
+        <p class="gallery-eyebrow">Portfolio</p>
+        <h2 id="portfolio-title">Our Work</h2>
+      </div>
+
+      <div class="gallery-filters" role="group" aria-label="Gallery categories">
+        <button class="gallery-filter is-active" type="button" data-filter="all" aria-pressed="true">
+          All Work
+        </button>
+        {galleryData.map((category) => (
+          <button
+            class="gallery-filter"
+            type="button"
+            data-filter={category.slug}
+            aria-pressed="false"
+          >
+            {category.label}
+          </button>
+        ))}
+      </div>
+
+      <div class="gallery-masonry" id="gallery-masonry">
+        {allItems.map((item, index) => (
+          <button
+            class="gallery-card"
+            type="button"
+            data-category={item.category}
+            data-index={galleryData
+              .find((category) => category.slug === item.category)
+              ?.items.findIndex((entry) => entry.src === item.src)}
+            aria-label={`Open ${item.categoryLabel} photo`}
+          >
+            <span class="gallery-card__inner">
+              <img
+                src={item.thumb640}
+                srcset={`${item.thumb640} 640w, ${item.thumb960} 960w, ${item.thumb} 1200w`}
+                sizes="(max-width: 420px) calc(100vw - 22px), (max-width: 980px) calc((100vw - 34px) / 2), min(31vw, 450px)"
+                alt={item.alt}
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
+              />
+              <span class="gallery-card__overlay" aria-hidden="true">
+                <span>{item.categoryLabel}</span>
+                <b>↗</b>
+              </span>
+              <span class="gallery-card__sheen" aria-hidden="true"></span>
+            </span>
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <section class="gallery-cta" aria-labelledby="gallery-cta-title">
+      <div class="gallery-cta__inner">
+        <p class="gallery-eyebrow">Ready for yours?</p>
+        <h2 id="gallery-cta-title">Make Your Vehicle the Next One</h2>
+        <p>Book online or text us to get started.</p>
+        <div class="gallery-cta__actions">
+          <a class="gallery-btn gallery-btn--primary" href={site.bookingUrl}>Book Online</a>
+          <a class="gallery-btn gallery-btn--secondary" href={smsHref}>Text Us</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <dialog class="gallery-lightbox" id="gallery-lightbox" aria-label="Gallery image viewer">
+    <div class="gallery-lightbox__shell">
+      <button class="gallery-lightbox__close" type="button" aria-label="Close gallery">×</button>
+
+      <button class="gallery-lightbox__nav gallery-lightbox__nav--prev" type="button" aria-label="Previous image">‹</button>
+
+      <figure class="gallery-lightbox__figure">
+        <div class="gallery-lightbox__image-wrap">
+          <img id="lightbox-image" src="" alt="" />
+        </div>
+        <figcaption class="gallery-lightbox__caption">
+          <span id="lightbox-category"></span>
+          <span id="lightbox-counter" aria-live="polite"></span>
+        </figcaption>
+      </figure>
+
+      <button class="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" aria-label="Next image">›</button>
+    </div>
+  </dialog>
+
+  <script type="application/json" id="gallery-data" set:html={lightboxData}></script>
+
+  <script>
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    const cards = Array.from(document.querySelectorAll(".gallery-card"));
+    const filters = Array.from(document.querySelectorAll(".gallery-filter"));
+
+    const observer = "IntersectionObserver" in window
+      ? new IntersectionObserver((entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          }
+        }, { rootMargin: "120px 0px", threshold: 0.04 })
+      : null;
+
+    cards.forEach((card) => {
+      if (observer && !reduceMotion) observer.observe(card);
+      else card.classList.add("is-visible");
+    });
+
+    filters.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter") || "all";
+
+        filters.forEach((item) => {
+          const active = item === button;
+          item.classList.toggle("is-active", active);
+          item.setAttribute("aria-pressed", String(active));
+        });
+
+        cards.forEach((card) => {
+          const show = filter === "all" || card.getAttribute("data-category") === filter;
+          card.classList.toggle("is-filtered-out", !show);
+        });
+      });
+    });
+
+    if (finePointer && !reduceMotion) {
+      cards.forEach((card) => {
+        const inner = card.querySelector(".gallery-card__inner");
+
+        card.addEventListener("pointermove", (event) => {
+          if (!(inner instanceof HTMLElement)) return;
+          const rect = card.getBoundingClientRect();
+          const nx = (event.clientX - rect.left) / rect.width - 0.5;
+          const ny = (event.clientY - rect.top) / rect.height - 0.5;
+          inner.style.setProperty("--mx", `${nx * 10}px`);
+          inner.style.setProperty("--my", `${ny * 10}px`);
+          inner.style.setProperty("--rx", `${-ny * 2.4}deg`);
+          inner.style.setProperty("--ry", `${nx * 2.4}deg`);
+        });
+
+        card.addEventListener("pointerleave", () => {
+          if (!(inner instanceof HTMLElement)) return;
+          inner.style.setProperty("--mx", "0px");
+          inner.style.setProperty("--my", "0px");
+          inner.style.setProperty("--rx", "0deg");
+          inner.style.setProperty("--ry", "0deg");
+        });
+      });
+    }
+
+    const dataElement = document.querySelector("#gallery-data");
+    const lightbox = document.querySelector("#gallery-lightbox");
+    const image = document.querySelector("#lightbox-image");
+    const categoryLabel = document.querySelector("#lightbox-category");
+    const counter = document.querySelector("#lightbox-counter");
+    const closeButton = document.querySelector(".gallery-lightbox__close");
+    const prevButton = document.querySelector(".gallery-lightbox__nav--prev");
+    const nextButton = document.querySelector(".gallery-lightbox__nav--next");
+
+    let galleries = {};
+    let activeCategory = "";
+    let activeIndex = 0;
+    let touchStartX = 0;
+
+    if (dataElement?.textContent) {
+      try { galleries = JSON.parse(dataElement.textContent); } catch { galleries = {}; }
+    }
+
+    const activeItems = () => galleries[activeCategory]?.items ?? [];
+
+    const preloadAdjacent = () => {
+      const items = activeItems();
+      if (items.length < 2) return;
+      [items[(activeIndex + 1) % items.length], items[(activeIndex - 1 + items.length) % items.length]]
+        .forEach((item) => {
+          if (!item?.src) return;
+          const preloader = new Image();
+          preloader.src = item.src;
+        });
+    };
+
+    const renderLightbox = () => {
+      const items = activeItems();
+      const item = items[activeIndex];
+      if (!item || !(image instanceof HTMLImageElement)) return;
+
+      image.src = item.src;
+      image.alt = item.alt;
+      if (categoryLabel) categoryLabel.textContent = galleries[activeCategory]?.label ?? "";
+      if (counter) counter.textContent = `${activeIndex + 1} / ${items.length}`;
+      preloadAdjacent();
+    };
+
+    const openLightbox = (category, index) => {
+      if (!(lightbox instanceof HTMLDialogElement) || !galleries[category]) return;
+      activeCategory = category;
+      activeIndex = Number.isFinite(index) ? index : 0;
+      renderLightbox();
+      lightbox.showModal();
+      document.documentElement.classList.add("gallery-modal-open");
+    };
+
+    const closeLightbox = () => {
+      if (!(lightbox instanceof HTMLDialogElement)) return;
+      lightbox.close();
+      document.documentElement.classList.remove("gallery-modal-open");
+      if (image instanceof HTMLImageElement) {
+        image.removeAttribute("src");
+        image.alt = "";
+      }
+    };
+
+    const step = (direction) => {
+      const items = activeItems();
+      if (!items.length) return;
+      activeIndex = (activeIndex + direction + items.length) % items.length;
+      renderLightbox();
+    };
+
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const category = card.getAttribute("data-category") || "";
+        const index = Number(card.getAttribute("data-index") || 0);
+        openLightbox(category, index);
+      });
+    });
+
+    closeButton?.addEventListener("click", closeLightbox);
+    prevButton?.addEventListener("click", () => step(-1));
+    nextButton?.addEventListener("click", () => step(1));
+
+    lightbox?.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    lightbox?.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      closeLightbox();
+    });
+
+    lightbox?.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0]?.clientX ?? 0;
+    }, { passive: true });
+
+    lightbox?.addEventListener("touchend", (event) => {
+      const touchEndX = event.changedTouches[0]?.clientX ?? 0;
+      const delta = touchEndX - touchStartX;
+      if (Math.abs(delta) > 55) step(delta > 0 ? -1 : 1);
+    }, { passive: true });
+
+    document.addEventListener("keydown", (event) => {
+      if (!(lightbox instanceof HTMLDialogElement) || !lightbox.open) return;
+      if (event.key === "ArrowLeft") step(-1);
+      if (event.key === "ArrowRight") step(1);
+    });
+
+    const canvas = document.querySelector("#gallery-canvas");
+    const isMobile = window.matchMedia("(max-width: 760px)").matches;
+
+    if (canvas instanceof HTMLCanvasElement && !reduceMotion && !isMobile) {
+      const ctx = canvas.getContext("2d");
+
+      if (ctx) {
+        const palette = [
+          [23, 207, 214],
+          [123, 34, 176],
+          [200, 91, 232],
+          [255, 122, 42],
+          [120, 140, 255],
+        ];
+
+        const particles = Array.from({ length: 52 }, () => {
+          const color = palette[Math.floor(Math.random() * palette.length)];
+          return {
+            x: Math.random(),
+            y: Math.random(),
+            baseX: Math.random(),
+            baseY: Math.random(),
+            radius: 0.7 + Math.random() * 1.7,
+            alpha: 0.12 + Math.random() * 0.34,
+            speedX: 0.00045 + Math.random() * 0.00075,
+            speedY: 0.00035 + Math.random() * 0.00065,
+            floatX: 22 + Math.random() * 58,
+            floatY: 28 + Math.random() * 72,
+            phaseX: Math.random() * Math.PI * 2,
+            phaseY: Math.random() * Math.PI * 2,
+            color,
+          };
+        });
+
+        let width = 0;
+        let height = 0;
+        let pointerX = 0.5;
+        let pointerY = 0.5;
+        let lastFrame = 0;
+
+        const resize = () => {
+          const dpr = Math.min(window.devicePixelRatio || 1, 1.4);
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = Math.round(width * dpr);
+          canvas.height = Math.round(height * dpr);
+          canvas.style.width = `${width}px`;
+          canvas.style.height = `${height}px`;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        };
+
+        window.addEventListener(
+          "pointermove",
+          (event) => {
+            pointerX = event.clientX / Math.max(width, 1);
+            pointerY = event.clientY / Math.max(height, 1);
+          },
+          { passive: true }
+        );
+
+        const draw = (time) => {
+          requestAnimationFrame(draw);
+          if (document.hidden || time - lastFrame < 33) return;
+          lastFrame = time;
+
+          ctx.clearRect(0, 0, width, height);
+
+          for (const p of particles) {
+            const driftX =
+              Math.sin(time * p.speedX + p.phaseX) * p.floatX +
+              (pointerX - 0.5) * 10 * (p.radius / 2.4);
+
+            const driftY =
+              Math.cos(time * p.speedY + p.phaseY) * p.floatY +
+              (pointerY - 0.5) * 8 * (p.radius / 2.4);
+
+            const px = p.x * width + driftX;
+            const py = p.y * height + driftY;
+            const [r, g, b] = p.color;
+
+            ctx.beginPath();
+            ctx.arc(px, py, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${p.alpha})`;
+            ctx.fill();
+          }
+        };
+
+        resize();
+        window.addEventListener("resize", resize, { passive: true });
+        requestAnimationFrame(draw);
+      }
+    }
+  </script>
+</BaseLayout>
