@@ -1,0 +1,516 @@
+
+.touch-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 28px 16px 50px;
+  color: #fff;
+  background: #07070f;
+}
+
+.touch-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(145deg,#07070f,#090b1b 45%,#100a22);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(65px);
+  opacity: .75;
+  will-change: transform;
+}
+
+.orb-a {
+  width: 700px;
+  height: 700px;
+  left: -320px;
+  top: -300px;
+  background: radial-gradient(circle,rgba(22,140,255,.34),transparent 70%);
+  animation: float-a 15s ease-in-out infinite alternate;
+}
+
+.orb-b {
+  width: 700px;
+  height: 700px;
+  right: -340px;
+  top: 5%;
+  background: radial-gradient(circle,rgba(227,27,150,.28),transparent 70%);
+  animation: float-b 18s ease-in-out infinite alternate;
+}
+
+.orb-c {
+  width: 800px;
+  height: 800px;
+  left: 20%;
+  bottom: -560px;
+  background: radial-gradient(circle,rgba(155,93,229,.3),transparent 70%);
+  animation: float-c 20s ease-in-out infinite alternate;
+}
+
+.touch-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .16;
+  background-image:
+    linear-gradient(rgba(10,210,217,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(155,93,229,.045) 1px,transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center,#000 25%,transparent 85%);
+}
+
+.touch-inner {
+  position: relative;
+  z-index: 2;
+  width: min(820px,100%);
+  margin: 0 auto;
+}
+
+.touch-logo {
+  height: 190px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.touch-logo img {
+  width: min(430px,88vw);
+  height: auto;
+  filter: drop-shadow(0 16px 35px rgba(0,0,0,.4));
+}
+
+.touch-hero {
+  text-align: center;
+  padding: 4px 10px 28px;
+}
+
+.touch-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 17px;
+  padding: 7px 16px;
+  border: 1px solid rgba(10,210,217,.35);
+  border-radius: 999px;
+  color: #0ad2d9;
+  background: rgba(10,210,217,.08);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.touch-badge span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0ad2d9;
+  box-shadow: 0 0 12px #0ad2d9;
+}
+
+.touch-hero h1 {
+  margin: 0;
+  font-size: clamp(2.7rem,8vw,5.3rem);
+  font-weight: 900;
+  line-height: .95;
+  letter-spacing: -.045em;
+}
+
+.touch-hero h1 span,
+.touch-hero h1 strong {
+  display: block;
+}
+
+.touch-hero h1 strong {
+  margin-top: 8px;
+  background: linear-gradient(90deg,#0ad2d9,#168cff,#9b5de5,#e31b96);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.touch-hero p {
+  max-width: 620px;
+  margin: 20px auto 0;
+  color: #aeb6cd;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.touch-actions {
+  display: grid;
+  gap: 14px;
+}
+
+.touch-action {
+  --a: 10,210,217;
+  display: grid;
+  grid-template-columns: 62px 1fr 28px;
+  align-items: center;
+  gap: 15px;
+  min-height: 100px;
+  padding: 17px 19px;
+  border: 1px solid rgba(var(--a),.58);
+  border-radius: 22px;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(112deg,rgba(var(--a),.10),rgba(255,255,255,.045));
+  box-shadow: 0 18px 45px rgba(0,0,0,.28);
+  transition: transform .25s ease,border-color .25s ease,background .25s ease;
+}
+
+.touch-action:hover {
+  transform: translateY(-3px);
+  border-color: rgba(var(--a),.95);
+  background: linear-gradient(112deg,rgba(var(--a),.16),rgba(255,255,255,.065));
+}
+
+.touch-action.purple { --a: 155,93,229; }
+.touch-action.pink { --a: 227,27,150; }
+.touch-action.blue { --a: 22,140,255; }
+
+.touch-action .icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  border: 1px solid rgba(var(--a),.65);
+  color: rgb(var(--a));
+  background: rgba(var(--a),.10);
+  font-size: 28px;
+}
+
+.touch-action b {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.touch-action small {
+  display: block;
+  color: #aeb6cd;
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.touch-action i {
+  color: rgb(var(--a));
+  font-size: 32px;
+  font-style: normal;
+}
+
+.touch-socials {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.touch-socials a {
+  min-height: 90px;
+  display: grid;
+  place-items: center;
+  padding: 10px 4px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  background: rgba(255,255,255,.04);
+  color: #dfe7ff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.touch-socials a:hover {
+  border-color: rgba(10,210,217,.5);
+  background: rgba(255,255,255,.075);
+}
+
+.touch-trust {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 16px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,.04);
+}
+
+.touch-trust div {
+  padding: 19px 12px;
+  text-align: center;
+}
+
+.touch-trust div + div {
+  border-left: 1px solid rgba(255,255,255,.1);
+}
+
+.touch-trust b,
+.touch-trust span {
+  display: block;
+}
+
+.touch-trust b {
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.touch-trust span {
+  color: #aeb6cd;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.touch-note {
+  margin: 20px 0 0;
+  color: rgba(174,182,205,.5);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@keyframes float-a {
+  to { transform: translate3d(160px,240px,0) scale(1.08); }
+}
+@keyframes float-b {
+  to { transform: translate3d(-150px,220px,0) scale(1.1); }
+}
+@keyframes float-c {
+  to { transform: translate3d(120px,-260px,0) scale(1.08); }
+}
+
+@media (max-width: 520px) {
+  .touch-page { padding: 18px 12px 38px; }
+  .touch-logo { height: 155px; }
+  .touch-logo img { width: 360px; }
+
+  .touch-action {
+    grid-template-columns: 54px 1fr 22px;
+    gap: 10px;
+    min-height: 88px;
+    padding: 13px;
+    border-radius: 18px;
+  }
+
+  .touch-action .icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .touch-action b { font-size: .95rem; }
+  .touch-action small { font-size: .73rem; }
+
+  .touch-socials { gap: 5px; }
+  .touch-socials a {
+    min-height: 76px;
+    border-radius: 13px;
+    font-size: 7px;
+  }
+
+  .touch-trust div { padding: 15px 4px; }
+  .touch-trust b { font-size: 9px; }
+  .touch-trust span { font-size: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb { animation: none !important; }
+}
+
+
+#touch-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.touch-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.touch-logo {
+  height: 235px;
+  margin-top: 6px;
+  overflow: visible;
+}
+
+.touch-logo img {
+  width: min(470px, 92vw);
+  height: 220px;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 520px) {
+  .touch-logo {
+    height: 180px;
+  }
+
+  .touch-logo img {
+    width: min(390px, 96vw);
+    height: 170px;
+  }
+}
+
+
+.touch-action .icon svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* Original QR-page logo treatment */
+.touch-logo {
+  height: 235px;
+  margin: 4px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.touch-logo img {
+  display: block;
+  width: min(560px, 92vw);
+  height: auto;
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 14px 32px rgba(0, 0, 0, 0.38));
+
+  animation: touch-logo-float 6s ease-in-out infinite;
+}
+
+@keyframes touch-logo-float {
+  0%,
+  100% {
+    transform: translateY(6px);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@media (max-width: 520px) {
+  .touch-logo {
+    height: 185px;
+  }
+
+  .touch-logo img {
+    width: min(470px, 105vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .touch-logo img {
+    animation: none !important;
+  }
+}
+
+
+.touch-socials a {
+  gap: 7px;
+}
+
+.touch-socials svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.touch-socials span {
+  display: block;
+}
+
+.touch-socials .social-google { color: #55c7ff; }
+.touch-socials .social-instagram { color: #ff55c7; }
+.touch-socials .social-facebook { color: #5f9fff; }
+.touch-socials .social-call { color: #35e5dd; }
+.touch-socials .social-contact { color: #ba72ff; }
+
+.touch-socials a span {
+  color: #fff;
+}
+
+.touch-trust svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 9px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.touch-trust .trust-mobile { color: #0ad2d9; }
+.touch-trust .trust-insured { color: #9b5de5; }
+.touch-trust .trust-local { color: #e31b96; }
+
+@media (max-width: 520px) {
+  .touch-socials svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .touch-trust svg {
+    width: 27px;
+    height: 27px;
+    margin-bottom: 7px;
+  }
+}
+
+
+/* Final QR landing layout fix */
+.touch-page {
+  min-height: auto;
+  padding-bottom: 42px;
+}
+
+body:has(.touch-page) .site-header,
+body:has(.touch-page) .site-footer {
+  display: block;
+}
+
+body:has(.touch-page) .site-header {
+  display: block;
+}
+
+body:has(.touch-page) .site-footer {
+  position: relative;
+  z-index: 5;
+}
+
+@media (max-width: 520px) {
+  .touch-page {
+    padding-bottom: 34px;
+  }
+}
