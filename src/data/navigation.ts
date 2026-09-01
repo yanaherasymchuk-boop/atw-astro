@@ -37,7 +37,7 @@ export const navigation = [
       },
       {
         label: "Our Works",
-        href: "https://gallery.atwdetailing.com/",
+        href: "/gallery/",
       },
     ],
   },

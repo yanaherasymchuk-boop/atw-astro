@@ -15,7 +15,7 @@ export const site = {
 
   quoteUrl: "/mobile-detailing-price-estimate/",
 
-  galleryUrl: "https://gallery.atwdetailing.com/",
+  galleryUrl: "/gallery/",
 
   location: "Bonney Lake, WA 98391",
 };
