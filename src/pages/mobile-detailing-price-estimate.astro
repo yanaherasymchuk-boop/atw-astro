@@ -14,6 +14,7 @@ const description =
   "Get an instant mobile detailing price estimate for your vehicle in Bonney Lake, Puyallup, Auburn, Tacoma and surrounding areas.";
 
 const canonical = `${site.url}${site.quoteUrl}`;
+const ogImage = `${site.url}/media/home/hero-new.webp`;
 
 const schema = {
   "@context": "https://schema.org",
@@ -40,7 +41,9 @@ const schema = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical}>
+<BaseLayout title={title} description={description} canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="ATW Detailing mobile car detailing in Bonney Lake, Washington">
   <JsonLd slot="head" data={schema} />
   <EstimateHero />
   <EstimateCalculator />

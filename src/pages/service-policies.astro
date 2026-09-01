@@ -1,14 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
 import "../styles/service-policies.css";
 
 const canonical = "https://atwdetailing.com/service-policies/";
+const ogImage = `${site.url}/media/contact/service-area.webp`;
 ---
 
 <BaseLayout
   title="Service Policies | ATW Detailing & Paint Correction"
   description="Service policies for mobile detailing appointments with ATW Detailing & Paint Correction in Washington State."
   canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="ATW Detailing mobile service area in Washington"
 >
   <section class="policies">
     <div class="policies-wrap">

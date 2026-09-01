@@ -16,6 +16,7 @@ const title = "Car Detailing Gift Cards Bonney Lake WA | ATW Detailing";
 const description =
   "Give the gift of a clean car with an ATW Detailing eGift Card. Choose any amount and send it by email or text. Mobile detailing in Bonney Lake, WA and surrounding areas.";
 const canonical = `${site.url}/gift-cards/`;
+const ogImage = `${site.url}/media/gift-cards/gift-card.webp`;
 
 const schema = {
   "@context": "https://schema.org",
@@ -47,6 +48,8 @@ const schema = {
   title={title}
   description={description}
   canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="ATW Detailing gift card"
 >
   <JsonLd slot="head" data={schema} />
   <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
