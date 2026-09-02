@@ -33,13 +33,49 @@ const {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    <!-- Google Tag Manager -->
+    <!-- Google Tag Manager — deferred until first interaction -->
     <script is:inline>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-MTL25WX6');
+      window.dataLayer = window.dataLayer || [];
+
+      (() => {
+        let loaded = false;
+        const events = ["pointerdown", "touchstart", "scroll"];
+
+        const cleanup = () => {
+          events.forEach((event) => {
+            window.removeEventListener(event, loadGtm);
+          });
+          window.removeEventListener("keydown", loadGtm);
+        };
+
+        const loadGtm = () => {
+          if (loaded) return;
+          loaded = true;
+
+          cleanup();
+
+          window.dataLayer.push({
+            "gtm.start": Date.now(),
+            event: "gtm.js"
+          });
+
+          const script = document.createElement("script");
+          script.async = true;
+          script.src = "https://www.googletagmanager.com/gtm.js?id=GTM-MTL25WX6";
+          document.head.appendChild(script);
+        };
+
+        events.forEach((event) => {
+          window.addEventListener(event, loadGtm, {
+            once: true,
+            passive: true
+          });
+        });
+
+        window.addEventListener("keydown", loadGtm, {
+          once: true
+        });
+      })();
     </script>
     <!-- End Google Tag Manager -->
 
