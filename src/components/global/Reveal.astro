@@ -17,7 +17,7 @@
           entries.forEach((entry) => {
             if (!entry.isIntersecting) return;
 
-            const rect = entry.target.getBoundingClientRect();
+            const rect = entry.boundingClientRect;
 
             // Не раскрываем элементы, которые браузер считает видимыми
             // только из-за восстановления scroll position / layout расчёта.
