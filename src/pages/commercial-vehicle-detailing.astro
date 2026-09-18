@@ -162,7 +162,11 @@ const schema = {
       <div class="atw-container atw-center" data-reveal="up">
         <div class="atw-eyebrow">Mobile Commercial Service</div><h2 class="atw-title">Based in Bonney Lake. <span>Commercial Routes Vary.</span></h2>
         <p class="atw-lead">Our regular mobile routes cover Pierce County and South King County. Commercial availability may extend differently depending on job size, travel distance, fleet size and schedule.</p>
-        <div class="atw-cities">{cities.map((city)=><span class="atw-city">{city}</span>)}</div>
+        <div class="atw-cities">{cities.map((city) =>
+          city === "Bonney Lake"
+            ? <a class="atw-city" href="/bonney-lake-car-detailing/">{city}</a>
+            : <span class="atw-city">{city}</span>
+        )}</div>
         <div style="margin-top:28px"><a class="atw-text-link" href="/service-areas/">View Service Areas →</a></div>
       </div>
     </section>

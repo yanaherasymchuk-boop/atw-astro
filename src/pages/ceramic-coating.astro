@@ -144,7 +144,11 @@ const schema = {
       <div class="atw-container atw-center" data-reveal="up">
         <div class="atw-eyebrow">Mobile Service · Bonney Lake</div><h2 class="atw-title">Ceramic Coating <span>Near Bonney Lake</span></h2>
         <p class="atw-lead">ATW Detailing is based in Bonney Lake and provides mobile detailing, paint improvement and coating services throughout nearby Pierce County and South King County communities.</p>
-        <div class="atw-cities">{cities.map((city)=><span class="atw-city">{city}</span>)}</div>
+        <div class="atw-cities">{cities.map((city) =>
+          city === "Bonney Lake"
+            ? <a class="atw-city" href="/bonney-lake-car-detailing/">{city}</a>
+            : <span class="atw-city">{city}</span>
+        )}</div>
         <div style="margin-top:28px"><a class="atw-text-link" href="/service-areas/">View All Service Areas →</a></div>
       </div>
     </section>

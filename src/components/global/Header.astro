@@ -32,9 +32,25 @@ const smsHref = site.phoneHref.replace("tel:", "sms:");
             <div class="desktop-dropdown">
               <div class="dropdown-inner">
                 {item.children.map((child) => (
-                  <a class="dropdown-link" href={child.href}>
-                    {child.label}
-                  </a>
+                  child.children ? (
+                    <div class="dropdown-group">
+                      <a class="dropdown-link" href={child.href}>
+                        {child.label}
+                      </a>
+
+                      <div class="dropdown-subitems">
+                        {child.children.map((subchild) => (
+                          <a class="dropdown-sublink" href={subchild.href}>
+                            {subchild.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <a class="dropdown-link" href={child.href}>
+                      {child.label}
+                    </a>
+                  )
                 ))}
               </div>
             </div>
@@ -258,6 +274,51 @@ const smsHref = site.phoneHref.replace("tel:", "sms:");
     color var(--transition-fast),
     background var(--transition-fast),
     transform var(--transition-fast);
+}
+
+.dropdown-group {
+  width: 100%;
+}
+
+.dropdown-subitems {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 4px 18px;
+}
+
+.dropdown-sublink {
+  position: relative;
+  display: block;
+  padding: 8px 12px 8px 18px;
+  border-radius: 9px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.35;
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.dropdown-sublink::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  transform: translateY(-50%);
+  opacity: 0.7;
+}
+
+.dropdown-sublink:hover,
+.dropdown-sublink:focus-visible {
+  color: var(--color-text);
+  background: rgba(8, 215, 223, 0.06);
+  transform: translateX(3px);
 }
 
 .dropdown-link:hover,

@@ -400,7 +400,13 @@ const cities = [
         <div class="areas-card" data-reveal="up">
           <div class="areas-card__grid">
             <div class="areas-list">
-              {cities.map((city, index) => <span class:list={[index < 9 && "is-primary"]}>{city}</span>)}
+              {cities.map((city, index) => (
+                <span class:list={[index < 9 && "is-primary"]}>
+                  {city === "Bonney Lake"
+                    ? <a href="/bonney-lake-car-detailing/">{city}</a>
+                    : city}
+                </span>
+              ))}
             </div>
 
             <div class="areas-map">

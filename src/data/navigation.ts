@@ -84,6 +84,12 @@ export const navigation = [
       {
         label: "Service Areas",
         href: "/service-areas/",
+        children: [
+          {
+            label: "Bonney Lake",
+            href: "/bonney-lake-car-detailing/",
+          },
+        ],
       },
     ],
   },

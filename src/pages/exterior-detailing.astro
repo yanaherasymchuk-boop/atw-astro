@@ -547,7 +547,11 @@ const schema = {
         </p>
 
         <div class="atw-cities">
-          {cities.map((city) => <span class="atw-city">{city}</span>)}
+          {cities.map((city) =>
+            city === "Bonney Lake"
+              ? <a class="atw-city" href="/bonney-lake-car-detailing/">{city}</a>
+              : <span class="atw-city">{city}</span>
+          )}
         </div>
 
         <div style="margin-top:28px">

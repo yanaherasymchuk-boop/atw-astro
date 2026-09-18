@@ -216,7 +216,13 @@ const reviews = [
         <h2>Mobile car detailing near Bonney Lake</h2>
         <p>ATW Detailing serves Bonney Lake and nearby communities across Pierce and South King County. Availability depends on the job size, travel distance, and schedule. Send your location with the vehicle details and we will confirm whether it falls within the current mobile service area.</p>
         <div class="home-cities" aria-label="Cities served">
-          {["Bonney Lake","Lake Tapps","Sumner","Puyallup","Auburn","Kent","Tacoma","University Place","Spanaway"].map((city) => <span>{city}</span>)}
+          {["Bonney Lake","Lake Tapps","Sumner","Puyallup","Auburn","Kent","Tacoma","University Place","Spanaway"].map((city) => (
+            <span>
+              {city === "Bonney Lake" ? (
+                <a href="/bonney-lake-car-detailing/">{city}</a>
+              ) : city}
+            </span>
+          ))}
         </div>
         <a class="home-btn home-btn--secondary" href="/service-areas/#check-location">Check Your Location <span aria-hidden="true">→</span></a>
       </article>

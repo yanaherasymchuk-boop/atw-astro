@@ -35,7 +35,13 @@ const otherCities = [
         <h3 class="ab4-box-title">Primary Service Areas</h3>
 
         <div class="ab4-cities">
-          {primaryCities.map((city) => <span class="ab4-city main">{city}</span>)}
+          {primaryCities.map((city) =>
+            city === "Bonney Lake" ? (
+              <a class="ab4-city main" href="/bonney-lake-car-detailing/">{city}</a>
+            ) : (
+              <span class="ab4-city main">{city}</span>
+            )
+          )}
           {otherCities.map((city) => <span class="ab4-city">{city}</span>)}
         </div>
       </div>
