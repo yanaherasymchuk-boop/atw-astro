@@ -147,7 +147,9 @@ const schema = {
         <div class="atw-cities">{cities.map((city) =>
           city === "Bonney Lake"
             ? <a class="atw-city" href="/bonney-lake-car-detailing/">{city}</a>
-            : <span class="atw-city">{city}</span>
+            : city === "Puyallup"
+              ? <a class="atw-city" href="/puyallup-car-detailing/">{city}</a>
+              : <span class="atw-city">{city}</span>
         )}</div>
         <div style="margin-top:28px"><a class="atw-text-link" href="/service-areas/">View All Service Areas →</a></div>
       </div>

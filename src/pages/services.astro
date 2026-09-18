@@ -404,7 +404,9 @@ const cities = [
                 <span class:list={[index < 9 && "is-primary"]}>
                   {city === "Bonney Lake"
                     ? <a href="/bonney-lake-car-detailing/">{city}</a>
-                    : city}
+                    : city === "Puyallup"
+                      ? <a href="/puyallup-car-detailing/">{city}</a>
+                      : city}
                 </span>
               ))}
             </div>

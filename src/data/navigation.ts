@@ -89,6 +89,10 @@ export const navigation = [
             label: "Bonney Lake",
             href: "/bonney-lake-car-detailing/",
           },
+          {
+            label: "Puyallup",
+            href: "/puyallup-car-detailing/",
+          },
         ],
       },
     ],

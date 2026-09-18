@@ -1,0 +1,963 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/puyallup-car-detailing.css";
+
+const title = "Mobile Car Detailing in Puyallup, WA | ATW Detailing";
+const description =
+  "Mobile car detailing in Puyallup, WA for daily drivers, commuters and work vehicles. Explore local driving conditions, service options, useful driver resources and real ATW work.";
+const canonical = `${site.url}/puyallup-car-detailing/`;
+const ogImage = `${site.url}/media/puyallup/hero.webp`;
+
+const stats = [
+  {
+    value: "77%",
+    label: "Drive alone",
+    copy: "of Puyallup commuters drove alone to work in the city’s transportation analysis.",
+    source: "City of Puyallup — Transportation Element · ACS 2021",
+    href: "https://www.puyallupwa.gov/438/Comprehensive-Plan",
+  },
+  {
+    value: "31.4",
+    suffix: "min",
+    label: "Mean commute",
+    copy: "average travel time to work for Puyallup workers age 16+.",
+    source: "U.S. Census Bureau QuickFacts, 2020–2024.",
+    href: "https://www.census.gov/quickfacts/fact/table/puyallupcitywashington/COM100224",
+  },
+  {
+    value: "1M+",
+    label: "Fair visitors",
+    copy: "visitors arrive in Puyallup during the Washington State Fair each September.",
+    source: "City of Puyallup.",
+    href: "https://www.puyallupwa.gov/1181/Washington-State-Fair",
+  },
+  {
+    value: "200+",
+    suffix: "mi",
+    label: "City roads",
+    copy: "of road are managed by Puyallup Public Works during snow and ice events.",
+    source: "City of Puyallup Winter Weather Driving.",
+    href: "https://www.puyallupwa.gov/441/Winter-Driving-Snow-Plow-Routes",
+  },
+];
+
+const roads = [
+  {
+    no: "01",
+    name: "South Meridian / SR 161",
+    tag: "Regional + local traffic",
+    copy:
+      "Puyallup’s transportation analysis identifies South Meridian as a major regional route connecting SR 512 and SR 167 while also carrying local traffic. During peak periods, parts of the corridor operate at or near capacity.",
+  },
+  {
+    no: "02",
+    name: "Shaw Road",
+    tag: "Local arterial + freight",
+    copy:
+      "Shaw Road is part of the city’s freight network and one of the corridors where Puyallup accepts a lower peak-hour level of service because demand is already high.",
+  },
+  {
+    no: "03",
+    name: "9th Street SW",
+    tag: "Commuter connection",
+    copy:
+      "9th Street SW connects the fairgrounds area with SR 512 and carries commuter traffic toward downtown and regional routes.",
+  },
+];
+
+const freight = [
+  {
+    level: "T-1",
+    amount: "10M+ tons / year",
+    roads: "SR 512",
+  },
+  {
+    level: "T-2",
+    amount: "4–10M tons / year",
+    roads: "SR 161 · SR 167",
+  },
+  {
+    level: "T-3",
+    amount: "300K–4M tons / year",
+    roads: "Shaw Rd · E Main · W Stewart · Fruitland",
+  },
+];
+
+const services = [
+  {
+    state: "DIRTY INSIDE",
+    title: "Interior Detail",
+    copy: "For everyday buildup, pet hair, surfaces, mats and interior cleaning.",
+    href: "/interior-detailing/",
+    accent: "interior",
+  },
+  {
+    state: "NEEDS A RESET",
+    title: "Full Detail",
+    copy: "For vehicles that need attention inside and outside at the same appointment.",
+    href: "/services/full-detailing/",
+    accent: "full",
+  },
+  {
+    state: "CLEAN, BUT PAINT LOOKS TIRED",
+    title: "Paint Correction",
+    copy: "When washing is not enough to address visible swirls, dullness or paint defects.",
+    href: "/paint-correction-bonney-lake/",
+    accent: "correction",
+  },
+  {
+    state: "PAINT LOOKS GOOD",
+    title: "Ceramic Coating",
+    copy: "For drivers who want protection and easier maintenance after proper preparation.",
+    href: "/ceramic-coating/",
+    accent: "ceramic",
+  },
+];
+
+const resources = [
+  {
+    icon: "road",
+    tag: "ROAD WORK",
+    title: "Closures & Construction",
+    copy: "Check current City of Puyallup road closures and construction updates before heading out.",
+    href: "https://www.puyallupwa.gov/1246/Closures-Construction",
+    link: "Check road updates",
+  },
+  {
+    icon: "winter",
+    tag: "WINTER",
+    title: "Snow & De-Icing Routes",
+    copy: "See how Puyallup prioritizes roads for plowing and de-icing during winter weather.",
+    href: "https://www.puyallupwa.gov/441/Winter-Driving-Snow-Plow-Routes",
+    link: "Open winter road info",
+  },
+  {
+    icon: "parking",
+    tag: "DOWNTOWN",
+    title: "Parking Rules",
+    copy: "Review downtown timed parking, residential permits, commuter parking and short-term zones.",
+    href: "https://www.puyallupwa.gov/529/Parking",
+    link: "View parking information",
+  },
+  {
+    icon: "fair",
+    tag: "FAIR DAY",
+    title: "Fair Parking & Transportation",
+    copy: "Plan parking, transit and arrival before visiting the Washington State Fair.",
+    href: "https://www.thefair.com/plan-your-visit/parking-transportation/",
+    link: "Plan a Fair visit",
+  },
+  {
+    icon: "route",
+    tag: "SR 167",
+    title: "Gateway Project Updates",
+    copy: "Follow the SR 167 Completion Project and construction affecting North Meridian and nearby routes.",
+    href: "https://wsdot.wa.gov/construction-planning/search-projects/sr-167-completion-project",
+    link: "See WSDOT updates",
+  },
+];
+
+const faqs = [
+  {
+    q: "Do you provide mobile car detailing throughout Puyallup?",
+    a: "Yes. ATW provides mobile detailing in Puyallup at suitable residential, workplace and other approved locations within our service area.",
+  },
+  {
+    q: "Can you detail my car at work in Puyallup?",
+    a: "Usually, if there is enough safe working space and the property allows the service. Send us the address if you are unsure.",
+  },
+  {
+    q: "Can you work at an apartment complex?",
+    a: "It depends on the property rules, available working space and access. We recommend confirming permission first.",
+  },
+  {
+    q: "What happens if it rains?",
+    a: "Weather can affect exterior work and appointment timing. We confirm practical conditions rather than promising every service can be completed in every weather situation.",
+  },
+  {
+    q: "Do I need Interior Detail or seat extraction?",
+    a: "Standard Interior Detailing handles normal interior cleaning. Cloth seats that need deeper wet cleaning can require extraction as a separate upgrade.",
+  },
+  {
+    q: "Does a daily driver automatically need ceramic coating?",
+    a: "No. Ceramic coating is an optional protection step. The right choice depends on paint condition, preparation and how you want to maintain the vehicle.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: "en-US",
+      isPartOf: { "@id": `${site.url}/#website` },
+      about: { "@id": `${site.url}/#business` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: ogImage,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Car Detailing in Puyallup",
+      serviceType: "Mobile auto detailing",
+      url: canonical,
+      description,
+      provider: { "@id": `${site.url}/#business` },
+      areaServed: {
+        "@type": "City",
+        name: "Puyallup",
+        containedInPlace: {
+          "@type": "State",
+          name: "Washington",
+        },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumbs`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: site.url,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Service Areas",
+          item: `${site.url}/service-areas/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Puyallup Car Detailing",
+          item: canonical,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Car driving through Puyallup, Washington with Mount Rainier in the distance"
+>
+  <JsonLd slot="head" data={schema} />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+  <meta slot="head" property="og:locale" content="en_US" />
+
+  <main class="py-page">
+    <section class="py-hero">
+      <picture class="py-hero__media">
+        <source media="(max-width: 720px)" srcset="/media/puyallup/hero-960.webp" />
+        <img
+          src="/media/puyallup/hero.webp"
+          alt="Road through Puyallup with Mount Rainier in the distance"
+          width="1600"
+          height="901"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+
+      <div class="py-hero__overlay"></div>
+
+      <div class="container-wide py-hero__inner">
+        <div class="py-eyebrow">Puyallup, Washington</div>
+
+        <h1>
+          Mobile Car Detailing
+          <span>for Puyallup Drivers</span>
+        </h1>
+
+        <p>
+          Puyallup is built around daily driving — local streets, regional highways,
+          commuter routes, freight corridors and Fair-season traffic. We bring
+          detailing to the places where those vehicles already live and work.
+        </p>
+
+        <div class="py-actions">
+          <a class="py-btn py-btn--primary" href={site.bookingUrl}>Book Detailing</a>
+          <a class="py-btn py-btn--secondary" href={site.quoteUrl}>Get a Price Estimate</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section py-driving">
+      <div class="container-wide">
+        <div class="py-section-head" data-reveal="up">
+          <div class="py-eyebrow">Puyallup from the driver’s seat</div>
+          <h2>This Is a <span>Driving City</span></h2>
+          <p>
+            The useful story here is not that Puyallup has “special dirt.”
+            It is how heavily the city depends on vehicles and how many different
+            kinds of trips its road network has to carry.
+          </p>
+        </div>
+
+        <div class="py-stats">
+          {stats.map((stat, index) => (
+            <article
+              class="py-stat"
+              data-reveal="up"
+              style={`--reveal-delay:${index * 70}ms`}
+            >
+              <div class="py-stat__value">
+                {stat.value}
+                {stat.suffix && <small>{stat.suffix}</small>}
+              </div>
+              <div class="py-stat__label">{stat.label}</div>
+              <p>{stat.copy}</p>
+              <a href={stat.href} target="_blank" rel="noopener noreferrer">
+                {stat.source}
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section py-section--alt py-roads">
+      <div class="container-wide">
+        <div class="py-section-head" data-reveal="up">
+          <div class="py-eyebrow">The road network</div>
+          <h2>Three Roads Tell <span>Most of the Story</span></h2>
+          <p>
+            Puyallup’s own transportation analysis treats Meridian, Shaw Road and
+            9th Street SW differently from most city intersections because these
+            corridors already operate under heavier peak-hour demand.
+          </p>
+        </div>
+
+        <div class="py-road-grid">
+          {roads.map((road, index) => (
+            <article
+              class="py-road-card"
+              data-reveal="up"
+              style={`--reveal-delay:${index * 80}ms`}
+            >
+              <div class="py-road-card__top">
+                <span>{road.no}</span>
+                <small>{road.tag}</small>
+              </div>
+              <h3>{road.name}</h3>
+              <p>{road.copy}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="py-road-source" data-reveal="up">
+          <p>
+            City traffic analysis describes LOS E as near-capacity operation with
+            significant delay and low speeds. Meridian, Shaw Road and 9th Street SW
+            use LOS E as their adopted intersection standard.
+          </p>
+          <a
+            href="https://www.puyallupwa.gov/438/Comprehensive-Plan"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View the City of Puyallup transportation analysis
+          </a>
+        </div>
+
+        <div class="py-freight" data-reveal="up">
+          <div class="py-freight__intro">
+            <div class="py-eyebrow">Not just commuter traffic</div>
+            <h3>Puyallup is also a freight network.</h3>
+            <p>
+              WSDOT classifies freight corridors by the annual tonnage they move.
+              Several major Puyallup routes sit in the highest categories.
+            </p>
+          </div>
+
+          <div class="py-freight__lines">
+            {freight.map((item) => (
+              <div class="py-freight-line">
+                <strong>{item.level}</strong>
+                <span>{item.amount}</span>
+                <small>{item.roads}</small>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section py-profile-section">
+      <div class="container-wide">
+        <div class="py-section-head" data-reveal="up">
+          <div class="py-eyebrow">Interactive</div>
+          <h2>Your Puyallup <span>Driving Profile</span></h2>
+          <p>
+            This is not a paint-wear calculator. It simply turns your real use pattern
+            into practical cleaning and maintenance priorities.
+          </p>
+        </div>
+
+        <div class="py-profile" data-profile>
+          <div class="py-profile__questions">
+            <div class="py-question" data-group="miles">
+              <h3>How far do you normally drive each day?</h3>
+              <div class="py-options">
+                <button type="button" data-score="1">Under 10 mi</button>
+                <button type="button" data-score="2">10–25 mi</button>
+                <button type="button" data-score="3">25–50+ mi</button>
+              </div>
+            </div>
+
+            <div class="py-question" data-group="frequency">
+              <h3>How often is the vehicle used?</h3>
+              <div class="py-options">
+                <button type="button" data-score="1">A few days a week</button>
+                <button type="button" data-score="2">Most days</button>
+                <button type="button" data-score="3">Heavy daily use</button>
+              </div>
+            </div>
+
+            <div class="py-question" data-group="parking">
+              <h3>Where does it usually spend the night?</h3>
+              <div class="py-options">
+                <button type="button" data-score="1">Garage</button>
+                <button type="button" data-score="2">Driveway</button>
+                <button type="button" data-score="3">Outdoor / street</button>
+              </div>
+            </div>
+
+            <div class="py-question" data-group="winter">
+              <h3>Do you regularly drive during winter road treatment?</h3>
+              <div class="py-options">
+                <button type="button" data-score="1">Rarely</button>
+                <button type="button" data-score="2">Sometimes</button>
+                <button type="button" data-score="3">Regularly</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="py-profile-result" aria-live="polite">
+            <div class="py-profile-result__label">YOUR PROFILE</div>
+            <div class="py-profile-result__title" data-result-title>
+              Choose one answer in each row
+            </div>
+            <p data-result-copy>
+              We’ll show a practical use profile — not a fake percentage of paint wear.
+            </p>
+
+            <div class="py-profile-meter">
+              <span>Occasional</span>
+              <div class="py-profile-meter__track">
+                <div class="py-profile-meter__fill" data-meter></div>
+              </div>
+              <span>Heavy daily use</span>
+            </div>
+
+            <div class="py-profile-priorities">
+              <div>
+                <small>Exterior cleaning</small>
+                <strong data-cleaning>—</strong>
+              </div>
+              <div>
+                <small>Interior upkeep</small>
+                <strong data-interior>—</strong>
+              </div>
+              <div>
+                <small>Paint protection</small>
+                <strong data-protection>—</strong>
+              </div>
+            </div>
+
+            <small class="py-profile-note">
+              This tool does not estimate clear-coat life, coating lifespan or paint damage.
+            </small>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section py-section--alt py-proof">
+      <div class="container-wide py-proof__grid">
+        <div class="py-proof__copy" data-reveal="up">
+          <div class="py-eyebrow">Real ATW work</div>
+          <h2>Where Daily Use <span>Actually Shows</span></h2>
+          <p>
+            Daily driving leaves evidence in ordinary places: mats, lower panels,
+            wheels, thresholds, glass and the surfaces people touch every day.
+          </p>
+
+          <div class="py-zone-list">
+            <div><strong>01</strong><span>Mats & footwells</span></div>
+            <div><strong>02</strong><span>Door jambs & thresholds</span></div>
+            <div><strong>03</strong><span>Wheels & lower panels</span></div>
+            <div><strong>04</strong><span>Interior touch points</span></div>
+          </div>
+        </div>
+
+        <div class="py-video-card" data-reveal="scale">
+          <div class="py-video-card__header">
+            <span>BEFORE → AFTER</span>
+            <small>REAL ATW DETAIL</small>
+          </div>
+
+          <div class="py-video-frame">
+            <video
+              muted
+              loop
+              playsinline
+              preload="none"
+              poster="/media/puyallup/daily-driver-reset-poster.webp"
+              aria-label="Before and after detailing work by ATW Detailing"
+              data-py-video
+            >
+              <source
+                data-src="/media/puyallup/daily-driver-reset.mp4"
+                type="video/mp4"
+              />
+            </video>
+
+            <button class="py-video-toggle" type="button" data-video-toggle>
+              Play video
+            </button>
+          </div>
+
+          <p>Real work by ATW Detailing. This vehicle is not presented as a Puyallup-specific job.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section py-fair">
+      <div class="container-wide py-fair__grid">
+        <div class="py-fair__media" data-reveal="scale">
+          <img
+            src="/media/puyallup/fair.webp"
+            alt="Washington State Fairgrounds in Puyallup"
+            width="1200"
+            height="799"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="py-fair__copy" data-reveal="up">
+          <div class="py-eyebrow">September changes the map</div>
+          <h2>Fair Season Is <span>Its Own Traffic Pattern</span></h2>
+          <div class="py-fair__number">1M+</div>
+          <p class="py-fair__caption">
+            visitors each September, according to the City of Puyallup.
+          </p>
+          <p>
+            The Washington State Fair changes how people move, park and route through
+            the city. The point is not that every Fair trip requires detailing —
+            it is that Puyallup has a recurring transportation event large enough to
+            reshape normal driving patterns.
+          </p>
+          <a
+            class="py-text-link"
+            href="https://www.puyallupwa.gov/1181/Washington-State-Fair"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Washington State Fair information
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section py-section--alt py-sr167">
+      <div class="container-wide">
+        <div class="py-section-head" data-reveal="up">
+          <div class="py-eyebrow">Puyallup is changing</div>
+          <h2>SR 167 Is Being <span>Rebuilt Around the Region</span></h2>
+          <p>
+            WSDOT’s SR 167 Completion Project is creating a new highway connection
+            between the Puyallup area and the Port of Tacoma.
+          </p>
+        </div>
+
+        <div class="py-project-stats">
+          <div>
+            <strong>6</strong>
+            <span>miles of new highway in the overall SR 167 Completion Project</span>
+          </div>
+          <div>
+            <strong>2</strong>
+            <span>miles opened Sept. 13, 2026 between I-5 and SR 509</span>
+          </div>
+          <div>
+            <strong>2.6</strong>
+            <span>miles in the final Stage 2b section now under construction</span>
+          </div>
+          <div>
+            <strong>2029</strong>
+            <span>scheduled opening year for the final stage</span>
+          </div>
+        </div>
+
+        <div class="py-timeline">
+          <div><span>2026</span><p>First 2-mile section opens</p></div>
+          <div><span>NOW</span><p>North Meridian / Stage 2b construction continues</p></div>
+          <div><span>2029</span><p>Final expressway stage scheduled to open</p></div>
+        </div>
+
+        <a
+          class="py-text-link"
+          href="https://wsdot.wa.gov/construction-planning/search-projects/sr-167-completion-project"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Follow the official WSDOT project
+        </a>
+
+        <small class="py-current-note">Project status referenced: September 2026.</small>
+      </div>
+    </section>
+
+    <section class="py-section py-needs">
+      <div class="container-wide">
+        <div class="py-section-head" data-reveal="up">
+          <div class="py-eyebrow">Skip the package guessing</div>
+          <h2>What Does Your Car <span>Actually Need?</span></h2>
+          <p>
+            Start with the problem you can see. The service should follow the condition,
+            not the other way around.
+          </p>
+        </div>
+
+        <div class="py-needs-grid">
+          {services.map((service, index) => (
+            <a
+              class:list={["py-need-card", `py-need-card--${service.accent}`]}
+              href={service.href}
+              data-reveal="up"
+              style={`--reveal-delay:${index * 70}ms`}
+            >
+              <small>{service.state}</small>
+              <h3>{service.title}</h3>
+              <p>{service.copy}</p>
+              <span>Explore service →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section py-section--alt py-toolkit">
+      <div class="container-wide">
+        <div class="py-section-head" data-reveal="up">
+          <div class="py-eyebrow">Useful local links</div>
+          <h2>Puyallup Driver’s <span>Toolkit</span></h2>
+          <p>
+            A city page should be useful even when you are not booking detailing.
+            These are practical official resources for people driving around Puyallup.
+          </p>
+        </div>
+
+        <div class="py-toolkit-strip" aria-hidden="true">
+          <span>Road work</span>
+          <span>Winter</span>
+          <span>Parking</span>
+          <span>Fair days</span>
+          <span>SR 167</span>
+        </div>
+
+        <div class="py-toolkit-grid">
+          {resources.map((resource, index) => (
+            <a
+              class="py-resource"
+              href={resource.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-reveal="up"
+              style={`--reveal-delay:${(index % 3) * 70}ms`}
+            >
+              <div class={`py-resource-icon py-resource-icon--${resource.icon}`} aria-hidden="true">
+                {resource.icon === "road" && (
+                  <svg viewBox="0 0 24 24">
+                    <path d="M8 21 10.5 3M16 21 13.5 3M12 4.5v3M12 10.5v3M12 16.5v3" />
+                  </svg>
+                )}
+                {resource.icon === "winter" && (
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 2v20M4.2 6.5l15.6 11M19.8 6.5l-15.6 11M9.5 4.5 12 7l2.5-2.5M9.5 19.5 12 17l2.5 2.5" />
+                  </svg>
+                )}
+                {resource.icon === "parking" && (
+                  <svg viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="18" height="18" rx="4" />
+                    <path d="M9 17V7h4.2a3.3 3.3 0 0 1 0 6.6H9M9 13.6h4" />
+                  </svg>
+                )}
+                {resource.icon === "fair" && (
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4 18h16M6 18l2-8h8l2 8M9 10V7h6v3M8 7l4-4 4 4" />
+                    <path d="M10 14h4" />
+                  </svg>
+                )}
+                {resource.icon === "route" && (
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="6" cy="18" r="2.5" />
+                    <circle cx="18" cy="6" r="2.5" />
+                    <path d="M8.5 18h2.7a3 3 0 0 0 3-3v-6a3 3 0 0 1 3-3h.8" />
+                  </svg>
+                )}
+              </div>
+
+              <small>{resource.tag}</small>
+              <h3>{resource.title}</h3>
+              <p>{resource.copy}</p>
+              <span>{resource.link} ↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section py-location">
+      <div class="container-wide">
+        <div class="py-section-head" data-reveal="up">
+          <div class="py-eyebrow">Mobile means location matters</div>
+          <h2>Can We <span>Detail Here?</span></h2>
+          <p>
+            The address matters almost as much as the appointment. Mobile detailing
+            needs enough safe working space and permission to work on the property.
+          </p>
+        </div>
+
+        <div class="py-location-grid">
+          <article>
+            <div class="py-location-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 11.5 12 4l9 7.5M5.5 10.5V21h13V10.5M9 21v-6h6v6" />
+              </svg>
+            </div>
+            <strong>✓ Usually ideal</strong>
+            <h3>Private driveway</h3>
+            <p>Usually the simplest setup when there is enough space around the vehicle.</p>
+          </article>
+
+          <article>
+            <div class="py-location-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="6" width="18" height="14" rx="2" />
+                <path d="M8 6V4h8v2M3 11h18M10 15h4" />
+              </svg>
+            </div>
+            <strong>✓ Often works</strong>
+            <h3>Workplace lot</h3>
+            <p>Often possible with safe space and property or employer permission.</p>
+          </article>
+
+          <article>
+            <div class="py-location-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 21V5h7v16M11 9h9v12M7 9h1M7 13h1M7 17h1M15 13h1M15 17h1" />
+              </svg>
+            </div>
+            <strong>? Check first</strong>
+            <h3>Apartment / shared lot</h3>
+            <p>Depends on property rules, access and available working space.</p>
+          </article>
+
+          <article>
+            <div class="py-location-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="4" />
+                <path d="M9 17V7h4.2a3.3 3.3 0 0 1 0 6.6H9M9 13.6h4" />
+              </svg>
+            </div>
+            <strong>? Check first</strong>
+            <h3>Downtown street parking</h3>
+            <p>Timed or public parking is not automatically suitable for a multi-hour service.</p>
+          </article>
+        </div>
+
+        <div class="py-location-cta">
+          <p>Not sure about your location?</p>
+          <a href="/contact-us/">Send us the address first →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-section py-section--alt py-faq">
+      <div class="container-wide">
+        <div class="py-section-head" data-reveal="up">
+          <div class="py-eyebrow">Practical questions</div>
+          <h2>Puyallup Detailing <span>FAQ</span></h2>
+        </div>
+
+        <div class="py-faq-list">
+          {faqs.map((item) => (
+            <details>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-final">
+      <img
+        src="/media/puyallup/cta.webp"
+        alt=""
+        width="1500"
+        height="844"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="py-final__overlay"></div>
+
+      <div class="container-wide py-final__inner">
+        <div class="py-eyebrow">ATW Detailing & Paint Correction</div>
+        <h2>Your Car Already Does the Driving. <span>We Come to It.</span></h2>
+        <p>
+          Mobile interior, exterior, full detailing, paint correction and ceramic
+          coating service in Puyallup by appointment.
+        </p>
+
+        <div class="py-actions py-actions--center">
+          <a class="py-btn py-btn--primary" href={site.bookingUrl}>Book Now</a>
+          <a class="py-btn py-btn--secondary" href="/contact-us/">Ask a Question</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    (() => {
+      const profile = document.querySelector("[data-profile]");
+      if (profile) {
+        const selections = new Map();
+        const groups = profile.querySelectorAll("[data-group]");
+        const title = profile.querySelector("[data-result-title]");
+        const copy = profile.querySelector("[data-result-copy]");
+        const meter = profile.querySelector("[data-meter]");
+        const cleaning = profile.querySelector("[data-cleaning]");
+        const interior = profile.querySelector("[data-interior]");
+        const protection = profile.querySelector("[data-protection]");
+
+        groups.forEach((group) => {
+          const groupName = group.getAttribute("data-group");
+          group.querySelectorAll("button").forEach((button) => {
+            button.setAttribute("aria-pressed", "false");
+
+            button.addEventListener("click", () => {
+              group.querySelectorAll("button").forEach((item) => {
+                item.classList.remove("is-active");
+                item.setAttribute("aria-pressed", "false");
+              });
+
+              button.classList.add("is-active");
+              button.setAttribute("aria-pressed", "true");
+              selections.set(groupName, Number(button.dataset.score));
+
+              if (selections.size !== groups.length) return;
+
+              const total = [...selections.values()].reduce((sum, value) => sum + value, 0);
+              const percentage = Math.round(((total - 4) / 8) * 100);
+
+              meter.style.width = `${Math.max(8, percentage)}%`;
+
+              if (total <= 6) {
+                title.textContent = "LIGHT / OCCASIONAL USE";
+                copy.textContent =
+                  "Your vehicle has a relatively light use pattern. Condition matters more than mileage alone.";
+                cleaning.textContent = "Routine";
+                interior.textContent = "As needed";
+                protection.textContent = "Optional";
+              } else if (total <= 9) {
+                title.textContent = "REGULAR DAILY DRIVER";
+                copy.textContent =
+                  "Regular driving makes consistent interior and exterior upkeep more useful than waiting for heavy buildup.";
+                cleaning.textContent = "Regular";
+                interior.textContent = "Regular";
+                protection.textContent = "Consider";
+              } else {
+                title.textContent = "HEAVY DAILY USE";
+                copy.textContent =
+                  "This vehicle spends a lot of time in active use. Cleaning frequency and easier long-term maintenance become more relevant.";
+                cleaning.textContent = "Higher priority";
+                interior.textContent = "Higher priority";
+                protection.textContent = "Worth discussing";
+              }
+            });
+          });
+        });
+      }
+
+      const video = document.querySelector("[data-py-video]");
+      const toggle = document.querySelector("[data-video-toggle]");
+
+      if (video) {
+        const source = video.querySelector("source[data-src]");
+
+        const loadVideo = () => {
+          if (!source || source.src) return;
+          source.src = source.dataset.src;
+          video.load();
+        };
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              loadVideo();
+              video.play().catch(() => {});
+              observer.disconnect();
+            });
+          },
+          { rootMargin: "250px 0px" }
+        );
+
+        observer.observe(video);
+
+        if (toggle) {
+          toggle.addEventListener("click", () => {
+            loadVideo();
+
+            if (video.paused) {
+              video.play().then(() => {
+                toggle.textContent = "Pause video";
+              }).catch(() => {});
+            } else {
+              video.pause();
+              toggle.textContent = "Play video";
+            }
+          });
+
+          video.addEventListener("play", () => {
+            toggle.textContent = "Pause video";
+          });
+
+          video.addEventListener("pause", () => {
+            toggle.textContent = "Play video";
+          });
+        }
+      }
+    })();
+  </script>
+</BaseLayout>

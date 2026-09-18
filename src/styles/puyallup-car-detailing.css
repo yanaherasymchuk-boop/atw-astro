@@ -1,0 +1,1804 @@
+.py-page {
+  --py-cyan: var(--color-cyan);
+  --py-blue: var(--color-blue);
+  --py-violet: var(--color-violet);
+  --py-magenta: #d84cff;
+  --py-bg: var(--color-bg);
+  --py-bg-soft: var(--color-bg-soft);
+  --py-text: var(--color-text);
+  --py-muted: var(--color-text-muted);
+  --py-line: var(--color-border);
+
+  background:
+    radial-gradient(circle at 10% 8%, rgba(8, 215, 223, 0.055), transparent 30rem),
+    radial-gradient(circle at 88% 34%, rgba(121, 87, 255, 0.055), transparent 32rem),
+    var(--py-bg);
+  color: var(--py-text);
+  overflow: clip;
+}
+
+.py-page *,
+.py-page *::before,
+.py-page *::after {
+  box-sizing: border-box;
+}
+
+.py-page h1,
+.py-page h2,
+.py-page h3,
+.py-page p {
+  margin-top: 0;
+}
+
+.py-eyebrow {
+  margin-bottom: 14px;
+  color: var(--py-cyan);
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.py-section {
+  padding: clamp(72px, 8vw, 108px) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.py-section--alt {
+  background: rgba(11, 12, 27, 0.58);
+}
+
+.py-section-head {
+  max-width: 860px;
+  margin-bottom: 40px;
+}
+
+.py-section-head h2,
+.py-proof__copy h2,
+.py-fair__copy h2,
+.py-final h2 {
+  margin-bottom: 18px;
+  color: #fff;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.03;
+  font-weight: 900;
+  letter-spacing: -1.4px;
+}
+
+.py-section-head h2 span,
+.py-proof__copy h2 span,
+.py-fair__copy h2 span,
+.py-final h2 span,
+.py-hero h1 span {
+  background: linear-gradient(
+    90deg,
+    var(--py-cyan),
+    var(--py-blue),
+    var(--py-violet),
+    var(--py-magenta)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.py-section-head p,
+.py-proof__copy > p,
+.py-fair__copy > p,
+.py-final p {
+  margin-bottom: 0;
+  color: var(--py-muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.py-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.py-actions--center {
+  justify-content: center;
+}
+
+.py-btn {
+  min-height: 50px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--py-line);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+  transition:
+    transform var(--transition-fast),
+    filter var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.py-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.py-btn--primary {
+  border-color: transparent;
+  background: linear-gradient(100deg, #0de1df, #168fdc 52%, #6d35e6);
+  box-shadow: 0 12px 34px rgba(8, 215, 223, 0.14);
+}
+
+.py-btn--secondary {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.py-btn:focus-visible,
+.py-options button:focus-visible,
+.py-video-toggle:focus-visible,
+.py-resource:focus-visible,
+.py-need-card:focus-visible,
+.py-text-link:focus-visible,
+.py-location-cta a:focus-visible,
+.py-stat a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* HERO */
+
+.py-hero {
+  min-height: 77vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: #070814;
+}
+
+.py-hero__media,
+.py-hero__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.py-hero__media {
+  z-index: -2;
+}
+
+.py-hero__media img {
+  object-fit: cover;
+  object-position: center 48%;
+}
+
+.py-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 5, 15, 0.96) 0%,
+      rgba(4, 5, 15, 0.84) 42%,
+      rgba(4, 5, 15, 0.36) 76%,
+      rgba(4, 5, 15, 0.47) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7, 8, 20, 0.98) 0%,
+      rgba(7, 8, 20, 0.08) 53%
+    ),
+    radial-gradient(
+      circle at 18% 32%,
+      rgba(8, 215, 223, 0.12),
+      transparent 36%
+    );
+}
+
+.py-hero__inner {
+  position: relative;
+  z-index: 1;
+  padding-block: 112px 94px;
+}
+
+.py-hero h1 {
+  max-width: 1000px;
+  margin-bottom: 26px;
+  color: #fff;
+  font-size: clamp(52px, 7vw, 92px);
+  line-height: 0.98;
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.py-hero h1 span {
+  display: block;
+}
+
+.py-hero p {
+  max-width: 780px;
+  margin-bottom: 32px;
+  color: #c8cedd;
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.72;
+}
+
+/* STATS */
+
+.py-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.py-stat {
+  min-height: 260px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--py-line);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(8, 215, 223, 0.08), transparent 48%),
+    linear-gradient(180deg, rgba(17, 24, 39, 0.92), rgba(10, 15, 28, 0.96));
+  box-shadow: var(--shadow-card);
+}
+
+.py-stat__value {
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: clamp(42px, 5vw, 62px);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.py-stat__value small {
+  margin-left: 5px;
+  color: var(--py-cyan);
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.py-stat__label {
+  margin-bottom: 16px;
+  color: var(--py-cyan);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.py-stat p {
+  margin-bottom: 18px;
+  color: var(--py-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.py-stat a {
+  margin-top: auto;
+  color: #9ea8bc;
+  font-size: 11px;
+  line-height: 1.45;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+  text-underline-offset: 3px;
+}
+
+/* ROAD NETWORK */
+
+.py-road-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.py-road-card {
+  min-height: 290px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--py-line);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(16, 21, 37, 0.95), rgba(8, 12, 25, 0.98));
+}
+
+.py-road-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 28px;
+  width: 72px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--py-cyan), var(--py-violet));
+}
+
+.py-road-card__top {
+  margin-bottom: 36px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.py-road-card__top > span {
+  color: var(--py-cyan);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.py-road-card__top small {
+  color: #9ba5b9;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.py-road-card h3 {
+  margin-bottom: 14px;
+  color: #fff;
+  font-size: 25px;
+  line-height: 1.12;
+  font-weight: 900;
+}
+
+.py-road-card p {
+  margin-bottom: 0;
+  color: var(--py-muted);
+  font-size: 14px;
+  line-height: 1.68;
+}
+
+.py-road-source {
+  max-width: 900px;
+  margin: 24px 0 0 auto;
+  padding: 20px 22px;
+  border-left: 2px solid rgba(8, 215, 223, 0.42);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.py-road-source p {
+  margin-bottom: 8px;
+  color: #aeb7c8;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.py-road-source a,
+.py-text-link {
+  color: var(--py-cyan);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.py-freight {
+  margin-top: 68px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.py-freight__intro h3 {
+  margin-bottom: 16px;
+  color: #fff;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.07;
+  font-weight: 900;
+}
+
+.py-freight__intro p {
+  margin-bottom: 0;
+  color: var(--py-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.py-freight__lines {
+  display: grid;
+  gap: 12px;
+}
+
+.py-freight-line {
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: 72px 1fr 1.2fr;
+  gap: 16px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.py-freight-line strong {
+  color: var(--py-cyan);
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.py-freight-line span {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.py-freight-line small {
+  color: var(--py-muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* DRIVING PROFILE */
+
+.py-profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 28px;
+  align-items: start;
+}
+
+.py-profile__questions {
+  display: grid;
+  gap: 16px;
+}
+
+.py-question {
+  padding: 24px;
+  border: 1px solid var(--py-line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.py-question h3 {
+  margin-bottom: 16px;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.py-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.py-options button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  color: #c3cada;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.py-options button:hover {
+  color: #fff;
+  border-color: rgba(8, 215, 223, 0.35);
+  transform: translateY(-1px);
+}
+
+.py-options button.is-active {
+  border-color: rgba(8, 215, 223, 0.7);
+  background: rgba(8, 215, 223, 0.11);
+  color: #fff;
+}
+
+.py-profile-result {
+  position: sticky;
+  top: 26px;
+  padding: 28px;
+  border: 1px solid rgba(8, 215, 223, 0.18);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(8, 215, 223, 0.09), transparent 48%),
+    linear-gradient(180deg, rgba(16, 23, 40, 0.96), rgba(8, 12, 25, 0.98));
+  box-shadow: var(--shadow-card);
+}
+
+.py-profile-result__label {
+  margin-bottom: 10px;
+  color: var(--py-cyan);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.8px;
+}
+
+.py-profile-result__title {
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1.08;
+  font-weight: 900;
+}
+
+.py-profile-result > p {
+  margin-bottom: 24px;
+  color: var(--py-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.py-profile-meter {
+  margin-bottom: 24px;
+}
+
+.py-profile-meter > span {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #8f99ad;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.py-profile-meter > span:last-child {
+  float: right;
+}
+
+.py-profile-meter__track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.py-profile-meter__fill {
+  width: 8%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--py-cyan), var(--py-violet));
+  transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.py-profile-priorities {
+  display: grid;
+  gap: 10px;
+}
+
+.py-profile-priorities > div {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.py-profile-priorities small {
+  color: #919bad;
+  font-size: 11px;
+}
+
+.py-profile-priorities strong {
+  color: #fff;
+  font-size: 11px;
+  text-align: right;
+}
+
+.py-profile-note {
+  display: block;
+  margin-top: 18px;
+  color: #778195;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* PROOF + VIDEO */
+
+.py-proof__grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 420px);
+  gap: clamp(40px, 7vw, 90px);
+  align-items: center;
+}
+
+.py-proof__copy {
+  max-width: 720px;
+}
+
+.py-zone-list {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.py-zone-list > div {
+  min-height: 72px;
+  padding: 16px;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.py-zone-list strong {
+  color: var(--py-cyan);
+  font-size: 12px;
+}
+
+.py-zone-list span {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.py-video-card {
+  padding: 14px;
+  border: 1px solid rgba(8, 215, 223, 0.18);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 30% 0%, rgba(8, 215, 223, 0.07), transparent 44%),
+    #0a0e1b;
+  box-shadow:
+    0 26px 80px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.015) inset;
+}
+
+.py-video-card__header {
+  min-height: 44px;
+  padding: 0 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.py-video-card__header span {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.1px;
+}
+
+.py-video-card__header small {
+  color: var(--py-cyan);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+.py-video-frame {
+  aspect-ratio: 3 / 4;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #05070c;
+}
+
+.py-video-frame video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.py-video-toggle {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  min-height: 38px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(5, 7, 15, 0.8);
+  color: #fff;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.py-video-card > p {
+  margin: 12px 8px 2px;
+  color: #778195;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+/* FAIR */
+
+.py-fair__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(38px, 6vw, 76px);
+  align-items: center;
+}
+
+.py-fair__media {
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--py-line);
+  box-shadow: var(--shadow-card);
+}
+
+.py-fair__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.py-fair__number {
+  margin: 24px 0 4px;
+  color: #fff;
+  font-size: clamp(64px, 8vw, 108px);
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -4px;
+}
+
+.py-fair__caption {
+  margin-bottom: 26px;
+  color: var(--py-cyan);
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.py-fair__copy .py-text-link {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* SR 167 */
+
+.py-project-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.py-project-stats > div {
+  min-height: 180px;
+  padding: 22px;
+  border: 1px solid var(--py-line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.py-project-stats strong {
+  display: block;
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: 46px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.py-project-stats span {
+  color: var(--py-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.py-timeline {
+  margin: 48px 0 26px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.py-timeline::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 215, 223, 0.25),
+    rgba(121, 87, 255, 0.65),
+    rgba(216, 76, 255, 0.25)
+  );
+}
+
+.py-timeline > div {
+  position: relative;
+  padding-top: 44px;
+  text-align: center;
+}
+
+.py-timeline > div::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  transform: translateX(-50%);
+  border: 3px solid #0c1020;
+  border-radius: 50%;
+  background: var(--py-cyan);
+  box-shadow: 0 0 0 1px rgba(8, 215, 223, 0.45);
+}
+
+.py-timeline span {
+  color: var(--py-cyan);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+.py-timeline p {
+  max-width: 220px;
+  margin: 7px auto 0;
+  color: #b2bbcc;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.py-current-note {
+  display: block;
+  margin-top: 8px;
+  color: #707a8d;
+  font-size: 10px;
+}
+
+/* SERVICE NEEDS */
+
+.py-needs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.py-need-card {
+  min-height: 230px;
+  padding: 26px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--py-line);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(17, 24, 39, 0.91), rgba(10, 15, 28, 0.96));
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.py-need-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(8, 215, 223, 0.28);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(8, 215, 223, 0.07), transparent 42%),
+    linear-gradient(180deg, rgba(17, 24, 39, 0.94), rgba(10, 15, 28, 0.98));
+}
+
+.py-need-card small {
+  margin-bottom: 18px;
+  color: var(--py-cyan);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+}
+
+.py-need-card h3 {
+  margin-bottom: 12px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.py-need-card p {
+  margin-bottom: 20px;
+  color: var(--py-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.py-need-card > span {
+  margin-top: auto;
+  color: var(--py-cyan);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* TOOLKIT */
+
+.py-toolkit-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.py-resource {
+  min-height: 240px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--py-line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.025);
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.py-resource:nth-child(1),
+.py-resource:nth-child(2),
+.py-resource:nth-child(3) {
+  grid-column: span 2;
+}
+
+.py-resource:nth-child(4),
+.py-resource:nth-child(5) {
+  grid-column: span 3;
+}
+
+.py-resource:hover {
+  transform: translateY(-3px);
+  border-color: rgba(8, 215, 223, 0.26);
+}
+
+.py-resource small {
+  margin-bottom: 18px;
+  color: var(--py-cyan);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+.py-resource h3 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.py-resource p {
+  margin-bottom: 20px;
+  color: var(--py-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.py-resource > span {
+  margin-top: auto;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+/* LOCATION */
+
+.py-location-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.py-location-grid article {
+  min-height: 220px;
+  padding: 24px;
+  border: 1px solid var(--py-line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.py-location-grid article > strong {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(8, 215, 223, 0.22);
+  border-radius: 50%;
+  background: rgba(8, 215, 223, 0.07);
+  color: var(--py-cyan);
+  font-size: 15px;
+}
+
+.py-location-grid h3 {
+  margin-bottom: 10px;
+  color: #fff;
+  font-size: 19px;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.py-location-grid p {
+  margin-bottom: 0;
+  color: var(--py-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.py-location-cta {
+  margin-top: 22px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  border: 1px solid rgba(8, 215, 223, 0.12);
+  border-radius: 18px;
+  background: rgba(8, 215, 223, 0.035);
+}
+
+.py-location-cta p {
+  margin: 0;
+  color: #d5dbea;
+  font-size: 14px;
+}
+
+.py-location-cta a {
+  color: var(--py-cyan);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* FAQ */
+
+.py-faq-list {
+  max-width: 920px;
+  display: grid;
+  gap: 10px;
+}
+
+.py-faq-list details {
+  overflow: hidden;
+  border: 1px solid var(--py-line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.py-faq-list summary {
+  padding: 19px 22px;
+  position: relative;
+  list-style: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.py-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.py-faq-list summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  color: var(--py-cyan);
+  font-size: 20px;
+}
+
+.py-faq-list details[open] summary::after {
+  content: "−";
+}
+
+.py-faq-list details p {
+  margin: 0;
+  padding: 0 22px 20px;
+  color: var(--py-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* FINAL */
+
+.py-final {
+  min-height: 620px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+}
+
+.py-final > img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.py-final__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(0deg, rgba(5, 7, 17, 0.96), rgba(5, 7, 17, 0.66)),
+    radial-gradient(circle at 50% 40%, rgba(8, 215, 223, 0.09), transparent 38%);
+}
+
+.py-final__inner {
+  max-width: 920px;
+  padding-block: 90px;
+}
+
+.py-final p {
+  max-width: 700px;
+  margin: 0 auto 28px;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+  .py-stats,
+  .py-project-stats,
+  .py-location-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .py-road-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .py-road-card {
+    min-height: 0;
+  }
+
+  .py-profile {
+    grid-template-columns: 1fr 330px;
+  }
+
+  .py-toolkit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .py-resource:nth-child(n) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 860px) {
+  .py-hero {
+    min-height: 700px;
+  }
+
+  .py-hero__overlay {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(4, 5, 15, 0.98) 0%,
+        rgba(4, 5, 15, 0.79) 54%,
+        rgba(4, 5, 15, 0.38) 100%
+      ),
+      radial-gradient(circle at 20% 28%, rgba(8, 215, 223, 0.11), transparent 38%);
+  }
+
+  .py-hero__inner {
+    padding-block: 100px 72px;
+  }
+
+  .py-hero h1 {
+    max-width: 760px;
+    letter-spacing: -2px;
+  }
+
+  .py-freight,
+  .py-profile,
+  .py-proof__grid,
+  .py-fair__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .py-profile-result {
+    position: static;
+  }
+
+  .py-video-card {
+    width: min(100%, 380px);
+    margin-inline: auto;
+  }
+
+  .py-fair__media {
+    order: 2;
+  }
+
+  .py-fair__copy {
+    order: 1;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .py-section {
+    padding-block: 68px;
+  }
+
+  .py-section-head {
+    margin-bottom: 30px;
+  }
+
+  .py-section-head h2,
+  .py-proof__copy h2,
+  .py-fair__copy h2,
+  .py-final h2 {
+    font-size: clamp(34px, 10vw, 44px);
+    letter-spacing: -0.8px;
+  }
+
+  .py-section-head p,
+  .py-proof__copy > p,
+  .py-fair__copy > p,
+  .py-final p {
+    font-size: 15px;
+    line-height: 1.68;
+  }
+
+  .py-hero {
+    min-height: 680px;
+  }
+
+  .py-hero__media img {
+    object-position: 62% center;
+  }
+
+  .py-hero__inner {
+    padding-block: 86px 58px;
+  }
+
+  .py-hero h1 {
+    max-width: 100%;
+    font-size: clamp(46px, 13vw, 62px);
+    line-height: 0.99;
+    letter-spacing: -1.8px;
+  }
+
+  .py-hero p {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.62;
+  }
+
+  .py-actions {
+    width: 100%;
+  }
+
+  .py-btn {
+    width: 100%;
+  }
+
+  .py-stats,
+  .py-project-stats,
+  .py-needs-grid,
+  .py-toolkit-grid,
+  .py-location-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .py-stat {
+    min-height: 0;
+  }
+
+  .py-stat__value {
+    font-size: 50px;
+  }
+
+  .py-road-card {
+    padding: 24px;
+  }
+
+  .py-road-card__top {
+    margin-bottom: 26px;
+    align-items: flex-start;
+  }
+
+  .py-road-card__top small {
+    max-width: 150px;
+    text-align: right;
+  }
+
+  .py-freight {
+    margin-top: 52px;
+    gap: 26px;
+  }
+
+  .py-freight-line {
+    grid-template-columns: 58px 1fr;
+  }
+
+  .py-freight-line small {
+    grid-column: 2;
+  }
+
+  .py-question {
+    padding: 20px;
+  }
+
+  .py-options {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .py-options button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .py-zone-list {
+    grid-template-columns: 1fr;
+  }
+
+  .py-video-card {
+    width: min(100%, 340px);
+  }
+
+  .py-fair__number {
+    font-size: 76px;
+    letter-spacing: -3px;
+  }
+
+  .py-timeline {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 34px;
+  }
+
+  .py-timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 7px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+
+  .py-timeline > div {
+    padding: 0 0 0 34px;
+    text-align: left;
+  }
+
+  .py-timeline > div::before {
+    top: 2px;
+    left: 7px;
+  }
+
+  .py-timeline p {
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .py-need-card,
+  .py-resource,
+  .py-location-grid article {
+    min-height: 0;
+  }
+
+  .py-location-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .py-faq-list summary {
+    padding-right: 52px;
+  }
+
+  .py-final {
+    min-height: 560px;
+  }
+
+  .py-final > img {
+    object-position: 58% center;
+  }
+
+  .py-final__inner {
+    padding-block: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .py-btn,
+  .py-options button,
+  .py-need-card,
+  .py-resource,
+  .py-profile-meter__fill {
+    transition: none;
+  }
+}
+
+/* PUYALLUP COSMETIC PASS */
+
+/* Service-specific accents */
+.py-need-card {
+  --need-accent: var(--py-cyan);
+  --need-accent-soft: rgba(8, 215, 223, 0.11);
+}
+
+.py-need-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 3px;
+  border-radius: 0 0 999px 999px;
+  background: var(--need-accent);
+  box-shadow: 0 0 22px var(--need-accent-soft);
+}
+
+.py-need-card::after {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  top: -100px;
+  right: -70px;
+  border-radius: 50%;
+  background: var(--need-accent);
+  opacity: 0.07;
+  filter: blur(26px);
+  pointer-events: none;
+}
+
+.py-need-card--interior {
+  --need-accent: #16d7d9;
+  --need-accent-soft: rgba(22, 215, 217, 0.18);
+}
+
+.py-need-card--full {
+  --need-accent: #4f7cff;
+  --need-accent-soft: rgba(79, 124, 255, 0.19);
+}
+
+.py-need-card--correction {
+  --need-accent: #a65cff;
+  --need-accent-soft: rgba(166, 92, 255, 0.2);
+}
+
+.py-need-card--ceramic {
+  --need-accent: #ff9a3d;
+  --need-accent-soft: rgba(255, 154, 61, 0.21);
+}
+
+.py-need-card small,
+.py-need-card > span {
+  color: var(--need-accent);
+}
+
+.py-need-card:hover {
+  border-color: color-mix(in srgb, var(--need-accent) 38%, transparent);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.2),
+    0 0 34px var(--need-accent-soft);
+}
+
+/* Driver toolkit */
+.py-toolkit-strip {
+  margin: -4px 0 24px;
+  padding: 12px 14px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.py-toolkit-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.py-toolkit-strip span {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #8f99ad;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+.py-toolkit-strip span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--py-cyan);
+  box-shadow: 0 0 12px rgba(8, 215, 223, 0.42);
+}
+
+.py-resource {
+  position: relative;
+  overflow: hidden;
+}
+
+.py-resource::after {
+  content: "";
+  position: absolute;
+  inset: auto -70px -90px auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: rgba(8, 215, 223, 0.055);
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+.py-resource-icon {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(8, 215, 223, 0.18);
+  border-radius: 17px;
+  background:
+    linear-gradient(145deg, rgba(8, 215, 223, 0.075), rgba(121, 87, 255, 0.045));
+  color: var(--py-cyan);
+}
+
+.py-resource-icon svg {
+  width: 30px;
+  height: 30px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.py-resource:hover .py-resource-icon {
+  border-color: rgba(8, 215, 223, 0.42);
+  background:
+    linear-gradient(145deg, rgba(8, 215, 223, 0.12), rgba(121, 87, 255, 0.075));
+}
+
+/* Can We Detail Here */
+.py-location-grid article {
+  position: relative;
+  overflow: hidden;
+}
+
+.py-location-icon {
+  width: 68px;
+  height: 68px;
+  margin-bottom: 18px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(8, 215, 223, 0.18);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(8, 215, 223, 0.07), rgba(121, 87, 255, 0.04));
+  color: #d8fcff;
+}
+
+.py-location-icon svg {
+  width: 36px;
+  height: 36px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.py-location-grid article > strong {
+  width: auto;
+  height: auto;
+  margin-bottom: 14px;
+  display: inline-flex;
+  place-items: unset;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--py-cyan);
+  font-size: 10px;
+  line-height: 1.3;
+  font-weight: 900;
+  letter-spacing: 1.15px;
+  text-transform: uppercase;
+}
+
+.py-location-grid article::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  bottom: -70px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: rgba(8, 215, 223, 0.045);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .py-resource-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .py-location-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .py-location-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* Driving Profile background */
+.py-profile-section {
+  position: relative;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 7, 18, 0.97) 0%,
+      rgba(5, 7, 18, 0.88) 44%,
+      rgba(5, 7, 18, 0.72) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7, 8, 20, 0.98) 0%,
+      rgba(7, 8, 20, 0.34) 48%,
+      rgba(7, 8, 20, 0.9) 100%
+    ),
+    url("/media/puyallup/puyallup-driving-profile.webp")
+      center 46% / cover no-repeat;
+}
+
+.py-profile-section .py-section-head {
+  position: relative;
+}
+
+.py-profile-section .py-section-head::after {
+  content: "";
+  display: block;
+  width: 86px;
+  height: 2px;
+  margin-top: 24px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--py-cyan),
+    var(--py-blue),
+    var(--py-violet)
+  );
+  box-shadow: 0 0 20px rgba(8, 215, 223, 0.28);
+}
+
+.py-profile-section .py-question,
+.py-profile-section .py-profile-result {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.py-profile-section .py-question {
+  background: rgba(8, 11, 24, 0.72);
+  border-color: rgba(255, 255, 255, 0.085);
+}
+
+.py-profile-section .py-profile-result {
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(8, 215, 223, 0.1),
+      transparent 48%
+    ),
+    rgba(8, 12, 25, 0.84);
+}
+
+@media (max-width: 640px) {
+  .py-profile-section {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(5, 7, 18, 0.98) 0%,
+        rgba(5, 7, 18, 0.8) 52%,
+        rgba(5, 7, 18, 0.93) 100%
+      ),
+      url("/media/puyallup/puyallup-driving-profile.webp")
+        58% center / cover no-repeat;
+  }
+
+  .py-profile-section .py-question,
+  .py-profile-section .py-profile-result {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+/* Driving Profile — lighter background */
+.py-profile-section {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 7, 18, 0.78) 0%,
+      rgba(5, 7, 18, 0.70) 44%,
+      rgba(5, 7, 18, 0.57) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(7, 8, 20, 0.78) 0%,
+      rgba(7, 8, 20, 0.27) 48%,
+      rgba(7, 8, 20, 0.72) 100%
+    ),
+    url("/media/puyallup/puyallup-driving-profile.webp")
+      center 46% / cover no-repeat;
+}
+
+@media (max-width: 640px) {
+  .py-profile-section {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(5, 7, 18, 0.78) 0%,
+        rgba(5, 7, 18, 0.64) 52%,
+        rgba(5, 7, 18, 0.74) 100%
+      ),
+      url("/media/puyallup/puyallup-driving-profile.webp")
+        58% center / cover no-repeat;
+  }
+}
+
+/* Driving Profile heading — align right */
+.py-profile-section .py-section-head {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+
+.py-profile-section .py-section-head::after {
+  margin-left: auto;
+}
+
+@media (max-width: 640px) {
+  .py-profile-section .py-section-head {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .py-profile-section .py-section-head::after {
+    margin-left: 0;
+  }
+}
+
+/* TEMP TEST — gradient text right-edge clipping */
+.py-section-head h2 span,
+.py-proof__copy h2 span,
+.py-fair__copy h2 span,
+.py-final h2 span,
+.py-hero h1 span {
+  display: inline-block;
+  padding-right: 0.10em;
+  margin-right: -0.10em;
+}
+
+/* Prevent gradient heading glyph clipping */
+.py-hero h1 span {
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+  overflow: visible;
+}
