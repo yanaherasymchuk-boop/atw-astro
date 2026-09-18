@@ -1,0 +1,677 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/bonney-lake-car-detailing.css";
+
+const title = "Car Detailing for Bonney Lake Drivers | ATW Detailing";
+const description =
+  "Practical mobile car detailing for Bonney Lake drivers — interior cleaning, full detailing, paint correction, ceramic coating, local driving resources and real ATW work.";
+const canonical = `${site.url}/bonney-lake-car-detailing/`;
+const ogImage = `${site.url}/media/bonney-lake/hero.webp`;
+
+const decisionItems = [
+  {
+    number: "01",
+    label: "Interior",
+    question: "Seats, carpets, pet hair or everyday interior buildup",
+    answer:
+      "Start with Interior Detailing. If fabric needs deeper cleaning, seat extraction can be added separately.",
+    href: "/interior-detailing/",
+    link: "Explore Interior Detailing",
+  },
+  {
+    number: "02",
+    label: "Full Reset",
+    question: "The inside and outside both need attention",
+    answer:
+      "Choose Full Detailing when the vehicle needs an all-around reset, not just one area cleaned up.",
+    href: "/services/full-detailing/",
+    link: "Explore Full Detailing",
+  },
+  {
+    number: "03",
+    label: "Paint",
+    question: "The paint is clean, but still looks dull or swirled",
+    answer:
+      "If the problem stays after washing, it may be time for Paint Correction rather than another wash.",
+    href: "/paint-correction-bonney-lake/",
+    link: "Explore Paint Correction",
+  },
+  {
+    number: "04",
+    label: "Protection",
+    question: "You want easier upkeep after the paint looks good",
+    answer:
+      "Ceramic Coating is a protection step for vehicles that are already in good shape or properly prepared first.",
+    href: "/ceramic-coating/",
+    link: "Explore Ceramic Coating",
+  },
+  {
+    number: "05",
+    label: "Work Vehicles",
+    question: "It’s a work truck or a vehicle that gets used hard",
+    answer:
+      "Commercial Vehicle Detailing focuses on practical cleaning for vehicles that see heavier day-to-day use.",
+    href: "/commercial-vehicle-detailing/",
+    link: "Explore Commercial Detailing",
+  },
+  {
+    number: "06",
+    label: "Need Help?",
+    question: "You’re not sure where to start",
+    answer:
+      "Send the year, make, model and what bothers you most. We can suggest the right starting point.",
+    href: "/get-in-touch/",
+    link: "Contact ATW",
+  },
+];
+
+const stats = [
+  {
+    value: "80%+",
+    copy: "of Bonney Lake households have two or more vehicles.",
+    source: "City of Bonney Lake Community Mobility Element, based on ACS 2021.",
+  },
+  {
+    value: "39%+",
+    copy: "of Bonney Lake households have at least three vehicles.",
+    source: "City of Bonney Lake Community Mobility Element, based on ACS 2021.",
+  },
+  {
+    value: "32.1",
+    suffix: "min",
+    copy: "mean travel time to work for Bonney Lake workers age 16+.",
+    source: "U.S. Census Bureau QuickFacts, 2020–2024.",
+  },
+];
+
+const resources = [
+  {
+    number: "01",
+    title: "Current City Projects",
+    copy:
+      "Check active Bonney Lake public works and transportation projects, including intersection and roadway work.",
+    href: "https://www.bonneylake.gov/268/Current-City-Projects-Bid-Information",
+    link: "Open city projects",
+  },
+  {
+    number: "02",
+    title: "Allan Yorke Seasonal Parking",
+    copy:
+      "The city posts current seasonal parking dates, hours, rates, passes and ParkMobile instructions.",
+    href: "https://www.bonneylake.gov/m/NewsFlash/Home/Detail/28",
+    link: "Check parking information",
+  },
+  {
+    number: "03",
+    title: "Restricted Parking Areas",
+    copy:
+      "Residents near designated restricted zones can check permit rules, maps and city parking information.",
+    href: "https://www.bonneylake.gov/266/Parking-Passes",
+    link: "View parking rules",
+  },
+];
+
+const workItems = [
+  {
+    image: "/media/bonney-lake/ford-f150.webp",
+    alt: "Ford F-150 detailed by ATW Detailing",
+    title: "Ford F-150",
+    copy: "A full-size pickup with its own cleaning and upkeep priorities.",
+    className: "bl-work-card bl-work-card--1",
+    width: 960,
+    height: 720,
+  },
+  {
+    image: "/media/bonney-lake/honda-civic.webp",
+    alt: "Honda Civic detailed by ATW Detailing",
+    title: "Honda Civic",
+    copy: "A compact daily driver where small details make a visible difference.",
+    className: "bl-work-card bl-work-card--2",
+    width: 960,
+    height: 720,
+  },
+  {
+    image: "/media/bonney-lake/audi-q7.webp",
+    alt: "Audi Q7 detailed by ATW Detailing",
+    title: "Audi Q7",
+    copy: "A larger SUV with more interior and exterior surface area to care for.",
+    className: "bl-work-card bl-work-card--3",
+    width: 960,
+    height: 720,
+  },
+  {
+    image: "/media/bonney-lake/ram.webp",
+    alt: "RAM pickup detailed by ATW Detailing",
+    title: "RAM",
+    copy: "Pickup detailing built around the vehicle's actual use and condition.",
+    className: "bl-work-card bl-work-card--4",
+    width: 960,
+    height: 720,
+  },
+  {
+    image: "/media/bonney-lake/subaru-impreza.webp",
+    alt: "Subaru Impreza detailed by ATW Detailing",
+    title: "Subaru Impreza",
+    copy: "Another real ATW project from the mix of vehicles we work on locally.",
+    className: "bl-work-card bl-work-card--5",
+    width: 960,
+    height: 720,
+  },
+  {
+    image: "/media/bonney-lake/tesla-model-y.webp",
+    alt: "Tesla Model Y detailed by ATW Detailing",
+    title: "Tesla Model Y",
+    copy: "A modern daily driver with different materials and practical care needs.",
+    className: "bl-work-card bl-work-card--6",
+    width: 960,
+    height: 720,
+  },
+  {
+    image: "/media/bonney-lake/vw-passat.webp",
+    alt: "Volkswagen Passat detailed by ATW Detailing",
+    title: "Volkswagen Passat",
+    copy: "A sedan project rounding out the variety of vehicles in this local set.",
+    className: "bl-work-card bl-work-card--7",
+    width: 720,
+    height: 960,
+  },
+];
+
+const faqs = [
+  {
+    q: "Do you come to homes in Bonney Lake?",
+    a: "Yes. ATW is based in Bonney Lake and provides mobile detailing at suitable residential and workplace locations.",
+  },
+  {
+    q: "Can you detail my car at work?",
+    a: "Potentially, yes. The location needs enough safe working space and permission to perform the service there. Send the address first if you are unsure.",
+  },
+  {
+    q: "Can you work if it is raining?",
+    a: "Weather can affect exterior work and some appointments. We confirm practical conditions rather than promising that every service can be completed in every weather situation.",
+  },
+  {
+    q: "How long does mobile detailing take?",
+    a: "It depends on vehicle size, service and condition. Use the service pages or price estimator for the appropriate starting point, then confirm the vehicle details before booking.",
+  },
+  {
+    q: "Can you remove stains from cloth seats?",
+    a: "Cloth seats can be deep-cleaned with extraction when needed. Many stains improve significantly, but permanent or older staining cannot be guaranteed to disappear completely.",
+  },
+  {
+    q: "What’s the difference between an interior wipe-down and professional detailing?",
+    a: "A wipe-down focuses on accessible surfaces. Detailing goes further into the areas that hold accumulated dirt and buildup, while fabric extraction is a deeper process used when seats or textiles need more than standard cleaning.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: "en-US",
+      isPartOf: { "@id": `${site.url}/#website` },
+      about: { "@id": `${site.url}/#business` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: ogImage,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Car Detailing in Bonney Lake",
+      serviceType: "Mobile auto detailing",
+      url: canonical,
+      description,
+      provider: { "@id": `${site.url}/#business` },
+      areaServed: {
+        "@type": "City",
+        name: "Bonney Lake",
+        containedInPlace: {
+          "@type": "State",
+          name: "Washington",
+        },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumbs`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: site.url,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Service Areas",
+          item: `${site.url}/service-areas/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Bonney Lake",
+          item: canonical,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="ATW Detailing mobile car detailing portfolio"
+>
+  <JsonLd slot="head" data={schema} />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+  <meta slot="head" property="og:locale" content="en_US" />
+  <link
+    slot="head"
+    rel="preload"
+    href="/media/bonney-lake/hero-960.webp"
+    as="image"
+    type="image/webp"
+    media="(max-width: 700px)"
+    fetchpriority="high"
+  />
+  <link
+    slot="head"
+    rel="preload"
+    href="/media/bonney-lake/hero.webp"
+    as="image"
+    type="image/webp"
+    media="(min-width: 701px)"
+    fetchpriority="high"
+  />
+
+  <div class="bl-page">
+    <section class="bl-hero" aria-labelledby="bl-title">
+      <picture class="bl-hero__media" aria-hidden="true">
+        <source media="(max-width: 700px)" srcset="/media/bonney-lake/hero-960.webp" />
+        <img
+          src="/media/bonney-lake/hero.webp"
+          alt=""
+          width="1916"
+          height="821"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+      <div class="bl-hero__overlay" aria-hidden="true"></div>
+      <div class="container bl-hero__inner">
+        <p class="bl-eyebrow">ATW Detailing & Paint Correction · Bonney Lake, WA</p>
+        <h1 id="bl-title">
+          Car Detailing for <span class="bl-gradient">Bonney Lake Drivers</span>
+        </h1>
+        <p class="bl-hero__lead">
+          We’re based in Bonney Lake and bring professional interior, exterior and paint-care services
+          to your home, workplace or another suitable location. Choose the level of care your vehicle
+          actually needs without turning every job into the biggest package.
+        </p>
+        <div class="bl-actions">
+          <a class="bl-btn bl-btn--primary" href={site.quoteUrl}>Check Pricing</a>
+          <a class="bl-btn bl-btn--secondary" href="/get-in-touch/">Contact ATW</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-section" aria-labelledby="needs-heading">
+      <div class="container">
+        <div class="bl-section-head" data-reveal="up">
+          <p class="bl-eyebrow">Start With the Problem</p>
+          <h2 id="needs-heading">What Does Your Car <span class="bl-gradient">Actually Need?</span></h2>
+          <p>
+            Pick the situation closest to your vehicle. Open a card to see the service that usually makes the most sense.
+          </p>
+        </div>
+
+        <div class="bl-decision-grid">
+          {decisionItems.map((item, index) => (
+            <article class:list={["bl-choice", index === 0 && "is-open"]}>
+              <button
+                type="button"
+                class="bl-choice__button"
+                aria-expanded={index === 0 ? "true" : "false"}
+                aria-controls={`bl-choice-panel-${index}`}
+              >
+                <span>
+                  <span class="bl-choice__meta">{item.number} · {item.label}</span>
+                  <span class="bl-choice__question">{item.question}</span>
+                </span>
+                <span class="bl-choice__toggle" aria-hidden="true">+</span>
+              </button>
+              <div class="bl-choice__reveal" id={`bl-choice-panel-${index}`}>
+                <div class="bl-choice__reveal-inner">
+                  <div class="bl-choice__content">
+                    <p>{item.answer}</p>
+                    <a href={item.href}>{item.link} <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-section bl-section--alt" aria-labelledby="compare-heading">
+      <div class="container">
+        <div class="bl-section-head" data-reveal="up">
+          <p class="bl-eyebrow">Interior</p>
+          <h2 id="compare-heading">Wipe-Down vs <span class="bl-gradient">Professional Detailing</span></h2>
+          <p>A quick refresh has its place. Detailing goes further when the vehicle has accumulated everyday use.</p>
+        </div>
+
+        <div class="bl-compare-grid">
+          <article class="bl-compare bl-compare--quick" data-reveal="left">
+            <span class="bl-stamp">Quick clean</span>
+            <h3>Basic Wipe-Down</h3>
+            <ul>
+              <li>Usually focuses on visible, easy-to-reach surfaces.</li>
+              <li>Works for a light refresh when the vehicle is not very dirty.</li>
+              <li>Does not address deeper seat or fabric issues by itself.</li>
+            </ul>
+          </article>
+
+          <article class="bl-compare bl-compare--detail" data-reveal="right">
+            <span class="bl-stamp">Deeper service</span>
+            <h3>Professional Detailing</h3>
+            <ul>
+              <li>Targets mats, floors, trim, seats, crevices and other high-use areas.</li>
+              <li>Better suited to pet hair, spills and heavier day-to-day grime.</li>
+              <li>Seat extraction can be added when fabric needs a deeper cleaning step.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-section" aria-labelledby="paint-heading">
+      <div class="container">
+        <div class="bl-section-head" data-reveal="up">
+          <p class="bl-eyebrow">Paint Care</p>
+          <h2 id="paint-heading">When Washing Is <span class="bl-gradient">Not Enough</span></h2>
+          <p>A professional wash removes dirt and road grime. It does not correct swirl marks, light defects or tired-looking paint.</p>
+        </div>
+
+        <div class="bl-flow">
+          <a class="bl-flow-card" href="/exterior-detailing/" data-reveal="up">
+            <span class="bl-flow-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3C9.4 6.4 6 9.7 6 14a6 6 0 0 0 12 0c0-4.3-3.4-7.6-6-11Z" />
+                <path d="M9 15.2c.5 1.3 1.5 2 3 2.2" />
+              </svg>
+            </span>
+            <strong>Dirty</strong>
+            <p>Start with exterior detailing and a proper wash.</p>
+          </a>
+
+          <a class="bl-flow-card" href="/paint-correction-bonney-lake/" data-reveal="up" style="--reveal-delay:70ms">
+            <span class="bl-flow-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8" />
+                <path d="M8.5 12a3.5 3.5 0 0 1 7 0" />
+                <path d="M12 4v2M20 12h-2M12 20v-2M4 12h2" />
+              </svg>
+            </span>
+            <strong>Swirled / dull / lightly scratched</strong>
+            <p>Paint correction may improve defects that washing cannot change.</p>
+          </a>
+
+          <a class="bl-flow-card" href="/ceramic-coating/" data-reveal="up" style="--reveal-delay:140ms">
+            <span class="bl-flow-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 3 19 6v5c0 4.7-2.9 8.1-7 10-4.1-1.9-7-5.3-7-10V6l7-3Z" />
+                <path d="m9.2 12 1.8 1.8 4-4" />
+              </svg>
+            </span>
+            <strong>Protected</strong>
+            <p>Ceramic coating is a protection layer applied after the surface is properly prepared.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-section bl-section--alt" aria-labelledby="stats-heading">
+      <div class="container">
+        <div class="bl-section-head" data-reveal="up">
+          <p class="bl-eyebrow">Bonney Lake by the Numbers</p>
+          <h2 id="stats-heading">A City Built Around <span class="bl-gradient">Daily Driving</span></h2>
+          <p>Local transportation data helps explain why so many households manage more than one vehicle.</p>
+        </div>
+
+        <div class="bl-stats-grid">
+          {stats.map((stat, index) => (
+            <article class="bl-stat" data-reveal="scale" style={`--reveal-delay:${index * 70}ms`}>
+              <div class="bl-stat__value">{stat.value}{stat.suffix && <small>{stat.suffix}</small>}</div>
+              <p>{stat.copy}</p>
+              <span>{stat.source}</span>
+            </article>
+          ))}
+        </div>
+
+        <div class="bl-source-links" data-reveal="up">
+          <a href="https://www.bonneylake.gov/DocumentCenter/View/1078/Chapter-4---Community-Mobility-Element-PDF?bidId=" target="_blank" rel="noopener">Bonney Lake Community Mobility Element <span aria-hidden="true">↗</span></a>
+          <a href="https://www.census.gov/quickfacts/fact/table/bonneylakecitywashington/PST120224" target="_blank" rel="noopener">U.S. Census Bureau QuickFacts <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-section" aria-labelledby="use-heading">
+      <div class="container bl-radial-layout">
+        <div data-reveal="up">
+          <p class="bl-eyebrow">Local Use</p>
+          <h2 id="use-heading">Detailing for How Bonney Lake Drivers <span class="bl-gradient">Actually Use Their Cars</span></h2>
+          <p class="bl-radial-intro">The right service can change with how the vehicle is used, stored and shared day to day.</p>
+
+          <div class="bl-radial" aria-label="Common vehicle use patterns for Bonney Lake drivers">
+            <svg class="bl-radial__lines" viewBox="0 0 800 520" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="blLineGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#08d7df" stop-opacity="0.85" />
+                  <stop offset="100%" stop-color="#7957ff" stop-opacity="0.35" />
+                </linearGradient>
+                <marker id="blArrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L6,3 z" fill="#39bfff" />
+                </marker>
+              </defs>
+              <line x1="400" y1="255" x2="400" y2="85" stroke="url(#blLineGrad)" stroke-width="2.2" marker-end="url(#blArrow)" />
+              <line x1="470" y1="225" x2="676" y2="160" stroke="url(#blLineGrad)" stroke-width="2.2" marker-end="url(#blArrow)" />
+              <line x1="470" y1="294" x2="676" y2="354" stroke="url(#blLineGrad)" stroke-width="2.2" marker-end="url(#blArrow)" />
+              <line x1="400" y1="322" x2="400" y2="442" stroke="url(#blLineGrad)" stroke-width="2.2" marker-end="url(#blArrow)" />
+              <line x1="329" y1="294" x2="122" y2="354" stroke="url(#blLineGrad)" stroke-width="2.2" marker-end="url(#blArrow)" />
+              <line x1="329" y1="225" x2="122" y2="160" stroke="url(#blLineGrad)" stroke-width="2.2" marker-end="url(#blArrow)" />
+            </svg>
+
+            <div class="bl-radial__center">
+              <strong>Bonney Lake Drivers</strong>
+              <span>Different vehicles. Different routines. Different priorities.</span>
+            </div>
+
+            <article class="bl-node bl-node--1"><h3>Daily Commuters</h3><p>Frequent use and regular cabin buildup.</p></article>
+            <article class="bl-node bl-node--2"><h3>Family Vehicles</h3><p>Snacks, spills, kids and constant interior use.</p></article>
+            <article class="bl-node bl-node--3"><h3>Work Trucks</h3><p>Hard-use interiors and practical cleaning priorities.</p></article>
+            <article class="bl-node bl-node--4"><h3>Weekend Vehicles</h3><p>Used differently and maintained differently.</p></article>
+            <article class="bl-node bl-node--5"><h3>Multi-Car Homes</h3><p>One household can have several very different needs.</p></article>
+            <article class="bl-node bl-node--6"><h3>Outdoor Parking</h3><p>More time outside can mean more exterior exposure.</p></article>
+          </div>
+        </div>
+
+        <aside class="bl-radial-notes" aria-label="How vehicle use affects detailing">
+          <article data-reveal="right"><h3>Match the service to the problem</h3><p>An interior issue, exterior issue and paint defect do not need the same solution.</p></article>
+          <article data-reveal="right" style="--reveal-delay:70ms"><h3>Priorities change by vehicle</h3><p>A work truck may need practicality first. A weekend vehicle may be more focused on finish and protection.</p></article>
+          <article data-reveal="right" style="--reveal-delay:140ms"><h3>Tell us what bothers you most</h3><p>That is usually more useful than trying to choose the largest package.</p></article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="bl-section bl-section--alt" aria-labelledby="resources-heading">
+      <div class="container">
+        <div class="bl-section-head" data-reveal="up">
+          <p class="bl-eyebrow">Local Driver Resources</p>
+          <h2 id="resources-heading">Useful Links for <span class="bl-gradient">Bonney Lake Drivers</span></h2>
+          <p>Direct city resources that are useful for local driving, projects and parking.</p>
+        </div>
+
+        <div class="bl-resource-grid">
+          {resources.map((item, index) => (
+            <article class="bl-resource" data-reveal="up" style={`--reveal-delay:${index * 70}ms`}>
+              <span class="bl-resource__no">{item.number}</span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+              <a href={item.href} target="_blank" rel="noopener">{item.link} <span aria-hidden="true">↗</span></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-section" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="bl-section-head" data-reveal="up">
+          <p class="bl-eyebrow">Real ATW Work</p>
+          <h2 id="work-heading">Detailing Work From <span class="bl-gradient">Our Portfolio</span></h2>
+          <p>A few real examples from the ATW gallery across the service area.</p>
+        </div>
+
+        <div class="bl-work-stage">
+          {workItems.map((item) => (
+            <article class={item.className}>
+              <img src={item.image} alt={item.alt} width="960" height="720" loading="lazy" decoding="async" />
+              <div class="bl-work-card__body">
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="bl-center-action" data-reveal="up">
+          <a class="bl-btn bl-btn--secondary" href={site.galleryUrl}>View Full Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-section bl-section--alt" aria-labelledby="mobile-heading">
+      <div class="container bl-mobile-grid">
+        <div data-reveal="left">
+          <p class="bl-eyebrow">Mobile Service</p>
+          <h2 id="mobile-heading">How Mobile Detailing Works in <span class="bl-gradient">Bonney Lake</span></h2>
+          <p class="bl-mobile-copy">
+            Mobile does not mean we can work anywhere under any conditions. We confirm the address, vehicle,
+            service and practical setup before the appointment.
+          </p>
+        </div>
+
+        <div class="bl-steps" data-reveal="right">
+          <article><span>1</span><div><h3>Choose a starting service</h3><p>Or send the vehicle details and the problem you want improved.</p></div></article>
+          <article><span>2</span><div><h3>Confirm the location</h3><p>We verify that there is a suitable place to work around the vehicle.</p></div></article>
+          <article><span>3</span><div><h3>Review the vehicle</h3><p>If the condition changes the scope, we discuss it before adding work.</p></div></article>
+          <article><span>4</span><div><h3>Detail on site</h3><p>No unnecessary drop-off trip for a normal mobile appointment.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-section" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="bl-section-head" data-reveal="up">
+          <p class="bl-eyebrow">Bonney Lake Detailing FAQ</p>
+          <h2 id="faq-heading">Quick Answers Before <span class="bl-gradient">You Book</span></h2>
+        </div>
+
+        <div class="bl-faq" data-reveal="up">
+          {faqs.map((item, index) => (
+            <details open={index === 0}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-section bl-section--compact bl-section--alt" aria-labelledby="explore-heading">
+      <div class="container">
+        <div class="bl-section-head" data-reveal="up">
+          <p class="bl-eyebrow">Explore</p>
+          <h2 id="explore-heading">More ATW <span class="bl-gradient">Services & Areas</span></h2>
+        </div>
+
+        <div class="bl-pills" data-reveal="up">
+          <a href="/interior-detailing/">Interior Detailing</a>
+          <a href="/exterior-detailing/">Exterior Detailing</a>
+          <a href="/services/full-detailing/">Full Detailing</a>
+          <a href="/paint-correction-bonney-lake/">Paint Correction</a>
+          <a href="/ceramic-coating/">Ceramic Coating</a>
+          <a href="/commercial-vehicle-detailing/">Commercial Vehicles</a>
+          <a href={site.quoteUrl}>Price Estimate</a>
+          <a href="/service-areas/">All Service Areas</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bl-final" aria-labelledby="final-heading">
+      <picture class="bl-final__media" aria-hidden="true">
+        <source media="(max-width: 700px)" srcset="/media/bonney-lake/cta-960.webp" />
+        <img
+          src="/media/bonney-lake/cta.webp"
+          alt=""
+          width="1916"
+          height="821"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+      <div class="bl-final__overlay" aria-hidden="true"></div>
+      <div class="container bl-final__inner" data-reveal="up">
+        <p class="bl-eyebrow">Ready When You Are</p>
+        <h2 id="final-heading">Bring Back That <span class="bl-gradient">Clean-Car Feeling</span></h2>
+        <p>Choose a service, check starting pricing, or send your vehicle details and tell us what you want improved.</p>
+        <div class="bl-actions bl-actions--center">
+          <a class="bl-btn bl-btn--primary" href={site.quoteUrl}>Check Pricing</a>
+          <a class="bl-btn bl-btn--secondary" href="/get-in-touch/">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll(".bl-choice__button").forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) return;
+
+    button.addEventListener("click", () => {
+      const card = button.closest(".bl-choice");
+      if (!(card instanceof HTMLElement)) return;
+
+      const nextOpen = !card.classList.contains("is-open");
+      card.classList.toggle("is-open", nextOpen);
+      button.setAttribute("aria-expanded", String(nextOpen));
+    });
+  });
+</script>
