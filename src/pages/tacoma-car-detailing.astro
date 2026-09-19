@@ -1,0 +1,877 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/tacoma-car-detailing.css";
+
+const title = "Mobile Car Detailing in Tacoma, WA | ATW Detailing";
+const description =
+  "Mobile car detailing in Tacoma, WA for daily drivers, family vehicles, work trucks and enthusiast cars. Interior, exterior, paint correction and ceramic coating at your location.";
+const canonical = `${site.url}/tacoma-car-detailing/`;
+const ogImage = `${site.url}/media/tacoma/hero.webp`;
+
+const marqueeTop = [
+  ["250+", "VEHICLES AT ACM"],
+  ["FIRST SATURDAY", "CAFFEINE & GASOLINE"],
+  ["FREE", "CAR CARE SCHOOL"],
+  ["TACOMA", "CAR CULTURE"],
+  ["DAILY DRIVER", "OR WEEKEND CAR"],
+  ["CLASSICS", "TRUCKS · TUNERS · COMMUTERS"],
+];
+
+const marqueeBottom = [
+  ["I-5", "REGIONAL DAILY ROUTE"],
+  ["SR 16", "TOWARD THE NARROWS"],
+  ["SR 509", "TIDEFLATS CONNECTION"],
+  ["SALT BRINE", "FREEZING-WEATHER PRE-TREATMENT"],
+  ["POINT DEFIANCE", "VEHICLE FERRY"],
+  ["TACOMA DOME", "EVENT-DAY TRAFFIC"],
+];
+
+const personas = [
+  {
+    no: "01",
+    eyebrow: "THE DAILY",
+    title: "The car that does everything.",
+    copy:
+      "Commutes, errands, appointments and everyday driving. Usually it needs practical cleaning more than anything dramatic.",
+    tags: ["Road film", "Glass", "Wheels", "Interior reset"],
+    tone: "cyan",
+  },
+  {
+    no: "02",
+    eyebrow: "THE FAMILY CAR",
+    title: "The interior gets used hard.",
+    copy:
+      "Seats, mats, cup holders, cargo areas and all the small places that collect the evidence of real life.",
+    tags: ["Mats", "Seats", "Cargo", "High-touch areas"],
+    tone: "blue",
+  },
+  {
+    no: "03",
+    eyebrow: "THE WORK VEHICLE",
+    title: "Sometimes the cab is part of the job.",
+    copy:
+      "Pickups, vans and commercial vehicles often need a different kind of reset focused on usability and presentation.",
+    tags: ["Cab", "Floor", "Surfaces", "Commercial"],
+    tone: "orange",
+  },
+  {
+    no: "04",
+    eyebrow: "THE ONE YOU CARE ABOUT",
+    title: "Clean is not always the goal.",
+    copy:
+      "For enthusiast, performance and weekend cars, the conversation may shift from cleaning to gloss, paint improvement and protection.",
+    tags: ["Gloss", "Swirls", "Correction", "Protection"],
+    tone: "violet",
+  },
+];
+
+const detailZones = [
+  {
+    key: "cabin",
+    no: "01",
+    title: "Cabin",
+    kicker: "INTERIOR",
+    copy:
+      "Seats, carpets, mats, plastics, cup holders and cargo areas all need different cleaning methods depending on material and condition.",
+    bullets: ["Vacuum & surface cleaning", "Targeted extraction when appropriate", "Material-specific care"],
+    href: "/interior-detailing/",
+    link: "Explore Interior Detailing",
+  },
+  {
+    key: "glass",
+    no: "02",
+    title: "Glass",
+    kicker: "VISIBILITY + FINISH",
+    copy:
+      "Interior film, fingerprints and exterior residue can make otherwise clean vehicles still look unfinished.",
+    bullets: ["Interior glass", "Exterior glass", "Edge and mirror finishing"],
+    href: "/services/full-detailing/",
+    link: "Explore Full Detailing",
+  },
+  {
+    key: "lower",
+    no: "03",
+    title: "Wheels + Lower Body",
+    kicker: "ROAD-LEVEL BUILDUP",
+    copy:
+      "Brake dust, wet-road residue and traffic film tend to show first on wheels, rocker panels and lower doors.",
+    bullets: ["Wheels", "Lower panels", "Door jambs"],
+    href: "/exterior-detailing/",
+    link: "Explore Exterior Detailing",
+  },
+  {
+    key: "paint",
+    no: "04",
+    title: "Paint",
+    kicker: "CLEAN ≠ CORRECT ≠ PROTECT",
+    copy:
+      "Removing dirt, improving visible paint defects and adding protection are three different jobs.",
+    bullets: ["Clean: remove contamination", "Improve: reduce visible defects", "Protect: add a prepared coating layer"],
+    href: "/paint-correction-bonney-lake/",
+    link: "Explore Paint Correction",
+  },
+  {
+    key: "touch",
+    no: "05",
+    title: "High-Touch Areas",
+    kicker: "DAILY USE",
+    copy:
+      "Steering wheels, handles, consoles and switches can see heavy use even when the vehicle does not travel many miles.",
+    bullets: ["Steering wheel", "Console", "Handles & switches"],
+    href: "/interior-detailing/",
+    link: "Explore Interior Care",
+  },
+  {
+    key: "cargo",
+    no: "06",
+    title: "Work + Cargo Zone",
+    kicker: "USE CHANGES THE JOB",
+    copy:
+      "A family cargo area, contractor pickup or commercial van does not need the same treatment as a lightly used commuter.",
+    bullets: ["Family cargo", "Pickup cab", "Commercial vehicle"],
+    href: "/commercial-vehicle-detailing/",
+    link: "Commercial Detailing",
+  },
+];
+
+const resources = [
+  {
+    tag: "LIVE",
+    title: "Traffic & Cameras",
+    copy: "Traffic flow, cameras, closures and current WSDOT travel conditions.",
+    href: "https://wsdot.com/Travel/Real-time/Map/",
+    link: "Open WSDOT map",
+  },
+  {
+    tag: "SR 16",
+    title: "Tacoma Narrows",
+    copy: "Current Tacoma Narrows Bridge tolling and Good To Go information.",
+    href: "https://wsdot.wa.gov/travel/roads-bridges/toll-roads-bridges-tunnels/tacoma-narrows-bridge-tolling",
+    link: "Check bridge info",
+  },
+  {
+    tag: "FERRY",
+    title: "Point Defiance",
+    copy: "Ferry travel information including low-tide restrictions for some vehicles.",
+    href: "https://wsdot.wa.gov/travel/washington-state-ferries/schedules/tidal-cancellations-and-travel-restrictions",
+    link: "Check ferry restrictions",
+  },
+  {
+    tag: "PARK",
+    title: "Downtown Parking",
+    copy: "Official City of Tacoma parking options and current downtown information.",
+    href: "https://tacoma.gov/government/departments/public-works/parking/parking-options/",
+    link: "View parking options",
+  },
+  {
+    tag: "EVENT",
+    title: "Tacoma Dome",
+    copy: "Event-day access, parking, directions and current arrival information.",
+    href: "https://www.tacomadome.org/dome-info/event-guide/",
+    link: "Open event guide",
+  },
+  {
+    tag: "CARS",
+    title: "Local Car Events",
+    copy: "Explore current events at LeMay – America’s Car Museum and Griot’s Garage.",
+    href: "https://www.americascarmuseum.org/events",
+    link: "See ACM events",
+    secondaryHref: "https://www.griotsgarage.com/caffeine-gasoline/",
+    secondaryLink: "Griot's events",
+  },
+];
+
+const faqs = [
+  {
+    q: "Do you provide mobile car detailing throughout Tacoma?",
+    a: "Yes. ATW provides mobile detailing in Tacoma at suitable residential, workplace and approved parking locations within our service area.",
+  },
+  {
+    q: "Can you detail my vehicle at work in Tacoma?",
+    a: "Often, yes. We need enough safe working space and permission from the property when required. Send us the address if you are unsure.",
+  },
+  {
+    q: "Can you work at an apartment or shared parking lot?",
+    a: "It depends on property rules, available space and access. We recommend confirming permission before the appointment.",
+  },
+  {
+    q: "Do you detail work trucks and commercial vehicles in Tacoma?",
+    a: "Yes. Work trucks, vans and commercial vehicles are reviewed based on size, condition, location and requested scope before scheduling.",
+  },
+  {
+    q: "Does Tacoma winter road treatment mean I need ceramic coating?",
+    a: "No. Tacoma does use salt brine on selected roads before freezing conditions, but that does not mean every vehicle needs ceramic coating. Protection is an optional service based on your paint condition and maintenance goals.",
+  },
+  {
+    q: "What is the difference between exterior detailing, paint correction and ceramic coating?",
+    a: "Exterior detailing cleans the vehicle. Paint correction is used to improve visible defects such as swirls and dullness. Ceramic coating adds longer-lasting protection after the paint has been properly prepared.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: "en-US",
+      isPartOf: { "@id": `${site.url}/#website` },
+      about: { "@id": `${site.url}/#business` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: ogImage,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Car Detailing in Tacoma",
+      serviceType: "Mobile auto detailing",
+      url: canonical,
+      description,
+      provider: { "@id": `${site.url}/#business` },
+      areaServed: {
+        "@type": "City",
+        name: "Tacoma",
+        containedInPlace: {
+          "@type": "State",
+          name: "Washington",
+        },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumbs`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: site.url,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Service Areas",
+          item: `${site.url}/service-areas/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Tacoma Car Detailing",
+          item: canonical,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Mobile car detailing in Tacoma, Washington"
+>
+  <JsonLd slot="head" data={schema} />
+
+  <main class="tc-page">
+
+    <!-- HERO -->
+    <section class="tc-hero">
+      <img
+        class="tc-hero__bg"
+        src="/media/tacoma/hero.webp"
+        alt="Vehicle in Tacoma, Washington"
+        width="1600"
+        height="686"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="tc-hero__shade"></div>
+
+      <div class="tc-shell tc-hero__inner">
+        <div class="tc-hero__copy" data-reveal="up">
+          <p class="tc-eyebrow">ATW Detailing · Mobile Service · Tacoma</p>
+          <h1>
+            Mobile Car Detailing
+            <span>in Tacoma, WA</span>
+          </h1>
+          <p class="tc-hero__lead">
+            Interior, exterior, paint correction and ceramic coating for
+            Tacoma daily drivers, family vehicles, work trucks and enthusiast cars —
+            at your home or workplace.
+          </p>
+
+          <div class="tc-hero__actions">
+            <a class="tc-btn tc-btn--primary" href={site.quoteUrl}>
+              Get Price Estimate →
+            </a>
+            <a class="tc-btn tc-btn--ghost" href={site.bookingUrl}>
+              Book Online
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOVING TACOMA STRIP -->
+    <section class="tc-marquee-section" aria-labelledby="tacoma-knows-cars">
+      <div class="tc-shell tc-marquee-head" data-reveal="up">
+        <p class="tc-eyebrow">More Than Another Service Area</p>
+        <h2 id="tacoma-knows-cars">
+          Tacoma <span>knows cars.</span>
+        </h2>
+        <p>
+          Car culture, daily commuting, work vehicles and real local driving conditions
+          all overlap here.
+        </p>
+      </div>
+
+      <div class="tc-marquee" aria-label="Tacoma automotive facts">
+        <div class="tc-marquee__track tc-marquee__track--left">
+          {[...marqueeTop, ...marqueeTop].map(([big, small]) => (
+            <div class="tc-marquee-card">
+              <strong>{big}</strong>
+              <span>{small}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="tc-marquee tc-marquee--second" aria-hidden="true">
+        <div class="tc-marquee__track tc-marquee__track--right">
+          {[...marqueeBottom, ...marqueeBottom].map(([big, small]) => (
+            <div class="tc-marquee-card tc-marquee-card--dark">
+              <strong>{big}</strong>
+              <span>{small}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAS -->
+    <section class="tc-section tc-personas">
+      <div class="tc-shell">
+        <div class="tc-section-head" data-reveal="up">
+          <p class="tc-eyebrow">Same City. Different Cars.</p>
+          <h2>
+            A car can be transportation, a workspace,
+            <span>the family room — or the hobby.</span>
+          </h2>
+        </div>
+
+        <div class="tc-persona-grid">
+          {personas.map((item, index) => (
+            <article
+              class:list={["tc-persona", `tc-persona--${item.tone}`]}
+              data-reveal="up"
+              style={`--reveal-delay:${index * 65}ms`}
+            >
+              <div class="tc-persona__top">
+                <span>{item.no}</span>
+                <small>{item.eyebrow}</small>
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+              <div class="tc-tags">
+                {item.tags.map((tag) => <span>{tag}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CAR CULTURE -->
+    <section class="tc-section tc-culture">
+      <div class="tc-shell tc-culture__grid">
+        <figure class="tc-culture__media" data-reveal="left">
+          <img
+            src="/media/tacoma/car-culture.webp"
+            alt="Automotive culture inspired vehicle scene in Tacoma"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Tacoma · Washington</figcaption>
+        </figure>
+
+        <div class="tc-culture__copy" data-reveal="right">
+          <p class="tc-eyebrow">A City That Actually Likes Cars</p>
+          <h2>
+            Tacoma doesn't just drive cars.
+            <span>It celebrates them.</span>
+          </h2>
+
+          <p class="tc-culture__lead">
+            You do not need a collector car to care how your vehicle looks.
+            Tacoma's automotive scene stretches from museum pieces and classics
+            to tuners, trucks, performance cars and ordinary daily drivers.
+          </p>
+
+          <div class="tc-culture-facts">
+            <a href="https://www.americascarmuseum.org/" target="_blank" rel="noopener">
+              <strong>250+</strong>
+              <span>vehicles featured across four floors at LeMay – America's Car Museum</span>
+            </a>
+
+            <a href="https://www.griotsgarage.com/caffeine-gasoline/" target="_blank" rel="noopener">
+              <strong>1st Sat.</strong>
+              <span>Caffeine & Gasoline at Griot's Garage Tacoma flagship</span>
+            </a>
+
+            <a href="https://www.griotsgarage.com/caffeine-gasoline/" target="_blank" rel="noopener">
+              <strong>Free</strong>
+              <span>public Car Care School at the Tacoma flagship store</span>
+            </a>
+          </div>
+
+          <p class="tc-culture__note">
+            Good detailing works the same way: match the care to the vehicle,
+            not the other way around.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILING CUTAWAY -->
+    <section class="tc-section tc-cutaway">
+      <div class="tc-shell">
+        <div class="tc-section-head tc-section-head--center" data-reveal="up">
+          <p class="tc-eyebrow">Detailing, Broken Down</p>
+          <h2>
+            What are we actually
+            <span>working on?</span>
+          </h2>
+          <p>
+            Detailing is not one treatment. Different parts of the vehicle
+            need different work.
+          </p>
+        </div>
+
+        <div class="tc-cutaway__layout" data-cutaway data-reveal="up">
+          <div class="tc-cutaway__visual">
+            <svg
+              class="tc-car"
+              viewBox="0 0 900 420"
+              role="img"
+              aria-label="Vehicle diagram showing different detailing areas"
+            >
+              <defs>
+                <linearGradient id="tcCarStroke" x1="0" x2="1">
+                  <stop offset="0%" stop-color="#20d9e8" />
+                  <stop offset="52%" stop-color="#6878ff" />
+                  <stop offset="100%" stop-color="#c15cff" />
+                </linearGradient>
+              </defs>
+
+              <path
+                class="tc-car__body"
+                d="M98 272
+                   C126 238 164 220 222 211
+                   L304 199
+                   C344 151 389 126 455 119
+                   L585 119
+                   C628 124 670 150 711 199
+                   L770 211
+                   C815 218 838 242 844 280
+                   L844 306
+                   L790 306
+                   C783 352 748 379 704 379
+                   C660 379 625 352 618 306
+                   L286 306
+                   C279 352 244 379 200 379
+                   C156 379 121 352 114 306
+                   L78 306
+                   L78 286
+                   Z"
+              />
+
+              <path
+                class="tc-car__glass"
+                d="M329 198
+                   C363 157 404 139 458 136
+                   L568 136
+                   C608 140 642 160 674 198
+                   Z"
+              />
+
+              <circle class="tc-car__wheel" cx="200" cy="307" r="56" />
+              <circle class="tc-car__wheel" cx="704" cy="307" r="56" />
+              <circle class="tc-car__wheel-inner" cx="200" cy="307" r="28" />
+              <circle class="tc-car__wheel-inner" cx="704" cy="307" r="28" />
+
+              <path class="tc-zone tc-zone--paint" d="M99 270 C150 224 242 217 305 199 L330 198 L675 198 L770 211 C812 217 834 240 843 278 L844 294 L78 294 L79 283 Z" />
+              <path class="tc-zone tc-zone--cabin" d="M329 198 C363 157 404 139 458 136 L568 136 C608 140 642 160 674 198 Z" />
+              <path class="tc-zone tc-zone--glass" d="M357 190 C386 159 421 146 461 144 L498 144 L498 190 Z M510 144 L565 144 C600 148 626 163 653 190 L510 190 Z" />
+              <path class="tc-zone tc-zone--lower" d="M118 286 L786 286 L770 319 L135 319 Z" />
+              <path class="tc-zone tc-zone--touch" d="M475 180 L536 180 L552 219 L461 219 Z" />
+              <path class="tc-zone tc-zone--cargo" d="M585 205 L741 216 L770 274 L585 274 Z" />
+
+              <g class="tc-hotspot tc-hotspot--cabin" data-zone-target="cabin">
+                <circle cx="443" cy="172" r="18" />
+                <text x="443" y="178">1</text>
+              </g>
+              <g class="tc-hotspot tc-hotspot--glass" data-zone-target="glass">
+                <circle cx="550" cy="160" r="18" />
+                <text x="550" y="166">2</text>
+              </g>
+              <g class="tc-hotspot tc-hotspot--lower" data-zone-target="lower">
+                <circle cx="650" cy="301" r="18" />
+                <text x="650" y="307">3</text>
+              </g>
+              <g class="tc-hotspot tc-hotspot--paint" data-zone-target="paint">
+                <circle cx="736" cy="244" r="18" />
+                <text x="736" y="250">4</text>
+              </g>
+              <g class="tc-hotspot tc-hotspot--touch" data-zone-target="touch">
+                <circle cx="507" cy="215" r="18" />
+                <text x="507" y="221">5</text>
+              </g>
+              <g class="tc-hotspot tc-hotspot--cargo" data-zone-target="cargo">
+                <circle cx="628" cy="236" r="18" />
+                <text x="628" y="242">6</text>
+              </g>
+            </svg>
+
+            <div class="tc-cutaway__hint">Select a vehicle area</div>
+          </div>
+
+          <div class="tc-cutaway__content">
+            <div class="tc-cutaway__tabs" role="tablist" aria-label="Detailing areas">
+              {detailZones.map((zone, index) => (
+                <button
+                  class:list={["tc-zone-tab", index === 0 && "is-active"]}
+                  type="button"
+                  data-zone-button={zone.key}
+                  aria-selected={index === 0 ? "true" : "false"}
+                >
+                  <span>{zone.no}</span>
+                  {zone.title}
+                </button>
+              ))}
+            </div>
+
+            <div class="tc-zone-panels">
+              {detailZones.map((zone, index) => (
+                <article
+                  class:list={["tc-zone-panel", index === 0 && "is-active"]}
+                  data-zone-panel={zone.key}
+                >
+                  <small>{zone.kicker}</small>
+                  <h3>{zone.title}</h3>
+                  <p>{zone.copy}</p>
+                  <ul>
+                    {zone.bullets.map((bullet) => <li>{bullet}</li>)}
+                  </ul>
+                  <a href={zone.href}>{zone.link} →</a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="tc-process" data-reveal="up">
+          <div>
+            <span>01</span>
+            <strong>CLEAN</strong>
+            <p>Remove dirt, film, debris and interior buildup.</p>
+          </div>
+          <i>→</i>
+          <div>
+            <span>02</span>
+            <strong>IMPROVE</strong>
+            <p>Reduce visible paint defects and restore gloss.</p>
+          </div>
+          <i>→</i>
+          <div>
+            <span>03</span>
+            <strong>PROTECT</strong>
+            <p>Add longer-lasting protection over properly prepared paint.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAILY VS WORK -->
+    <section class="tc-section tc-two-cars">
+      <div class="tc-shell">
+        <div class="tc-section-head" data-reveal="up">
+          <p class="tc-eyebrow">One City. Two Completely Different Jobs.</p>
+          <h2>
+            Both are Tacoma daily drivers.
+            <span>They just need different care.</span>
+          </h2>
+        </div>
+
+        <div class="tc-two-cars__grid">
+          <article class="tc-photo-card" data-reveal="left">
+            <img
+              src="/media/tacoma/daily-exterior.webp"
+              alt="Detailed Range Rover exterior"
+              width="1600"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="tc-photo-card__overlay"></div>
+            <div class="tc-photo-card__copy">
+              <small>DAILY / PERSONAL VEHICLE</small>
+              <h3>Clean. Improve. Protect.</h3>
+              <p>
+                Start with what bothers you now — interior condition, exterior buildup,
+                tired paint or protection.
+              </p>
+              <a href="/services/">Explore Detailing Services →</a>
+            </div>
+          </article>
+
+          <article class="tc-photo-card tc-photo-card--work" data-reveal="right">
+            <img
+              src="/media/tacoma/work-cab.webp"
+              alt="Work truck cab before detailing"
+              width="1024"
+              height="768"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="tc-photo-card__overlay"></div>
+            <div class="tc-photo-card__copy">
+              <small>WORK / COMMERCIAL VEHICLE</small>
+              <h3>Sometimes the cab is the workspace.</h3>
+              <p>
+                Trucks and vans are reviewed by actual size, condition,
+                use and requested scope.
+              </p>
+              <a href="/commercial-vehicle-detailing/">Commercial Detailing →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROAD REALITY -->
+    <section class="tc-section tc-road">
+      <div class="tc-shell tc-road__grid">
+        <div class="tc-road__copy" data-reveal="left">
+          <p class="tc-eyebrow">What Actually Ends Up on the Car?</p>
+          <h2>
+            Rain is only
+            <span>part of the story.</span>
+          </h2>
+
+          <p>
+            Regular wet-road driving can leave traffic film and residue around
+            wheels, lower panels, glass and door openings. Inside, that same wet
+            weather often shows up on floor mats and high-use areas.
+          </p>
+
+          <div class="tc-road__fact">
+            <strong>YES — TACOMA USES SALT BRINE.</strong>
+            <p>
+              Tacoma Public Works pre-treats elevated roads, hills and shaded areas
+              with salt brine before frost during winter weather.
+            </p>
+            <a
+              href="https://tacoma.gov/government/departments/public-works/street-operations/"
+              target="_blank"
+              rel="noopener"
+            >
+              City of Tacoma source ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="tc-road__stack" data-reveal="right">
+          <div><span>WHEELS</span><strong>Brake dust + road film</strong></div>
+          <div><span>LOWER PANELS</span><strong>Wet-road residue</strong></div>
+          <div><span>JAMBS</span><strong>Tracked water + grime</strong></div>
+          <div><span>MATS</span><strong>Everyday cabin use</strong></div>
+          <div><span>GLASS</span><strong>Film + fingerprints</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLKIT -->
+    <section class="tc-section tc-toolkit">
+      <div class="tc-shell">
+        <div class="tc-section-head" data-reveal="up">
+          <p class="tc-eyebrow">Tacoma Driver Toolkit</p>
+          <h2>
+            Before you head out,
+            <span>these links are worth saving.</span>
+          </h2>
+        </div>
+
+        <div class="tc-tool-grid">
+          {resources.map((resource, index) => (
+            <article
+              class="tc-tool"
+              data-reveal="up"
+              style={`--reveal-delay:${(index % 3) * 65}ms`}
+            >
+              <div class="tc-tool__top">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <small>{resource.tag}</small>
+              </div>
+              <h3>{resource.title}</h3>
+              <p>{resource.copy}</p>
+
+              <div class="tc-tool__links">
+                <a href={resource.href} target="_blank" rel="noopener">
+                  {resource.link} ↗
+                </a>
+
+                {resource.secondaryHref && (
+                  <a href={resource.secondaryHref} target="_blank" rel="noopener">
+                    {resource.secondaryLink} ↗
+                  </a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="tc-section tc-faq">
+      <div class="tc-shell tc-faq__grid">
+        <div class="tc-faq__intro" data-reveal="left">
+          <p class="tc-eyebrow">Tacoma Mobile Detailing</p>
+          <h2>
+            A few practical
+            <span>questions first.</span>
+          </h2>
+          <p>
+            Mobile service depends on the vehicle, location,
+            requested work and available working space.
+          </p>
+          <a href="/contact-us/">Ask about your location →</a>
+        </div>
+
+        <div class="tc-faq__list" data-reveal="right">
+          {faqs.map((item, index) => (
+            <details class="tc-faq-item" open={index === 0}>
+              <summary>
+                <span>{item.q}</span>
+                <i aria-hidden="true">+</i>
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL -->
+    <section class="tc-final">
+      <img
+        src="/media/tacoma/cta.webp"
+        alt=""
+        width="1600"
+        height="900"
+        loading="lazy"
+        decoding="async"
+        aria-hidden="true"
+      />
+      <div class="tc-final__shade"></div>
+
+      <div class="tc-shell tc-final__inner" data-reveal="up">
+        <p class="tc-eyebrow">Mobile Detailing · Tacoma</p>
+        <h2>
+          Your car is already in Tacoma.
+          <span>We'll meet it there.</span>
+        </h2>
+        <p>
+          Tell us what you drive, what bothers you about it,
+          and where the vehicle will be parked.
+        </p>
+
+        <div class="tc-final__actions">
+          <a class="tc-btn tc-btn--primary" href={site.quoteUrl}>
+            Get Price Estimate →
+          </a>
+          <a class="tc-btn tc-btn--ghost" href={site.bookingUrl}>
+            Book Online
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const cutaways = document.querySelectorAll<HTMLElement>("[data-cutaway]");
+
+    cutaways.forEach((cutaway) => {
+      const buttons = Array.from(
+        cutaway.querySelectorAll<HTMLButtonElement>("[data-zone-button]")
+      );
+
+      const panels = Array.from(
+        cutaway.querySelectorAll<HTMLElement>("[data-zone-panel]")
+      );
+
+      const hotspots = Array.from(
+        cutaway.querySelectorAll<SVGGElement>("[data-zone-target]")
+      );
+
+      const setZone = (zone: string) => {
+        cutaway.dataset.activeZone = zone;
+
+        buttons.forEach((button) => {
+          const active = button.dataset.zoneButton === zone;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-selected", String(active));
+        });
+
+        panels.forEach((panel) => {
+          panel.classList.toggle("is-active", panel.dataset.zonePanel === zone);
+        });
+
+        hotspots.forEach((hotspot) => {
+          hotspot.classList.toggle(
+            "is-active",
+            hotspot.dataset.zoneTarget === zone
+          );
+        });
+      };
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.dataset.zoneButton) setZone(button.dataset.zoneButton);
+        });
+      });
+
+      hotspots.forEach((hotspot) => {
+        hotspot.addEventListener("click", () => {
+          if (hotspot.dataset.zoneTarget) setZone(hotspot.dataset.zoneTarget);
+        });
+      });
+
+      setZone("cabin");
+    });
+  </script>
+</BaseLayout>
