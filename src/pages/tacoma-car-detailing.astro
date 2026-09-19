@@ -667,12 +667,12 @@ const schema = {
             >
               <div class="tc-tool__top">
                 <span class:list={["tc-tool__icon", `tc-tool__icon--${resource.icon}`]} aria-hidden="true">
-                  {resource.icon === "traffic" && <svg viewBox="0 0 24 24"><path d="M4 19h16M6 16l3-9h6l3 9M9 12h6M12 4v3" /></svg>}
-                  {resource.icon === "bridge" && <svg viewBox="0 0 24 24"><path d="M3 19h18M5 17V9m14 8V9M5 11c4-5 10-5 14 0M8 14h8" /></svg>}
-                  {resource.icon === "ferry" && <svg viewBox="0 0 24 24"><path d="M5 16h14l-2 3H7l-2-3Zm2-1V8h10v7M9 8V5h6v3M3 21c2 1 4 1 6 0 2 1 4 1 6 0 2 1 4 1 6 0" /></svg>}
-                  {resource.icon === "parking" && <svg viewBox="0 0 24 24"><path d="M7 20V4h6a5 5 0 0 1 0 10H7M10 7h3a2 2 0 0 1 0 4h-3" /></svg>}
-                  {resource.icon === "event" && <svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 2v6m8-6v6M5 10h14M9 14h2m2 0h2m-6 3h2" /></svg>}
-                  {resource.icon === "car" && <svg viewBox="0 0 24 24"><path d="M4 15l2-6h12l2 6v4h-2v-2H6v2H4v-4Zm3-3h10M7 15h.01M17 15h.01" /></svg>}
+                  {resource.icon === "traffic" && <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="presentation"><path d="M4 19h16M6 16l3-9h6l3 9M9 12h6M12 4v3" /></svg>}
+                  {resource.icon === "bridge" && <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="presentation"><path d="M3 19h18M5 17V9m14 8V9M5 11c4-5 10-5 14 0M8 14h8" /></svg>}
+                  {resource.icon === "ferry" && <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="presentation"><path d="M5 16h14l-2 3H7l-2-3Zm2-1V8h10v7M9 8V5h6v3M3 21c2 1 4 1 6 0 2 1 4 1 6 0 2 1 4 1 6 0" /></svg>}
+                  {resource.icon === "parking" && <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="presentation"><path d="M7 20V4h6a5 5 0 0 1 0 10H7M10 7h3a2 2 0 0 1 0 4h-3" /></svg>}
+                  {resource.icon === "event" && <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="presentation"><path d="M5 5h14v14H5zM8 2v6m8-6v6M5 10h14M9 14h2m2 0h2m-6 3h2" /></svg>}
+                  {resource.icon === "car" && <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" role="presentation"><path d="M4 15l2-6h12l2 6v4h-2v-2H6v2H4v-4Zm3-3h10M7 15h.01M17 15h.01" /></svg>}
                 </span>
                 <small>{resource.tag}</small>
               </div>
