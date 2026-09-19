@@ -303,15 +303,21 @@ const schema = {
 
     <!-- HERO -->
     <section class="tc-hero">
-      <img
-        class="tc-hero__bg"
-        src="/media/tacoma/hero.webp"
-        alt="Vehicle in Tacoma, Washington"
-        width="1600"
-        height="686"
-        fetchpriority="high"
-        decoding="async"
-      />
+      <picture class="tc-hero__media">
+        <source
+          media="(max-width: 720px)"
+          srcset="/media/tacoma/hero-960.webp"
+        />
+        <img
+          class="tc-hero__bg"
+          src="/media/tacoma/hero.webp"
+          alt="Vehicle in Tacoma, Washington"
+          width="1600"
+          height="686"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
       <div class="tc-hero__shade"></div>
 
       <div class="tc-shell tc-hero__inner">
