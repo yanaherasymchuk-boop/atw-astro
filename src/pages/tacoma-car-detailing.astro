@@ -138,6 +138,7 @@ const detailZones = [
 
 const resources = [
   {
+    icon: "traffic",
     tag: "LIVE",
     title: "Traffic & Cameras",
     copy: "Traffic flow, cameras, closures and current WSDOT travel conditions.",
@@ -145,6 +146,7 @@ const resources = [
     link: "Open WSDOT map",
   },
   {
+    icon: "bridge",
     tag: "SR 16",
     title: "Tacoma Narrows",
     copy: "Current Tacoma Narrows Bridge tolling and Good To Go information.",
@@ -152,6 +154,7 @@ const resources = [
     link: "Check bridge info",
   },
   {
+    icon: "ferry",
     tag: "FERRY",
     title: "Point Defiance",
     copy: "Ferry travel information including low-tide restrictions for some vehicles.",
@@ -159,6 +162,7 @@ const resources = [
     link: "Check ferry restrictions",
   },
   {
+    icon: "parking",
     tag: "PARK",
     title: "Downtown Parking",
     copy: "Official City of Tacoma parking options and current downtown information.",
@@ -166,6 +170,7 @@ const resources = [
     link: "View parking options",
   },
   {
+    icon: "event",
     tag: "EVENT",
     title: "Tacoma Dome",
     copy: "Event-day access, parking, directions and current arrival information.",
@@ -173,6 +178,7 @@ const resources = [
     link: "Open event guide",
   },
   {
+    icon: "car",
     tag: "CARS",
     title: "Local Car Events",
     copy: "Explore current events at LeMay – America’s Car Museum and Griot’s Garage.",
@@ -376,7 +382,7 @@ const schema = {
           <p class="tc-eyebrow">Same City. Different Cars.</p>
           <h2>
             A car can be transportation, a workspace,
-            <span>the family room — or the hobby.</span>
+            <span>the family room, or the hobby.</span>
           </h2>
         </div>
 
@@ -388,7 +394,6 @@ const schema = {
               style={`--reveal-delay:${index * 65}ms`}
             >
               <div class="tc-persona__top">
-                <span>{item.no}</span>
                 <small>{item.eyebrow}</small>
               </div>
               <h3>{item.title}</h3>
@@ -405,19 +410,7 @@ const schema = {
     <!-- CAR CULTURE -->
     <section class="tc-section tc-culture">
       <div class="tc-shell tc-culture__grid">
-        <figure class="tc-culture__media" data-reveal="left">
-          <img
-            src="/media/tacoma/car-culture.webp"
-            alt="Automotive culture inspired vehicle scene in Tacoma"
-            width="1600"
-            height="900"
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption>Tacoma · Washington</figcaption>
-        </figure>
-
-        <div class="tc-culture__copy" data-reveal="right">
+<div class="tc-culture__copy" data-reveal="right">
           <p class="tc-eyebrow">A City That Actually Likes Cars</p>
           <h2>
             Tacoma doesn't just drive cars.
@@ -433,7 +426,7 @@ const schema = {
           <div class="tc-culture-facts">
             <a href="https://www.americascarmuseum.org/" target="_blank" rel="noopener">
               <strong>250+</strong>
-              <span>vehicles featured across four floors at LeMay – America's Car Museum</span>
+              <span>vehicles on display at LeMay – America's Car Museum</span>
             </a>
 
             <a href="https://www.griotsgarage.com/caffeine-gasoline/" target="_blank" rel="noopener">
@@ -441,7 +434,7 @@ const schema = {
               <span>Caffeine & Gasoline at Griot's Garage Tacoma flagship</span>
             </a>
 
-            <a href="https://www.griotsgarage.com/caffeine-gasoline/" target="_blank" rel="noopener">
+            <a href="https://www.griotsgarage.com/corporate-hq-flagship-retail-store/" target="_blank" rel="noopener">
               <strong>Free</strong>
               <span>public Car Care School at the Tacoma flagship store</span>
             </a>
@@ -472,88 +465,23 @@ const schema = {
 
         <div class="tc-cutaway__layout" data-cutaway data-reveal="up">
           <div class="tc-cutaway__visual">
-            <svg
-              class="tc-car"
-              viewBox="0 0 900 420"
-              role="img"
-              aria-label="Vehicle diagram showing different detailing areas"
-            >
-              <defs>
-                <linearGradient id="tcCarStroke" x1="0" x2="1">
-                  <stop offset="0%" stop-color="#20d9e8" />
-                  <stop offset="52%" stop-color="#6878ff" />
-                  <stop offset="100%" stop-color="#c15cff" />
-                </linearGradient>
-              </defs>
-
-              <path
-                class="tc-car__body"
-                d="M98 272
-                   C126 238 164 220 222 211
-                   L304 199
-                   C344 151 389 126 455 119
-                   L585 119
-                   C628 124 670 150 711 199
-                   L770 211
-                   C815 218 838 242 844 280
-                   L844 306
-                   L790 306
-                   C783 352 748 379 704 379
-                   C660 379 625 352 618 306
-                   L286 306
-                   C279 352 244 379 200 379
-                   C156 379 121 352 114 306
-                   L78 306
-                   L78 286
-                   Z"
+            <div class="tc-cutaway__car">
+              <img
+                src="/media/interior/interior-zones.webp"
+                alt="Vehicle detailing zones"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                decoding="async"
               />
 
-              <path
-                class="tc-car__glass"
-                d="M329 198
-                   C363 157 404 139 458 136
-                   L568 136
-                   C608 140 642 160 674 198
-                   Z"
-              />
-
-              <circle class="tc-car__wheel" cx="200" cy="307" r="56" />
-              <circle class="tc-car__wheel" cx="704" cy="307" r="56" />
-              <circle class="tc-car__wheel-inner" cx="200" cy="307" r="28" />
-              <circle class="tc-car__wheel-inner" cx="704" cy="307" r="28" />
-
-              <path class="tc-zone tc-zone--paint" d="M99 270 C150 224 242 217 305 199 L330 198 L675 198 L770 211 C812 217 834 240 843 278 L844 294 L78 294 L79 283 Z" />
-              <path class="tc-zone tc-zone--cabin" d="M329 198 C363 157 404 139 458 136 L568 136 C608 140 642 160 674 198 Z" />
-              <path class="tc-zone tc-zone--glass" d="M357 190 C386 159 421 146 461 144 L498 144 L498 190 Z M510 144 L565 144 C600 148 626 163 653 190 L510 190 Z" />
-              <path class="tc-zone tc-zone--lower" d="M118 286 L786 286 L770 319 L135 319 Z" />
-              <path class="tc-zone tc-zone--touch" d="M475 180 L536 180 L552 219 L461 219 Z" />
-              <path class="tc-zone tc-zone--cargo" d="M585 205 L741 216 L770 274 L585 274 Z" />
-
-              <g class="tc-hotspot tc-hotspot--cabin" data-zone-target="cabin">
-                <circle cx="443" cy="172" r="18" />
-                <text x="443" y="178">1</text>
-              </g>
-              <g class="tc-hotspot tc-hotspot--glass" data-zone-target="glass">
-                <circle cx="550" cy="160" r="18" />
-                <text x="550" y="166">2</text>
-              </g>
-              <g class="tc-hotspot tc-hotspot--lower" data-zone-target="lower">
-                <circle cx="650" cy="301" r="18" />
-                <text x="650" y="307">3</text>
-              </g>
-              <g class="tc-hotspot tc-hotspot--paint" data-zone-target="paint">
-                <circle cx="736" cy="244" r="18" />
-                <text x="736" y="250">4</text>
-              </g>
-              <g class="tc-hotspot tc-hotspot--touch" data-zone-target="touch">
-                <circle cx="507" cy="215" r="18" />
-                <text x="507" y="221">5</text>
-              </g>
-              <g class="tc-hotspot tc-hotspot--cargo" data-zone-target="cargo">
-                <circle cx="628" cy="236" r="18" />
-                <text x="628" y="242">6</text>
-              </g>
-            </svg>
+              <button class="tc-hotspot tc-hotspot--cabin is-active" type="button" aria-label="Cabin" data-zone-target="cabin"></button>
+              <button class="tc-hotspot tc-hotspot--glass" type="button" aria-label="Glass" data-zone-target="glass"></button>
+              <button class="tc-hotspot tc-hotspot--lower" type="button" aria-label="Wheels and lower body" data-zone-target="lower"></button>
+              <button class="tc-hotspot tc-hotspot--paint" type="button" aria-label="Paint" data-zone-target="paint"></button>
+              <button class="tc-hotspot tc-hotspot--touch" type="button" aria-label="High-touch areas" data-zone-target="touch"></button>
+              <button class="tc-hotspot tc-hotspot--cargo" type="button" aria-label="Work and cargo zone" data-zone-target="cargo"></button>
+            </div>
 
             <div class="tc-cutaway__hint">Select a vehicle area</div>
           </div>
@@ -732,7 +660,14 @@ const schema = {
               style={`--reveal-delay:${(index % 3) * 65}ms`}
             >
               <div class="tc-tool__top">
-                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span class:list={["tc-tool__icon", `tc-tool__icon--${resource.icon}`]} aria-hidden="true">
+                  {resource.icon === "traffic" && <svg viewBox="0 0 24 24"><path d="M4 19h16M6 16l3-9h6l3 9M9 12h6M12 4v3" /></svg>}
+                  {resource.icon === "bridge" && <svg viewBox="0 0 24 24"><path d="M3 19h18M5 17V9m14 8V9M5 11c4-5 10-5 14 0M8 14h8" /></svg>}
+                  {resource.icon === "ferry" && <svg viewBox="0 0 24 24"><path d="M5 16h14l-2 3H7l-2-3Zm2-1V8h10v7M9 8V5h6v3M3 21c2 1 4 1 6 0 2 1 4 1 6 0 2 1 4 1 6 0" /></svg>}
+                  {resource.icon === "parking" && <svg viewBox="0 0 24 24"><path d="M7 20V4h6a5 5 0 0 1 0 10H7M10 7h3a2 2 0 0 1 0 4h-3" /></svg>}
+                  {resource.icon === "event" && <svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 2v6m8-6v6M5 10h14M9 14h2m2 0h2m-6 3h2" /></svg>}
+                  {resource.icon === "car" && <svg viewBox="0 0 24 24"><path d="M4 15l2-6h12l2 6v4h-2v-2H6v2H4v-4Zm3-3h10M7 15h.01M17 15h.01" /></svg>}
+                </span>
                 <small>{resource.tag}</small>
               </div>
               <h3>{resource.title}</h3>

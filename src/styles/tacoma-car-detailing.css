@@ -1538,3 +1538,291 @@
     transition: none !important;
   }
 }
+
+
+/* =========================================
+   TACOMA VISUAL REFINEMENT — PASS 2
+   ========================================= */
+
+/* More varied CTA palette */
+.tc-btn--primary {
+  color: #fff;
+  background: linear-gradient(100deg, #6d5dfc 0%, #a657f0 48%, #ff8b42 100%);
+  box-shadow: 0 16px 42px rgba(155, 93, 229, .24);
+}
+
+.tc-btn--primary:hover {
+  box-shadow: 0 18px 46px rgba(255, 139, 66, .22);
+}
+
+/* Persona cards — no numbers */
+.tc-persona__top {
+  justify-content: flex-start;
+  margin-bottom: 54px;
+}
+
+.tc-persona__top small {
+  color: var(--persona-accent);
+}
+
+/* Car culture image becomes section-wide background */
+.tc-culture {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(90deg,
+      rgba(5, 7, 16, .24) 0%,
+      rgba(5, 7, 16, .50) 42%,
+      rgba(5, 7, 16, .92) 68%,
+      rgba(5, 7, 16, .97) 100%),
+    linear-gradient(0deg,
+      rgba(5, 7, 16, .82) 0%,
+      rgba(5, 7, 16, .10) 50%,
+      rgba(5, 7, 16, .72) 100%),
+    url("/media/tacoma/car-culture.webp") center / cover no-repeat;
+}
+
+.tc-culture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 78% 45%, rgba(155, 93, 229, .10), transparent 36%);
+  pointer-events: none;
+}
+
+.tc-culture__grid {
+  display: block;
+}
+
+.tc-culture__copy {
+  width: min(610px, 52%);
+  margin-left: auto;
+  padding: 42px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 28px;
+  background: rgba(7, 9, 19, .68);
+  backdrop-filter: blur(12px);
+}
+
+/* Reuse the existing Interior Detail vehicle prototype */
+.tc-cutaway__car {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(155, 93, 229, .20);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(155, 93, 229, .08), transparent 58%),
+    #05060c;
+}
+
+.tc-cutaway__car img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform .55s ease;
+}
+
+.tc-cutaway__car:hover img {
+  transform: scale(1.012);
+}
+
+.tc-cutaway__car .tc-hotspot {
+  position: absolute;
+  z-index: 5;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 2px solid rgba(255,255,255,.92);
+  border-radius: 50%;
+  background: #9b5de5;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 0 5px rgba(155, 93, 229, .15),
+    0 0 22px rgba(155, 93, 229, .45);
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.tc-cutaway__car .tc-hotspot::after {
+  content: "+";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.tc-cutaway__car .tc-hotspot:hover,
+.tc-cutaway__car .tc-hotspot.is-active {
+  transform: translate(-50%, -50%) scale(1.14);
+  background: #ff9a3d;
+  box-shadow:
+    0 0 0 7px rgba(255, 154, 61, .13),
+    0 0 26px rgba(255, 154, 61, .45);
+}
+
+.tc-hotspot--glass { left: 35%; top: 45%; }
+.tc-hotspot--cabin { left: 43%; top: 53%; }
+.tc-hotspot--touch { left: 47%; top: 46%; }
+.tc-hotspot--lower { left: 52%; top: 65%; }
+.tc-hotspot--paint { left: 68%; top: 40%; }
+.tc-hotspot--cargo { left: 79%; top: 47%; }
+
+/* Rain animation */
+.tc-road {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.tc-road::before {
+  content: "";
+  position: absolute;
+  inset: -18% -10%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .20;
+  background-image:
+    repeating-linear-gradient(
+      104deg,
+      transparent 0 25px,
+      rgba(150, 185, 255, .72) 26px 27px,
+      transparent 28px 52px
+    );
+  background-size: 150px 190px;
+  animation: tc-rain-fall 1.25s linear infinite;
+  transform: skewX(-6deg);
+}
+
+.tc-road::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 72% 40%, rgba(79,124,255,.15), transparent 34%),
+    linear-gradient(90deg, rgba(7,9,18,.94), rgba(7,9,18,.70));
+}
+
+@keyframes tc-rain-fall {
+  from { background-position: 0 -190px; }
+  to   { background-position: -38px 190px; }
+}
+
+/* Toolkit icons + broader palette */
+.tc-tool__icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  border: 1px solid currentColor;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.tc-tool__icon svg {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.tc-tool:nth-child(1) .tc-tool__icon,
+.tc-tool:nth-child(1) .tc-tool__top small { color: #4f7cff; }
+
+.tc-tool:nth-child(2) .tc-tool__icon,
+.tc-tool:nth-child(2) .tc-tool__top small { color: #9b5de5; }
+
+.tc-tool:nth-child(3) .tc-tool__icon,
+.tc-tool:nth-child(3) .tc-tool__top small { color: #ff9a3d; }
+
+.tc-tool:nth-child(4) .tc-tool__icon,
+.tc-tool:nth-child(4) .tc-tool__top small { color: #d84cff; }
+
+.tc-tool:nth-child(5) .tc-tool__icon,
+.tc-tool:nth-child(5) .tc-tool__top small { color: #ffb14b; }
+
+.tc-tool:nth-child(6) .tc-tool__icon,
+.tc-tool:nth-child(6) .tc-tool__top small { color: #7c68ff; }
+
+.tc-tool:nth-child(2n) {
+  background:
+    linear-gradient(145deg, rgba(155,93,229,.065), transparent),
+    rgba(10,13,24,.82);
+}
+
+.tc-tool:nth-child(3n) {
+  background:
+    linear-gradient(145deg, rgba(255,154,61,.055), transparent),
+    rgba(10,13,24,.82);
+}
+
+.tc-tool__links a {
+  color: #c9b8ff;
+}
+
+.tc-tool__links a:hover {
+  color: #ffb05b;
+}
+
+.tc-zone-panel a {
+  color: #b887ff;
+}
+
+.tc-road__fact {
+  border-color: rgba(255,154,61,.24);
+  background: rgba(255,154,61,.06);
+}
+
+.tc-road__fact strong {
+  color: #ffad5c;
+}
+
+@media (max-width: 800px) {
+  .tc-culture {
+    background:
+      linear-gradient(0deg,
+        rgba(5,7,16,.97) 0%,
+        rgba(5,7,16,.82) 50%,
+        rgba(5,7,16,.38) 100%),
+      url("/media/tacoma/car-culture.webp") 45% center / cover no-repeat;
+  }
+
+  .tc-culture__copy {
+    width: 100%;
+    margin-top: 210px;
+    padding: 28px;
+  }
+
+  .tc-cutaway__car {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tc-culture__copy {
+    margin-top: 170px;
+    padding: 22px;
+  }
+
+  .tc-cutaway__car {
+    min-height: 340px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tc-road::before {
+    animation: none;
+  }
+}

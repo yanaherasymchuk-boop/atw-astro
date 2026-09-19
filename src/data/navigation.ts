@@ -93,6 +93,10 @@ export const navigation = [
             label: "Puyallup",
             href: "/puyallup-car-detailing/",
           },
+          {
+            label: "Tacoma",
+            href: "/tacoma-car-detailing/",
+          },
         ],
       },
     ],
