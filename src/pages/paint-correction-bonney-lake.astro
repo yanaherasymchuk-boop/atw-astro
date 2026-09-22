@@ -15,6 +15,7 @@ const areaServed = cities.map((name) => ({"@type":"City",name,containedInPlace:{
 const faqs = [
   ["What is the difference between 1-step and 2-step correction?","A 1-step polish is mainly for gloss improvement and reduction of lighter defects. A 2-step correction is a more involved two-stage polishing process for stronger defect reduction. 2-Step Correction starts from $500 total for both stages."],
   ["Will paint correction remove all scratches?","Not always. Paint correction can improve many swirls, haze and light defects, but deeper scratches, etched damage or defects that go beyond a safe correction level may remain."],
+  ["Can this scratch be polished out?","Light clear-coat scratches may improve with polishing. Deep scratches, rock chips and areas with missing paint require paint repair, which we do not provide."],
   ["How do I get an accurate quote?","The best way is to send photos. Paint correction pricing depends on vehicle size, paint condition, defect severity and the level of correction requested."],
   ["How are vehicles categorized for paint correction?","We use Sedan / Coupe / Compact, SUV / Crossover, Large SUV / Minivan / Pickup, and Van / Oversized. Van, oversized and commercial configurations require direct review."],
   ["Should I do ceramic coating after polishing?","If you want longer-term protection after the paint has been improved, ceramic coating is usually the next step."],
@@ -42,12 +43,13 @@ const schema = {
       <div class="atw-hero-inner">
         <div class="atw-hero-copy">
           <div class="atw-badge">Mobile Paint Correction · Bonney Lake, WA</div>
-          <h1>Paint Correction<br /><span class="atw-gradient">Gloss With Real Improvement</span></h1>
-          <p>Paint correction is for vehicles with swirl marks, oxidation, dullness, water-spot issues and light surface defects that regular washing will not fix. Correction level depends on the vehicle, the condition and the result you want.</p>
+          <h1>Paint Correction &amp;<br /><span class="atw-gradient">Polishing in Bonney Lake, WA</span></h1>
+          <p>Machine polishing to improve gloss and reduce swirl marks, haze, oxidation and light clear-coat defects — right in your driveway.</p>
           <div class="atw-btns">
             <a class="atw-btn atw-btn-cyan" href="/contact-us/">Request Paint Quote →</a>
             <a class="atw-btn atw-btn-violet" href={smsHref}>Text Photos for Review →</a>
           </div>
+          <p>Paint correction is machine polishing — not touch-up paint, chip repair, repainting or bodywork.</p>
           <div class="atw-hero-mini">
             <span>1-Step from $300</span><span>2-Step from $500</span><span>Photos Recommended</span><span>Mobile Service</span>
           </div>
@@ -72,11 +74,29 @@ const schema = {
         <div class="atw-copy" data-reveal="right">
           <div class="atw-eyebrow">What Paint Correction Does</div>
           <h2 class="atw-title">Washing Cleans the Surface.<br /><span>Polishing Improves the Finish.</span></h2>
-          <p>Paint correction uses machine polishing to improve gloss, clarity and the appearance of paint defects. It is the right service when the problem is in the finish itself rather than just on top of it.</p>
-          <p>Results depend on the paint condition, defect depth and the level of correction chosen. Some deeper scratches, etching or severe damage may remain even after correction.</p>
+          <p>Paint correction uses machine polishing to reduce defects in the clear coat and improve clarity, depth and gloss.</p>
           <ul class="atw-checklist">
-            <li>Improves gloss and clarity</li><li>Reduces light swirl marks and haze</li><li>Helps with dull or neglected finishes</li><li>Correction level is matched to the vehicle</li><li>Best quoted after photos or in-person review</li>
+            <li>Reduces swirl marks</li><li>Improves haze and oxidation</li><li>Can reduce light clear-coat scratches</li><li>Restores gloss and clarity</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section atw-section-dark">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Service Limits</div>
+          <h2 class="atw-title">What Paint Correction <span>Cannot Repair</span></h2>
+        </div>
+        <div class="atw-card" data-reveal="scale">
+          <ul class="atw-checklist">
+            <li>Rock chips</li>
+            <li>Missing paint</li>
+            <li>Scratches through the clear coat</li>
+            <li>Peeling or failing paint</li>
+            <li>Areas that need touch-up paint or repainting</li>
+          </ul>
+          <p>We do not perform paint touch-up, chip repair, bodywork or repainting. If paint is missing, polishing cannot put color back.</p>
         </div>
       </div>
     </section>
@@ -86,18 +106,18 @@ const schema = {
         <div class="atw-center" data-reveal="up">
           <div class="atw-eyebrow">Real Examples</div>
           <h2 class="atw-title">Real Issues. <span>Real Improvement.</span></h2>
-          <p class="atw-lead">These examples show the kind of appearance problems customers often ask about. Exact results depend on the defect, surface and condition.</p>
+          <p class="atw-lead">These examples show real paint-condition improvements. Water spots, mineral deposits, haze and similar defects may improve significantly, but deeper etching or damage can remain.</p>
         </div>
         <div class="atw-card-grid atw-grid-2">
           <article class="atw-card atw-result" data-reveal="scale">
-            <div class="atw-result-head"><h3>Light Surface Marks</h3><p>Polishing can make a visible difference when marks are in the workable surface of the clear coat.</p></div>
+            <div class="atw-result-head"><h3>Water Spots &amp; Mineral Deposits</h3><p>Polishing can improve or remove water-spot etching and mineral deposits when the damage is shallow enough in the clear coat. Deeper etching may remain.</p></div>
             <div class="atw-before-after">
               <div class="atw-shot"><img src="/media/paint-correction/water-spots-before.webp" alt="Light paint marks before polishing" loading="lazy" decoding="async" /><span class="atw-shot-tag">BEFORE</span></div>
               <div class="atw-shot"><img src="/media/paint-correction/water-spots-after.webp" alt="Vehicle paint after polishing light marks" loading="lazy" decoding="async" /><span class="atw-shot-tag">AFTER</span></div>
             </div>
           </article>
           <article class="atw-card atw-result" data-reveal="scale">
-            <div class="atw-result-head"><h3>Finish Improvement</h3><p>When a vehicle looks flat or marked up, the right polishing process can restore much more clarity than washing alone.</p></div>
+            <div class="atw-result-head"><h3>Finish Improvement</h3><p>Polishing can restore clarity and gloss when the finish looks dull, hazy or marked. Final results depend on the condition and depth of the defects.</p></div>
             <div class="atw-before-after">
               <div class="atw-shot"><img src="/media/paint-correction/dull-before.webp" alt="Vehicle finish before detailing and paint improvement" loading="lazy" decoding="async" /><span class="atw-shot-tag">BEFORE</span></div>
               <div class="atw-shot"><img src="/media/paint-correction/dull-after.webp" alt="Vehicle finish after detailing and paint improvement" loading="lazy" decoding="async" /><span class="atw-shot-tag">AFTER</span></div>
@@ -117,16 +137,26 @@ const schema = {
         <div class="atw-card-grid atw-grid-2">
           <article class="atw-card featured" data-reveal="scale">
             <div class="atw-pill">Most common</div><h3>1-Step Paint Polish</h3>
-            <p>Best when the goal is a cleaner, glossier finish with improvement in light swirls, haze and overall dullness, without chasing heavier correction.</p>
+            <p>Best for restoring gloss and reducing lighter swirl marks, haze and minor clear-coat defects.</p>
             <ul class="atw-checklist"><li>Improves gloss and clarity</li><li>Reduces light swirls and haze</li><li>Good fit for daily drivers</li></ul>
             <div class="atw-price">From $300 <small>starting price</small></div>
           </article>
           <article class="atw-card" data-reveal="scale">
             <div class="atw-pill">More correction</div><h3>2-Step Paint Correction</h3>
-            <p>Better for vehicles with more visible swirls, oxidation or paint defects where a more involved correction process is needed.</p>
+            <p>A more intensive correction process for heavier swirl marks, oxidation and more noticeable clear-coat defects.</p>
             <ul class="atw-checklist"><li>Higher level of paint correction</li><li>More time and labor involved</li><li>For more heavily marked paint</li></ul>
-            <div class="atw-price">From $500 total <small>starting price for both stages</small></div>
+            <div class="atw-price">From $500 <small>starting price</small></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atw-section">
+      <div class="atw-container">
+        <div class="atw-center" data-reveal="up">
+          <div class="atw-eyebrow">Correction, Not Cover-Up</div>
+          <h2 class="atw-title">Improve the Paint <span>Safely</span></h2>
+          <p class="atw-lead">Our goal is to improve the paint through machine polishing, not simply hide defects with temporary fillers. Some defects can be significantly reduced or removed; deeper damage may remain if correcting it further would be unsafe for the clear coat.</p>
         </div>
       </div>
     </section>
@@ -181,7 +211,9 @@ const schema = {
             ? <a class="atw-city" href="/bonney-lake-car-detailing/">{city}</a>
             : city === "Puyallup"
               ? <a class="atw-city" href="/puyallup-car-detailing/">{city}</a>
-              : <span class="atw-city">{city}</span>
+              : city === "Tacoma"
+                ? <a class="atw-city" href="/tacoma-car-detailing/">{city}</a>
+                : <span class="atw-city">{city}</span>
         )}</div>
         <div style="margin-top:28px"><a class="atw-text-link" href="/service-areas/">View All Service Areas →</a></div>
       </div>
@@ -199,7 +231,7 @@ const schema = {
     <section class="atw-final">
       <div class="atw-final-inner" data-reveal="up">
         <div class="atw-eyebrow">Mobile Paint Correction</div><h2>Ready to Improve the Finish?</h2>
-        <p>Send photos for review and we will point you toward the right correction level.</p>
+        <p>Send your year, make, model and several photos of the paint. We’ll recommend the right level of correction.</p>
         <div class="atw-btns"><a class="atw-btn atw-btn-cyan" href={smsHref}>Text Photos →</a><a class="atw-btn atw-btn-violet" href="/contact-us/">Request Quote →</a></div>
       </div>
     </section>
