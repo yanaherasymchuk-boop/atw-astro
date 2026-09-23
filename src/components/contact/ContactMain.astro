@@ -253,7 +253,7 @@ import { site } from "../../data/site";
             <span class="atw-cp-city">Sumner</span>
             <span class="atw-cp-city">Auburn</span>
             <span class="atw-cp-city">Kent</span>
-            <span class="atw-cp-city">Tacoma</span>
+            <a class="atw-cp-city" href="/tacoma-car-detailing/">Tacoma</a>
             <span class="atw-cp-city">University Place</span>
             <span class="atw-cp-city">Spanaway</span>
             <span class="atw-cp-city">Orting</span>
@@ -543,12 +543,15 @@ if (form instanceof HTMLFormElement && status) {
 
       updateFormMode();
 
+      if (activeType === 'appointment') {
+        window.location.href = '/thank-you/';
+        return;
+      }
+
       status.textContent =
-        activeType === 'appointment'
-          ? 'Thanks — your request was sent. We’ll confirm availability with you.'
-          : activeType === 'commercial'
-            ? 'Thanks — your fleet inquiry was sent. We’ll get back to you soon.'
-            : 'Thanks — your message was sent. We’ll get back to you soon.';
+        activeType === 'commercial'
+          ? 'Thanks — your fleet inquiry was sent. We’ll get back to you soon.'
+          : 'Thanks — your message was sent. We’ll get back to you soon.';
 
       status.classList.remove('is-error');
       status.classList.add('is-success');
