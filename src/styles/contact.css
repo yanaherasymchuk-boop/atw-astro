@@ -809,3 +809,59 @@
     opacity: .55;
   }
 }
+
+
+/* ATW request form extensions */
+.atw-cp-form select,
+.atw-cp-form input[type="date"] {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  background: rgba(255,255,255,.055);
+  color: inherit;
+  padding: 0 14px;
+  font: inherit;
+}
+
+.atw-cp-form select:focus,
+.atw-cp-form input[type="date"]:focus {
+  outline: none;
+  border-color: rgba(23,207,214,.7);
+  box-shadow: 0 0 0 3px rgba(23,207,214,.12);
+}
+
+.atw-cp-form select option {
+  color: #111827;
+  background: #ffffff;
+}
+
+.atw-cp-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.atw-cp-conditional[hidden],
+.atw-cp-form-note[hidden] {
+  display: none !important;
+}
+
+.atw-cp-form-note {
+  padding: 12px 14px;
+  border: 1px solid rgba(23,207,214,.22);
+  border-radius: 12px;
+  background: rgba(23,207,214,.07);
+  line-height: 1.5;
+}
+
+.atw-cp-field label span {
+  opacity: .62;
+  font-weight: 400;
+}
+
+@media (max-width: 640px) {
+  .atw-cp-form-row {
+    grid-template-columns: 1fr;
+  }
+}
