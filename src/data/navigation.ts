@@ -97,6 +97,10 @@ export const navigation = [
             label: "Tacoma",
             href: "/tacoma-car-detailing/",
           },
+          {
+            label: "Sumner",
+            href: "/sumner-car-detailing/",
+          },
         ],
       },
     ],

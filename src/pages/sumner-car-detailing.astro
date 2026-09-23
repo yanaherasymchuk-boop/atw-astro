@@ -1,0 +1,483 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/sumner-car-detailing.css";
+
+const title = "Mobile Car Detailing in Sumner, WA | ATW Detailing";
+const description =
+  "Mobile car detailing in Sumner, WA for daily drivers, work trucks, company vehicles and custom commercial requests. Interior, exterior, paint correction and ceramic coating at your location.";
+const canonical = `${site.url}/sumner-car-detailing/`;
+const ogImage = `${site.url}/media/sumner/sumner-hero-desktop.webp`;
+
+const workPhotos = Array.from({ length: 9 }, (_, i) =>
+  `/media/sumner/sumner-real-work-${String(i + 1).padStart(2, "0")}.webp`
+);
+
+const customRequests = [
+  {
+    title: "Fleet Vacuum / Maintenance Clean",
+    copy: "For businesses that need a defined, repeatable interior scope instead of a full retail detail every visit.",
+  },
+  {
+    title: "Work Trucks & Vans",
+    copy: "Cab dust, floor debris, high-touch surfaces and the mess that comes with vehicles used as part of the job.",
+  },
+  {
+    title: "Multiple Vehicles at One Location",
+    copy: "If several vehicles are parked at the same business location, we can review the group and build a practical service scope.",
+  },
+  {
+    title: "Custom Commercial Request",
+    copy: "If the standard retail packages do not fit, tell us the vehicle count, type, condition and exactly what you need done.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Do you provide mobile car detailing in Sumner?",
+    a: "Yes. ATW provides mobile detailing in Sumner at suitable residential, workplace and approved parking locations within our service area.",
+  },
+  {
+    q: "Can you detail a vehicle at my workplace in Sumner?",
+    a: "Often, yes. We need safe working space and permission from the property when required. Send us the location if you are unsure.",
+  },
+  {
+    q: "Do you work on commercial vehicles and work trucks?",
+    a: "Yes. Work trucks, vans, fleet and other commercial requests are reviewed by vehicle size, condition, location, number of vehicles and requested scope.",
+  },
+  {
+    q: "Do commercial vehicles have to book a full retail detail?",
+    a: "No. Some business requests are narrower, such as a maintenance clean or defined interior scope. Commercial work is reviewed separately before scheduling.",
+  },
+  {
+    q: "Do you remove scratches or provide paint touch-up?",
+    a: "Paint correction can reduce some visible defects such as swirls and light imperfections, but it is not paint touch-up or repainting and complete scratch removal is not guaranteed.",
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: "en-US",
+      isPartOf: { "@id": `${site.url}/#website` },
+      about: { "@id": `${site.url}/#business` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: ogImage,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Car Detailing in Sumner",
+      serviceType: "Mobile auto detailing",
+      url: canonical,
+      description,
+      provider: { "@id": `${site.url}/#business` },
+      areaServed: {
+        "@type": "City",
+        name: "Sumner",
+        containedInPlace: {
+          "@type": "State",
+          name: "Washington",
+        },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Service Areas",
+          item: `${site.url}/service-areas/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Sumner Car Detailing",
+          item: canonical,
+        },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Mobile car detailing in Sumner, Washington"
+>
+  <JsonLd slot="head" data={schema} />
+
+  <main class="sm-page">
+    <section class="sm-hero">
+      <picture class="sm-hero__media">
+        <source
+          media="(max-width: 720px)"
+          srcset="/media/sumner/sumner-hero-mobile.webp"
+        />
+        <img
+          class="sm-hero__bg"
+          src="/media/sumner/sumner-hero-desktop.webp"
+          alt="Vehicle in a Sumner, Washington driveway"
+          width="1600"
+          height="900"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+      <div class="sm-hero__shade"></div>
+
+      <div class="sm-shell sm-hero__inner">
+        <div class="sm-hero__copy">
+          <p class="sm-eyebrow">ATW Detailing · Mobile Service · Sumner</p>
+          <h1>Mobile Car Detailing <span>in Sumner, WA</span></h1>
+          <p class="sm-hero__lead">
+            Personal vehicles, work trucks and company vehicles — detailed at
+            your home, workplace or suitable business location.
+          </p>
+          <div class="sm-actions">
+            <a class="sm-btn sm-btn--primary" href={site.quoteUrl}>Get Price Estimate →</a>
+            <a class="sm-btn sm-btn--ghost" href={site.bookingUrl}>Book Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sm-section sm-intro">
+      <div class="sm-shell sm-intro__grid">
+        <div class="sm-intro__copy" data-reveal="up">
+          <p class="sm-eyebrow">Small City. A Lot of Driving.</p>
+          <h2>Sumner is compact. <span>Its driving life is not.</span></h2>
+          <p>
+            The City of Sumner reports a population of 10,883, a land area of
+            7.2 square miles and a mean commute of 30.2 minutes. That makes the
+            city small on the map, but very connected to the rest of the region.
+          </p>
+          <a
+            class="sm-source"
+            href="https://sumnerwa.gov/statistics/"
+            target="_blank"
+            rel="noopener"
+          >
+            City of Sumner statistics ↗
+          </a>
+        </div>
+
+        <div class="sm-stats" data-reveal="up">
+          <div><strong>10,883</strong><span>Population</span></div>
+          <div><strong>7.2</strong><span>Square miles</span></div>
+          <div><strong>30.2</strong><span>Minute mean commute</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sm-section sm-two-sides">
+      <div class="sm-shell">
+        <div class="sm-section-head" data-reveal="up">
+          <p class="sm-eyebrow">Two Sides of Sumner Driving</p>
+          <h2>Daily driver or working vehicle — <span>the job changes with the use.</span></h2>
+        </div>
+
+        <div class="sm-side-grid">
+          <article class="sm-side-card" data-reveal="left">
+            <img
+              src="/media/sumner/sumner-daily-driver.webp"
+              alt="Clean daily driver in a residential driveway"
+              width="1400"
+              height="788"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="sm-side-card__shade"></div>
+            <div class="sm-side-card__copy">
+              <small>HOME / DAILY DRIVER</small>
+              <h3>The car that handles everyday life.</h3>
+              <p>
+                Commutes, errands, family use, wet shoes, road film and all the
+                normal buildup that comes with a vehicle you use constantly.
+              </p>
+              <a href="/services/">Explore Detailing Services →</a>
+            </div>
+          </article>
+
+          <article class="sm-side-card" data-reveal="right">
+            <img
+              src="/media/sumner/sumner-work-truck.webp"
+              alt="Clean work truck at a business location"
+              width="1400"
+              height="788"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="sm-side-card__shade"></div>
+            <div class="sm-side-card__copy">
+              <small>WORK / COMMERCIAL</small>
+              <h3>Sometimes the vehicle is part of the job.</h3>
+              <p>
+                Pickups, vans and company vehicles can need a very different
+                scope from a personal car — especially when the cab is a workspace.
+              </p>
+              <a class="sm-link--orange" href="/commercial-vehicle-detailing/">Commercial Detailing →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sm-section sm-working-city">
+      <div class="sm-shell sm-working-city__grid">
+        <div class="sm-working-city__image" data-reveal="left">
+          <img
+            src="/media/sumner/sumner-fleet-context.webp"
+            alt="Work vehicles at a light industrial business location"
+            width="1400"
+            height="788"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="sm-working-city__copy" data-reveal="right">
+          <p class="sm-eyebrow">A Small Town With a Working Side</p>
+          <h2>Historic Main Street. <span>17,000+ jobs.</span></h2>
+          <p>
+            Sumner combines a compact historic downtown with a major employment
+            base. The City reports more than 17,000 jobs ranging from aerospace
+            to coffee roasting.
+          </p>
+          <p>
+            That mix is why this page is not built only around family SUVs and
+            commuter cars. Work trucks, vans, company vehicles and multi-vehicle
+            requests belong here too.
+          </p>
+          <a
+            class="sm-source"
+            href="https://sumnerwa.gov/comeonin/"
+            target="_blank"
+            rel="noopener"
+          >
+            City of Sumner business overview ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sm-section sm-custom">
+      <div class="sm-shell">
+        <div class="sm-section-head sm-section-head--center" data-reveal="up">
+          <p class="sm-eyebrow">Commercial Doesn't Always Mean Full Detail</p>
+          <h2>Tell us what you <span>actually need.</span></h2>
+          <p>
+            Some businesses need a full reset. Others need a defined maintenance
+            scope, interior vacuuming, work-truck cleanup or several vehicles
+            handled at one location.
+          </p>
+        </div>
+
+        <div class="sm-custom-grid">
+          {customRequests.map((item, index) => (
+            <article
+              class="sm-custom-card"
+              data-reveal="up"
+              style={`--reveal-delay:${index * 55}ms`}
+            >
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="sm-custom-note" data-reveal="up">
+          <strong>Dealer, fleet and commercial pricing is reviewed separately from standard retail packages.</strong>
+          <p>
+            Send the vehicle types, quantity, location and requested scope. We
+            will review what makes sense before scheduling.
+          </p>
+          <a class="sm-btn sm-btn--primary" href="/contact-us/">Tell Us What You Need →</a>
+        </div>
+      </div>
+
+      <div class="sm-work-loop" aria-label="Real ATW work vehicle detailing photos">
+        <div class="sm-work-loop__track">
+          {[...workPhotos, ...workPhotos].map((src, index) => (
+            <figure aria-hidden={index >= workPhotos.length ? "true" : undefined}>
+              <img
+                src={src}
+                alt={index < workPhotos.length ? "ATW Detailing work vehicle project" : ""}
+                width="1000"
+                height="750"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          ))}
+        </div>
+      </div>
+      <p class="sm-real-note">Real ATW work. Shown as examples of vehicle types and service scope.</p>
+    </section>
+
+    <section class="sm-section sm-personality">
+      <div class="sm-shell sm-personality__grid">
+        <div class="sm-personality__image" data-reveal="left">
+          <img
+            src="/media/sumner/sumner-aerial.webp"
+            alt="Aerial view representing Sumner, Washington"
+            width="1300"
+            height="732"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="sm-personality__copy" data-reveal="right">
+          <p class="sm-eyebrow">Sumner Has Its Own Personality</p>
+          <h2>Rhubarb, parades, Main Street — <span>and a lot more than suburbia.</span></h2>
+
+          <div class="sm-local-facts">
+            <a href="https://sumnerwa.gov/history/" target="_blank" rel="noopener">
+              <strong>Rhubarb</strong>
+              <span>The City identifies Sumner as the “Rhubarb Pie Capital of the World.”</span>
+            </a>
+            <a href="https://sumnerwa.gov/events/" target="_blank" rel="noopener">
+              <strong>Community Events</strong>
+              <span>Daffodil Parade, Rhubarb Days, Street of Treats and Bridge Lighting are recurring city events.</span>
+            </a>
+            <a href="https://sumnerwa.gov/history/" target="_blank" rel="noopener">
+              <strong>Main Street</strong>
+              <span>Historic downtown remains a core part of Sumner's identity.</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sm-section sm-care">
+      <div class="sm-shell">
+        <div class="sm-section-head" data-reveal="up">
+          <p class="sm-eyebrow">What Builds Up in a Used Vehicle?</p>
+          <h2>Use pattern matters more than <span>the label on the package.</span></h2>
+        </div>
+
+        <div class="sm-care-grid">
+          <article data-reveal="up">
+            <small>COMMUTE</small>
+            <h3>Everyday road use</h3>
+            <p>Road film, glass residue, floor debris, dust and high-touch surfaces.</p>
+            <a class="sm-link--violet" href="/services/full-detailing/">Full Detailing →</a>
+          </article>
+          <article data-reveal="up">
+            <small>FAMILY</small>
+            <h3>Interior-heavy use</h3>
+            <p>Crumbs, spills, mats, seats, cargo areas and the small places that collect daily life.</p>
+            <a class="sm-link--cyan" href="/interior-detailing/">Interior Detailing →</a>
+          </article>
+          <article data-reveal="up">
+            <small>WORK</small>
+            <h3>Job-site use</h3>
+            <p>Dust, dirt, debris, work gear and repeated use of the cab throughout the day.</p>
+            <a class="sm-link--orange" href="/commercial-vehicle-detailing/">Commercial Detailing →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sm-section sm-paint">
+      <div class="sm-shell sm-paint__grid">
+        <div class="sm-paint__image" data-reveal="left">
+          <img
+            src="/media/sumner/sumner-neighborhood.webp"
+            alt="Clean vehicle in a Sumner-style residential setting"
+            width="1300"
+            height="732"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="sm-paint__copy" data-reveal="right">
+          <p class="sm-eyebrow">Exterior Care</p>
+          <h2>Cleaning paint is not the same as <span>correcting paint.</span></h2>
+          <p>
+            Exterior detailing removes dirt and buildup. Paint correction is a
+            separate process used to improve visible defects such as swirls and
+            dullness. It is not touch-up paint or repainting.
+          </p>
+          <div class="sm-link-row">
+            <a class="sm-link--cyan" href="/exterior-detailing/">Exterior Detailing →</a>
+            <a class="sm-link--blue" href="/paint-correction-bonney-lake/">Paint Correction →</a>
+            <a class="sm-link--orange" href="/ceramic-coating/">Ceramic Coating →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sm-section sm-faq">
+      <div class="sm-shell">
+        <div class="sm-section-head sm-section-head--center" data-reveal="up">
+          <p class="sm-eyebrow">Sumner Mobile Detailing FAQ</p>
+          <h2>Quick answers before <span>you book.</span></h2>
+        </div>
+
+        <div class="sm-faq-list">
+          {faqs.map((item) => (
+            <details>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="sm-final">
+      <img
+        src="/media/sumner/sumner-cta.webp"
+        alt=""
+        width="1600"
+        height="900"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="sm-final__shade"></div>
+      <div class="sm-shell sm-final__inner">
+        <p class="sm-eyebrow">Mobile Detailing in Sumner</p>
+        <h2>Your car doesn't need <span>another stop on your errand list.</span></h2>
+        <p>
+          We come to your home, workplace or suitable business location with our
+          own water and power.
+        </p>
+        <div class="sm-actions">
+          <a class="sm-btn sm-btn--primary" href={site.quoteUrl}>Get an Estimate →</a>
+          <a class="sm-btn sm-btn--ghost" href={site.bookingUrl}>Book Detailing</a>
+          <a class="sm-btn sm-btn--ghost" href="/contact-us/">Request Appointment</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
