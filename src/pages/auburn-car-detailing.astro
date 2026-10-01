@@ -1,0 +1,432 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/auburn-car-detailing.css";
+
+const title = "Mobile Car Detailing in Auburn, WA | ATW Detailing";
+const description =
+  "Mobile car detailing in Auburn, WA for commuters, family vehicles, work trucks and company vehicles. Interior, exterior, paint correction, ceramic coating and commercial detailing.";
+const canonical = `${site.url}/auburn-car-detailing/`;
+const ogImage = `${site.url}/media/auburn/auburn-hero-desktop.webp`;
+
+const driverProfiles = [
+  {
+    key: "commuter",
+    label: "SR-167 Commuter",
+    copy: "Highway miles, road film, bugs and exterior buildup.",
+    result: "Exterior care is usually the first priority. If the paint is clean but still looks hazy or swirled, move from cleaning to correction.",
+    href: "/exterior-detailing/",
+    link: "Exterior Detailing →",
+    tone: "cyan",
+  },
+  {
+    key: "family",
+    label: "Family Runner",
+    copy: "School, errands, snacks, shoes and daily cabin use.",
+    result: "Interior care usually makes the biggest day-to-day difference, especially seats, carpets, mats and high-touch areas.",
+    href: "/interior-detailing/",
+    link: "Interior Detailing →",
+    tone: "cyan",
+  },
+  {
+    key: "work",
+    label: "Work Vehicle",
+    copy: "Tools, work boots, dust and repeated use throughout the day.",
+    result: "Work vehicles often need a defined maintenance scope rather than a full retail package every visit.",
+    href: "/commercial-vehicle-detailing/",
+    link: "Commercial Detailing →",
+    tone: "orange",
+  },
+  {
+    key: "mixed",
+    label: "Mixed Use",
+    copy: "The same vehicle handles work, family life and weekends.",
+    result: "A Full Detail is often the most practical reset when both the cabin and exterior need attention.",
+    href: "/services/full-detailing/",
+    link: "Full Detailing →",
+    tone: "violet",
+  },
+];
+
+const realWork = [
+  { src: "/media/gallery/interior/interior-02.webp", alt: "Real ATW interior detailing work", label: "Interior" },
+  { src: "/media/gallery/paint-correction/paint-correction-02.webp", alt: "Real ATW paint correction work", label: "Paint Correction" },
+  { src: "/media/gallery/exterior/exterior-02.webp", alt: "Real ATW exterior detailing work", label: "Exterior" },
+  { src: "/media/gallery/shampoo/shampoo-02.webp", alt: "Real ATW extraction work", label: "Extraction" },
+  { src: "/media/gallery/interior/interior-05.webp", alt: "Real ATW interior detailing result", label: "Interior" },
+  { src: "/media/gallery/exterior/exterior-03.webp", alt: "Real ATW exterior detailing result", label: "Exterior" },
+];
+
+const qualityChecks = [
+  "Seat rails and tight floor edges",
+  "Seat-belt edges and buckle areas",
+  "Door pockets and lower storage areas",
+  "Backs and bases of headrests",
+  "Inside glass corners and edges",
+];
+
+const faqs = [
+  { q: "Do you provide mobile car detailing in Auburn?", a: "Yes. ATW provides mobile detailing in Auburn at suitable residential, workplace and approved parking locations within our service area." },
+  { q: "Can you detail my vehicle at work in Auburn?", a: "Often, yes. We need safe working space and permission from the property when required." },
+  { q: "Do you work on work trucks and vans?", a: "Yes. Work trucks, vans, fleet and other commercial requests are reviewed by vehicle type, condition, location, vehicle count and requested scope." },
+  { q: "Can several company vehicles be serviced at one location?", a: "Yes, when the location and working conditions are suitable. Commercial and fleet requests are reviewed separately from standard retail packages." },
+  { q: "Do I need paint correction if the car only looks dirty?", a: "Not necessarily. Exterior detailing removes dirt and buildup. Paint correction is for visible defects such as swirls, haze and dullness that remain after the paint is clean." },
+  { q: "Does Washington use road salt and brine?", a: "Yes. Local and state road agencies use chloride-based winter treatments including granular salt, calcium chloride and sodium chloride brine depending on the road system and conditions." },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: "en-US",
+      isPartOf: { "@id": `${site.url}/#website` },
+      about: { "@id": `${site.url}/#business` },
+      primaryImageOfPage: { "@type": "ImageObject", url: ogImage },
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Car Detailing in Auburn",
+      serviceType: "Mobile auto detailing",
+      url: canonical,
+      description,
+      provider: { "@id": `${site.url}/#business` },
+      areaServed: {
+        "@type": "City",
+        name: "Auburn",
+        containedInPlace: { "@type": "State", name: "Washington" },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumbs`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        { "@type": "ListItem", position: 2, name: "Service Areas", item: `${site.url}/service-areas/` },
+        { "@type": "ListItem", position: 3, name: "Auburn Car Detailing", item: canonical },
+      ],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Mobile car detailing in Auburn, Washington"
+>
+  <JsonLd slot="head" data={schema} />
+
+  <main class="au-page">
+    <section class="au-hero">
+      <picture class="au-hero__media">
+        <source media="(max-width: 720px)" srcset="/media/auburn/auburn-hero-mobile.webp" />
+        <img src="/media/auburn/auburn-hero-desktop.webp" alt="Clean vehicle in a Pacific Northwest residential setting" width="1600" height="900" fetchpriority="high" decoding="async" />
+      </picture>
+      <div class="au-hero__shade"></div>
+      <div class="au-shell au-hero__inner">
+        <p class="au-eyebrow">ATW Detailing · Mobile Service · Auburn</p>
+        <h1>Mobile Car Detailing <span>in Auburn, WA</span></h1>
+        <p class="au-hero__lead">Built for Auburn drivers who spend real time on the road — commuting, working, hauling, running errands and everything in between.</p>
+        <div class="au-actions">
+          <a class="au-btn au-btn--primary" href={site.quoteUrl}>Get an Estimate →</a>
+          <a class="au-btn au-btn--ghost" href="/contact-us/">Request Appointment</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-moves">
+      <div class="au-shell">
+        <div class="au-section-head" data-reveal="up">
+          <p class="au-eyebrow">Auburn Moves</p>
+          <h2>A city where the vehicle is part of <span>everyday life.</span></h2>
+          <p>Work, school, errands, appointments and regional highway driving all add up. Auburn's local data makes that visible.</p>
+        </div>
+        <div class="au-stats" data-reveal="up">
+          <article><strong>30.5 min</strong><span>Average commute</span><a href="https://datausa.io/profile/geo/auburn-wa" target="_blank" rel="noopener">Data USA ↗</a></article>
+          <article><strong>2 cars</strong><span>Average household vehicle ownership</span><a href="https://datausa.io/profile/geo/auburn-wa" target="_blank" rel="noopener">Data USA ↗</a></article>
+          <article><strong>30,596</strong><span>Drive-alone commuters</span><a href="https://www.ecdev.auburnwa.gov/auburn-data-center/workforce-profile" target="_blank" rel="noopener">City data ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-section--alt au-profile">
+      <div class="au-shell">
+        <div class="au-section-head" data-reveal="up">
+          <p class="au-eyebrow">Interactive</p>
+          <h2>What kind of <span>Auburn driver</span> are you?</h2>
+          <p>Choose the pattern that looks most like your week.</p>
+        </div>
+        <div class="au-profile__grid" data-au-profile>
+          {driverProfiles.map((profile, index) => (
+            <button class={`au-profile-card au-profile-card--${profile.tone}`} type="button" data-profile={profile.key} aria-pressed={index === 0 ? "true" : "false"}>
+              <small>{profile.label}</small>
+              <strong>{profile.copy}</strong>
+            </button>
+          ))}
+        </div>
+        <div class="au-profile__result" aria-live="polite" data-au-result>
+          <span>WHAT USUALLY NEEDS ATTENTION FIRST</span>
+          <p>{driverProfiles[0].result}</p>
+          <a class="au-link au-link--cyan" href={driverProfiles[0].href}>{driverProfiles[0].link}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-movement">
+      <div class="au-shell au-split">
+        <div class="au-split__media" data-reveal="left">
+          <img src="/media/auburn/auburn-highway.webp" alt="Stylized Auburn road, rail and work-vehicle landscape" width="1672" height="941" loading="lazy" decoding="async" />
+        </div>
+        <div class="au-split__copy" data-reveal="right">
+          <p class="au-eyebrow">Auburn Is Built Around Movement</p>
+          <h2>Road, rail, work and <span>regional connections.</span></h2>
+          <p>Auburn sits inside a busy combination of highway, rail, manufacturing and distribution activity. SR-167 and SR-18 run through the city, while regional connections reach I-5 and I-405.</p>
+          <div class="au-pills"><span>SR-167</span><span>SR-18</span><span>Sounder</span><span>Manufacturing</span><span>Distribution</span></div>
+          <a class="au-source" href="https://www.ecdev.auburnwa.gov/" target="_blank" rel="noopener">City of Auburn Economic Development ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-section--alt au-contamination">
+      <div class="au-shell">
+        <div class="au-section-head" data-reveal="up">
+          <p class="au-eyebrow">More Than Road Dirt</p>
+          <h2>Not everything on paint <span>washes off the same way.</span></h2>
+        </div>
+        <div class="au-contamination__grid">
+          <div class="au-contamination__media" data-reveal="left">
+            <img src="/media/auburn/auburn-contamination.webp" alt="Close-up of automotive paint during contamination removal" width="1200" height="900" loading="lazy" decoding="async" />
+          </div>
+          <div class="au-contamination__cards" data-reveal="right">
+            <article><span>ROAD FILM</span><h3>Everyday buildup</h3><p>Highway miles leave dust, grime, bugs and road residue across the exterior.</p></article>
+            <article><span>BONDED CONTAMINATION</span><h3>Rough after washing?</h3><p>If the surface still feels rough after washing, contamination may need chemical or clay decontamination.</p></article>
+            <article><span>PAINT DEFECTS</span><h3>Clean is not the same as corrected.</h3><p>Swirls, haze and dullness are addressed through polishing or paint correction, not stronger washing.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-environments">
+      <div class="au-shell au-split au-split--reverse">
+        <div class="au-split__media" data-reveal="right">
+          <img src="/media/auburn/auburn-valley-hills.webp" alt="Pacific Northwest valley and hillside driving environment" width="1400" height="788" loading="lazy" decoding="async" />
+        </div>
+        <div class="au-split__copy" data-reveal="left">
+          <p class="au-eyebrow">One Auburn. Different Driving Environments.</p>
+          <h2>Valley floor to hills — <span>in the same week.</span></h2>
+          <p>Auburn spans the Green River Valley and hillside neighborhoods. Local vehicles can move between lower valley roads, hill routes, residential streets and regional highways in a normal week.</p>
+          <div class="au-pills"><span>Valley</span><span>Hills</span><span>Highway</span><span>Residential</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-section--alt au-winter">
+      <div class="au-shell au-split">
+        <div class="au-split__media" data-reveal="left">
+          <img src="/media/auburn/auburn-winter-road.webp" alt="Wet Pacific Northwest roadway in winter" width="1400" height="788" loading="lazy" decoding="async" />
+        </div>
+        <div class="au-split__copy" data-reveal="right">
+          <p class="au-eyebrow">Winter Roads in Auburn</p>
+          <h2>Yes, Washington roads <span>use chlorides.</span></h2>
+          <p>King County uses granular salt and liquid calcium chloride during winter response. Pierce County uses sodium chloride brine. County guidance also recommends periodic vehicle washing during winter to remove chemical residue.</p>
+          <a class="au-link au-link--blue" href="/does-washington-use-road-salt/">Read the Washington Road Salt Guide →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-work">
+      <div class="au-shell au-work__panel" data-reveal="up">
+        <div class="au-work__media">
+          <img src="/media/auburn/auburn-work-vehicle.webp" alt="Work vehicle at a business location" width="1400" height="788" loading="lazy" decoding="async" />
+        </div>
+        <div class="au-work__copy">
+          <p class="au-eyebrow">For Vehicles That Are Part of the Job</p>
+          <h2>Not every business vehicle needs a <span>full retail detail.</span></h2>
+          <p>Vacuum or maintenance cleaning, work trucks and vans, several vehicles at one location, or a custom scope — commercial requests are reviewed around what the vehicles actually need.</p>
+          <p class="au-work__note">Our background includes real mechanical and trucking experience, so we understand what constant road use does to work vehicles.</p>
+          <a class="au-btn au-btn--orange" href="/commercial-vehicle-detailing/">View Commercial Detailing →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-section--alt au-decision">
+      <div class="au-shell">
+        <div class="au-section-head" data-reveal="up">
+          <p class="au-eyebrow">Case Breakdown</p>
+          <h2>What would you <span>fix first?</span></h2>
+          <p>Imagine this vehicle is being prepared for sale: the interior needs a deep reset, while the paint has visible swirls and water spots.</p>
+        </div>
+        <div class="au-decision__panel" data-au-decision>
+          <div class="au-decision__buttons">
+            <button type="button" data-choice="interior">Interior</button>
+            <button type="button" data-choice="paint">Paint</button>
+            <button type="button" data-choice="both">Both</button>
+          </div>
+          <div class="au-decision__answer" aria-live="polite">
+            <strong>There is no automatic winner.</strong>
+            <p>The right priority depends on condition, budget and presentation goals. Detailing can improve presentation, but it does not guarantee a specific resale-value increase.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-real-work">
+      <div class="au-shell">
+        <div class="au-section-head" data-reveal="up">
+          <p class="au-eyebrow">Real ATW Work</p>
+          <h2>Different vehicles. <span>Different priorities.</span></h2>
+          <p>These are real ATW projects shown as examples of service scope, not as Auburn-specific jobs.</p>
+        </div>
+        <div class="au-gallery">
+          {realWork.map((item, index) => (
+            <figure class={`au-gallery__item au-gallery__item--${index + 1}`} data-reveal="up">
+              <img src={item.src} alt={item.alt} width="1200" height="900" loading="lazy" decoding="async" />
+              <figcaption>{item.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <a class="au-link au-link--violet au-gallery__more" href="/gallery/">View Full Gallery →</a>
+      </div>
+    </section>
+
+    <section class="au-section au-section--alt au-quality">
+      <div class="au-shell">
+        <div class="au-section-head" data-reveal="up">
+          <p class="au-eyebrow">Quality Check</p>
+          <h2>Five places that reveal a <span>good interior detail.</span></h2>
+        </div>
+        <div class="au-quality__grid">
+          {qualityChecks.map((item, index) => (
+            <article data-reveal="up"><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-services">
+      <div class="au-shell">
+        <div class="au-section-head" data-reveal="up">
+          <p class="au-eyebrow">Cleaning vs Correction vs Protection</p>
+          <h2>Choose the service by <span>what the paint actually needs.</span></h2>
+        </div>
+        <div class="au-services__grid">
+          <article><small>EXTERIOR DETAILING</small><h3>Remove dirt, film and exterior buildup.</h3><a class="au-link au-link--cyan" href="/exterior-detailing/">Exterior Detailing →</a></article>
+          <article><small>PAINT CORRECTION</small><h3>Improve visible swirls, haze and dullness.</h3><a class="au-link au-link--blue" href="/paint-correction-bonney-lake/">Paint Correction →</a></article>
+          <article><small>CERAMIC COATING</small><h3>Add durable surface protection after proper preparation.</h3><a class="au-link au-link--orange" href="/ceramic-coating/">Ceramic Coating →</a></article>
+        </div>
+        <p class="au-services__note">Paint correction is not touch-up paint or repainting.</p>
+      </div>
+    </section>
+
+    <section class="au-section au-section--alt au-resources">
+      <div class="au-shell">
+        <div class="au-section-head" data-reveal="up">
+          <p class="au-eyebrow">Useful for Auburn Drivers</p>
+          <h2>Local links worth <span>keeping.</span></h2>
+        </div>
+        <div class="au-resources__grid">
+          <a href="https://www.auburnwa.gov/city_hall/public_works/transportation/traffic_counts" target="_blank" rel="noopener"><strong>City of Auburn Traffic Counts</strong><span>Annual local traffic data ↗</span></a>
+          <a href="https://kingcounty.gov/en/dept/local-services/transit-transportation-roads/roads-and-bridges/road-services/maintenance/winter-weather" target="_blank" rel="noopener"><strong>King County Winter Weather</strong><span>Road treatment and response information ↗</span></a>
+          <a href="https://wsdot.wa.gov/travel/real-time" target="_blank" rel="noopener"><strong>WSDOT Real-Time Travel</strong><span>Traffic, incidents and cameras ↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="au-section au-faq">
+      <div class="au-shell au-faq__grid">
+        <div class="au-section-head" data-reveal="up">
+          <p class="au-eyebrow">Auburn FAQ</p>
+          <h2>Before you <span>book.</span></h2>
+        </div>
+        <div class="au-faq__list">
+          {faqs.map((item) => (
+            <details data-reveal="up"><summary>{item.q}</summary><p>{item.a}</p></details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="au-final">
+      <img src="/media/auburn/auburn-cta.webp" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+      <div class="au-final__shade"></div>
+      <div class="au-shell au-final__inner">
+        <p class="au-eyebrow">Mobile Detailing in Auburn</p>
+        <h2>Your week is busy. <span>Your car doesn’t have to look like it.</span></h2>
+        <div class="au-actions au-actions--center">
+          <a class="au-btn au-btn--primary" href={site.quoteUrl}>Get an Estimate</a>
+          <a class="au-btn au-btn--ghost" href="/contact-us/">Request Appointment</a>
+          <a class="au-btn au-btn--ghost" href="/services/">View Services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const profiles = [
+      { key: "commuter", result: "Exterior care is usually the first priority. If the paint is clean but still looks hazy or swirled, move from cleaning to correction.", href: "/exterior-detailing/", link: "Exterior Detailing →", className: "au-link--cyan" },
+      { key: "family", result: "Interior care usually makes the biggest day-to-day difference, especially seats, carpets, mats and high-touch areas.", href: "/interior-detailing/", link: "Interior Detailing →", className: "au-link--cyan" },
+      { key: "work", result: "Work vehicles often need a defined maintenance scope rather than a full retail package every visit.", href: "/commercial-vehicle-detailing/", link: "Commercial Detailing →", className: "au-link--orange" },
+      { key: "mixed", result: "A Full Detail is often the most practical reset when both the cabin and exterior need attention.", href: "/services/full-detailing/", link: "Full Detailing →", className: "au-link--violet" },
+    ];
+
+    const profileButtons = Array.from(document.querySelectorAll("[data-profile]"));
+    const resultBox = document.querySelector("[data-au-result]");
+    profileButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const key = button.getAttribute("data-profile");
+        const profile = profiles.find((item) => item.key === key);
+        if (!profile || !(resultBox instanceof HTMLElement)) return;
+        profileButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        const p = resultBox.querySelector("p");
+        const a = resultBox.querySelector("a");
+        if (p) p.textContent = profile.result;
+        if (a instanceof HTMLAnchorElement) {
+          a.href = profile.href;
+          a.textContent = profile.link;
+          a.className = `au-link ${profile.className}`;
+        }
+      });
+    });
+
+    const decisionAnswers = {
+      interior: { title: "Start where presentation is weakest.", copy: "If the cabin is visibly neglected, a strong interior reset may create the biggest immediate improvement for a buyer." },
+      paint: { title: "Paint can change the first impression.", copy: "If the interior is already presentable but the finish looks dull or heavily swirled, correction may make more sense." },
+      both: { title: "Sometimes the answer is a balanced reset.", copy: "When both areas are clearly holding the vehicle back, scope the work around the budget instead of assuming every service is necessary." },
+    };
+
+    const decision = document.querySelector("[data-au-decision]");
+    if (decision instanceof HTMLElement) {
+      const buttons = Array.from(decision.querySelectorAll("[data-choice]"));
+      const titleEl = decision.querySelector(".au-decision__answer strong");
+      const copyEl = decision.querySelector(".au-decision__answer p");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const key = button.getAttribute("data-choice");
+          const answer = key ? decisionAnswers[key] : null;
+          if (!answer) return;
+          buttons.forEach((item) => item.classList.toggle("is-active", item === button));
+          if (titleEl) titleEl.textContent = answer.title;
+          if (copyEl) copyEl.textContent = answer.copy;
+        });
+      });
+    }
+  </script>
+</BaseLayout>
