@@ -18,6 +18,12 @@ const smsHref = site.phoneHref.replace("tel:", "sms:");
       </a>
       <p>Mobile Detailing Service in <a href="/bonney-lake-car-detailing/">Bonney Lake, WA</a></p>
 
+      <div class="footer-trust">
+        <strong>Mobile detailing done thoroughly — not rushed.</strong>
+        <span>Family-owned in Bonney Lake.</span>
+        <span>Backed by real mechanical &amp; trucking experience.</span>
+      </div>
+
       <div class="footer-actions">
         <a class="footer-action footer-action-secondary" href={smsHref}>
           Text Us
@@ -101,6 +107,25 @@ const smsHref = site.phoneHref.replace("tel:", "sms:");
   color: var(--color-text-muted);
   font-size: 14px;
   line-height: 1.55;
+}
+
+  .footer-trust {
+  max-width: 390px;
+  margin-top: 14px;
+  display: grid;
+  gap: 3px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.footer-trust strong {
+  color: var(--color-text);
+  font-weight: 900;
+}
+
+.footer-trust span {
+  display: block;
 }
 
   .footer-actions {

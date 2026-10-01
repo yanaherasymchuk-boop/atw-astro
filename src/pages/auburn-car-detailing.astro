@@ -160,9 +160,9 @@ const schema = {
           <p>Work, school, errands, appointments and regional highway driving all add up. Auburn's local data makes that visible.</p>
         </div>
         <div class="au-stats" data-reveal="up">
-          <article><strong>30.5 min</strong><span>Average commute</span><a href="https://datausa.io/profile/geo/auburn-wa" target="_blank" rel="noopener">Data USA ↗</a></article>
-          <article><strong>2 cars</strong><span>Average household vehicle ownership</span><a href="https://datausa.io/profile/geo/auburn-wa" target="_blank" rel="noopener">Data USA ↗</a></article>
-          <article><strong>30,596</strong><span>Drive-alone commuters</span><a href="https://www.ecdev.auburnwa.gov/auburn-data-center/workforce-profile" target="_blank" rel="noopener">City data ↗</a></article>
+          <article><strong>30.5 min</strong><span>Average commute</span><a href="https://datausa.io/profile/geo/auburn-wa" target="_blank" rel="noopener">Commute data ↗</a></article>
+          <article><strong>2 cars</strong><span>Average household vehicle ownership</span><a href="https://datausa.io/profile/geo/auburn-wa" target="_blank" rel="noopener">Vehicle ownership ↗</a></article>
+          <article><strong>30,596</strong><span>Drive-alone commuters</span><a href="https://www.ecdev.auburnwa.gov/auburn-data-center/workforce-profile" target="_blank" rel="noopener">City workforce data ↗</a></article>
         </div>
       </div>
     </section>
@@ -191,11 +191,8 @@ const schema = {
     </section>
 
     <section class="au-section au-movement">
-      <div class="au-shell au-split">
-        <div class="au-split__media" data-reveal="left">
-          <img src="/media/auburn/auburn-highway.webp" alt="Stylized Auburn road, rail and work-vehicle landscape" width="1672" height="941" loading="lazy" decoding="async" />
-        </div>
-        <div class="au-split__copy" data-reveal="right">
+      <div class="au-shell au-movement__inner">
+        <div class="au-split__copy" data-reveal="up">
           <p class="au-eyebrow">Auburn Is Built Around Movement</p>
           <h2>Road, rail, work and <span>regional connections.</span></h2>
           <p>Auburn sits inside a busy combination of highway, rail, manufacturing and distribution activity. SR-167 and SR-18 run through the city, while regional connections reach I-5 and I-405.</p>
@@ -213,7 +210,7 @@ const schema = {
         </div>
         <div class="au-contamination__grid">
           <div class="au-contamination__media" data-reveal="left">
-            <img src="/media/auburn/auburn-contamination.webp" alt="Close-up of automotive paint during contamination removal" width="1200" height="900" loading="lazy" decoding="async" />
+            <img src="/media/auburn/auburn-contamination-iron.webp" alt="Close-up of automotive paint during iron contamination removal" width="1200" height="900" loading="lazy" decoding="async" />
           </div>
           <div class="au-contamination__cards" data-reveal="right">
             <article><span>ROAD FILM</span><h3>Everyday buildup</h3><p>Highway miles leave dust, grime, bugs and road residue across the exterior.</p></article>
@@ -314,8 +311,8 @@ const schema = {
           <h2>Five places that reveal a <span>good interior detail.</span></h2>
         </div>
         <div class="au-quality__grid">
-          {qualityChecks.map((item, index) => (
-            <article data-reveal="up"><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></article>
+          {qualityChecks.map((item) => (
+            <article data-reveal="up"><p>{item}</p></article>
           ))}
         </div>
       </div>

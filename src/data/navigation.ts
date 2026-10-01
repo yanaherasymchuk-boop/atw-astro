@@ -101,6 +101,10 @@ export const navigation = [
             label: "Sumner",
             href: "/sumner-car-detailing/",
           },
+          {
+            label: "Auburn",
+            href: "/auburn-car-detailing/",
+          },
         ],
       },
     ],
