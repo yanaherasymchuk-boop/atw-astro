@@ -189,100 +189,872 @@
   }
 }
 
+/* =========================================================
+   FLEET ARTICLE — FINAL VISUAL PATCH
+========================================================= */
+.atwfleet1-hero-grid{width:min(1280px,calc(100% - 40px));grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:38px}
+.atwfleet1-hero-media{width:100%;max-width:none}
+.atwfleet1-hero-photo img{width:100%;min-height:590px;aspect-ratio:16/10;object-fit:cover}
+.atwfleet1-hero-copy{max-width:650px}
+
+.atwfleet1-intro{background:radial-gradient(circle at 78% 36%,rgba(56,232,255,.055),transparent 30%),#070916}
+.atwfleet1-intro-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center}
+.atwfleet1-intro-copy{max-width:650px}
+.atwfleet1-intro-media{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:30px;background:#0b0e19;box-shadow:0 30px 80px rgba(0,0,0,.32)}
+.atwfleet1-intro-media img{display:block;width:100%;aspect-ratio:1400/788;object-fit:cover}
+.atwfleet1-intro-media::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 52%,rgba(5,8,17,.72))}
+.atwfleet1-intro-caption{position:absolute;z-index:2;left:22px;right:22px;bottom:20px;display:flex;flex-direction:column;gap:3px}
+.atwfleet1-intro-caption strong{color:#fff;font-size:16px}.atwfleet1-intro-caption span{color:#c3cce0;font-size:12px}
+.atwfleet1-positioning{display:grid;grid-template-columns:auto 1fr;column-gap:16px;row-gap:5px;align-items:start;margin-top:30px;padding:20px 0 0;border:0;border-top:1px solid rgba(255,156,66,.28);border-radius:0;background:none}
+.atwfleet1-positioning span{grid-row:1/3;padding-top:3px}.atwfleet1-positioning p{margin:0;font-size:14px}.atwfleet1-positioning p strong{color:#fff}.atwfleet1-positioning small{color:#78859d;font-size:11px;line-height:1.55}
+
+.atwfleet1-sim{padding:108px 0}.atwfleet1-sim-shell{overflow:hidden}
+.atwfleet1-compare-controls{display:grid;grid-template-columns:auto minmax(180px,1fr) auto;gap:18px;align-items:center;padding:18px 26px;border-bottom:1px solid rgba(255,255,255,.08);background:#0b0f1c}
+.atwfleet1-compare-controls>span{color:#d5dced;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.atwfleet1-slider-label{display:block}.atwfleet1-compare-range{width:100%;accent-color:#38e8ff;cursor:ew-resize}
+.atwfleet1-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07)}
+.atwfleet1-compare{margin:0;min-width:0;background:#070a12}
+.atwfleet1-compare figcaption{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:14px 17px;border-bottom:1px solid rgba(255,255,255,.07);background:#0d1221}
+.atwfleet1-compare figcaption strong{color:#fff;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.atwfleet1-compare figcaption span{color:#738099;font-size:10px}
+.atwfleet1-compare-stage{position:relative;overflow:hidden;aspect-ratio:3/2;background:#080b14}
+.atwfleet1-compare-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.atwfleet1-compare-clean{clip-path:inset(0 calc(100% - var(--clean-position)) 0 0)}
+.atwfleet1-compare-line{position:absolute;z-index:3;top:0;bottom:0;left:var(--clean-position);width:2px;transform:translateX(-1px);background:rgba(255,255,255,.94);box-shadow:0 0 16px rgba(56,232,255,.5);pointer-events:none}
+.atwfleet1-compare-line i{position:absolute;top:50%;left:50%;width:30px;height:30px;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.85);border-radius:50%;background:rgba(7,10,20,.82);box-shadow:0 8px 25px rgba(0,0,0,.35)}
+.atwfleet1-compare-line i::before,.atwfleet1-compare-line i::after{content:"";position:absolute;top:50%;width:6px;height:6px;border-top:2px solid #fff;border-left:2px solid #fff}
+.atwfleet1-compare-line i::before{left:7px;transform:translateY(-50%) rotate(-45deg)}.atwfleet1-compare-line i::after{right:7px;transform:translateY(-50%) rotate(135deg)}
+.atwfleet1-effect,.atwfleet1-hot{display:none!important}
+.atwfleet1-result{grid-template-columns:minmax(0,1fr) minmax(420px,.9fr)}
+.atwfleet1-result-columns>div:first-child{border-color:rgba(56,232,255,.14)}.atwfleet1-result-columns>div:last-child{border-color:rgba(255,156,66,.14)}
+
+.atwfleet1-level{position:relative;overflow:hidden;min-height:275px;padding-top:30px}
+.atwfleet1-level::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;opacity:.9}
+.atwfleet1-level-quick::before{background:#38e8ff}.atwfleet1-level-maintenance::before{background:#4e78ff}.atwfleet1-level-reset::before{background:#9b63ff}.atwfleet1-level-deep::before{background:#ff9c42}.atwfleet1-level-full::before{background:linear-gradient(90deg,#38e8ff,#9b63ff,#ff9c42)}
+.atwfleet1-level h3{margin:18px 0 12px!important}
+
+.atwfleet1-condition-calendar .atwfleet1-two-col{align-items:start}
+.atwfleet1-calendar-visual{position:relative;overflow:hidden;margin-top:30px;min-height:250px;border:1px solid rgba(255,255,255,.1);border-radius:24px;background:#0b0e19;box-shadow:0 24px 60px rgba(0,0,0,.25)}
+.atwfleet1-calendar-visual img{display:block;width:100%;min-height:250px;aspect-ratio:16/9;object-fit:cover;filter:saturate(.9) brightness(.72)}
+.atwfleet1-calendar-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,9,18,.08),rgba(6,9,18,.7));pointer-events:none}
+.atwfleet1-calendar-card{position:absolute;z-index:2;right:16px;bottom:16px;width:min(250px,calc(100% - 32px));padding:15px;border:1px solid rgba(255,255,255,.12);border-radius:17px;background:rgba(8,12,27,.9)}
+.atwfleet1-calendar-card strong{display:block;margin-bottom:10px;color:#fff;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.atwfleet1-calendar-days{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:9px}
+.atwfleet1-calendar-days span{display:grid;place-items:center;aspect-ratio:1;border-radius:8px;background:rgba(255,255,255,.05);color:#d6deef;font-size:10px;font-weight:900}
+.atwfleet1-calendar-days .is-marked{background:linear-gradient(135deg,#38e8ff,#4e78ff);color:#071124}.atwfleet1-calendar-card small{color:#9aa6bc;font-size:10px}
+
+.atwfleet1-use-card{position:relative;overflow:hidden}.atwfleet1-use-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+.atwfleet1-use-cyan::before{background:#38e8ff}.atwfleet1-use-violet::before{background:#8f7cff}.atwfleet1-use-orange::before{background:#ff9c42}.atwfleet1-use-green::before{background:#56d596}
+.atwfleet1-use-cyan>span{color:#38e8ff!important}.atwfleet1-use-violet>span{color:#9b8cff!important}.atwfleet1-use-orange>span{color:#ffad66!important}.atwfleet1-use-green>span{color:#68dea4!important}
+
+@media(max-width:1100px){.atwfleet1-hero-grid{width:min(1180px,calc(100% - 40px));grid-template-columns:1fr}.atwfleet1-hero-copy{max-width:820px}.atwfleet1-hero-media{max-width:900px}.atwfleet1-hero-photo img{min-height:430px}.atwfleet1-intro-grid{grid-template-columns:1fr}.atwfleet1-intro-copy{max-width:850px}}
+@media(max-width:820px){.atwfleet1-compare-grid{grid-template-columns:1fr}.atwfleet1-result{grid-template-columns:1fr}.atwfleet1-compare-controls{grid-template-columns:1fr;gap:10px}.atwfleet1-compare-controls>span:last-child{text-align:right}}
+@media(max-width:560px){.atwfleet1-hero-grid{width:calc(100% - 28px)}.atwfleet1-hero-photo img{min-height:290px;aspect-ratio:4/3}.atwfleet1-intro-grid{gap:28px}.atwfleet1-intro-media{border-radius:22px}.atwfleet1-intro-caption{left:16px;right:16px;bottom:14px}.atwfleet1-positioning{grid-template-columns:1fr}.atwfleet1-positioning span{grid-row:auto}.atwfleet1-compare-controls{padding:16px 18px}.atwfleet1-compare figcaption span{display:none}.atwfleet1-compare-stage{aspect-ratio:4/3}.atwfleet1-result-columns{grid-template-columns:1fr}.atwfleet1-calendar-visual{min-height:220px}.atwfleet1-calendar-visual img{min-height:220px}}
 
 
-/* FLEET_VISUAL_POLISH_V7 */
-.fleet-v7 .atwfleet1-hero-grid{
-  grid-template-columns:.78fr 1.22fr !important;
-  gap:38px !important;
-  align-items:center !important;
-}
-.fleet-v7 .atwfleet1-hero-media{max-width:none !important;width:100% !important;}
-.fleet-v7 .atwfleet1-hero-card,.fleet-v7 .atwfleet1-hero-photo{width:100% !important;}
-.fleet-v7 .atwfleet1-hero-photo img{
-  width:100% !important;
-  min-height:590px !important;
-  aspect-ratio:16 / 10 !important;
-  object-fit:cover !important;
+
+/* =========================================================
+   FLEET ARTICLE — FINAL REFINEMENT V4
+========================================================= */
+
+.atwfleet1 h1,
+.atwfleet1 h2,
+.atwfleet1 h3{
+  font-weight:900!important;
 }
 
-.fleet-v7-intro .atwfleet1-wrap,
-.fleet-v7-intro .atwfleet1-container,
-.fleet-v7-intro > [class*=wrap],
-.fleet-v7-intro > [class*=container]{
-  display:grid !important;
-  grid-template-columns:.9fr 1.1fr !important;
-  gap:42px !important;
-  align-items:center !important;
+.atwfleet1-gradient,
+.atwfleet1-heading-gradient{
+  background:linear-gradient(90deg,#55d58f 0%,#93d36d 38%,#ffb15a 72%,#ff8b3d 100%)!important;
+  background-size:160% auto!important;
+  -webkit-background-clip:text!important;
+  background-clip:text!important;
+  color:transparent!important;
+  -webkit-text-fill-color:transparent!important;
 }
-.fleet-v7-intro-media{
-  overflow:hidden;
-  border-radius:28px;
+.atwfleet1-heading-gradient{display:inline}
+
+.atwfleet1-meta{
+  gap:0!important;
+  align-items:center;
+}
+.atwfleet1-meta>span{
+  display:inline-flex;
+  align-items:center;
+  color:#8591a6;
+  font-weight:700;
+}
+.atwfleet1-meta>span+span::before{
+  content:"";
+  width:1px;
+  height:11px;
+  margin:0 11px;
+  background:rgba(255,255,255,.16);
+}
+
+.atwfleet1-controls{gap:18px}
+.atwfleet1-control-label{
+  color:#c3ccdc;
+  font-size:10px;
+  letter-spacing:.13em;
+}
+.atwfleet1-result{
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:
+    linear-gradient(135deg,rgba(85,213,143,.04),rgba(255,139,61,.025)),
+    #0c1120;
+}
+.atwfleet1-result-kicker{color:#62d99a}
+.atwfleet1-result-columns>div:first-child{border-color:rgba(85,213,143,.2)}
+.atwfleet1-result-columns>div:last-child{border-color:rgba(255,139,61,.2)}
+
+.atwfleet1-compare-controls{display:none!important}
+.atwfleet1-compare-stage{--clean-position:50%}
+.atwfleet1-image-range{
+  position:absolute;
+  z-index:8;
+  inset:0;
+  width:100%;
+  height:100%;
+  margin:0;
+  opacity:0;
+  cursor:ew-resize;
+  touch-action:pan-y;
+}
+.atwfleet1-compare-line{
+  z-index:7;
+  pointer-events:none;
+}
+.atwfleet1-compare-stage::before,
+.atwfleet1-compare-stage::after{
+  position:absolute;
+  z-index:6;
+  top:14px;
+  padding:6px 9px;
   border:1px solid rgba(255,255,255,.1);
-  box-shadow:0 28px 70px rgba(0,0,0,.3);
+  border-radius:999px;
+  background:rgba(7,10,20,.74);
+  color:#eef3ff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  pointer-events:none;
 }
-.fleet-v7-intro-media img{display:block;width:100%;aspect-ratio:1400/788;object-fit:cover;}
+.atwfleet1-compare-stage::before{
+  content:"Working condition";
+  left:14px;
+}
+.atwfleet1-compare-stage::after{
+  content:"Clean baseline";
+  right:14px;
+}
 
-.fleet-v7-hide-number{display:none !important;}
-.fleet-v7-levels article,.fleet-v7-levels [class*=card]{position:relative !important;overflow:hidden;}
-.fleet-v7-levels article::before,.fleet-v7-levels [class*=card]::before{
-  content:'';position:absolute;left:0;right:0;top:0;height:3px;
-  background:linear-gradient(90deg,#38e8ff,#7b79ff,#9956ff);opacity:.7;
+/* Condition > calendar: photo becomes section atmosphere */
+.atwfleet1-condition-calendar{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(7,9,22,.98) 0%,rgba(7,9,22,.93) 38%,rgba(7,9,22,.62) 70%,rgba(7,9,22,.82) 100%),
+    url("/media/blog/fleet-cleaning-vs-detailing/mobile-fleet-service.webp") center/cover no-repeat!important;
+}
+.atwfleet1-condition-calendar::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 78% 44%,rgba(255,139,61,.09),transparent 30%),
+    linear-gradient(180deg,rgba(7,9,22,.02),rgba(7,9,22,.34));
+}
+.atwfleet1-condition-calendar .atwfleet1-wrap{
+  position:relative;
+  z-index:2;
+}
+.atwfleet1-calendar-visual{
+  min-height:0!important;
+  margin-top:26px;
+  overflow:visible!important;
+  border:0!important;
+  background:none!important;
+  box-shadow:none!important;
+}
+.atwfleet1-calendar-visual>img{display:none!important}
+.atwfleet1-calendar-visual::after{display:none!important}
+.atwfleet1-calendar-card{
+  position:relative!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:min(250px,100%)!important;
+  padding:15px!important;
+  background:rgba(8,12,27,.84)!important;
+  border-color:rgba(255,255,255,.14)!important;
+  box-shadow:0 18px 45px rgba(0,0,0,.28);
+  backdrop-filter:blur(8px);
+}
+.atwfleet1-condition-calendar .atwfleet1-trigger-list>div{
+  background:rgba(10,14,28,.84);
+  backdrop-filter:blur(6px);
 }
 
-.fleet-v7-calendar-section .atwfleet1-wrap,
-.fleet-v7-calendar-section .atwfleet1-container,
-.fleet-v7-calendar-section > [class*=wrap],
-.fleet-v7-calendar-section > [class*=container]{
-  display:grid !important;
-  grid-template-columns:1fr 360px !important;
-  gap:32px !important;
-  align-items:center !important;
+/* Washington rain - CSS only */
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker){
+  position:relative;
+  overflow:hidden;
 }
-.fleet-v7-calendar{
-  position:relative;overflow:hidden;min-height:290px;border-radius:24px;
-  border:1px solid rgba(255,255,255,.1);box-shadow:0 24px 60px rgba(0,0,0,.28);
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::before,
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::after{
+  content:"";
+  position:absolute;
+  inset:-30% 0 0;
+  pointer-events:none;
+  opacity:.24;
+  background-image:
+    repeating-linear-gradient(
+      92deg,
+      transparent 0 8%,
+      rgba(174,234,255,.18) 8.1% 8.22%,
+      transparent 8.35% 17%
+    );
+  background-size:210px 260px;
+  animation:atwfleet1RainSheet 8s linear infinite;
+  mask-image:linear-gradient(to bottom,transparent 0%,black 18%,black 82%,transparent 100%);
 }
-.fleet-v7-calendar>img{
-  width:100%;height:100%;min-height:290px;display:block;object-fit:cover;
-  filter:saturate(.9) brightness(.78);
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::after{
+  opacity:.12;
+  background-size:145px 210px;
+  animation-duration:11s;
+  animation-delay:-4s;
 }
-.fleet-v7-calendar::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,27,.12),rgba(8,12,27,.7));}
-.fleet-v7-calendar-card{
-  position:absolute;z-index:2;right:18px;bottom:18px;width:210px;padding:16px;
-  border-radius:18px;background:rgba(8,12,27,.86);border:1px solid rgba(255,255,255,.12);
-  backdrop-filter:blur(10px);
+.atwfleet1-wa{position:relative;z-index:2}
+@keyframes atwfleet1RainSheet{
+  from{transform:translate3d(0,-18%,0)}
+  to{transform:translate3d(-24px,34%,0)}
 }
-.fleet-v7-calendar-title{color:#fff;font-size:11px;font-weight:900;text-transform:uppercase;margin-bottom:11px;}
-.fleet-v7-calendar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-bottom:10px;}
-.fleet-v7-calendar-grid span{
-  display:grid;place-items:center;aspect-ratio:1;border-radius:9px;background:rgba(255,255,255,.05);
-  color:#d6deef;font-size:11px;font-weight:800;
-}
-.fleet-v7-calendar-grid .mark{background:linear-gradient(135deg,#38e8ff,#4f95ff);color:#071124;}
-.fleet-v7-calendar-card p{margin:0;color:#cbd3e8;font-size:11px;line-height:1.45;}
 
-.fleet-v7-business [data-accent]{position:relative !important;overflow:hidden;}
-.fleet-v7-business [data-accent]::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;}
-.fleet-v7-business [data-accent=cyan]::before{background:#38e8ff;}
-.fleet-v7-business [data-accent=violet]::before{background:#7b79ff;}
-.fleet-v7-business [data-accent=orange]::before{background:#ff9d4d;}
-.fleet-v7-business [data-accent=green]::before{background:#56d596;}
-.fleet-v7-business [data-accent=cyan] .fleet-v7-accent-title{color:#38e8ff;}
-.fleet-v7-business [data-accent=violet] .fleet-v7-accent-title{color:#8f8cff;}
-.fleet-v7-business [data-accent=orange] .fleet-v7-accent-title{color:#ffb16f;}
-.fleet-v7-business [data-accent=green] .fleet-v7-accent-title{color:#6ae0a5;}
+@media(max-width:820px){
+  .atwfleet1-condition-calendar{
+    background:
+      linear-gradient(180deg,rgba(7,9,22,.96) 0%,rgba(7,9,22,.84) 58%,rgba(7,9,22,.9) 100%),
+      url("/media/blog/fleet-cleaning-vs-detailing/mobile-fleet-service.webp") center/cover no-repeat!important;
+  }
+}
+@media(max-width:560px){
+  .atwfleet1-meta>span+span::before{margin:0 8px}
+  .atwfleet1-compare-stage::before,
+  .atwfleet1-compare-stage::after{
+    top:10px;
+    padding:5px 7px;
+    font-size:8px;
+  }
+  .atwfleet1-compare-stage::before{left:10px}
+  .atwfleet1-compare-stage::after{right:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::before,
+  .atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::after{
+    animation:none!important;
+    opacity:.08;
+  }
+}
 
-@media(max-width:1080px){
-  .fleet-v7 .atwfleet1-hero-grid,
-  .fleet-v7-intro .atwfleet1-wrap,
-  .fleet-v7-intro .atwfleet1-container,
-  .fleet-v7-calendar-section .atwfleet1-wrap,
-  .fleet-v7-calendar-section .atwfleet1-container{grid-template-columns:1fr !important;}
-  .fleet-v7 .atwfleet1-hero-photo img{min-height:420px !important;}
-  .fleet-v7-calendar{max-width:440px;}
+
+/* =========================================================
+   FLEET ARTICLE — MICROFIX V5
+========================================================= */
+
+/* Compare labels were visually reversed relative to the images. */
+.atwfleet1-compare-stage::before{
+  content:"Clean baseline"!important;
 }
-@media(max-width:720px){
-  .fleet-v7 .atwfleet1-hero-photo img{min-height:320px !important;}
-  .fleet-v7-calendar-card{position:relative;right:auto;bottom:auto;width:auto;margin:14px;}
+.atwfleet1-compare-stage::after{
+  content:"Working condition"!important;
 }
+
+/* Tighten service cards and make copy feel less tiny on mobile. */
+.atwfleet1-levels{
+  gap:20px!important;
+}
+.atwfleet1-level{
+  min-height:0!important;
+  padding:28px 28px 24px!important;
+}
+.atwfleet1-level h3{
+  font-size:clamp(1.55rem,2vw,2rem)!important;
+  line-height:1.08!important;
+  margin-bottom:14px!important;
+}
+.atwfleet1-level p{
+  font-size:1.02rem!important;
+  line-height:1.62!important;
+}
+
+@media (max-width: 720px){
+  .atwfleet1-level{
+    padding:22px 20px 20px!important;
+    min-height:auto!important;
+  }
+  .atwfleet1-level h3{
+    font-size:1.35rem!important;
+    margin-bottom:12px!important;
+  }
+  .atwfleet1-level p{
+    font-size:1rem!important;
+    line-height:1.56!important;
+  }
+}
+
+/* Replace the broken rain-line effect with softer drip-like drops. */
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::before,
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::after{
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+  background-repeat:no-repeat!important;
+}
+
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::before{
+  inset:-18% 0 0!important;
+  opacity:.22!important;
+  background-image:
+    linear-gradient(to bottom, rgba(173,233,255,0) 0%, rgba(173,233,255,.06) 28%, rgba(173,233,255,.28) 100%),
+    radial-gradient(ellipse at center, rgba(173,233,255,.34) 0 42%, transparent 46%),
+    linear-gradient(to bottom, rgba(173,233,255,0) 0%, rgba(173,233,255,.05) 24%, rgba(173,233,255,.24) 100%),
+    radial-gradient(ellipse at center, rgba(173,233,255,.28) 0 42%, transparent 46%),
+    linear-gradient(to bottom, rgba(173,233,255,0) 0%, rgba(173,233,255,.06) 30%, rgba(173,233,255,.26) 100%),
+    radial-gradient(ellipse at center, rgba(173,233,255,.32) 0 42%, transparent 46%),
+    linear-gradient(to bottom, rgba(173,233,255,0) 0%, rgba(173,233,255,.04) 24%, rgba(173,233,255,.22) 100%),
+    radial-gradient(ellipse at center, rgba(173,233,255,.26) 0 42%, transparent 46%);
+  background-size:
+    2px 110px, 8px 10px,
+    2px 130px, 8px 10px,
+    2px 98px, 8px 10px,
+    2px 122px, 8px 10px;
+  background-position:
+    8% 2%, calc(8% - 3px) 106px,
+    27% -4%, calc(27% - 3px) 120px,
+    58% 5%, calc(58% - 3px) 97px,
+    83% -1%, calc(83% - 3px) 113px!important;
+  animation:atwfleet1DripA 9.5s linear infinite!important;
+}
+
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::after{
+  inset:-22% 0 0!important;
+  opacity:.12!important;
+  background-image:
+    linear-gradient(to bottom, rgba(173,233,255,0) 0%, rgba(173,233,255,.04) 26%, rgba(173,233,255,.18) 100%),
+    radial-gradient(ellipse at center, rgba(173,233,255,.2) 0 42%, transparent 46%),
+    linear-gradient(to bottom, rgba(173,233,255,0) 0%, rgba(173,233,255,.04) 26%, rgba(173,233,255,.16) 100%),
+    radial-gradient(ellipse at center, rgba(173,233,255,.18) 0 42%, transparent 46%),
+    linear-gradient(to bottom, rgba(173,233,255,0) 0%, rgba(173,233,255,.04) 26%, rgba(173,233,255,.17) 100%),
+    radial-gradient(ellipse at center, rgba(173,233,255,.19) 0 42%, transparent 46%);
+  background-size:
+    2px 118px, 8px 10px,
+    2px 104px, 8px 10px,
+    2px 136px, 8px 10px;
+  background-position:
+    18% -8%, calc(18% - 3px) 108px,
+    46% 3%, calc(46% - 3px) 96px,
+    72% -5%, calc(72% - 3px) 126px!important;
+  animation:atwfleet1DripB 12.5s linear infinite!important;
+}
+
+@keyframes atwfleet1DripA{
+  from{transform:translate3d(0,-4%,0)}
+  to{transform:translate3d(0,18%,0)}
+}
+@keyframes atwfleet1DripB{
+  from{transform:translate3d(0,-8%,0)}
+  to{transform:translate3d(0,16%,0)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::before,
+  .atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::after{
+    animation:none!important;
+  }
+}
+
+
+/* =========================================================
+   FLEET ARTICLE — FINAL POLISH V7
+========================================================= */
+
+/* ---------- SERVICE LEVELS: DESKTOP ---------- */
+
+@media (min-width:1024px){
+
+  .atwfleet1-levels{
+    display:grid!important;
+    grid-template-columns:repeat(6,minmax(0,1fr))!important;
+    gap:18px!important;
+    align-items:stretch!important;
+  }
+
+  .atwfleet1-level{
+    grid-column:span 2;
+    min-height:0!important;
+    padding:24px 24px 22px!important;
+  }
+
+  .atwfleet1-level:nth-child(4){
+    grid-column:2 / span 2;
+  }
+
+  .atwfleet1-level:nth-child(5){
+    grid-column:4 / span 2;
+  }
+
+  .atwfleet1-level h3{
+    font-size:clamp(1.45rem,1.65vw,1.8rem)!important;
+    line-height:1.08!important;
+    margin-bottom:13px!important;
+  }
+
+  .atwfleet1-level p{
+    font-size:1rem!important;
+    line-height:1.56!important;
+  }
+
+}
+
+
+/* ---------- WASHINGTON RAIN ---------- */
+
+/* Kill every previous line-based rain attempt. */
+
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::before,
+.atwfleet1-section:has(.atwfleet1-wa-copy .atwfleet1-kicker)::after{
+  content:none!important;
+  display:none!important;
+  animation:none!important;
+  background:none!important;
+}
+
+
+/* Section container */
+
+.atwfleet1-section:has(.atwfleet1-wa){
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.atwfleet1-wa{
+  position:relative;
+  z-index:2;
+}
+
+
+/* Droplet field */
+
+.atwfleet1-rain-layer{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+
+/*
+  Same visual idea as the bubbles on the blog hub:
+  translucent cyan body + glass edge + white specular highlight.
+*/
+
+.atwfleet1-rain-layer i{
+  --drop-w:10px;
+  --drop-h:24px;
+  --fall:9s;
+
+  position:absolute;
+  top:-50px;
+
+  width:var(--drop-w);
+  height:var(--drop-h);
+
+  border:1px solid rgba(185,238,255,.18);
+
+  border-radius:
+    55% 45% 62% 62%
+    / 34% 34% 72% 72%;
+
+  background:
+    radial-gradient(
+      circle at 30% 22%,
+      rgba(255,255,255,.88) 0 6%,
+      rgba(239,252,255,.42) 7% 18%,
+      rgba(173,232,255,.16) 42%,
+      rgba(56,232,255,.035) 74%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(205,242,255,.08),
+      rgba(86,198,235,.03)
+    );
+
+  box-shadow:
+    inset 1px 1px 4px rgba(255,255,255,.12),
+    inset -1px -2px 5px rgba(51,173,219,.05);
+
+  opacity:.72;
+
+  transform:translate3d(0,-70px,0) rotate(2deg);
+
+  animation:
+    atwfleet1GlassDrop var(--fall) linear infinite;
+
+  will-change:transform;
+}
+
+
+/* Small glass highlight */
+
+.atwfleet1-rain-layer i::before{
+  content:"";
+
+  position:absolute;
+
+  width:2.5px;
+  height:4px;
+
+  top:4px;
+  left:2px;
+
+  border-radius:50%;
+
+  background:rgba(255,255,255,.72);
+}
+
+
+/* individual positions / speeds */
+
+.atwfleet1-rain-layer i:nth-child(1){
+  left:7%;
+  --drop-w:8px;
+  --drop-h:20px;
+  --fall:8.4s;
+  animation-delay:-2s;
+}
+
+.atwfleet1-rain-layer i:nth-child(2){
+  left:17%;
+  --drop-w:11px;
+  --drop-h:27px;
+  --fall:10.3s;
+  animation-delay:-7s;
+}
+
+.atwfleet1-rain-layer i:nth-child(3){
+  left:29%;
+  --drop-w:7px;
+  --drop-h:18px;
+  --fall:7.8s;
+  animation-delay:-5s;
+}
+
+.atwfleet1-rain-layer i:nth-child(4){
+  left:39%;
+  --drop-w:10px;
+  --drop-h:25px;
+  --fall:9.8s;
+  animation-delay:-1s;
+}
+
+.atwfleet1-rain-layer i:nth-child(5){
+  left:49%;
+  --drop-w:8px;
+  --drop-h:21px;
+  --fall:8.7s;
+  animation-delay:-6s;
+}
+
+.atwfleet1-rain-layer i:nth-child(6){
+  left:59%;
+  --drop-w:12px;
+  --drop-h:29px;
+  --fall:11s;
+  animation-delay:-4s;
+}
+
+.atwfleet1-rain-layer i:nth-child(7){
+  left:69%;
+  --drop-w:7px;
+  --drop-h:19px;
+  --fall:8.1s;
+  animation-delay:-3s;
+}
+
+.atwfleet1-rain-layer i:nth-child(8){
+  left:78%;
+  --drop-w:9px;
+  --drop-h:24px;
+  --fall:9.4s;
+  animation-delay:-8s;
+}
+
+.atwfleet1-rain-layer i:nth-child(9){
+  left:88%;
+  --drop-w:11px;
+  --drop-h:26px;
+  --fall:10.7s;
+  animation-delay:-5.5s;
+}
+
+.atwfleet1-rain-layer i:nth-child(10){
+  left:95%;
+  --drop-w:7px;
+  --drop-h:18px;
+  --fall:8.9s;
+  animation-delay:-2.8s;
+}
+
+
+@keyframes atwfleet1GlassDrop{
+
+  0%{
+    transform:
+      translate3d(0,-70px,0)
+      rotate(2deg);
+    opacity:0;
+  }
+
+  8%{
+    opacity:.68;
+  }
+
+  88%{
+    opacity:.68;
+  }
+
+  100%{
+    transform:
+      translate3d(-7px,720px,0)
+      rotate(2deg);
+    opacity:0;
+  }
+
+}
+
+
+@media (max-width:760px){
+
+  .atwfleet1-rain-layer i{
+    opacity:.48;
+  }
+
+}
+
+
+@media (prefers-reduced-motion:reduce){
+
+  .atwfleet1-rain-layer{
+    display:none;
+  }
+
+}
+
+
+/* =========================================================
+   FLEET ARTICLE — DESKTOP CARD FINAL
+========================================================= */
+
+@media (min-width:1024px){
+
+  .atwfleet1-levels{
+    display:grid!important;
+    grid-template-columns:repeat(6,minmax(0,1fr))!important;
+    gap:20px!important;
+    align-items:stretch!important;
+  }
+
+  .atwfleet1-level{
+    grid-column:span 2;
+    min-height:0!important;
+    padding:26px 26px 24px!important;
+  }
+
+  .atwfleet1-level:nth-child(4){
+    grid-column:2 / span 2;
+  }
+
+  .atwfleet1-level:nth-child(5){
+    grid-column:4 / span 2;
+  }
+
+  .atwfleet1-level h3{
+    font-size:clamp(1.5rem,1.75vw,1.9rem)!important;
+    line-height:1.08!important;
+    margin-bottom:14px!important;
+  }
+
+  .atwfleet1-level p{
+    font-size:1rem!important;
+    line-height:1.58!important;
+  }
+
+}
+
+
+/* =========================================================
+   FLEET ARTICLE — RAIN DROP SHAPE FIX
+========================================================= */
+
+/* Make the droplet point upward and keep the fuller rounded body below. */
+.atwfleet1-rain-layer i{
+  border-radius: 52% 48% 58% 58% / 14% 14% 86% 86% !important;
+  clip-path: polygon(
+    50% 0%,
+    72% 16%,
+    86% 40%,
+    84% 70%,
+    67% 100%,
+    33% 100%,
+    16% 70%,
+    14% 40%,
+    28% 16%
+  ) !important;
+
+  background:
+    radial-gradient(
+      circle at 38% 20%,
+      rgba(255,255,255,.88) 0 7%,
+      rgba(239,252,255,.42) 8% 18%,
+      rgba(173,232,255,.16) 40%,
+      rgba(56,232,255,.035) 74%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(205,242,255,.08),
+      rgba(86,198,235,.03)
+    ) !important;
+}
+
+/* Keep the little glass highlight near the upper-left area of the drop. */
+.atwfleet1-rain-layer i::before{
+  top:4px !important;
+  left:2px !important;
+  width:2.5px !important;
+  height:4px !important;
+  border-radius:50% !important;
+  background:rgba(255,255,255,.75) !important;
+}
+
+
+/* =========================================================
+   FLEET ARTICLE — REAL WATER DROP SHAPE
+========================================================= */
+
+.atwfleet1-rain-layer i{
+  clip-path:none!important;
+
+  width:10px!important;
+  height:15px!important;
+
+  border-radius:48% 52% 55% 45% / 58% 58% 42% 42%!important;
+
+  border:1px solid rgba(190,238,255,.32)!important;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255,255,255,.95) 0 8%,
+      rgba(225,247,255,.52) 9% 20%,
+      rgba(143,214,244,.20) 44%,
+      rgba(64,174,220,.06) 75%,
+      rgba(64,174,220,.025) 100%
+    )!important;
+
+  box-shadow:
+    inset 1px 1px 3px rgba(255,255,255,.18),
+    inset -1px -2px 4px rgba(74,173,216,.08),
+    0 0 5px rgba(95,205,245,.06)!important;
+
+  opacity:.82!important;
+
+  overflow:visible!important;
+}
+
+
+/* pointed top */
+
+.atwfleet1-rain-layer i::after{
+  content:""!important;
+
+  position:absolute!important;
+
+  width:7px!important;
+  height:7px!important;
+
+  top:-3px!important;
+  left:50%!important;
+
+  transform:translateX(-50%) rotate(45deg)!important;
+
+  border-radius:80% 0 80% 80%!important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(220,247,255,.34),
+      rgba(89,190,230,.08)
+    )!important;
+
+  border-left:1px solid rgba(190,238,255,.20)!important;
+  border-top:1px solid rgba(190,238,255,.20)!important;
+
+  z-index:-1!important;
+}
+
+
+/* highlight */
+
+.atwfleet1-rain-layer i::before{
+  content:""!important;
+
+  position:absolute!important;
+
+  width:2px!important;
+  height:4px!important;
+
+  top:3px!important;
+  left:2px!important;
+
+  border-radius:50%!important;
+
+  background:rgba(255,255,255,.90)!important;
+
+  filter:blur(.15px)!important;
+}
+
+
+/* keep variation, but remove oversized old dimensions */
+
+.atwfleet1-rain-layer i:nth-child(2),
+.atwfleet1-rain-layer i:nth-child(6),
+.atwfleet1-rain-layer i:nth-child(9){
+  width:11px!important;
+  height:17px!important;
+}
+
+.atwfleet1-rain-layer i:nth-child(3),
+.atwfleet1-rain-layer i:nth-child(7),
+.atwfleet1-rain-layer i:nth-child(10){
+  width:8px!important;
+  height:13px!important;
+}
+
+
+
+/* =========================================================
+   FLEET ARTICLE — PERFORMANCE FIX
+   Above-the-fold hero must not wait for reveal JS.
+========================================================= */
+
+.atwfleet1-hero .atwfleet1-reveal{
+  opacity:1 !important;
+  transform:none !important;
+  transition:none !important;
+}
+
