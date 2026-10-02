@@ -70,6 +70,10 @@ export const navigation = [
         label: "Washington Road Salt",
         href: "/does-washington-use-road-salt/",
       },
+      {
+        label: "Fleet Cleaning vs Detailing",
+        href: "/fleet-cleaning-vs-detailing/",
+      },
     ],
   },
 
