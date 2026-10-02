@@ -1,0 +1,633 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/fleet-cleaning-vs-detailing.css";
+
+const title = "Fleet Cleaning vs Detailing: What Does Your Business Need? | ATW";
+const description =
+  "Fleet vehicle cleaning and full detailing solve different problems. Compare service levels for work vans, cargo vans and commercial vehicles, then assess what your fleet actually needs.";
+const canonical = `${site.url}/fleet-cleaning-vs-detailing/`;
+const ogImage = `${site.url}/media/blog/fleet-cleaning-vs-detailing/fleet-hero.webp`;
+
+const faqs = [
+  [
+    "What is the difference between fleet cleaning and full detailing?",
+    "Fleet cleaning can be a lighter maintenance service focused on loose debris, mats, glass and commonly used cabin surfaces. A full detail is a broader interior-and-exterior scope. The right choice depends on vehicle condition, use and the baseline your business wants to maintain."
+  ],
+  [
+    "Does every work van need a full detail?",
+    "No. A vehicle that is already being maintained may only need a lighter maintenance service. Built-up grime, embedded soil, stains or a neglected cargo or cab area can justify a deeper reset."
+  ],
+  [
+    "When does a commercial vehicle need extraction?",
+    "Extraction is a method for suitable textile surfaces when soil or staining is embedded in carpet or upholstery. It is not automatically needed for every fleet vehicle and it is not appropriate for every material."
+  ],
+  [
+    "Can ATW clean work vans, trucks and multiple fleet vehicles on site?",
+    "Yes. ATW provides mobile commercial vehicle detailing for cargo vans, work trucks, service vehicles and fleets. Multi-vehicle work is reviewed around vehicle mix, condition, location, access and scheduling."
+  ],
+  [
+    "Do you offer recurring fleet vehicle cleaning?",
+    "Recurring commercial service may be available depending on fleet size, location, route and desired scope. We review representative vehicles first so the recurring service is built around actual condition rather than a generic package."
+  ]
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": `${canonical}#article`,
+      headline: "Fleet Vehicle Cleaning vs. Full Detailing: What Does Your Business Actually Need?",
+      description,
+      mainEntityOfPage: canonical,
+      image: ogImage,
+      inLanguage: "en-US",
+      author: { "@type": "Organization", name: site.name, url: site.url },
+      publisher: { "@type": "Organization", name: site.name, url: site.url }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonical}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${site.url}/blog/` },
+        { "@type": "ListItem", position: 3, name: "Fleet Cleaning vs. Detailing", item: canonical }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqs.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: { "@type": "Answer", text: answer }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="White commercial service van at a South Puget Sound industrial property"
+>
+  <JsonLd slot="head" data={schema} />
+  <meta slot="head" name="robots" content="index,follow,max-image-preview:large" />
+  <link
+    slot="head"
+    rel="preload"
+    href="/media/blog/fleet-cleaning-vs-detailing/fleet-hero.webp"
+    as="image"
+    type="image/webp"
+    fetchpriority="high"
+  />
+
+  <div class="atwfleet1">
+    <div class="atwfleet1-wrap">
+      <nav class="atwfleet1-crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Commercial &amp; Fleet</span>
+      </nav>
+    </div>
+
+    <section class="atwfleet1-hero">
+      <div class="atwfleet1-grid-bg"></div>
+      <div class="atwfleet1-glow atwfleet1-glow-a"></div>
+      <div class="atwfleet1-glow atwfleet1-glow-b"></div>
+
+      <div class="atwfleet1-wrap atwfleet1-hero-grid">
+        <div class="atwfleet1-hero-copy atwfleet1-reveal">
+          <div class="atwfleet1-pill"><i></i> COMMERCIAL &amp; FLEET GUIDE</div>
+          <h1>
+            Fleet Vehicle Cleaning vs.
+            <span class="atwfleet1-gradient">Full Detailing</span>
+          </h1>
+          <p class="atwfleet1-lead">
+            A work van does not automatically need the biggest detailing package. It needs the service level that matches its actual condition, daily use and the baseline your business wants to maintain.
+          </p>
+          <div class="atwfleet1-answer">
+            <strong>The practical answer</strong>
+            <span>Light buildup can stay in a maintenance scope. Embedded soil, stains and neglected areas can move the vehicle into a deeper reset. Exterior work becomes a separate part of the scope.</span>
+          </div>
+          <div class="atwfleet1-meta">
+            <span>Mobile fleet detailing</span><span>•</span><span>Work vans &amp; commercial vehicles</span><span>•</span><span>Washington</span>
+          </div>
+        </div>
+
+        <div class="atwfleet1-hero-media atwfleet1-reveal">
+          <div class="atwfleet1-hero-card atwfleet1-hero-photo">
+            <img
+              src="/media/blog/fleet-cleaning-vs-detailing/fleet-hero.webp"
+              alt="White commercial service van parked at an industrial property in Washington"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
+            <div class="atwfleet1-hero-shade"></div>
+            <div class="atwfleet1-hero-tag">MOBILE COMMERCIAL DETAILING · SOUTH PUGET SOUND</div>
+          </div>
+          <div class="atwfleet1-float atwfleet1-float-a">
+            <strong>Working vehicles</strong>
+            <span>Cargo vans · service vans · work trucks</span>
+          </div>
+          <div class="atwfleet1-float atwfleet1-float-b">
+            <strong>One vehicle or a fleet</strong>
+            <span>Service matched to actual condition</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-section">
+      <div class="atwfleet1-wrap atwfleet1-narrow">
+        <div class="atwfleet1-kicker">START WITH THE CONDITION</div>
+        <h2>Fleet cleaning is not one fixed service.</h2>
+        <p class="atwfleet1-big-copy">
+          Commercial vehicle detailing gets confusing when every level of cleaning is called a “detail.” A quick vacuum, a maintenance clean, an interior reset, textile extraction and a full interior-and-exterior detail solve different problems.
+        </p>
+        <p>
+          For a fleet manager or small business owner, the useful question is not “Which package sounds best?” It is: <strong>what is the minimum service level that returns this vehicle to the condition your business expects?</strong>
+        </p>
+        <div class="atwfleet1-positioning">
+          <span>ATW APPROACH</span>
+          <p>Mobile detailing done thoroughly, not rushed. Family-owned in Bonney Lake and backed by real mechanical and trucking experience. Commercial jobs are reviewed around the actual vehicle, condition and requested scope before the quote is confirmed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-photo-story">
+      <div class="atwfleet1-wrap atwfleet1-photo-story-grid">
+        <div class="atwfleet1-photo-frame atwfleet1-reveal">
+          <img
+            src="/media/blog/fleet-cleaning-vs-detailing/commercial-fleet-yard.webp"
+            alt="Commercial work van with organized equipment at an industrial property"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="atwfleet1-photo-copy atwfleet1-reveal">
+          <div class="atwfleet1-kicker">WORK VEHICLES ARE DIFFERENT</div>
+          <h2>The dirt usually follows the job.</h2>
+          <p>
+            Service vans collect a different mix of debris than a personal commuter car.
+            Frequent entry and exit, tools, job-site dust, wet footwear, cargo movement and daily use
+            can create buildup in the cab, step areas and cargo floor at the same time.
+          </p>
+          <p>
+            That is why the useful starting point is the vehicle’s actual condition,
+            not a consumer sedan or SUV package.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-sim" id="service-scope-simulator">
+      <div class="atwfleet1-wrap">
+        <div class="atwfleet1-heading atwfleet1-reveal">
+          <div class="atwfleet1-kicker">INTERACTIVE SERVICE SCOPE SIMULATOR</div>
+          <h2>Build the condition. Then choose the service.</h2>
+          <p>Add the issues that look like your work vehicle. Then switch service levels to see what each scope is meant to address, and what still needs a deeper review.</p>
+        </div>
+
+        <div class="atwfleet1-sim-shell atwfleet1-reveal">
+          <div class="atwfleet1-controls">
+            <div class="atwfleet1-control-group">
+              <span class="atwfleet1-control-label">1. Add current conditions</span>
+              <div class="atwfleet1-chip-row" id="atwfleet1Conditions">
+                <button type="button" class="atwfleet1-chip" data-condition="debris" aria-pressed="false">Loose debris</button>
+                <button type="button" class="atwfleet1-chip" data-condition="mud" aria-pressed="false">Mud / wet mats</button>
+                <button type="button" class="atwfleet1-chip" data-condition="stain" aria-pressed="false">Seat stain</button>
+                <button type="button" class="atwfleet1-chip" data-condition="cab" aria-pressed="false">Cab grime</button>
+                <button type="button" class="atwfleet1-chip" data-condition="dust" aria-pressed="false">Job-site dust</button>
+                <button type="button" class="atwfleet1-chip" data-condition="road" aria-pressed="false">Exterior road film</button>
+                <button type="button" class="atwfleet1-chip" data-condition="odor" aria-pressed="false">Persistent odor</button>
+              </div>
+            </div>
+
+            <div class="atwfleet1-control-group">
+              <span class="atwfleet1-control-label">2. Choose the service level</span>
+              <div class="atwfleet1-service-row" id="atwfleet1Services">
+                <button type="button" class="atwfleet1-service" data-service="quick">Quick Vacuum</button>
+                <button type="button" class="atwfleet1-service" data-service="maintenance">Maintenance Clean</button>
+                <button type="button" class="atwfleet1-service" data-service="reset">Interior Reset</button>
+                <button type="button" class="atwfleet1-service" data-service="deep">Deep Clean / Extraction Review</button>
+                <button type="button" class="atwfleet1-service" data-service="full">Full Detail</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="atwfleet1-visual-grid">
+            <figure class="atwfleet1-scene" data-scene="overview">
+              <div class="atwfleet1-scene-top"><span>Vehicle view</span><small>cargo + overall scope</small></div>
+              <div class="atwfleet1-image-stage">
+                <img src="/media/blog/fleet-cleaning-vs-detailing/work-van-overview.webp" alt="Commercial cargo van cutaway overview" loading="lazy" decoding="async" />
+                <i class="atwfleet1-effect atwfleet1-debris" data-condition="debris" aria-hidden="true"></i>
+                <i class="atwfleet1-effect atwfleet1-dust" data-condition="dust" aria-hidden="true"></i>
+                <i class="atwfleet1-effect atwfleet1-road" data-condition="road" aria-hidden="true"></i>
+                <i class="atwfleet1-effect atwfleet1-odor-overview" data-condition="odor" aria-hidden="true"></i>
+                <button type="button" class="atwfleet1-hot atwfleet1-hot-cargo" data-zone="cargo" aria-label="Cargo floor and lower wall zone"><span>Cargo floor</span></button>
+                <button type="button" class="atwfleet1-hot atwfleet1-hot-step" data-zone="step" aria-label="Entry step zone"><span>Entry step</span></button>
+              </div>
+            </figure>
+
+            <figure class="atwfleet1-scene" data-scene="cabin">
+              <div class="atwfleet1-scene-top"><span>Cab detail</span><small>seats + controls + mats</small></div>
+              <div class="atwfleet1-image-stage">
+                <img src="/media/blog/fleet-cleaning-vs-detailing/work-van-cabin.webp" alt="Commercial van cab cutaway with seats steering wheel and center console" loading="lazy" decoding="async" />
+                <i class="atwfleet1-effect atwfleet1-mud" data-condition="mud" aria-hidden="true"></i>
+                <i class="atwfleet1-effect atwfleet1-stain" data-condition="stain" aria-hidden="true"></i>
+                <i class="atwfleet1-effect atwfleet1-cab-grime" data-condition="cab" aria-hidden="true"></i>
+                <i class="atwfleet1-effect atwfleet1-odor-cabin" data-condition="odor" aria-hidden="true"></i>
+                <button type="button" class="atwfleet1-hot atwfleet1-hot-seat" data-zone="seat" aria-label="Seat upholstery zone"><span>Seats</span></button>
+                <button type="button" class="atwfleet1-hot atwfleet1-hot-console" data-zone="console" aria-label="Center console and high-touch zone"><span>Console</span></button>
+                <button type="button" class="atwfleet1-hot atwfleet1-hot-mat" data-zone="mat" aria-label="Front floor mat zone"><span>Mats</span></button>
+              </div>
+            </figure>
+          </div>
+
+          <div class="atwfleet1-result" aria-live="polite">
+            <div class="atwfleet1-result-main">
+              <span class="atwfleet1-result-kicker" id="atwfleet1ResultKicker">BUILD THE CONDITION</span>
+              <h3 id="atwfleet1ResultTitle">Add what you see, then choose a service level.</h3>
+              <p id="atwfleet1ResultText">Start with a clean van. Add the conditions that look familiar, then compare how far each service scope goes.</p>
+            </div>
+            <div class="atwfleet1-result-columns">
+              <div><strong>Addressed in this scope</strong><ul id="atwfleet1Addressed"></ul></div>
+              <div><strong>Still needs attention</strong><ul id="atwfleet1Remaining"></ul></div>
+            </div>
+            <p class="atwfleet1-disclaimer">Simulator logic is a service-scope guide, not a remote diagnosis. Material type, contamination and actual condition still matter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-section atwfleet1-alt">
+      <div class="atwfleet1-wrap">
+        <div class="atwfleet1-heading atwfleet1-reveal">
+          <div class="atwfleet1-kicker">SERVICE LEVELS</div>
+          <h2>What each level actually means.</h2>
+          <p>The names are ATW’s practical content framework, not an industry-wide standard. Commercial providers use different terminology, so the scope matters more than the label.</p>
+        </div>
+
+        <div class="atwfleet1-levels">
+          <article class="atwfleet1-level"><span>01</span><h3>Quick Vacuum</h3><p>Loose debris from accessible floors, seats and cargo areas. It is not stain removal, extraction or a full interior detail.</p></article>
+          <article class="atwfleet1-level"><span>02</span><h3>Maintenance Clean</h3><p>Routine vacuuming, mats, glass and common hard surfaces for a vehicle that is already near the desired baseline.</p></article>
+          <article class="atwfleet1-level"><span>03</span><h3>Interior Reset</h3><p>A more thorough cab or cargo clean when buildup has moved beyond routine maintenance. Crevices, step areas and accumulated surface grime receive more attention.</p></article>
+          <article class="atwfleet1-level"><span>04</span><h3>Deep Clean / Extraction Review</h3><p>For embedded textile soil or staining where deeper treatment is appropriate. Extraction is a method, not a universal requirement for every seat or carpet.</p></article>
+          <article class="atwfleet1-level"><span>05</span><h3>Full Detail</h3><p>Interior and exterior work combined when the vehicle needs a broader reset. Paint correction and coating are separate services, not routine fleet maintenance by default.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-section">
+      <div class="atwfleet1-wrap atwfleet1-two-col">
+        <div class="atwfleet1-copy atwfleet1-reveal">
+          <div class="atwfleet1-kicker">CONDITION TRIGGERS</div>
+          <h2>Do not wait for a calendar date if the vehicle is already telling you what it needs.</h2>
+          <p>There is no useful universal answer that every work van should be detailed on the same interval. The more practical approach is to watch for condition changes that move the vehicle into a deeper service level.</p>
+        </div>
+        <div class="atwfleet1-trigger-list atwfleet1-reveal">
+          <div><b>01</b><span><strong>Loose soil becomes embedded.</strong> Vacuumable debris has turned into buildup in seams, steps or textured flooring.</span></div>
+          <div><b>02</b><span><strong>Spills stop being isolated.</strong> A stain or textile issue now needs targeted treatment rather than routine wipe-down.</span></div>
+          <div><b>03</b><span><strong>Wet and muddy entry repeats.</strong> Mats, thresholds and lower cab areas are no longer returning to baseline with basic maintenance.</span></div>
+          <div><b>04</b><span><strong>Odor persists.</strong> The source needs assessment instead of simply adding fragrance or repeating surface cleaning.</span></div>
+          <div><b>05</b><span><strong>Exterior road film builds up.</strong> That is an exterior-care issue and cannot be solved by an interior maintenance visit.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-section atwfleet1-alt">
+      <div class="atwfleet1-wrap">
+        <div class="atwfleet1-heading atwfleet1-reveal">
+          <div class="atwfleet1-kicker">REAL WORK-VEHICLE USE</div>
+          <h2>Different businesses create different cleaning priorities.</h2>
+          <p>These are operating examples, not claims that every vehicle in a trade gets dirty in the same way.</p>
+        </div>
+        <div class="atwfleet1-use-grid">
+          <article><span>HVAC / PLUMBING</span><h3>Service vans</h3><p>Frequent entry, wet footwear, job-site dust, cab debris and tool-area soil can move the priority toward floors, steps and repeatable interior maintenance.</p></article>
+          <article><span>CONSTRUCTION</span><h3>Work trucks &amp; vans</h3><p>Mud, grit and dust can build in textured floors and lower surfaces. A clean baseline makes it easier to see when the vehicle has moved beyond a maintenance scope.</p></article>
+          <article><span>DELIVERY / MOBILE SERVICE</span><h3>High-use driver areas</h3><p>Repeated entry and exit puts attention on mats, driver controls, cupholders, glass and accumulated cabin debris.</p></article>
+          <article><span>SHUTTLE / PASSENGER</span><h3>Passenger-facing vehicles</h3><p>Passenger turnover can make spills, glass, seats and frequently handled surfaces more important to inspect. Routine cleaning and disinfection are not the same process.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-section">
+      <div class="atwfleet1-wrap atwfleet1-wa">
+        <div class="atwfleet1-wa-copy atwfleet1-reveal">
+          <div class="atwfleet1-kicker">WASHINGTON OPERATING CONDITIONS</div>
+          <h2>Local conditions can change the scope without creating a fake schedule.</h2>
+          <p>Wet-weather entry, mud and winter-road residue are legitimate condition factors for Washington work vehicles. WSDOT uses chloride-based winter treatments, but that does not create one detailing interval that fits every fleet.</p>
+          <p>For mobile commercial work, site access and drainage can also matter when exterior washing is part of the job.</p>
+          <div class="atwfleet1-inline-links">
+            <a href="/does-washington-use-road-salt/">Read the Washington road-treatment guide →</a>
+            <a href="/commercial-vehicle-detailing/">See ATW commercial vehicle detailing →</a>
+          </div>
+        </div>
+        <div class="atwfleet1-wa-card atwfleet1-reveal">
+          <span>USE CONDITIONS, NOT A MAGIC CALENDAR</span>
+          <strong>Inspect → identify the actual problem → choose the smallest scope that restores the agreed baseline.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-section atwfleet1-alt">
+      <div class="atwfleet1-wrap atwfleet1-narrow">
+        <div class="atwfleet1-heading atwfleet1-reveal">
+          <div class="atwfleet1-kicker">COMMON FLEET QUESTIONS</div>
+          <h2>Fleet cleaning vs. detailing FAQ</h2>
+        </div>
+        <div class="atwfleet1-faq">
+          {faqs.map(([question, answer]) => (
+            <details class="atwfleet1-reveal">
+              <summary>{question}</summary>
+              <div><p>{answer}</p></div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-mobile-story">
+      <div class="atwfleet1-wrap atwfleet1-mobile-card atwfleet1-reveal">
+        <div class="atwfleet1-mobile-copy">
+          <div class="atwfleet1-kicker">MOBILE COMMERCIAL SERVICE</div>
+          <h2>Cleaning can happen where the vehicles already are.</h2>
+          <p>
+            For a small fleet, the service decision is not only about how dirty the vehicle is.
+            Location, access, the number and mix of vehicles, and the time available for service
+            all affect how the job should be planned.
+          </p>
+          <p>
+            ATW reviews commercial work before scheduling so the service fits the actual vehicles,
+            the property and the requested result instead of forcing every fleet into one fixed package.
+          </p>
+          <a class="atwfleet1-inline-link" href="/commercial-vehicle-detailing/">
+            Commercial Vehicle &amp; Fleet Detailing →
+          </a>
+        </div>
+        <div class="atwfleet1-mobile-media">
+          <img
+            src="/media/blog/fleet-cleaning-vs-detailing/mobile-fleet-service.webp"
+            alt="Mobile vehicle detailing setup beside a commercial cargo van"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="atwfleet1-final">
+      <div class="atwfleet1-wrap">
+        <div class="atwfleet1-final-card atwfleet1-reveal">
+          <div>
+            <div class="atwfleet1-kicker">NEXT STEP: FLEET CONDITION ASSESSMENT</div>
+            <h2>Start with representative vehicles, not a generic package.</h2>
+            <p>Send the vehicle mix, location and photos of two or three representative units. ATW can review the visible condition and help define whether the fleet needs maintenance cleaning, an interior reset, deeper textile work or a broader commercial detail.</p>
+          </div>
+          <a class="atwfleet1-cta" href="/commercial-vehicle-detailing/#commercial-quote">Build a Fleet Quote Profile →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const root = document.querySelector('.atwfleet1');
+      if (!root) return;
+
+      const labels = {
+        debris: 'Loose debris',
+        mud: 'Mud / wet mats',
+        stain: 'Seat stain',
+        cab: 'Cab grime',
+        dust: 'Job-site dust',
+        road: 'Exterior road film',
+        odor: 'Persistent odor'
+      };
+
+      const serviceCopy = {
+        quick: {
+          kicker: 'QUICK VACUUM',
+          title: 'Useful when loose debris is the main problem.',
+          text: 'A vacuum can remove accessible loose debris, but it does not become stain treatment, a deeper interior reset or exterior detailing simply because the vehicle is commercial.',
+          handles: ['debris']
+        },
+        maintenance: {
+          kicker: 'MAINTENANCE CLEAN',
+          title: 'Good for a vehicle that is already being maintained.',
+          text: 'This level is built around loose debris, routine mat cleaning and common cabin surfaces. Embedded textile stains, persistent odor and exterior road film can still require a different scope.',
+          handles: ['debris','mud','cab']
+        },
+        reset: {
+          kicker: 'INTERIOR RESET',
+          title: 'For built-up cab and cargo soil that has moved beyond routine upkeep.',
+          text: 'A reset goes further into accumulated surface grime, entry areas, cargo-floor buildup and crevices. Embedded textile staining and persistent odor may still need targeted assessment.',
+          handles: ['debris','mud','cab','dust']
+        },
+        deep: {
+          kicker: 'DEEP CLEAN / EXTRACTION REVIEW',
+          title: 'For embedded textile soil or staining where deeper treatment is appropriate.',
+          text: 'This scope can add targeted textile work after material and condition are reviewed. Persistent odor still depends on the source, and exterior road film remains a separate exterior scope.',
+          handles: ['debris','mud','cab','dust','stain']
+        },
+        full: {
+          kicker: 'FULL DETAIL',
+          title: 'For a broader interior-and-exterior reset.',
+          text: 'A full detail combines interior and exterior work. It can address the widest normal detailing scope here, while persistent odor or unusual contamination can still require source-specific or specialist review.',
+          handles: ['debris','mud','cab','dust','stain','road']
+        }
+      };
+
+      const activeConditions = new Set();
+      let currentService = null;
+
+      const kicker = root.querySelector('#atwfleet1ResultKicker');
+      const title = root.querySelector('#atwfleet1ResultTitle');
+      const text = root.querySelector('#atwfleet1ResultText');
+      const addressed = root.querySelector('#atwfleet1Addressed');
+      const remaining = root.querySelector('#atwfleet1Remaining');
+
+      const render = () => {
+        const cfg = currentService ? serviceCopy[currentService] : null;
+
+        if (kicker) kicker.textContent = cfg ? cfg.kicker : 'BUILD THE CONDITION';
+        if (title) title.textContent = cfg ? cfg.title : 'Add what you see, then choose a service level.';
+        if (text) text.textContent = cfg
+          ? cfg.text
+          : 'Start with a clean van. Add the conditions that look familiar, then compare how far each service scope goes.';
+
+        root.querySelectorAll('.atwfleet1-effect[data-condition]').forEach((el) => {
+          const key = el.getAttribute('data-condition');
+          const active = Boolean(key && activeConditions.has(key));
+          const cleaned = Boolean(cfg && key && cfg.handles.includes(key));
+          el.classList.toggle('is-active', active);
+          el.classList.toggle('is-cleaned', active && cleaned);
+        });
+
+        if (addressed) {
+          addressed.innerHTML = '';
+          [...activeConditions].filter((key) => cfg && cfg.handles.includes(key)).forEach((key) => {
+            const li = document.createElement('li');
+            li.textContent = labels[key];
+            addressed.appendChild(li);
+          });
+          if (!addressed.children.length) {
+            const li = document.createElement('li');
+            li.textContent = cfg ? 'No selected condition is fully addressed by this scope.' : 'Choose a service level to see what it addresses.';
+            addressed.appendChild(li);
+          }
+        }
+
+        if (remaining) {
+          remaining.innerHTML = '';
+          [...activeConditions].filter((key) => !cfg || !cfg.handles.includes(key)).forEach((key) => {
+            const li = document.createElement('li');
+            li.textContent = key === 'odor' ? `${labels[key]} · source review` : labels[key];
+            remaining.appendChild(li);
+          });
+          if (!remaining.children.length) {
+            const li = document.createElement('li');
+            li.textContent = activeConditions.size ? 'No selected normal-detailing condition remains.' : 'Add one or more conditions above.';
+            remaining.appendChild(li);
+          }
+        }
+      };
+
+      root.querySelectorAll('.atwfleet1-chip').forEach((button) => {
+        button.addEventListener('click', () => {
+          const key = button.getAttribute('data-condition');
+          if (!key) return;
+          if (activeConditions.has(key)) activeConditions.delete(key); else activeConditions.add(key);
+          const active = activeConditions.has(key);
+          button.classList.toggle('active', active);
+          button.setAttribute('aria-pressed', String(active));
+          render();
+
+          if (active) {
+            root.querySelectorAll(`.atwfleet1-effect[data-condition="${key}"]`).forEach((effect) => {
+              effect.classList.add('just-added');
+              window.setTimeout(() => effect.classList.remove('just-added'), 950);
+            });
+          }
+        });
+      });
+
+      root.querySelectorAll('.atwfleet1-service').forEach((button) => {
+        button.addEventListener('click', () => {
+          const service = button.getAttribute('data-service');
+          if (!service || !(service in serviceCopy)) return;
+          currentService = service;
+          root.querySelectorAll('.atwfleet1-service').forEach((b) => b.classList.remove('active'));
+          button.classList.add('active');
+          render();
+        });
+      });
+
+      root.querySelectorAll('.atwfleet1-hot').forEach((button) => {
+        button.addEventListener('click', () => button.classList.toggle('open'));
+      });
+
+      const io = 'IntersectionObserver' in window
+        ? new IntersectionObserver((entries) => entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          }), { threshold: .12 })
+        : null;
+      root.querySelectorAll('.atwfleet1-reveal').forEach((el) => io ? io.observe(el) : el.classList.add('visible'));
+
+      render();
+    })();
+  </script>
+
+  <script is:inline>
+    /* FLEET_VISUAL_POLISH_V7 */
+    (() => {
+      const byHeading = (needle) => {
+        const h = [...document.querySelectorAll('h2')]
+          .find((x) => (x.textContent || '').includes(needle));
+        return h ? h.closest('section') : null;
+      };
+
+      const inner = (section) =>
+        section?.querySelector('.atwfleet1-wrap, .atwfleet1-container, [class*=wrap], [class*=container]') || section;
+
+      document.body.classList.add('fleet-v7');
+
+      const intro = byHeading('Fleet cleaning is not one fixed service');
+      if (intro && !intro.querySelector('.fleet-v7-intro-media')) {
+        intro.classList.add('fleet-v7-intro');
+        const host = inner(intro);
+        const media = document.createElement('div');
+        media.className = 'fleet-v7-intro-media';
+        media.innerHTML = `
+          <img
+            src="/media/blog/fleet-cleaning-vs-detailing/commercial-fleet-yard.webp"
+            alt="Commercial work van at an industrial property"
+            loading="lazy"
+            decoding="async"
+          />`;
+        host?.appendChild(media);
+      }
+
+      const levels = byHeading('What each level actually means');
+      if (levels) {
+        levels.classList.add('fleet-v7-levels');
+        levels.querySelectorAll('*').forEach((el) => {
+          const t = (el.textContent || '').trim();
+          if (/^(0?[1-9]|10)$/.test(t) && el.children.length === 0) {
+            el.classList.add('fleet-v7-hide-number');
+          }
+        });
+      }
+
+      const calendar = byHeading('Do not wait for a calendar date');
+      if (calendar && !calendar.querySelector('.fleet-v7-calendar')) {
+        calendar.classList.add('fleet-v7-calendar-section');
+        const host = inner(calendar);
+        const block = document.createElement('div');
+        block.className = 'fleet-v7-calendar';
+        block.innerHTML = `
+          <img
+            src="/media/blog/fleet-cleaning-vs-detailing/mobile-fleet-service.webp"
+            alt="Mobile commercial vehicle service"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="fleet-v7-calendar-card">
+            <div class="fleet-v7-calendar-title">Condition beats calendar</div>
+            <div class="fleet-v7-calendar-grid">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              <span>8</span><span>9</span><span class="mark">10</span><span>11</span><span>12</span>
+              <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+            </div>
+            <p>Use visible condition and vehicle use to decide when deeper cleaning makes sense.</p>
+          </div>`;
+        host?.appendChild(block);
+      }
+
+      const biz = byHeading('Different businesses create different cleaning priorities');
+      if (biz) {
+        biz.classList.add('fleet-v7-business');
+        [...biz.querySelectorAll('article, [class*=card]')].forEach((card) => {
+          const t = (card.textContent || '').toLowerCase();
+          let accent = '';
+          if (t.includes('hvac') || t.includes('plumb')) accent = 'cyan';
+          else if (t.includes('delivery') || t.includes('courier')) accent = 'violet';
+          else if (t.includes('construction') || t.includes('job-site') || t.includes('contractor')) accent = 'orange';
+          else if (t.includes('shuttle') || t.includes('passenger') || t.includes('rental')) accent = 'green';
+
+          if (accent) {
+            card.dataset.accent = accent;
+            const h = card.querySelector('h3,h4,strong');
+            h?.classList.add('fleet-v7-accent-title');
+          }
+        });
+      }
+    })();
+  </script>
+
+</BaseLayout>
