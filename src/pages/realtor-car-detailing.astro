@@ -1,0 +1,1011 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import { site } from "../data/site";
+import "../styles/service-detail-pages.css";
+import "../styles/realtor-detailing.css";
+
+const title = "Car Detailing for Realtors | Mobile Detailing Bonney Lake, WA";
+const description =
+  "Your car is part of your workday. Mobile detailing for realtors across Pierce County and nearby South Sound communities, plus Closing Gift detailing for clients.";
+const canonical = `${site.url}/realtor-car-detailing/`;
+const ogImage = `${site.url}/media/realtors/realtor-hero-desktop.webp`;
+const smsHref = site.phoneHref.replace("tel:", "sms:");
+
+const cities = [
+  "Bonney Lake",
+  "Lake Tapps",
+  "Puyallup",
+  "Sumner",
+  "Tacoma",
+  "University Place",
+  "Federal Way",
+  "Auburn",
+  "Kent",
+];
+
+const areaServed = cities.map((name) => ({
+  "@type": "City",
+  name,
+  containedInPlace: {
+    "@type": "State",
+    name: "Washington",
+  },
+}));
+
+const faqs = [
+  [
+    "What does detailing for realtors cost?",
+    "You can book our regular Interior or Full Detail service based on your vehicle size and condition. If you want recurring maintenance, send us your vehicle and schedule needs and we will confirm the best option.",
+  ],
+  [
+    "How often should a realtor detail their vehicle?",
+    "There is no fixed schedule for every vehicle. Agents who regularly drive clients may benefit from lighter recurring maintenance between deeper details.",
+  ],
+  [
+    "Can you detail my car while I work?",
+    "Yes. Mobile service is designed so you do not need to sit in a waiting room or arrange a separate pickup. We come to an appropriate home or work location and you can continue with your day while the vehicle is being serviced.",
+  ],
+  [
+    "Can I give detailing as a closing gift?",
+    "Yes. Request a Closing Gift quote for your client. We calculate the current discounted Interior or Full Detail amount for the vehicle and service address, then send you the exact quote and Square eGift Card purchase link.",
+  ],
+  [
+    "How does the 15% Closing Gift discount work?",
+    "The recipient receives 15% off one eligible Interior or Full Detail. The discount is tied to that Closing Gift service and cannot be combined with another promotion. Additional services are quoted separately.",
+  ],
+  [
+    "Does the Closing Gift discount expire?",
+    "The 15% Closing Gift discount does not expire. The quoted dollar amount is held for 30 days from the date the quote is issued. If standard pricing changes after that, the recipient pays only the difference based on the current discounted service price.",
+  ],
+  [
+    "Where do you provide mobile service?",
+    "ATW Detailing is based in Bonney Lake and serves customers throughout our normal mobile service area in Pierce County and nearby South Sound communities.",
+  ],
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": `${site.url}/#business`,
+      name: site.name,
+      url: site.url,
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      image: ogImage,
+      areaServed,
+    },
+    {
+      "@type": "Service",
+      "@id": `${canonical}#service`,
+      name: "Mobile Car Detailing for Realtors",
+      serviceType: "Mobile car detailing for real estate professionals",
+      url: canonical,
+      description,
+      provider: {
+        "@id": `${site.url}/#business`,
+      },
+      areaServed,
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonical}#faq`,
+      mainEntity: faqs.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      })),
+    },
+  ],
+};
+
+const giftCards = Array.from(
+  { length: 6 },
+  (_, index) =>
+    `/media/realtors/gift-cards/gift-card-${String(index + 1).padStart(2, "0")}.webp`,
+);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Real estate professional beside a client-facing vehicle"
+>
+  <JsonLd slot="head" data={schema} />
+
+  <link
+    slot="head"
+    rel="preload"
+    href="/media/realtors/realtor-hero-mobile.webp"
+    as="image"
+    type="image/webp"
+    media="(max-width: 650px)"
+    fetchpriority="high"
+  />
+
+  <link
+    slot="head"
+    rel="preload"
+    href="/media/realtors/realtor-hero-desktop.webp"
+    as="image"
+    type="image/webp"
+    media="(min-width: 651px)"
+    fetchpriority="high"
+  />
+
+  <meta
+    slot="head"
+    name="robots"
+    content="index,follow,max-image-preview:large"
+  />
+
+  <div class="realtor-page">
+
+    <section class="realtor-hero">
+      <picture class="realtor-hero-media" aria-hidden="true">
+        <source
+          media="(max-width: 650px)"
+          srcset="/media/realtors/realtor-hero-mobile.webp"
+        />
+        <img
+          src="/media/realtors/realtor-hero-desktop.webp"
+          alt=""
+          width="1600"
+          height="900"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+
+      <div class="realtor-hero-overlay"></div>
+
+      <div class="realtor-container realtor-hero-inner">
+        <div class="realtor-hero-copy">
+          <div class="realtor-pills">
+            <span>Mobile Service · South Sound</span>
+            <span>For Realtors & Client-Facing Vehicles</span>
+          </div>
+
+          <h1>
+            Do Your Clients
+            <span>Ride in Your Car?</span>
+          </h1>
+
+          <p class="realtor-hero-lead">
+            Your car is part of your workday. When clients ride with you between
+            listings, the interior becomes part of their experience with your
+            business.
+          </p>
+
+          <p>
+            ATW Detailing comes to your home or an appropriate work location,
+            so you can keep working while we take care of the vehicle.
+          </p>
+
+          <div class="realtor-actions">
+            <a class="atw-btn atw-btn-cyan" href="#realtor-service">
+              Detail My Vehicle →
+            </a>
+            <a class="atw-btn atw-btn-violet" href="#closing-gift">
+              Closing Gifts →
+            </a>
+          </div>
+
+          <div class="realtor-hero-proof">
+            <span>Mobile to You</span>
+            <span>Interior & Full Detail</span>
+            <span>Recurring Maintenance Available</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="realtor-intro" id="realtor-service">
+      <div class="realtor-container realtor-intro-grid">
+        <div>
+          <div class="atw-eyebrow">Your Vehicle Is Part of the Job</div>
+          <h2 class="atw-title">
+            A Client-Facing Car
+            <span>Needs a Different Kind of Routine</span>
+          </h2>
+
+          <p class="realtor-lead">
+            Coffee between appointments. Shoes from wet driveways. Flyers,
+            lockboxes, bags, snacks and a full day of getting in and out.
+            A realtor's vehicle is not a showroom piece — it is a working space.
+          </p>
+
+          <p>
+            Start with an Interior or Full Detail when the vehicle needs a reset.
+            If you regularly drive clients, we can also discuss recurring
+            maintenance to keep it easier to manage between deeper services.
+          </p>
+
+          <div class="realtor-service-links">
+            <a href="/interior-detailing/">Interior Detailing →</a>
+            <a href="/services/full-detailing/">Full Detailing →</a>
+          </div>
+        </div>
+
+        <figure class="realtor-feature-photo">
+          <img
+            src="/media/realtors/realtor-case-feature.webp"
+            alt="Clean Tesla interior prepared for a realtor with bottled water and business cards"
+            width="1050"
+            height="1400"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            Real ATW work · Client-ready finishing touches
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="realtor-proof-section">
+      <div class="realtor-container">
+        <div class="realtor-section-heading">
+          <div class="atw-eyebrow">Real Realtor Vehicle</div>
+          <h2 class="atw-title">
+            A Working Tesla Model Y,
+            <span>Before and After</span>
+          </h2>
+          <p>
+            This is not staged content. These are real ATW photos from an
+            interior detail for a local real estate professional.
+          </p>
+        </div>
+
+        <div class="realtor-ba-grid">
+          <div class="realtor-ba-pair">
+            <figure>
+              <span>Before</span>
+              <img
+                src="/media/realtors/realtor-front-before.webp"
+                alt="Tesla front interior before detailing"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure>
+              <span>After</span>
+              <img
+                src="/media/realtors/realtor-front-after.webp"
+                alt="Tesla front interior after detailing"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+
+          <div class="realtor-ba-pair realtor-ba-secondary">
+            <figure>
+              <span>Before</span>
+              <img
+                src="/media/realtors/realtor-cargo-before.webp"
+                alt="Tesla cargo area before detailing"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure>
+              <span>After</span>
+              <img
+                src="/media/realtors/realtor-cargo-after.webp"
+                alt="Tesla cargo area after detailing"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+        </div>
+
+        <div class="realtor-review">
+          <div class="realtor-review-mark">“</div>
+
+          <blockquote>
+            Vlad showed up right on time for our scheduled appointment.
+            I was able to work while he worked to clean my car.
+            Avoid the hassle of having to take your car in for detailing
+            and then returning to pick it up. Just have ATW come to you!
+          </blockquote>
+
+          <p>
+            — Local real estate agent · ★★★★★ Google review
+          </p>
+
+          <a
+            href="https://www.google.com/search?q=atw+detailing&oq=atw+detailing&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQIxgnMgkIAhAAGA0YgAQyBggDEEUYPDIGCAQQRRg8MgYIBRBFGEEyBggGEEUYQTIGCAcQRRhB0gEINjA3MWowajeoAgiwAgHxBYJ40ngHs0Pc8QWCeNJ4B7ND3A&sourceid=chrome&source=chrome.ob&ie=UTF-8#lrd=0x2e23fb1faddde683:0x8a3dc54b604f8d42,1,,,,"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read More Google Reviews ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="realtor-routine">
+      <div class="realtor-container">
+        <div class="realtor-section-heading">
+          <div class="atw-eyebrow">For Your Own Vehicle</div>
+          <h2 class="atw-title">
+            Reset It Once.
+            <span>Then Keep It Manageable.</span>
+          </h2>
+        </div>
+
+        <div class="realtor-routine-grid">
+          <article class="realtor-service-card realtor-service-card--interior">
+            <div class="realtor-service-label">Interior</div>
+            <h3>Interior Detail</h3>
+
+            <div class="realtor-service-price">
+              From <strong>$200</strong>
+            </div>
+
+            <p>
+              For a vehicle that needs a proper interior reset: seats,
+              carpets, mats, plastics, glass, vents and accessible interior
+              surfaces.
+            </p>
+
+            <a
+              class="realtor-service-link realtor-service-link--interior"
+              href="/interior-detailing/"
+            >
+              See Interior Detailing →
+            </a>
+          </article>
+
+          <article class="realtor-service-card realtor-service-card--full">
+            <div class="realtor-service-label">Interior + Exterior</div>
+            <h3>Full Detail</h3>
+
+            <div class="realtor-service-price">
+              From <strong>$280</strong>
+            </div>
+
+            <p>
+              Interior detailing plus exterior service when both the cabin
+              and the outside of the vehicle need attention in the same visit.
+            </p>
+
+            <a
+              class="realtor-service-link realtor-service-link--full"
+              href="/services/full-detailing/"
+            >
+              See Full Detailing →
+            </a>
+          </article>
+
+          <article class="realtor-service-card realtor-service-card--maintenance">
+            <div class="realtor-service-label">Monthly Plan</div>
+            <h3>Recurring Maintenance</h3>
+
+            <div class="realtor-service-price realtor-service-price--maintenance">
+              From <strong>$180/month</strong>
+            </div>
+
+            <p>
+              A recurring monthly visit for agents who regularly carry clients
+              and want the vehicle kept easier to maintain between deeper
+              details.
+            </p>
+
+            <div class="realtor-maintenance-note">
+              Monthly plan pricing applies only to monthly visits.
+              Less frequent service uses standard service pricing.
+            </div>
+
+            <a
+              class="realtor-service-link realtor-service-link--maintenance"
+              href="/contact-us/"
+            >
+              Ask About Monthly Maintenance →
+            </a>
+          </article>
+        </div>
+
+        <div class="realtor-touch">
+          <div>
+            <div class="atw-eyebrow">Small Details Matter</div>
+            <h3>Ready for the Next Passenger</h3>
+          </div>
+
+          <p>
+            For realtor vehicles, we can finish the service with two bottled
+            waters up front, an air freshener and your business cards placed
+            neatly for the next client ride.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="realtor-gift-section" id="closing-gift">
+      <div class="realtor-container realtor-gift-grid">
+
+        <div class="realtor-gift-copy">
+          <div class="atw-eyebrow">For Your Buyers</div>
+
+          <h2 class="atw-title">
+            A Closing Gift
+            <span>They Can Use at Home</span>
+          </h2>
+
+          <p class="realtor-lead">
+            Give your client an ATW Square eGift Card toward one Interior or
+            Full Detail at their new home.
+          </p>
+
+          <div class="realtor-gift-rules">
+            <div>
+              <strong>15% off</strong>
+              <span>one eligible Interior or Full Detail</span>
+            </div>
+            <div>
+              <strong>No realtor limit</strong>
+              <span>send a gift to as many eligible clients as you want</span>
+            </div>
+            <div>
+              <strong>Exact quote first</strong>
+              <span>vehicle, service and location determine the amount</span>
+            </div>
+          </div>
+
+          <p class="realtor-fine">
+            The 15% Closing Gift discount applies to one Interior or Full Detail
+            for the specified recipient and vehicle. It cannot be combined with
+            another promotion. Paint Correction, Ceramic Coating, add-ons and
+            unusual-condition charges are separate.
+          </p>
+        </div>
+
+        <div
+          class="gift-coverflow"
+          data-gift-coverflow
+          aria-label="ATW eGift Card designs"
+        >
+          <div class="gift-stage">
+            {giftCards.map((src, index) => (
+              <button
+                class="gift-card"
+                type="button"
+                data-gift-card
+                data-index={index}
+                aria-label={`Show gift card design ${index + 1}`}
+              >
+                <img
+                  src={src}
+                  alt={`ATW eGift Card design ${index + 1}`}
+                  width="1000"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            ))}
+          </div>
+
+          <div class="gift-controls">
+            <button
+              type="button"
+              class="gift-arrow"
+              data-gift-prev
+              aria-label="Previous gift card"
+            >
+              ←
+            </button>
+
+            <div class="gift-dots" aria-hidden="true">
+              {giftCards.map((_, index) => (
+                <span data-gift-dot data-index={index}></span>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              class="gift-arrow"
+              data-gift-next
+              aria-label="Next gift card"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="realtor-gift-process">
+      <div class="gift-process-animation" aria-hidden="true">
+        <div class="gift-process-sparkle gift-process-sparkle--1"></div>
+        <div class="gift-process-sparkle gift-process-sparkle--2"></div>
+        <div class="gift-process-sparkle gift-process-sparkle--3"></div>
+        <div class="gift-process-sparkle gift-process-sparkle--4"></div>
+        <div class="gift-process-sparkle gift-process-sparkle--5"></div>
+        <div class="gift-process-sparkle gift-process-sparkle--6"></div>
+        <div class="gift-process-sparkle gift-process-sparkle--7"></div>
+        <div class="gift-process-sparkle gift-process-sparkle--8"></div>
+
+        <div class="gift-process-float gift-process-float--1"></div>
+        <div class="gift-process-float gift-process-float--2"></div>
+        <div class="gift-process-float gift-process-float--3"></div>
+        <div class="gift-process-float gift-process-float--4"></div>
+        <div class="gift-process-float gift-process-float--5"></div>
+      </div>
+
+      <div class="realtor-container realtor-gift-process-content">
+        <div class="realtor-section-heading">
+          <div class="atw-eyebrow">How the Closing Gift Works</div>
+          <h2 class="atw-title">
+            Quote First.
+            <span>Then Buy the eGift Card.</span>
+          </h2>
+        </div>
+
+        <div class="realtor-process-grid">
+          <article>
+            <h3>Send the Vehicle Details</h3>
+            <p>
+              Tell us the vehicle, whether you want Interior or Full Detail,
+              and the client's service location.
+            </p>
+          </article>
+
+          <article>
+            <h3>We Calculate the Gift Amount</h3>
+            <p>
+              We calculate the current service price, the 15% Closing Gift
+              discount and applicable total for the service location.
+            </p>
+          </article>
+
+          <article>
+            <h3>You Receive the Square Link</h3>
+            <p>
+              We email the quoted amount and the Square eGift Card link so you
+              can choose the design and enter the recipient.
+            </p>
+          </article>
+
+          <article>
+            <h3>Your Client Books With Us</h3>
+            <p>
+              The recipient contacts ATW when ready to schedule their eligible
+              Interior or Full Detail.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="realtor-form-section">
+      <div class="realtor-container">
+        <div class="realtor-form-heading">
+          <div class="atw-eyebrow">Realtor Closing Gift Quote</div>
+          <h2 class="atw-title">
+            Get the
+            <span>Exact Gift Amount</span>
+          </h2>
+
+          <p>
+            This form is not a booking and does not purchase the gift card.
+            We use the details below to calculate the recommended amount,
+            then email you the quote and Square eGift Card link.
+          </p>
+
+          <p class="realtor-quote-rule">
+            Your quoted total is valid for 30 days from the date the quote
+            is issued.
+          </p>
+        </div>
+
+        <div class="realtor-form-shell">
+          <form
+            id="realtor-gift-form"
+            novalidate
+            data-endpoint="https://forms.atwdetailing.com/contact.php"
+          >
+            <input
+              class="realtor-hp"
+              type="text"
+              name="company"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+
+            <input
+              type="hidden"
+              name="startedAt"
+              id="realtor-started-at"
+            />
+
+            <div class="realtor-form-grid">
+              <div class="realtor-field">
+                <label for="realtor-name">Realtor name</label>
+                <input
+                  id="realtor-name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  maxlength="80"
+                  required
+                />
+              </div>
+
+              <div class="realtor-field">
+                <label for="realtor-email">Email</label>
+                <input
+                  id="realtor-email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  maxlength="160"
+                  required
+                />
+              </div>
+
+              <div class="realtor-field">
+                <label for="realtor-phone">Phone</label>
+                <input
+                  id="realtor-phone"
+                  name="phone"
+                  type="tel"
+                  autocomplete="tel"
+                  maxlength="40"
+                />
+              </div>
+
+              <div class="realtor-field realtor-field-full">
+                <label for="client-location">Full client service address</label>
+                <input
+                  id="client-location"
+                  name="location"
+                  type="text"
+                  autocomplete="street-address"
+                  maxlength="180"
+                  placeholder="Full address where service would be performed"
+                  required
+                />
+              </div>
+
+              <div class="realtor-field">
+                <label for="gift-vehicle">Vehicle</label>
+                <input
+                  id="gift-vehicle"
+                  name="vehicle"
+                  type="text"
+                  maxlength="160"
+                  placeholder="2024 Toyota RAV4"
+                  required
+                />
+              </div>
+
+              <div class="realtor-field">
+                <label for="gift-service">Gift service</label>
+                <select id="gift-service" name="service" required>
+                  <option value="">Select service</option>
+                  <option value="Interior Detail">Interior Detail</option>
+                  <option value="Full Detail">Full Detail</option>
+                </select>
+              </div>
+
+              <div class="realtor-field realtor-field-full">
+                <label for="gift-note">
+                  Note
+                  <span>(optional)</span>
+                </label>
+
+                <textarea
+                  id="gift-note"
+                  name="note"
+                  maxlength="1200"
+                  placeholder="Anything we should know about the vehicle or gift?"
+                ></textarea>
+              </div>
+            </div>
+
+            <button
+              class="atw-btn atw-btn-cyan"
+              type="submit"
+            >
+              Get Exact Closing Gift Quote →
+            </button>
+
+            <p
+              class="realtor-form-status"
+              id="realtor-form-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="realtor-faq-section">
+      <div class="realtor-container">
+        <div class="realtor-section-heading">
+          <div class="atw-eyebrow">Common Questions</div>
+          <h2 class="atw-title">
+            Realtor Detailing
+            <span>FAQ</span>
+          </h2>
+        </div>
+
+        <div class="realtor-faq">
+          {faqs.map(([question, answer]) => (
+            <details>
+              <summary>{question}</summary>
+              <div>{answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="realtor-final">
+      <div class="realtor-container">
+        <div class="realtor-final-card">
+          <div class="realtor-final-glow"></div>
+
+          <div class="realtor-final-copy">
+            <div class="atw-eyebrow">Mobile Detailing for Realtors</div>
+
+            <h2>
+              Make the Car
+              <span>Match the Way You Work.</span>
+            </h2>
+
+            <p>
+              If clients ride with you, your vehicle is part of the experience.
+              We come to your home or work location and get it ready without
+              pulling you away from your schedule.
+            </p>
+
+            <div class="realtor-final-actions">
+              <a class="atw-btn atw-btn-cyan" href="/contact-us/">
+                Get My Vehicle Client-Ready →
+              </a>
+
+              <a class="atw-btn atw-btn-violet" href="#closing-gift">
+                Send a Closing Gift →
+              </a>
+            </div>
+
+            <div class="realtor-final-trust">
+              <span>Interior</span>
+              <span>Full Detail</span>
+              <span>Monthly Maintenance</span>
+              <span>Closing Gifts</span>
+            </div>
+
+            <div class="realtor-final-meta">
+              Mobile service · Bonney Lake based · Pierce County & nearby South Sound
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script is:inline>
+    (() => {
+      const root = document.querySelector("[data-gift-coverflow]");
+      if (!(root instanceof HTMLElement)) return;
+
+      const cards = Array.from(root.querySelectorAll("[data-gift-card]"));
+      const dots = Array.from(root.querySelectorAll("[data-gift-dot]"));
+      const prev = root.querySelector("[data-gift-prev]");
+      const next = root.querySelector("[data-gift-next]");
+
+      if (!cards.length) return;
+
+      let active = 0;
+      let timer = 0;
+      let touchStartX = 0;
+
+      const positionFor = (index) => {
+        const total = cards.length;
+        let diff = index - active;
+
+        if (diff > total / 2) diff -= total;
+        if (diff < -total / 2) diff += total;
+
+        return diff;
+      };
+
+      const render = () => {
+        cards.forEach((card, index) => {
+          const pos = positionFor(index);
+
+          card.setAttribute("data-position", String(pos));
+          card.setAttribute(
+            "aria-current",
+            pos === 0 ? "true" : "false",
+          );
+        });
+
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("is-active", index === active);
+        });
+      };
+
+      const go = (index) => {
+        active = (index + cards.length) % cards.length;
+        render();
+      };
+
+      const stop = () => {
+        window.clearInterval(timer);
+      };
+
+      const start = () => {
+        stop();
+
+        if (
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+          return;
+        }
+
+        timer = window.setInterval(() => {
+          go(active + 1);
+        }, 4600);
+      };
+
+      prev?.addEventListener("click", () => {
+        go(active - 1);
+        start();
+      });
+
+      next?.addEventListener("click", () => {
+        go(active + 1);
+        start();
+      });
+
+      cards.forEach((card, index) => {
+        card.addEventListener("click", () => {
+          go(index);
+          start();
+        });
+      });
+
+      root.addEventListener("mouseenter", stop);
+      root.addEventListener("mouseleave", start);
+      root.addEventListener("focusin", stop);
+      root.addEventListener("focusout", start);
+
+      root.addEventListener(
+        "touchstart",
+        (event) => {
+          touchStartX = event.touches[0]?.clientX || 0;
+        },
+        { passive: true },
+      );
+
+      root.addEventListener(
+        "touchend",
+        (event) => {
+          const x = event.changedTouches[0]?.clientX || 0;
+          const distance = x - touchStartX;
+
+          if (Math.abs(distance) < 38) return;
+
+          go(distance < 0 ? active + 1 : active - 1);
+          start();
+        },
+        { passive: true },
+      );
+
+      render();
+      start();
+    })();
+  </script>
+
+  <script is:inline>
+    (() => {
+      const form = document.getElementById("realtor-gift-form");
+      const status = document.getElementById("realtor-form-status");
+      const startedAt = document.getElementById("realtor-started-at");
+
+      if (!(form instanceof HTMLFormElement) || !status) return;
+
+      if (startedAt instanceof HTMLInputElement) {
+        startedAt.value = String(Date.now());
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        status.textContent = "";
+        status.className = "realtor-form-status";
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const submit = form.querySelector('button[type="submit"]');
+        const originalText =
+          submit?.textContent || "Get Exact Closing Gift Quote →";
+
+        if (submit instanceof HTMLButtonElement) {
+          submit.disabled = true;
+          submit.textContent = "Sending…";
+        }
+
+        const fd = new FormData(form);
+
+        const message = [
+          "Realtor Closing Gift Quote",
+          `Phone: ${String(fd.get("phone") || "Not provided")}`,
+          `Client service address: ${String(fd.get("location") || "")}`,
+          `Vehicle: ${String(fd.get("vehicle") || "")}`,
+          `Service: ${String(fd.get("service") || "")}`,
+          "",
+          `Note: ${String(fd.get("note") || "None")}`,
+        ].join("\n");
+
+        const payload = {
+          company: String(fd.get("company") || ""),
+          startedAt: String(fd.get("startedAt") || ""),
+          name: String(fd.get("name") || ""),
+          email: String(fd.get("email") || ""),
+          message,
+        };
+
+        try {
+          const response = await fetch(form.dataset.endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          const data = await response.json().catch(() => ({}));
+
+          if (!response.ok) {
+            throw new Error(
+              data?.error || "Could not send request.",
+            );
+          }
+
+          form.reset();
+
+          if (startedAt instanceof HTMLInputElement) {
+            startedAt.value = String(Date.now());
+          }
+
+          status.textContent =
+            "Thanks — your Closing Gift quote request was sent. We’ll calculate the amount and reply by email.";
+          status.classList.add("is-success");
+        } catch (error) {
+          status.textContent =
+            error instanceof Error
+              ? error.message
+              : "Could not send request. Please text or call us instead.";
+
+          status.classList.add("is-error");
+        } finally {
+          if (submit instanceof HTMLButtonElement) {
+            submit.disabled = false;
+            submit.textContent = originalText;
+          }
+        }
+      });
+    })();
+  </script>
+</BaseLayout>
